@@ -1,5 +1,5 @@
-import { type RouteConfig, index, route } from "@react-router/dev/routes";
+import { type RouteConfig, index } from "@react-router/dev/routes";
 
 export default [
-  index("routes/first-r3f-app.tsx"),
+  index("routes/demos/first-r3f-app.tsx"),
 ] satisfies RouteConfig;
