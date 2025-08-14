@@ -21,7 +21,7 @@ export default function FirstR3fApplication() {
     position: [ 3, 2, 6 ],
   }), []);
 
-  return <main className="full-screen">
+  return <main className="w-full h-full">
     <Canvas 
       camera={cameraSettings}
     >
