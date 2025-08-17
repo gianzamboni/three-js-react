@@ -1,7 +1,8 @@
-import { Link } from "react-router";
 import type { Route } from "../+types/home";
 import { useMemo } from "react";
-import { DemoCard } from "~/home/demo-card";
+import { DemoCard } from "./components/demo-card";
+import { SketchedTitle } from "~/sketched-components/sketched-title";
+import styles from "./styles.module.css";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -24,9 +25,9 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="p-12">
-      <h1 className="title">React Three Fiber Demos</h1>
-      <div className="flex flex-wrap gap-4">
+    <div className="p-2">
+      <SketchedTitle>React Three Fiber Demos</SketchedTitle>
+      <div className={styles.demoGrid}>
         {demos.map((demo) => (
           <DemoCard key={demo.title} demo={demo} />
         ))}

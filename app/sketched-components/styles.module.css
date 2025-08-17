@@ -1,0 +1,18 @@
+.sketchy-bottom-border {
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 100%;
+}
+
+.sketchy-container {
+  position: relative;
+  margin-bottom: 10px;
+}
+
+
+.title {
+  font-weight: 500;
+  font-family: "Indie Flower", cursive;
+  width: fit-content;
+}

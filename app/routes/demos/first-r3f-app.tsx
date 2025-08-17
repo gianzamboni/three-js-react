@@ -1,5 +1,5 @@
 import { Canvas, type CameraProps } from "@react-three/fiber";
-import MainScene from "~/first-r3f-application/main-scene";
+import MainScene from "./base-elements/main-scene";
 import type { Route } from "./+types/first-r3f-app";
 import { ACESFilmicToneMapping, CineonToneMapping, LinearSRGBColorSpace } from "three";
 import { useMemo } from "react";
