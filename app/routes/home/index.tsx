@@ -3,6 +3,7 @@ import { useMemo } from "react";
 import { DemoCard } from "./components/demo-card";
 import { SketchedTitle } from "~/sketched-components/sketched-title";
 import styles from "./styles.module.css";
+import { SketchedCard } from "~/sketched-components/sketched-card";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -16,6 +17,7 @@ export default function Home() {
   const demos = useMemo(() => {
     return [
         {
+          id: "first-r3f-app",
           title: "First Three JS App",
           thumbnail: "/demos/first-r3f-app.jpg",
           description: "This is my first Three JS App",
@@ -29,7 +31,7 @@ export default function Home() {
       <SketchedTitle>React Three Fiber Demos</SketchedTitle>
       <div className={styles.demoGrid}>
         {demos.map((demo) => (
-          <DemoCard key={demo.title} demo={demo} />
+          <SketchedCard key={demo.id} {...demo} />
         ))}
       </div>
     </div>
