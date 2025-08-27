@@ -12,6 +12,28 @@ body {
   overflow-x: hidden;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 .p-2 {
-  padding: 2em;
+  padding: 0.5em 2em;
+}
+
+
+.row {
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.relative {
+  position: relative;
 }

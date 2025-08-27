@@ -1,9 +1,8 @@
 import type { Route } from "../+types/home";
 import { useMemo } from "react";
-import { DemoCard } from "./components/demo-card";
-import { SketchedTitle } from "~/sketched-components/sketched-title";
+import { SketchedTitle } from "~/sketched-components/title";
 import styles from "./styles.module.css";
-import { SketchedCard } from "~/sketched-components/sketched-card";
+import { SketchedCard } from "~/sketched-components/card";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -19,15 +18,15 @@ export default function Home() {
         {
           id: "first-r3f-app",
           title: "First Three JS App",
-          thumbnail: "/demos/first-r3f-app.jpg",
+          thumbnail: "demos/first-r3f-app.jpg",
           description: "This is my first Three JS App",
-          link: "/demos/first-r3f-app",
+          link: "demos/first-r3f-app",
         },
     ];
   }, []);
 
   return (
-    <div className="p-2">
+    <div className="p-2 col">
       <SketchedTitle>React Three Fiber Demos</SketchedTitle>
       <div className={styles.demoGrid}>
         {demos.map((demo) => (

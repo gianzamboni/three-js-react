@@ -1,0 +1,52 @@
+.sketchy-thumbnail {
+  height: 10em;
+  width: 10em;
+
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+  padding: 1em;
+
+  h2 {
+    font-family: "Indie Flower", cursive;
+    font-weight: 500;
+    font-size: 2em;
+  }
+}
+
+.description {
+  display: none;
+}
+
+@media (min-width: 425px) {
+  .card {
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 2em;
+  }
+
+  .description {
+    margin-top: 1em;
+    display: block;
+  }
+}
+
+@media (min-width: 1440px) {
+  .sketchy-thumbnail {
+    height: 15em;
+    width: 15em;
+  }
+
+  .card {
+    padding: 2em 4em;
+  }
+}

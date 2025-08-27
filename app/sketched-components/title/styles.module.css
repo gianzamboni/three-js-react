@@ -1,0 +1,32 @@
+.sketchy-trace {
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 100%;
+}
+
+.title {
+  font-weight: 500;
+  font-family: "Indie Flower", cursive;
+  width: fit-content;
+  font-size: 1.2em;
+}
+
+@media (min-width: 375px) {
+  .title {
+    font-size: 1.325em;
+  }
+}
+
+
+@media (min-width: 425px) {
+  .title {
+    font-size: 1.425em;
+  }
+}
+
+@media (min-width: 768px) {
+  .title {
+    font-size: 1.5em;
+  }
+}

@@ -1,13 +1,13 @@
 import styles from "./styles.module.css";
-
+import commonStyles from "../common.module.css";
 export function SketchedTitle({ children }: { children: React.ReactNode }) {
   return (
-    <div className={`${styles['sketchy-container']} ${styles['title']}`}> 
+    <div className={`relative ${commonStyles['sketchy-container-margin']} ${styles['title']}`}> 
     <h1 className={styles.title}>
       {children}
     </h1>
     <svg
-        className={styles['sketchy-bottom-border']}
+        className={styles['sketchy-trace']}
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 120 5"
         preserveAspectRatio="none"
