@@ -1,26 +1,27 @@
-import { MemoizedRandomRectangle } from "./svg/rectangle";
+import { RandomRectangle } from "./svg/rectangle";
 import commonStyles from "./common.module.css";
-import { memo, type PropsWithChildren } from "react";
+import { memo, useMemo, type PropsWithChildren } from "react";
+import { v4 } from "uuid";
+import { randomBoolean } from "~/utils/random";
 
 export type SketchedBorderProps = PropsWithChildren<{
   className?: string;
-  baseStrokeWidth?: number;
-  clipped?: boolean;
-}>
+  sketchySVG?: React.ReactNode;
+}>;
 
-export const SketchedBorder = (props: SketchedBorderProps) => {
-
+export function SketchedBorder(props: SketchedBorderProps) {
   return (
-    <div className={props.className} >
+    <div className={props.className}>
       {props.children}
       <svg
         className={commonStyles['sketchy-trace']}
         xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 100 100"
+        viewBox="0 0 1 1"
         preserveAspectRatio="none"
       >
-        <MemoizedRandomRectangle />
-        <MemoizedRandomRectangle />
+        {props.sketchySVG}
+        <RandomRectangle />
+        <RandomRectangle />
       </svg>
     </div>
   );

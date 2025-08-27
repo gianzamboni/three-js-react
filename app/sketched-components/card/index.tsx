@@ -3,6 +3,8 @@ import styles from "./styles.module.css";
 import commonStyles from "../common.module.css";
 import { MemoizedSketchedBorder, SketchedBorder } from "../sketched-border";
 import { SketchedImage } from "../image";
+import { RandomSide } from "../svg/rectangle";
+import { getRandomNumber } from "~/utils/random";
 
 interface SketchedCardProps {
   link: string;
@@ -11,6 +13,16 @@ interface SketchedCardProps {
   description: string;
 }
 
+
+function SketchyShadow() {
+  
+  return (
+    <g>
+      <RandomSide 
+        startX={getRandomNumber(0.985, 1)} startY={getRandomNumber(0, 0.015)} endX={getRandomNumber(0.985, 1)} endY={getRandomNumber(0.985, 1)} strokeWidth={0.0001} />
+    </g>
+  )
+}
 
 export function SketchedCard({
   link,
@@ -22,6 +34,7 @@ export function SketchedCard({
     <Link to={link}>
       <MemoizedSketchedBorder 
         className={`relative ${styles['card']} ${commonStyles['sketchy-container-margin']}`}
+        sketchySVG={<SketchyShadow />}
       >
         <SketchedImage src={thumbnail} alt={title} className={styles['sketchy-thumbnail']} />
       <div>

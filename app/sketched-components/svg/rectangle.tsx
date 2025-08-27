@@ -5,11 +5,34 @@ function randomizeControl(base: number, offset: number) {
   return base + getRandomNumber(-offset, offset);
 }
 
-function Side(props: { startX: number, startY: number, firstControlX: number, firstControlY: number, secondControlX: number, secondControlY: number, endX: number, endY: number }) {
-  return <path d={`M ${props.startX} ${props.startY} C ${props.firstControlX} ${props.firstControlY} ${props.secondControlX} ${props.secondControlY} ${props.endX} ${props.endY}`} />
+type SideProps = {
+  startX: number;
+  startY: number;
+  firstControlX: number;
+  firstControlY: number;
+  secondControlX: number;
+  secondControlY: number;
+  endX: number;
+  endY: number;
 }
 
-function RandomSide(props: { startX: number, startY: number, endX: number, endY: number, power: number }) {
+function Side(props: SideProps) {
+  return <path 
+    d={`M ${props.startX} ${props.startY} C ${props.firstControlX} ${props.firstControlY} ${props.secondControlX} ${props.secondControlY} ${props.endX} ${props.endY}`} 
+    stroke="currentColor"
+    strokeWidth={0.0001}
+  />
+}
+
+type RandomSideProps = {
+  startX: number;
+  startY: number;
+  endX: number;
+  endY: number;
+  power: number;
+}
+
+function RandomSide(props: RandomSideProps) {
   return <Side 
     startX={props.startX}
     startY={props.startY}
@@ -22,17 +45,46 @@ function RandomSide(props: { startX: number, startY: number, endX: number, endY:
   />
 }
 
-export function RandomRectangle() {
-  const xTop = getRandomNumber(1, 1.5);
-  const yTop = getRandomNumber(1, 1.5);
-  const xBottom = getRandomNumber(98, 98.5);
-  const yBottom = getRandomNumber(98, 98.5);
+function generateRectangleLimits(boundingBox?: DOMRect) {
+  return {
+    xTop: getRandomNumber(0.01, 0.015) * (boundingBox?.width ?? 1),
+    yLeft: getRandomNumber(0.01, 0.015) * (boundingBox?.height ?? 1),
+    xBottom: getRandomNumber(0.98, 0.985) * (boundingBox?.width ?? 1),
+    yRight: getRandomNumber(0.98, 0.985) * (boundingBox?.height ?? 1),
+    xOffset: 0.01 * (boundingBox?.width ?? 1),
+    yOffset: 0.005 * (boundingBox?.height ?? 1),
+  }
+}
 
+export function RandomRectangleClipPath(props: { boundingBox?: DOMRect | null }) {
+  
+  const { xTop, yLeft, xBottom, yRight, xOffset, yOffset } = generateRectangleLimits(props.boundingBox);
+ 
+  return (<path 
+    d={`M ${xTop} ${yLeft} 
+        C ${randomizeControl(xTop, xOffset)} ${randomizeControl(yLeft, yOffset)} 
+          ${randomizeControl(xTop, xOffset)} ${randomizeControl(yRight, yOffset)} 
+          ${xTop} ${yRight} 
+        C ${randomizeControl(xTop, xOffset)} ${randomizeControl(yRight, yOffset)} 
+          ${randomizeControl(xBottom, xOffset)} ${randomizeControl(yRight, yOffset)} 
+          ${xBottom} ${yRight} 
+        C ${randomizeControl(xBottom, xOffset)} ${randomizeControl(yRight, yOffset)} 
+          ${randomizeControl(xBottom, xOffset)} ${randomizeControl(yLeft, yOffset)} 
+          ${xBottom} ${yLeft} 
+        C ${randomizeControl(xBottom, xOffset)} ${randomizeControl(yLeft, yOffset)} 
+          ${randomizeControl(xTop, xOffset)} ${randomizeControl(yLeft, yOffset)} 
+          ${xTop} ${yLeft} 
+    Z`}
+  />)
+}
+  
+export function RandomRectangle() {
+  const { xTop, yLeft, xBottom, yRight, xOffset, yOffset } = generateRectangleLimits();
   return (<g>
-    <RandomSide startX={xTop} startY={yTop} endX={xBottom} endY={yTop} power={1.5} />
-    <RandomSide startX={xBottom} startY={yTop} endX={xBottom} endY={yBottom} power={0.5} />
-    <RandomSide startX={xBottom} startY={yBottom} endX={xTop} endY={yBottom} power={1.5} />
-    <RandomSide startX={xTop} startY={yBottom} endX={xTop} endY={yTop} power={0.5} />
+    <RandomSide startX={xTop} startY={yLeft} endX={xBottom} endY={yLeft} power={xOffset} />
+    <RandomSide startX={xBottom} startY={yLeft} endX={xBottom} endY={yRight} power={yOffset} />
+    <RandomSide startX={xBottom} startY={yRight} endX={xTop} endY={yRight} power={xOffset} />
+    <RandomSide startX={xTop} startY={yRight} endX={xTop} endY={yLeft} power={yOffset} />
   </g>)
 }
 
