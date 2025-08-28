@@ -12,22 +12,27 @@ export function generateShadowRectangleLimits(boundingBox?: DOMRect) {
   }
 }
 
-export function RandomShadow() {
+export type RandomShadowProps = {
+  strokeWidth?: number;
+}
+export function RandomShadow({ strokeWidth }: RandomShadowProps) {
   const { xLeft, yTop, xRight, yBottom, yOffset, xOffset } = generateShadowRectangleLimits();
 
   return (<g>
-    <RandomSide startX={xRight} startY={yTop} endX={xRight} endY={yBottom} power={yOffset} strokeWidth={0.001} />
-    <RandomSide startX={xLeft} startY={yBottom} endX={xRight} endY={yBottom} power={yOffset} strokeWidth={0.001} />
+    <RandomSide startX={xRight} startY={yTop} endX={xRight} endY={yBottom} power={yOffset} strokeWidth={strokeWidth} />
+    <RandomSide startX={xLeft} startY={yBottom} endX={xRight} endY={yBottom} power={yOffset} strokeWidth={strokeWidth} />
   </g>)
 }
 
 
-export function SketchyShadow() {
+export type SketchyShadowProps = {
+  strokeWidth?: number;
+}
+export function SketchyShadow({ strokeWidth }: SketchyShadowProps) {
   return (
     <g>
-      <RandomShadow />
-      <RandomShadow />
-      <RandomShadow />
+      <RandomShadow strokeWidth={strokeWidth ?? 0.001} />
+      <RandomShadow strokeWidth={strokeWidth ?? 0.001} />
     </g>
   )
 }

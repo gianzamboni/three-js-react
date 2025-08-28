@@ -1,9 +1,9 @@
 
 .home-button-container {
   position: absolute;
-  top: 1em;
-  left: 1em;
+  top: 2.5em;
+  left: 2.5em;
   overflow: visible;
   padding: 0.25em ;
-  z-index: 1000;
+  z-index: 100;
 }

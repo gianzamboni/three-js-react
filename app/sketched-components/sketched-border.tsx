@@ -7,6 +7,7 @@ import { randomBoolean } from "~/utils/random";
 export type SketchedBorderProps = PropsWithChildren<{
   className?: string;
   sketchySVG?: React.ReactNode;
+  baseStrokeWidth?: number;
 }>;
 
 export function SketchedBorder(props: SketchedBorderProps) {
@@ -20,8 +21,8 @@ export function SketchedBorder(props: SketchedBorderProps) {
         preserveAspectRatio="none"
       >
         {props.sketchySVG}
-        <RandomRectangle />
-        <RandomRectangle />
+        <RandomRectangle strokeWidth={props.baseStrokeWidth ?? 0.0001} />
+        <RandomRectangle strokeWidth={props.baseStrokeWidth ?? 0.0001} />
       </svg>
     </div>
   );
