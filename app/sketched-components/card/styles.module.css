@@ -9,12 +9,17 @@
   }
 }
 
+.card-link {
+  overflow: visible;
+}
+
 .card {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1em;
   padding: 1em;
+  overflow: visible;
 
   h2 {
     font-family: "Indie Flower", cursive;
@@ -24,6 +29,7 @@
 
   p {
     font-size: 1em;
+    margin: 0.125em 0 0 0;
   }
 }
 

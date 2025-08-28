@@ -1,8 +1,14 @@
 import { Link, Outlet } from "react-router";
+import { SketchedBorder } from "~/sketched-components/sketched-border";
+import styles from "./styles.module.css";
 
 export default function Layout() {
-  return <main className="w-full h-full">
-    <Link className="text-blue-500 absolute top-4 left-4 z-100" to="/">Home</Link>
+  return <main className="full-screen">
+    <SketchedBorder 
+      className={styles['home-button-container']}
+    >
+      <Link to="/">Home</Link>
+    </SketchedBorder>
     <Outlet />
   </main>;
 }

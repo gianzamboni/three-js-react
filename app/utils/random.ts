@@ -9,3 +9,7 @@ export function randomSelection<T>(arr: T[]) {
 export function getRandomNumber(min: number, max: number) {
   return Math.random() * (max - min) + min;
 }
+
+export function randomizedOffset(base: number, offset: number) {
+  return base + getRandomNumber(-offset, offset);
+}
