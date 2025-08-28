@@ -1,17 +1,7 @@
 import { memo } from "react";
 import { getRandomNumber, randomizedOffset } from "~/utils/random";
 import { RandomSide } from "./randomized-line";
-
-function generateRectangleLimits(boundingBox: DOMRect | null) {
-  return {
-    xLeft: getRandomNumber(0.01, 0.015) * (boundingBox?.width ?? 1),
-    yTop: getRandomNumber(0.01, 0.015) * (boundingBox?.height ?? 1),
-    xRight: getRandomNumber(0.98, 0.985) * (boundingBox?.width ?? 1),
-    yBottom: getRandomNumber(0.98, 0.985) * (boundingBox?.height ?? 1),
-    xOffset: 0.01 * (boundingBox?.width ?? 1),
-    yOffset: 0.005 * (boundingBox?.height ?? 1),
-  }
-}
+import { generateRectangleLimits } from "./utils";
 
 export function RandomRectangleClipPath(props: { boundingBox: DOMRect | null }) {
   
