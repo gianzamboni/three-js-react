@@ -3,6 +3,7 @@ import { button, useControls } from "leva";
 import Cube from "~/3d/cube";
 import Floor from "~/3d/floor";
 import Sphere from "~/3d/sphere";
+import { Perf } from 'r3f-perf'
 
 export default function MainScene() {
 
@@ -37,10 +38,16 @@ export default function MainScene() {
     }
 })
 
+  const { perf } = useControls('performance', {
+    perf: true,
+  })
+
   return <>
     <OrbitControls makeDefault />
     <directionalLight position={[1, 2, 3]} intensity={4.5} />
     <ambientLight intensity={1.5} />
+
+    {perf && <Perf position="top-left" />}
     
     <Sphere visible={visible} color={color} position={[ position.x, position.y, 0]} />
     <Cube />
