@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef } from "react";
 import { BufferGeometry, DoubleSide } from "three";
 
-export default function CustomObject() {
+export default function RandomTriangles() {
 
   const verticesCount = 10 * 3;
   const positions = useMemo(() => {

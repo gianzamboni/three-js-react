@@ -1,8 +1,6 @@
 import { RandomRectangle } from "./svg/rectangle";
 import commonStyles from "./common.module.css";
-import { memo, useMemo, type PropsWithChildren } from "react";
-import { v4 } from "uuid";
-import { randomBoolean } from "~/utils/random";
+import { memo, type PropsWithChildren } from "react";
 
 export type SketchedBorderProps = PropsWithChildren<{
   className?: string;

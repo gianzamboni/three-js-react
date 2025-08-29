@@ -1,4 +1,3 @@
-import { getRandomNumber } from "~/utils/random";
 import { RandomSide } from "./svg/randomized-line";
 import commonStyles from "./common.module.css";
 import { generateRectangleLimits } from "./svg/utils";
