@@ -6,6 +6,7 @@ import { SketchedBorder } from '~/sketched-components/sketched-border';
 import { SketchyShadow } from '~/sketched-components/randomized-shadow';
 import OrangeSphere from '~/3d/sphere';
 import Floor from '~/3d/floor';
+import Cube from '~/3d/cube';
 export default function Experience() {
 
   const cubeRef = useRef<Object3D | null>(null);
@@ -29,10 +30,7 @@ export default function Experience() {
     <Floor>
       <MeshReflectorMaterial resolution={1024} blur={[1000, 1000]} mixBlur={1} mirror={0.5} color="greenyellow" />
     </Floor>
-    <mesh position-x={2} scale={1.5} ref={cubeRef}>
-      <boxGeometry />
-      <meshStandardMaterial color="mediumpurple" />
-    </mesh>
+    <Cube ref={cubeRef} />
     <Float speed={5} floatIntensity={ 2 } >
             <Text 
                 font="/bangers-v20-latin-regular.woff" 

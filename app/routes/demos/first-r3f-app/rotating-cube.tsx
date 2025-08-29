@@ -1,6 +1,7 @@
 import { useFrame } from "@react-three/fiber";
 import { useRef } from "react";
 import { Mesh } from "three";
+import Cube from "~/3d/cube";
 
 export default function RotatingCube() {
 
@@ -12,9 +13,6 @@ export default function RotatingCube() {
   });
 
   return (
-    <mesh ref={cubeRef} scale={1.5} position-x={2} rotation-y={Math.PI * 0.25}>
-      <boxGeometry />
-      <meshStandardMaterial color="mediumpurple" />
-    </mesh>
+    <Cube ref={cubeRef} />
   );
 };

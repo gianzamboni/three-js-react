@@ -47,6 +47,10 @@
     flex-direction: row;
     align-items: flex-start;
     padding: 2em;
+
+    h2 {
+      text-align: left;
+    }
   }
 
   .description {
