@@ -6,6 +6,7 @@ export default [
     layout("routes/demos/layout.tsx", [
       route("first-r3f-app", "routes/demos/first-r3f-app/index.tsx"),
       route("drei-app", "routes/demos/drei-app/index.tsx"),
+      route("debug-ui", "routes/demos/debug-ui/index.tsx"),
     ]),
   ]),
 ] satisfies RouteConfig;

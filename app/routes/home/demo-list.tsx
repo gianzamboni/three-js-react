@@ -21,6 +21,13 @@ const DEMOS: Demo[] = [
     description: "DREI is a collection of three.js helpers for react that are useful when building 3D applications. They help you to build 3D applications faster and easier.",
     link: "demos/drei-app",
   },
+  {
+    id: "debug-ui",
+    title: "Debug UI",
+    thumbnail: "demos/debug-ui.png",
+    description: "For this demo, I added Leva library to the project. It allowed me to easily add debug controls to the scene.",
+    link: "demos/debug-ui",
+  },
 ].reverse();
 
 export default DEMOS;

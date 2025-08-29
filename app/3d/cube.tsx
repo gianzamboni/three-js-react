@@ -1,4 +1,4 @@
-import type { PropsWithChildren } from "react";
+import type { JSX, PropsWithChildren } from "react";
 import type { Object3D } from "three";
 
 type CubeProps = JSX.IntrinsicElements["mesh"];

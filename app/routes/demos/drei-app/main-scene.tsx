@@ -9,8 +9,8 @@ import Floor from '~/3d/floor';
 import Cube from '~/3d/cube';
 export default function Experience() {
 
-  const cubeRef = useRef<Object3D | null>(null);
-  const sphereRef = useRef<Object3D | null>(null);
+  const cubeRef = useRef<Object3D>(null);
+  const sphereRef = useRef<Object3D>(null);
 
   return <>
     <OrbitControls makeDefault />
