@@ -1,4 +1,4 @@
-import { Html, TransformControls, OrbitControls, PivotControls } from '@react-three/drei'
+import { Html, TransformControls, OrbitControls, PivotControls, Text, Float } from '@react-three/drei'
 import Sphere from '~/3d/sphere';
 import Floor from '~/3d/floor';
 import { useRef } from 'react';
@@ -43,6 +43,21 @@ export default function Experience() {
         </mesh>
 
         <TransformControls object={cubeRef} />
+
+        <Float speed={5}     floatIntensity={ 2 }
+        >
+            <Text 
+                font="/bangers-v20-latin-regular.woff" 
+                color="salmon"
+                fontSize={ 1 }
+                position-y={ 2 }
+                maxWidth={ 2 }
+                >
+                I love R3F
+
+            </Text>
+        </Float>
+        
 
     </>;
 }
