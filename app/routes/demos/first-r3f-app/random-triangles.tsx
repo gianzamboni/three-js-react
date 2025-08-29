@@ -27,6 +27,6 @@ export default function RandomTriangles() {
         array={positions} 
       />
     </bufferGeometry>
-    <meshStandardMaterial color="hsl(0, 100%, 55%)" side={DoubleSide}/>
+    <meshStandardMaterial color="red" side={DoubleSide}/>
   </mesh>;
 }

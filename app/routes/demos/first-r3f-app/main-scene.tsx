@@ -1,12 +1,10 @@
-import Floor from "./floor";
-import Cube from "./cube";
-import Sphere from "./sphere";
-import RandomTriangles from "./random-triangles";
-
 import { useThree } from "@react-three/fiber";
-
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { extend } from "@react-three/fiber";
+import Floor from "~/3d/floor";
+import RotatingCube from "./rotating-cube";
+import Sphere from "~/3d/sphere";
+import RandomTriangles from "./random-triangles";
 
 extend({ OrbitControls });
 
@@ -18,7 +16,7 @@ export default function MainScene() {
     <>
       <orbitControls args={[camera, gl.domElement]} />
       <group>
-        <Cube />
+        <RotatingCube />
         <Sphere />
         <RandomTriangles />
       </group>

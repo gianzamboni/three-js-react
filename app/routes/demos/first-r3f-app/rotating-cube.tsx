@@ -14,7 +14,7 @@ export default function Cube() {
   return (
     <mesh ref={cubeRef} scale={1.5} position-x={2} rotation-y={Math.PI * 0.25}>
       <boxGeometry />
-      <meshStandardMaterial color="hsl(260, 59.8%, 55%)" />
+      <meshStandardMaterial color="mediumpurple" />
     </mesh>
   );
 };
