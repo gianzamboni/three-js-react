@@ -1,0 +1,9 @@
+.label
+{
+    font-family: Helvetica, Arial;
+    position: absolute;
+    background: #ffffffff;
+    padding: 15px;
+    white-space: nowrap;
+    user-select: none;
+}

@@ -4,13 +4,14 @@
   "type": "module",
   "scripts": {
     "build": "react-router build",
-    "dev": "react-router dev",
+    "dev": "react-router dev --host",
     "start": "react-router-serve ./build/server/index.js",
     "typecheck": "react-router typegen && tsc"
   },
   "dependencies": {
     "@react-router/node": "^7.7.1",
     "@react-router/serve": "^7.7.1",
+    "@react-three/drei": "^10.7.4",
     "@react-three/fiber": "^9.3.0",
     "@types/three": "^0.179.0",
     "isbot": "^5.1.27",

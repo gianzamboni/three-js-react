@@ -2,10 +2,6 @@ import { Link, Outlet } from "react-router";
 import { SketchedBorder } from "~/sketched-components/sketched-border";
 import styles from "./styles.module.css";
 import { SketchyShadow } from "~/sketched-components/randomized-shadow";
-import { extend } from "@react-three/fiber";
-import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
-
-extend({ OrbitControls })
 
 export default function Layout() {
   return <main className="full-screen">

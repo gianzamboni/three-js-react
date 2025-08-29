@@ -2,6 +2,7 @@ import { Canvas } from "@react-three/fiber";
 import { useMemo } from "react";
 import MainScene from "./main-scene";
 import type { Route } from "../+types/drei-app";
+import styles from "./styles.module.css";
 
 export function meta({}: Route.MetaArgs) {
   return [

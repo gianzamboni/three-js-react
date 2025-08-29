@@ -7,7 +7,6 @@ import MainScene from "./main-scene";
 
 extend({ OrbitControls });
 
-
 export function meta({}: Route.MetaArgs) {
   return [
     { title: "First R3F Application" },
