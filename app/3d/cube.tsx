@@ -1,9 +1,7 @@
-import type { JSX, PropsWithChildren } from "react";
-import type { Object3D } from "three";
+import type { MeshProps } from "./mesh-props";
 
-type CubeProps = JSX.IntrinsicElements["mesh"];
 
-export default function Cube({ children, ...props }: CubeProps) {
+export default function Cube({ children, ...props }: MeshProps) {
   return (
     <mesh scale={1.5} position-x={2} {...props}>
       <boxGeometry />

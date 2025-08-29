@@ -4,7 +4,7 @@ import { extend } from "@react-three/fiber";
 import Floor from "~/3d/floor";
 import RotatingCube from "./rotating-cube";
 import RandomTriangles from "./random-triangles";
-import OrangeSphere from "~/3d/sphere";
+import Sphere from "~/3d/sphere";
 
 extend({ OrbitControls });
 
@@ -17,7 +17,7 @@ export default function MainScene() {
       <orbitControls args={[camera, gl.domElement]} />
       <group>
         <RotatingCube />
-        <OrangeSphere />
+        <Sphere color="orange" position-x={-2}/>
         <RandomTriangles />
       </group>
       <Floor>

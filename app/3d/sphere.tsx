@@ -1,15 +1,14 @@
-import type { PropsWithChildren } from "react";
-import type { Object3D } from "three";
+import type { MeshProps } from "./mesh-props";
 
-type OrangeSphereProps = PropsWithChildren<{
-  ref?: React.RefObject<Object3D>;
-}>;
+export type SphereProps = MeshProps & {
+  color?: string;
+};
 
-export default function OrangeSphere({ children, ref }: OrangeSphereProps) {
+export default function Sphere({ children, color, ...props }: SphereProps) {
   return (
-    <mesh position-x={-2} ref={ref}>
+    <mesh {...props}>
       <sphereGeometry />
-      <meshStandardMaterial color="orange" />
+      <meshStandardMaterial color={color} />
       {children}
     </mesh>
   );
