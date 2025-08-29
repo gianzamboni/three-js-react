@@ -2,7 +2,7 @@ import { useFrame } from "@react-three/fiber";
 import { useRef } from "react";
 import { Mesh } from "three";
 
-export default function RedCube() {
+export default function Cube() {
 
   const cubeRef = useRef<Mesh>(null);
 
@@ -14,7 +14,7 @@ export default function RedCube() {
   return (
     <mesh ref={cubeRef} scale={1.5} position-x={2} rotation-y={Math.PI * 0.25}>
       <boxGeometry />
-      <meshStandardMaterial color="mediumpurple" />
+      <meshStandardMaterial color="hsl(260, 59.8%, 55%)" />
     </mesh>
   );
 };
