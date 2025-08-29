@@ -25,6 +25,7 @@
     font-family: "Indie Flower", cursive;
     font-weight: 500;
     font-size: 2em;
+    text-align: center;
   }
 
   p {
@@ -33,11 +34,15 @@
   }
 }
 
+.thumbnail-container {
+  display: inline;
+}
+
 .description {
   display: none;
 }
 
-@media (min-width: 425px) {
+@media (min-width: 600px) {
   .card {
     flex-direction: row;
     align-items: flex-start;
@@ -47,6 +52,10 @@
   .description {
     margin-top: 1em;
     display: block;
+  }
+
+  .thumbnail-container {
+    display: none;
   }
 }
 
@@ -58,5 +67,9 @@
 
   .card {
     padding: 2em 4em;
+  }
+
+  .thumbnail-container {
+    display: inline;
   }
 }

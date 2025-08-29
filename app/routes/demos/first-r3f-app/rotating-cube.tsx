@@ -2,7 +2,7 @@ import { useFrame } from "@react-three/fiber";
 import { useRef } from "react";
 import { Mesh } from "three";
 
-export default function Cube() {
+export default function RotatingCube() {
 
   const cubeRef = useRef<Mesh>(null);
 
