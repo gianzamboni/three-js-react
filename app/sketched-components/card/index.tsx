@@ -23,14 +23,14 @@ export function SketchedCard({
       <MemoizedSketchedBorder 
         className={`relative ${styles['card']} ${commonStyles['sketchy-container-margin']}`}
       >
+        <SketchyShadow offsetX={0.5} offsetY={1} strokeWidth={0.0001}/>
         <div className={styles['thumbnail-container']}>
-          <SketchyShadow offsetX={0.5} offsetY={1} strokeWidth={0.0001}/>
           <SketchedImage src={thumbnail} alt={title} className={styles['sketchy-thumbnail']} />
         </div>
-      <div>
-        <h2>{title}</h2>
-        <p className={styles['description']}>{description}</p>
-      </div>
+        <div>
+          <h2>{title}</h2>
+          <p className={styles['description']}>{description}</p>
+        </div>
       </MemoizedSketchedBorder>
     </Link>
   );

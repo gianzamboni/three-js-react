@@ -14,6 +14,7 @@ export function RandomShadow({ strokeWidth }: RandomShadowProps) {
   </g>)
 }
 
+
 export type SketchyShadowProps = {
   strokeWidth?: number;
   offsetX?: number;

@@ -14,6 +14,6 @@ export function randomizedOffset(base: number, offset: number) {
   return base + getRandomNumber(-offset, offset);
 }
 
-export function randomizedOffset2D(base: [number, number], offset: number): [number, number] {
-  return [randomizedOffset(base[0], offset), randomizedOffset(base[1], offset)];
+export function randomizedOffset2D(base: [number, number], offset: [number, number]): [number, number] {
+  return [randomizedOffset(base[0], offset[0]), randomizedOffset(base[1], offset[1])];
 }
