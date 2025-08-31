@@ -24,7 +24,7 @@ export function SketchedCard({
         className={`relative ${styles['card']} ${commonStyles['sketchy-container-margin']}`}
       >
         <div className={styles['thumbnail-container']}>
-          <SketchyShadow offsetX={0} offsetY={0} strokeWidth={0.0001}/>
+          <SketchyShadow offsetX={0.5} offsetY={1} strokeWidth={0.0001}/>
           <SketchedImage src={thumbnail} alt={title} className={styles['sketchy-thumbnail']} />
         </div>
       <div>
