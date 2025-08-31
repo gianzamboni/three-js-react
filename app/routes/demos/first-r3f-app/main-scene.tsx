@@ -2,7 +2,7 @@ import { useThree } from "@react-three/fiber";
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { extend } from "@react-three/fiber";
 import Floor from "~/3d/floor";
-import RotatingCube from "./rotating-cube";
+import RotatingCube from "~/3d/rotating-cube";
 import RandomTriangles from "./random-triangles";
 import Sphere from "~/3d/sphere";
 
