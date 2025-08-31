@@ -1,7 +1,7 @@
 import { OrbitControls } from "@react-three/drei";
 import { Perf } from "r3f-perf";
 import Floor from "~/3d/floor";
-import RotatingCube from "~/3d/rotating-cube";
+import RotatingCube from "~/routes/demos/first-r3f-app/rotating-cube";
 import Sphere from "~/3d/sphere";
 
 export default function MainScene() {
