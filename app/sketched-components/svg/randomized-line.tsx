@@ -1,25 +1,19 @@
-import { randomizedOffset } from "~/utils/random";
+import { randomizedOffset, randomizedOffset2D } from "~/utils/random";
 import { Side } from "./line";
 
 type RandomSideProps = {
-  startX: number;
-  startY: number;
-  endX: number;
-  endY: number;
+  start: [number, number];
+  end: [number, number];
   power: number;
   strokeWidth?: number;
 }
 
 export function RandomSide(props: RandomSideProps) {
   return <Side 
-    startX={props.startX}
-    startY={props.startY}
-    firstControlX={randomizedOffset(props.startX, props.power)}
-    firstControlY={randomizedOffset(props.startY, props.power)}
-    secondControlX={randomizedOffset(props.endX, props.power)}
-    secondControlY={randomizedOffset(props.endY, props.power)}
-    endX={props.endX}
-    endY={props.endY}
+    start={props.start}
+    firstControl={randomizedOffset2D(props.start, props.power)}
+    secondControl={randomizedOffset2D(props.end, props.power)}
+    end={props.end}
     strokeWidth={props.strokeWidth}
   />
 }

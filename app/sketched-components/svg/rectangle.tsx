@@ -33,10 +33,10 @@ export function RandomRectangleClipPath(props: { boundingBox: DOMRect | null }) 
 export function RandomRectangle(props: { strokeWidth?: number }) {
   const { xLeft, yTop, xRight, yBottom, xOffset, yOffset } = generateRectangleLimits(null);
   return (<g>
-    <RandomSide startX={xLeft} startY={yTop} endX={xRight} endY={yTop} power={xOffset} strokeWidth={props.strokeWidth} />
-     <RandomSide startX={xRight} startY={yTop} endX={xRight} endY={yBottom} power={yOffset} strokeWidth={props.strokeWidth} />
-    <RandomSide startX={xRight} startY={yBottom} endX={xLeft} endY={yBottom} power={xOffset} strokeWidth={props.strokeWidth} />
-    <RandomSide startX={xLeft} startY={yBottom} endX={xLeft} endY={yTop} power={yOffset} strokeWidth={props.strokeWidth} />
+    <RandomSide start={[xLeft, yTop]} end={[xRight, yTop]} power={xOffset} strokeWidth={props.strokeWidth} />
+    <RandomSide start={[xRight, yTop]} end={[xRight, yBottom]} power={yOffset} strokeWidth={props.strokeWidth} />
+    <RandomSide start={[xRight, yBottom]} end={[xLeft, yBottom]} power={xOffset} strokeWidth={props.strokeWidth} />
+    <RandomSide start={[xLeft, yBottom]} end={[xLeft, yTop]} power={yOffset} strokeWidth={props.strokeWidth} />
   </g>)
 }
 

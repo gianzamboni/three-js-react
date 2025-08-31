@@ -1,18 +1,14 @@
 type SideProps = {
-  startX: number;
-  startY: number;
-  firstControlX: number;
-  firstControlY: number;
-  secondControlX: number;
-  secondControlY: number;
-  endX: number;
-  endY: number;
+  start: [number, number  ];
+  firstControl: [number, number];
+  secondControl: [number, number];
+  end: [number, number];
   strokeWidth?: number;
 }
 
 export function Side(props: SideProps) {
   return <path 
-    d={`M ${props.startX} ${props.startY} C ${props.firstControlX} ${props.firstControlY} ${props.secondControlX} ${props.secondControlY} ${props.endX} ${props.endY}`} 
+    d={`M ${props.start[0]} ${props.start[1]} C ${props.firstControl[0]} ${props.firstControl[1]} ${props.secondControl[0]} ${props.secondControl[1]} ${props.end[0]} ${props.end[1]}`} 
     stroke="currentColor"
     strokeWidth={props.strokeWidth}
   />
