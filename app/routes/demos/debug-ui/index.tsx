@@ -13,7 +13,6 @@ export function meta({ }: Route.MetaArgs) {
 
 export default function DebugUI() {
   return <>
-  <Leva collapsed />
   <Canvas
     camera={{
       fov: 45,
