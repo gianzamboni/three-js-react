@@ -1,7 +1,6 @@
-import { Canvas } from "@react-three/fiber";
 import type { Route } from "../+types/debug-ui";
 import MainScene from "./main-scene";
-import { Leva } from "leva";
+import { TestCanvas } from "~/3d/test-canvas";
 
 export function meta({ }: Route.MetaArgs) {
   return [
@@ -12,16 +11,9 @@ export function meta({ }: Route.MetaArgs) {
 
 
 export default function DebugUI() {
-  return <>
-  <Canvas
-    camera={{
-      fov: 45,
-      near: 0.1,
-      far: 200,
-      position: [- 4, 3, 6]
-    }}
-  >
+  return(
+  <TestCanvas>
     <MainScene />
-  </Canvas>
-  </>;
+  </TestCanvas>
+  );
 }
