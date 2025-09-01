@@ -2,12 +2,13 @@ import { useFrame } from "@react-three/fiber";
 import { useRef } from "react";
 import { Mesh } from "three";
 import Cube from "~/3d/cube";
+import type { MeshProps } from "~/3d/mesh-props";
 
-type RotatingCubeProps = {
+type RotatingCubeProps = MeshProps & {
   rotationSpeed?: number;
 }
 
-export default function RotatingCube({ rotationSpeed = 1 }: RotatingCubeProps) {
+export default function RotatingCube({ rotationSpeed = 1, ...props }: RotatingCubeProps) {
 
   const cubeRef = useRef<Mesh>(null);
 
@@ -17,6 +18,6 @@ export default function RotatingCube({ rotationSpeed = 1 }: RotatingCubeProps) {
   });
 
   return (
-    <Cube ref={cubeRef} />
+    <Cube ref={cubeRef} {...props} />
   );
 };
