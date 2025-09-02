@@ -31,7 +31,7 @@ const DEMOS: Demo[] = [
   {
     id: 'environment-staging',
     title: 'Environment and Staging',
-    thumbnail: 'placeholder.png',
+    thumbnail: 'demos/staging.png',
     description: 'This demo shows how to use environment and staging in three.js. I used the environment map from the three.js official website. I also used the staging component to create a staging area for the scene.',
     link: 'demos/environment-staging',
   }

@@ -20,7 +20,7 @@ export default function MainScene() {
         <Sphere color="orange" position-x={-2}/>
         <RandomTriangles />
       </group>
-      <Floor>
+      <Floor position-y={-1}>
         <meshBasicMaterial color="greenyellow" />
       </Floor>
       <directionalLight position={[1, 2, 3]} intensity={4.5}/>

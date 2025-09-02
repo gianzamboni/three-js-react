@@ -1,36 +1,35 @@
-import { useHelper, OrbitControls } from "@react-three/drei";
+import { useHelper, OrbitControls,  Stage } from "@react-three/drei";
 import { Perf } from "r3f-perf";
 import Floor from "~/3d/floor";
 import RotatingCube from "~/routes/demos/first-r3f-app/rotating-cube";
 import Sphere from "~/3d/sphere";
-import { useRef, type RefObject } from "react";
-import { DirectionalLightHelper, type DirectionalLight } from "three";
+import { useEffect, useRef, type RefObject } from "react";
+import { DirectionalLightHelper, Object3D, type DirectionalLight } from "three";
+import { useControls } from "leva";
+import { useThree } from "@react-three/fiber";
 
 export default function MainScene() {
+
+  const { envMapIntensity } = useControls('environment map', {
+    envMapIntensity: { value: 7, min: 0, max: 12 },
+})
 
   const directionalLightRef = useRef<DirectionalLight>(null);
 
   useHelper(directionalLightRef as RefObject<DirectionalLight>, DirectionalLightHelper, 1);
 
   return <>
-    <Perf position="top-bottom" />
-
+    <Perf position="bottom-right" />
     <OrbitControls makeDefault />
 
-    <directionalLight
-      ref={directionalLightRef}
-      position={[1, 2, 3]}
-      intensity={4.5}
-      castShadow
-    />
-    <ambientLight intensity={1.5} />
-
-    <Sphere color="orange" position-x={-2} castShadow />
-    <RotatingCube rotationSpeed={0.2} castShadow />
-
-    <Floor receiveShadow>
-      <meshStandardMaterial color="greenyellow" />
-    </Floor>
-
+    <Stage
+      shadows={ { type: 'contact', opacity: 0.2, blur: 3 } }
+      environment="sunset"
+      preset="upfront"
+      intensity={envMapIntensity}
+    >
+      <Sphere position-y={1} color="orange" position-x={-2} castShadow />
+      <RotatingCube position-y={1} rotationSpeed={0.2} castShadow />
+    </Stage>
   </>;
 }

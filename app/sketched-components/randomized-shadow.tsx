@@ -10,7 +10,7 @@ export function RandomShadow({ strokeWidth }: RandomShadowProps) {
 
   return (<g>
     <RandomSide start={[xRight, yTop]} end={[xRight, yBottom]} power={yOffset} strokeWidth={strokeWidth} />
-    <RandomSide start={[xLeft, yBottom]} end={[xRight, yBottom]} power={yOffset} strokeWidth={strokeWidth} />
+    <RandomSide start={[xRight, yBottom]} end={[xLeft, yBottom]} power={xOffset} strokeWidth={strokeWidth} />
   </g>)
 }
 
