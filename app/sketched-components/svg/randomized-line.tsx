@@ -1,25 +1,33 @@
-import { randomizedOffset } from "~/utils/random";
+import { randomizedOffset, randomizedOffset2D } from "~/utils/random";
 import { Side } from "./line";
+import { useEffect, useMemo, useState } from "react";
 
 type RandomSideProps = {
-  startX: number;
-  startY: number;
-  endX: number;
-  endY: number;
+  start: [number, number];
+  end: [number, number];
   power: number;
   strokeWidth?: number;
 }
 
 export function RandomSide(props: RandomSideProps) {
+
+  const [ controls, setControls ] = useState<[number, number][]>([]);
+
+  const offset: [number, number] = useMemo(() => [props.power, props.power], [props.power]);
+
+  useEffect(() => {
+    setControls([randomizedOffset2D(props.start, offset), randomizedOffset2D(props.end, offset)]);
+  }, []);
+
+  if(controls.length === 0) {
+    return null;
+  }
+
   return <Side 
-    startX={props.startX}
-    startY={props.startY}
-    firstControlX={randomizedOffset(props.startX, props.power)}
-    firstControlY={randomizedOffset(props.startY, props.power)}
-    secondControlX={randomizedOffset(props.endX, props.power)}
-    secondControlY={randomizedOffset(props.endY, props.power)}
-    endX={props.endX}
-    endY={props.endY}
+    start={props.start}
+    firstControl={controls[0]}
+    secondControl={controls[1]}
+    end={props.end}
     strokeWidth={props.strokeWidth}
   />
 }

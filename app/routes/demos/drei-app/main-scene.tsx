@@ -27,7 +27,7 @@ export default function Experience() {
         </Html>
       </Sphere>
     </PivotControls>
-    <Floor>
+    <Floor position-y={-1}>
       <MeshReflectorMaterial resolution={1024} blur={[1000, 1000]} mixBlur={1} mirror={0.5} color="greenyellow" />
     </Floor>
     <Cube ref={cubeRef} />

@@ -9,8 +9,8 @@ export function RandomShadow({ strokeWidth }: RandomShadowProps) {
   const { xLeft, yTop, xRight, yBottom, yOffset, xOffset } = generateRectangleLimits(null);
 
   return (<g>
-    <RandomSide startX={xRight} startY={yTop} endX={xRight} endY={yBottom} power={yOffset} strokeWidth={strokeWidth} />
-    <RandomSide startX={xLeft} startY={yBottom} endX={xRight} endY={yBottom} power={yOffset} strokeWidth={strokeWidth} />
+    <RandomSide start={[xRight, yTop]} end={[xRight, yBottom]} power={yOffset} strokeWidth={strokeWidth} />
+    <RandomSide start={[xRight, yBottom]} end={[xLeft, yBottom]} power={xOffset} strokeWidth={strokeWidth} />
   </g>)
 }
 

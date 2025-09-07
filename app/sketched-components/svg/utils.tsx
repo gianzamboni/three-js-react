@@ -1,6 +1,14 @@
 import { getRandomNumber } from "~/utils/random";
 
-export function generateRectangleLimits(boundingBox: DOMRect | null) {
+export type RectangleLimits = {
+  xLeft: number;
+  yTop: number;
+  xRight: number;
+  yBottom: number;
+  xOffset: number;
+  yOffset: number;
+}
+export function generateRectangleLimits(boundingBox: DOMRect | null): RectangleLimits {
   return {
     xLeft: getRandomNumber(0.01, 0.015) * (boundingBox?.width ?? 1),
     yTop: getRandomNumber(0.01, 0.015) * (boundingBox?.height ?? 1),

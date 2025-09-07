@@ -47,11 +47,11 @@ export default function MainScene() {
     <directionalLight position={[1, 2, 3]} intensity={4.5} />
     <ambientLight intensity={1.5} />
 
-    {perf && <Perf position="top-left" />}
+    {perf && <Perf position="bottom-right" />}
     
     <Sphere visible={visible} color={color} position={[ position.x, position.y, 0]} />
     <Cube />
-    <Floor>
+    <Floor position-y={-1}>
       <meshStandardMaterial color="greenyellow" />
     </Floor>
   </>;

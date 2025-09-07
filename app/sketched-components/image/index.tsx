@@ -1,8 +1,8 @@
 import { useEffect, useMemo, useRef, useState, type ImgHTMLAttributes } from "react";
-import { SketchedBorder } from "../sketched-border";
+import { MemoizedSketchedBorder, SketchedBorder } from "../sketched-border";
 import { v4 } from "uuid";
-import { RandomRectangleClipPath } from "../svg/rectangle";
 import styles from "./styles.module.css";
+import { RandomRectangleClipPath } from "../svg/rectangle-clip-path";
 
 export type SketchedImageProps = ImgHTMLAttributes<HTMLImageElement> & {
   className?: string;
@@ -12,11 +12,14 @@ export type SketchedImageProps = ImgHTMLAttributes<HTMLImageElement> & {
 }
 
 export const SketchedImage = (props: SketchedImageProps) => {
-  const imgRef = useRef<HTMLImageElement>(null);
+  const [pathId, setPathId] = useState<string>();
   const [boundingBox, setBoundingBox] = useState<DOMRect | null>(null);
-  const pathId = useMemo(() => v4(), []);
+
+  const imgRef = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
+    setPathId(`path-${v4()}`);
+
     const updateBoundingBox = () => {
       if (imgRef.current) {
         setBoundingBox(imgRef.current.getBoundingClientRect());
@@ -29,15 +32,19 @@ export const SketchedImage = (props: SketchedImageProps) => {
       window.removeEventListener("resize", updateBoundingBox);
     }
   }, []);
-  
-  return (
-    <SketchedBorder className={`relative ${props.className}`} 
+
+  return (<MemoizedSketchedBorder className={`relative ${props.className}`}
     sketchySVG={<defs>
       <clipPath id={pathId}>
         <RandomRectangleClipPath boundingBox={boundingBox} />
       </clipPath>
     </defs>}>
-      <img src={props.src} alt={props.alt} className={`${styles['sketchy-image']} ${props.className}`} style={{ clipPath: `url(#${pathId})` }} ref={imgRef}/>
-    </SketchedBorder>
-  ); 
-};
+    <img
+      src={props.src}
+      alt={props.alt}
+      className={`${styles['sketchy-image']} ${props.className}`}
+      style={{ clipPath: `url(#${pathId})` }} 
+      ref={imgRef}
+    />
+  </MemoizedSketchedBorder>);
+}

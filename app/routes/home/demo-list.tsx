@@ -25,9 +25,16 @@ const DEMOS: Demo[] = [
     id: "debug-ui",
     title: "Debug UI",
     thumbnail: "demos/debug-ui.png",
-    description: "For this demo, I added Leva library to the project. It allowed me to easily add debug controls to the scene.",
+    description: "For this demo, I added Leva and r3f-perf libraries to the project. The first one allowed me to easily add debug controls to the scene. The second one creates a monitor that shows performance metrics.",
     link: "demos/debug-ui",
   },
+  {
+    id: 'environment-staging',
+    title: 'Environment and Staging',
+    thumbnail: 'demos/staging.png',
+    description: 'This demo shows how to use environment and staging in three.js. I used the environment map from the three.js official website. I also used the staging component to create a staging area for the scene.',
+    link: 'demos/environment-staging',
+  }
 ].reverse();
 
 export default DEMOS;
