@@ -1,4 +1,3 @@
-import type { PropsWithChildren } from "react";
 import type { MeshProps } from "./mesh-props";
 
 
