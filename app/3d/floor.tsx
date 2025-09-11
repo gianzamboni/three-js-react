@@ -1,5 +1,4 @@
-import type { PropsWithChildren } from "react";
-import type { MeshProps } from "./mesh-props";
+import type { MeshProps } from "./types";
 
 
 export default function Floor({ children, ...props }: MeshProps) {

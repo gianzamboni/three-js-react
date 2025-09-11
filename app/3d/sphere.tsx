@@ -1,4 +1,4 @@
-import type { MeshProps } from "./mesh-props";
+import type { MeshProps } from "./types";
 
 export type SphereProps = MeshProps & {
   color?: string;

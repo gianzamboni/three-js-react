@@ -1,5 +1,5 @@
 import { Html, TransformControls, OrbitControls, PivotControls, Text, Float, MeshReflectorMaterial } from '@react-three/drei'
-import { useRef } from 'react';
+import { useRef, type RefObject } from 'react';
 import type { Object3D } from 'three';
 import styles from "./styles.module.css";
 import { SketchedBorder } from '~/sketched-components/sketched-border';
@@ -7,10 +7,13 @@ import { SketchyShadow } from '~/sketched-components/randomized-shadow';
 import Floor from '~/3d/floor';
 import Cube from '~/3d/cube';
 import Sphere from '~/3d/sphere';
+import Label from '~/sketched-components/label';
 export default function Experience() {
 
   const cubeRef = useRef<Object3D>(null);
   const sphereRef = useRef<Object3D>(null);
+
+  const occludeObjects = [sphereRef, cubeRef] as RefObject<Object3D>[];
 
   return <>
     <OrbitControls makeDefault />
@@ -19,12 +22,9 @@ export default function Experience() {
 
     <PivotControls anchor={[0, 0, 0]} depthTest={false} lineWidth={4} axisColors={['#9381ff', '#ff4d6d', '#7ae582']} scale={2}>
       <Sphere color="orange" ref={sphereRef} position-x={-2} >
-        <Html position={[1, 1, 0]} distanceFactor={8} occlude={[sphereRef, cubeRef]}>
-          <SketchedBorder className={styles.label} baseStrokeWidth={0.005}>
-            <SketchyShadow strokeWidth={0.0005} offsetX={0.1} offsetY={2} />
+        <Label position={[1, 1, 0]} distanceFactor={8} occlude={occludeObjects}>
             That's a sphere! 👍
-          </SketchedBorder>
-        </Html>
+        </Label>
       </Sphere>
     </PivotControls>
     <Floor position-y={-1}>
