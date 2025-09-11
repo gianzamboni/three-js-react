@@ -2,7 +2,7 @@ import { useFrame } from "@react-three/fiber";
 import { useRef } from "react";
 import { Mesh } from "three";
 import Cube from "~/3d/cube";
-import type { MeshProps } from "~/3d/mesh-props";
+import type { MeshProps } from "~/3d/types";
 
 type RotatingCubeProps = MeshProps & {
   rotationSpeed?: number;

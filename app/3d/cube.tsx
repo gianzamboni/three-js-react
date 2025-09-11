@@ -1,4 +1,4 @@
-import type { MeshProps } from "./mesh-props";
+import type { MeshProps } from "./types";
 
 
 export default function Cube({ children, color, ...props }: MeshProps) {

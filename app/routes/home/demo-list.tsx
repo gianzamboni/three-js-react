@@ -38,9 +38,9 @@ const DEMOS: Demo[] = [
   {
     id: 'load-models',
     title: 'Loading Models',
-    thumbnail: 'demos/load-models.png',
-    description: 'This demo shows how to load models in three.js using react three fiber and the Draco Loader.',
-    link: 'demos/load-models',
+    thumbnail: 'demos/loaded-models.png',
+    description: "This demo shows how to load models in three.js using react three fiber and the Draco Loader. In this case, I loaded a hamburger I made using blender and a fox provided as sample by Khronos Group.",
+    link: "demos/load-models",
   }
 ].reverse();
 
