@@ -18,7 +18,7 @@ export default function Home() {
       <SketchedTitle>React Three Fiber Demos</SketchedTitle>
       <div className={styles['demo-grid']}>
         {DEMOS.map((demo) => (
-          <SketchedCard key={demo.id} {...demo} />
+          <SketchedCard key={demo.id} expanded {...demo} />
         ))}
       </div>
     </div>

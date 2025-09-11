@@ -10,16 +10,18 @@ interface SketchedCardProps {
   thumbnail: string;
   title: string;
   description: string;
+  expanded?: boolean;
 }
 
 export function SketchedCard({
   link,
   thumbnail,
   title,
-  description
+  description,
+  expanded=false,
 }: SketchedCardProps) {
   return (
-    <Link to={link} className={styles['card-link']}>
+    <Link to={link} className={`${styles['card-link']} ${expanded ? styles['expanded'] : ''}`}>
       <MemoizedSketchedBorder 
         className={`relative ${styles['card']} ${commonStyles['sketchy-container-margin']}`}
       >

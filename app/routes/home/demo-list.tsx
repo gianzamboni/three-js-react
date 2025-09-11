@@ -41,6 +41,12 @@ const DEMOS: Demo[] = [
     thumbnail: 'demos/loaded-models.png',
     description: "This demo shows how to load models in three.js using react three fiber and the Draco Loader. In this case, I loaded a hamburger I made using blender and a fox provided as sample by Khronos Group.",
     link: "demos/load-models",
+  }, {
+    id: '3d-text',
+    title: '3D Text',
+    thumbnail: 'demos/3d-text.png',
+    description: "A simple 3D text between random generated donuts.",
+    link: "demos/3d-text",
   }
 ].reverse();
 
