@@ -12,5 +12,5 @@ export default function Layout() {
       <SketchyShadow strokeWidth={0.01} offsetX={3} offsetY={3} />
     </Link>
     <Outlet />
-  </main>;
+  </main>;  
 }

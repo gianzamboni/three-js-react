@@ -16,7 +16,7 @@ export default function Home() {
   return (
     <div className="p-2 col">
       <SketchedTitle>React Three Fiber Demos</SketchedTitle>
-      <div className={styles.demoGrid}>
+      <div className={styles['demo-grid']}>
         {DEMOS.map((demo) => (
           <SketchedCard key={demo.id} {...demo} />
         ))}
