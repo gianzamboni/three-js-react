@@ -6,6 +6,8 @@ export default function MainScene() {
   return <>
     <Perf position="bottom-right" />
     <OrbitControls makeDefault />
-    <Cube />
+    <Cube scale={1.5} >
+      <meshNormalMaterial />
+    </Cube>
   </>;
 }

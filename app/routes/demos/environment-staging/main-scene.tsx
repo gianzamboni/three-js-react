@@ -29,7 +29,9 @@ export default function MainScene() {
       intensity={envMapIntensity}
     >
       <Sphere position-y={1} color="orange" position-x={-2} castShadow />
-      <RotatingCube position-y={1} rotationSpeed={0.2} castShadow />
+      <RotatingCube position-y={1} rotationSpeed={0.2} scale={1.5} position-x={2} castShadow >
+        <meshStandardMaterial color="mediumpurple" />
+      </RotatingCube>
     </Stage>
   </>;
 }

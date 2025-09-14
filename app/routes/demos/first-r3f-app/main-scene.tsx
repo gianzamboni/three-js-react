@@ -16,7 +16,9 @@ export default function MainScene() {
     <>
       <orbitControls args={[camera, gl.domElement]} />
       <group>
-        <RotatingCube />
+        <RotatingCube scale={1.5} position-x={2} >
+          <meshStandardMaterial color="mediumpurple" />
+        </RotatingCube>
         <Sphere color="orange" position-x={-2}/>
         <RandomTriangles />
       </group>

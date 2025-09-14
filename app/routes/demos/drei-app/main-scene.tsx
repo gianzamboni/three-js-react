@@ -30,7 +30,9 @@ export default function Experience() {
     <Floor position-y={-1}>
       <MeshReflectorMaterial resolution={1024} blur={[1000, 1000]} mixBlur={1} mirror={0.5} color="greenyellow" />
     </Floor>
-    <Cube ref={cubeRef} />
+    <Cube ref={cubeRef} scale={1.5} position-x={2} >
+      <meshStandardMaterial color="mediumpurple" />
+    </Cube>
     <Float speed={5} floatIntensity={ 2 } >
             <Text 
                 font="/bangers-v20-latin-regular.woff" 
