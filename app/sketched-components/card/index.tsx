@@ -11,6 +11,8 @@ interface SketchedCardProps {
   title: string;
   description: string;
   expanded?: boolean;
+  className?: string;
+  targetBlank?: boolean;
 }
 
 export function SketchedCard({
@@ -18,10 +20,16 @@ export function SketchedCard({
   thumbnail,
   title,
   description,
+  className,
+  targetBlank,
   expanded=false,
 }: SketchedCardProps) {
   return (
-    <Link to={link} className={`${styles['card-link']} ${expanded ? styles['expanded'] : ''}`}>
+    <Link 
+    to={link} 
+    className={`${styles['card-link']} ${expanded ? styles['expanded'] : ''} ${className}`} 
+    target={targetBlank ? '_blank' : '_self'}
+    >
       <MemoizedSketchedBorder 
         className={`relative ${styles['card']} ${commonStyles['sketchy-container-margin']}`}
       >

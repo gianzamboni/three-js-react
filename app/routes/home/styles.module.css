@@ -1,5 +1,17 @@
 .demo-grid {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(1, minmax(300px, 1fr));
   flex-wrap: wrap;
   gap: 1em;
+}
+
+@media (min-width: 1080px) {
+  .demo-grid {
+    grid-template-columns: repeat(2, minmax(300px, 1fr));
+  }
+
+  .two-columns-item {
+    grid-column: span 2;
+  }
+  
 }
