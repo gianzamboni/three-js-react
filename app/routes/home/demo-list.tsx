@@ -17,7 +17,7 @@ const DEMOS: Demo[] = [
   {
     id: "drei-app",
     title: "First DREI Application",
-    thumbnail: "demos/drei-app.png",
+    thumbnail: "demos/drei-app.jpg",
     description: "DREI is a collection of three.js helpers for react that are useful when building 3D applications. They help you to build 3D applications faster and easier.",
     link: "demos/drei-app",
   },
@@ -31,7 +31,7 @@ const DEMOS: Demo[] = [
   {
     id: 'environment-staging',
     title: 'Environment and Staging',
-    thumbnail: 'demos/staging.png',
+    thumbnail: 'demos/staging.jpg',
     description: 'This demo shows how to use environment and staging in three.js. I used the environment map from the three.js official website. I also used the staging component to create a staging area for the scene.',
     link: 'demos/environment-staging',
   }, 
@@ -41,6 +41,12 @@ const DEMOS: Demo[] = [
     thumbnail: 'demos/loaded-models.png',
     description: "This demo shows how to load models in three.js using react three fiber and the Draco Loader. In this case, I loaded a hamburger I made using blender and a fox provided as sample by Khronos Group.",
     link: "demos/load-models",
+  }, {
+    id: '3d-text',
+    title: '3D Text',
+    thumbnail: 'demos/3d-text.jpg',
+    description: "A simple 3D text between random positioned donuts.  Everything here was made using Typescript and Three JS. Here we use DREI and React Three Fiber capabilities to optimize performance and create a lot of copies of the same object.",
+    link: "demos/3d-text",
   }
 ].reverse();
 

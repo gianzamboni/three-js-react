@@ -50,7 +50,9 @@ export default function MainScene() {
     {perf && <Perf position="bottom-right" />}
     
     <Sphere visible={visible} color={color} position={[ position.x, position.y, 0]} />
-    <Cube />
+    <Cube scale={1.5} position-x={2}>
+      <meshStandardMaterial color="mediumpurple" />
+    </Cube>
     <Floor position-y={-1}>
       <meshStandardMaterial color="greenyellow" />
     </Floor>

@@ -9,6 +9,7 @@ export default [
       route("debug-ui", "routes/demos/debug-ui/index.tsx"),
       route("environment-staging", "routes/demos/environment-staging/index.tsx"),
       route("load-models", "routes/demos/load-models/index.tsx"),
+      route("3d-text", "routes/demos/3d-text/index.tsx"),
     ]),
   ]),
 ] satisfies RouteConfig;
