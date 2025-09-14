@@ -26,7 +26,7 @@ export default function Home() {
          link="https://three.gianfrancozamboni.com.ar/"
          title="Three JS Journey without React"
          description="This are the demos made for the Three JS Journey Course before reaching the React Three Fiber Chapter."
-         thumbnail="demos/threejs.png"
+         thumbnail="demos/threejs.jpg"
          className={styles['two-columns-item']}
         />
       </div>
