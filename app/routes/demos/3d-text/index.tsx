@@ -9,7 +9,6 @@ export function meta({}: Route.MetaArgs) {
   ];
 }
 
-
 export default function ThreeDText() {
   return <TestCanvas>
     <MainScene />

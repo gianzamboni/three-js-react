@@ -45,7 +45,7 @@ const DEMOS: Demo[] = [
     id: '3d-text',
     title: '3D Text',
     thumbnail: 'demos/3d-text.png',
-    description: "A simple 3D text between random generated donuts.",
+    description: "A simple 3D text between random positioned donuts.  Everything here was made using Typescript and Three JS. Here we use DREI and React Three Fiber capabilities to optimize performance and create a lot of copies of the same object.",
     link: "demos/3d-text",
   }
 ].reverse();

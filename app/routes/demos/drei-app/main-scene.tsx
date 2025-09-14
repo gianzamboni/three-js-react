@@ -35,7 +35,7 @@ export default function Experience() {
     </Cube>
     <Float speed={5} floatIntensity={ 2 } >
             <Text 
-                font="/bangers-v20-latin-regular.woff" 
+                font="/fonts/bangers-v20-latin-regular.woff" 
                 color="salmon"
                 fontSize={ 1 }
                 position-y={ 2 }

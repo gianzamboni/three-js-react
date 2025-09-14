@@ -2,7 +2,8 @@
   display: grid;
   grid-template-columns: repeat(1, minmax(300px, 1fr));
   flex-wrap: wrap;
-  gap: 1em;
+  gap: 4em;
+  padding: 2em;
 }
 
 @media (min-width: 1080px) {
