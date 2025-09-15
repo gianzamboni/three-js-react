@@ -4,18 +4,18 @@
   "type": "module",
   "scripts": {
     "build": "react-router build",
-    "dev": "react-router dev --host",
+    "dev": "typecheck && react-router dev --host",
     "start": "react-router-serve ./build/server/index.js",
     "typecheck": "react-router typegen && tsc"
   },
   "dependencies": {
     "@react-router/node": "^7.7.1",
     "@react-router/serve": "^7.7.1",
-    "@react-three/drei": "^10.7.4",
+    "@react-three/drei": "^10.7.6",
     "@react-three/fiber": "^9.3.0",
     "@types/three": "^0.179.0",
     "isbot": "^5.1.27",
-    "leva": "^0.10.0",
+    "leva": "^0.10.1",
     "r3f-perf": "^7.2.3",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
@@ -26,7 +26,7 @@
   "devDependencies": {
     "@react-router/dev": "^7.7.1",
     "@types/node": "^20",
-    "@types/react": "^19.1.2",
+    "@types/react": "^19.1.13",
     "@types/react-dom": "^19.1.2",
     "typescript": "^5.8.3",
     "vite": "^6.3.3",
