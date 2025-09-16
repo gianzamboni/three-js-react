@@ -15,17 +15,6 @@ export default function MainScene() {
     },
     color: "#ff0000",
     visible: true,
-    myInterval: {
-      min: 0,
-      max: 100,
-      value: [4, 5]
-    },
-    clickMe: button(() => {
-      console.log("clicked");
-    }),
-    options: {
-      options: ['a', 'b', 'c']
-    }
   });
 
   const { scale } = useControls('cube', {
@@ -50,7 +39,7 @@ export default function MainScene() {
     {perf && <Perf position="bottom-right" />}
     
     <Sphere visible={visible} color={color} position={[ position.x, position.y, 0]} />
-    <Cube scale={1.5} position-x={2}>
+    <Cube scale={scale} position-x={2}>
       <meshStandardMaterial color="mediumpurple" />
     </Cube>
     <Floor position-y={-1}>

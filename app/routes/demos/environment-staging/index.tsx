@@ -10,8 +10,7 @@ export function meta({ }: Route.MetaArgs) {
 }
 
 export default function EnvironmentStaging() {
-  return  (
-  <TestCanvas shadows>
+  return  (<TestCanvas shadows>
     <MainScene />
   </TestCanvas>);
 } 
