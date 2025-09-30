@@ -1,12 +1,11 @@
 import { useHelper, OrbitControls,  Stage } from "@react-three/drei";
 import { Perf } from "r3f-perf";
-import Floor from "~/3d/floor";
-import RotatingCube from "~/routes/demos/first-r3f-app/rotating-cube";
 import Sphere from "~/3d/sphere";
 import { useEffect, useRef, type RefObject } from "react";
 import { DirectionalLightHelper, Object3D, type DirectionalLight } from "three";
 import { useControls } from "leva";
 import { useThree } from "@react-three/fiber";
+import RotatingCube from "~/3d/rotating-cube";
 
 export default function MainScene() {
 
