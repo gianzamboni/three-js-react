@@ -10,6 +10,7 @@ export default [
       route("environment-staging", "routes/demos/environment-staging/index.tsx"),
       route("load-models", "routes/demos/load-models/index.tsx"),
       route("3d-text", "routes/demos/3d-text/index.tsx"),
+      route("portal", "routes/demos/portal/index.tsx"),
     ]),
   ]),
 ] satisfies RouteConfig;
