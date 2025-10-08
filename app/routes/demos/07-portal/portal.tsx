@@ -1,6 +1,6 @@
 const PORTAL_URL = "/portal.glb";
 
-import { Center, useGLTF, useTexture } from "@react-three/drei";
+import { Center, Sparkles, useGLTF, useTexture } from "@react-three/drei";
 
 import { LinearSRGBColorSpace, type Mesh } from "three";
 
@@ -27,5 +27,12 @@ export default function Portal() {
     <mesh geometry={portal.geometry}>
       <meshBasicMaterial color="blue" />
     </mesh>
+    <Sparkles 
+      size={6} 
+      scale={[4, 1, 4]}
+      position-y={0.75}
+      speed={0.2}
+      count={30}
+    />
   </Center>
 }
