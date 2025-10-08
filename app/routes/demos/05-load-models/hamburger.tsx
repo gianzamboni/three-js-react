@@ -9,11 +9,6 @@ const HAMBURGER_URL = "https://i0hci4avyoqkwwp1.public.blob.vercel-storage.com/h
 
 export default function Hamburger({ ...props }: HamburgerProps) {
   const {nodes, materials} = useGLTF(HAMBURGER_URL);
-  
-  // Preload only on client-side to avoid SSR issues
-  useEffect(() => {
-    useGLTF.preload(HAMBURGER_URL);
-  }, []);
 
   return (
     <group {...props}>

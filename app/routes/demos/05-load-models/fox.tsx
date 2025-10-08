@@ -23,10 +23,5 @@ export default function Fox(props: MeshProps) {
     }
   }, [animationName]);
 
-  // Preload only on client-side to avoid SSR issues
-  useEffect(() => {
-    useGLTF.preload(FOX_URL);
-  }, []);
-
   return <primitive object={model.scene} {...props} />;
 }
