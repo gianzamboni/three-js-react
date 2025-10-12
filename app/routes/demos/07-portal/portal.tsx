@@ -1,25 +1,13 @@
 const PORTAL_URL = "/portal.glb";
 
-import { Center, useGLTF, useTexture, shaderMaterial } from "@react-three/drei";
-import { extend, useFrame } from '@react-three/fiber'
+import { Center, useGLTF, useTexture } from "@react-three/drei";
+import { useFrame, type RootState } from '@react-three/fiber'
 
-import { Color, ShaderMaterial, type Mesh } from "three";
+import { ShaderMaterial, type Mesh } from "three";
 
-import portalVertexShader from "./shaders/portal.vert";
-import portalFragmentShader from "./shaders/portal.frag";
+import { PortalMaterial } from './portal-material'
 import { useRef } from "react";
 
-const PortalMaterial = shaderMaterial(
-  {
-    uTime: 0,
-    uStartColor: new Color('#d8d6ff'),
-    uEndColor: new Color('#000000')
-  },
-  portalVertexShader,
-  portalFragmentShader
-)
-
-extend({ PortalMaterial });
 
 export default function Portal() {
 
@@ -35,7 +23,7 @@ export default function Portal() {
 
   bakedTexture.flipY = false;
 
-  useFrame((state, delta) => {
+  useFrame((state: RootState, delta: number) => {
     if (portalMaterialRef.current) {
       portalMaterialRef.current.uniforms.uTime.value += delta;
     }
