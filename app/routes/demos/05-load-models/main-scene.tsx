@@ -19,7 +19,7 @@ export default function MainScene() {
     />
     <ambientLight intensity={ 1.5 } />
 
-    <Floor rotation-x={-Math.PI * 0.5} scale={10} receiveShadow >
+    <Floor receiveShadow >
       <meshStandardMaterial color="greenyellow" />
     </Floor>
     <Suspense fallback={<Label>Loading...</Label>}>

@@ -53,7 +53,13 @@ const DEMOS: Demo[] = [
     thumbnail: 'demos/portal-scene.jpg',
     description: "A portal scence modelled and textured in Blender. Using React Three Fiber and DREI, I added animated fireflies and an and a nice portal effect.",
     link: "demos/portal",
-  }
+  }, {
+    id: 'pointer-events',
+    title: 'Pointer Events',
+    thumbnail: 'demos/pointer-events.jpg',
+    description: "Work in progress",
+    link: "demos/pointer-events",
+  },
 ].reverse();
 
 export default DEMOS;
