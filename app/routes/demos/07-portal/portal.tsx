@@ -1,8 +1,11 @@
 const PORTAL_URL = "/portal.glb";
 
-import { Center, Sparkles, useGLTF, useTexture } from "@react-three/drei";
+import { Center, useGLTF, useTexture } from "@react-three/drei";
 
-import { LinearSRGBColorSpace, type Mesh } from "three";
+import { Color, type Mesh } from "three";
+
+import portalVertexShader from "./shaders/portal.vert";
+import portalFragmentShader from "./shaders/portal.frag";
 
 export default function Portal() {
 
@@ -25,14 +28,15 @@ export default function Portal() {
     </mesh>
     <mesh geometry={lampRight.geometry} />
     <mesh geometry={portal.geometry}>
-      <meshBasicMaterial color="blue" />
+      <shaderMaterial 
+        vertexShader={portalVertexShader} 
+        fragmentShader={portalFragmentShader} 
+        uniforms={ {
+          uTime: { value: 0 },
+          uColorStart: { value: new Color('#ffffff') },
+          uColorEnd: { value: new Color('#000000') }
+        } }
+        />
     </mesh>
-    <Sparkles 
-      size={6} 
-      scale={[4, 1, 4]}
-      position-y={0.75}
-      speed={0.2}
-      count={30}
-    />
   </Center>
 }
