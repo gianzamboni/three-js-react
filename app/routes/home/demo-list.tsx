@@ -50,8 +50,8 @@ const DEMOS: Demo[] = [
   }, {
     id: 'portal',
     title: 'Portal',
-    thumbnail: 'demos/portal.jpg',
-    description: "Work in progress",
+    thumbnail: 'demos/portal-scene.jpg',
+    description: "A portal scence modelled and textured in Blender. Using React Three Fiber and DREI, I added animated fireflies and an and a nice portal effect.",
     link: "demos/portal",
   }
 ].reverse();
