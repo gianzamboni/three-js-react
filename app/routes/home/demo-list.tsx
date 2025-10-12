@@ -47,6 +47,12 @@ const DEMOS: Demo[] = [
     thumbnail: 'demos/3d-text.jpg',
     description: "A simple 3D text between random positioned donuts.  Everything here was made using Typescript and Three JS. Here we use DREI and React Three Fiber capabilities to optimize performance and create a lot of copies of the same object.",
     link: "demos/3d-text",
+  }, {
+    id: 'portal',
+    title: 'Portal',
+    thumbnail: 'demos/portal-scene.jpg',
+    description: "A portal scence modelled and textured in Blender. Using React Three Fiber and DREI, I added animated fireflies and an and a nice portal effect.",
+    link: "demos/portal",
   }
 ].reverse();
 
