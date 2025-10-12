@@ -1,18 +1,18 @@
-const PORTAL_URL = "/portal.glb";
-
 import { Center, useGLTF, useTexture } from "@react-three/drei";
 import { useFrame, type RootState } from '@react-three/fiber'
 
 import { ShaderMaterial, type Mesh } from "three";
 
-import { PortalMaterial } from './portal-material'
 import { useRef } from "react";
 
+import { PortalMaterial } from "./portal-material";
 
+const PORTAL_URL = "https://i0hci4avyoqkwwp1.public.blob.vercel-storage.com/portal/portal.glb";
+const PORTAL_BAKED_URL = "https://i0hci4avyoqkwwp1.public.blob.vercel-storage.com/portal/portal_baked.jpg";
 export default function Portal() {
 
   const { nodes } = useGLTF(PORTAL_URL);
-  const bakedTexture = useTexture("https://i0hci4avyoqkwwp1.public.blob.vercel-storage.com/portal/portal_baked.jpg");
+  const bakedTexture = useTexture(PORTAL_BAKED_URL);
   
   const portalMaterialRef = useRef<ShaderMaterial>(null);
 
