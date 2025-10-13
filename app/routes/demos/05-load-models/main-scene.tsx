@@ -1,10 +1,9 @@
 import { OrbitControls } from "@react-three/drei";
 import { Perf } from "r3f-perf";
 import Floor from "~/3d/floor";
-import Hamburger from "./hamburger";
-import { Suspense } from "react";
-import Label from "~/sketched-components/label";
+import Hamburger from "../../../3d/hamburger";
 import Fox from "./fox";
+import SketchySuspense from "~/sketched-components/SketchySuspense";
 
 export default function MainScene() {
   return <>
@@ -22,13 +21,13 @@ export default function MainScene() {
     <Floor receiveShadow >
       <meshStandardMaterial color="greenyellow" />
     </Floor>
-    <Suspense fallback={<Label>Loading...</Label>}>
+    <SketchySuspense>
       <Hamburger scale={0.35} />
       <Fox 
         scale={0.02}
         position={[-2.5, 0, 2.5]}
         rotation-y={0.3}
       />
-    </Suspense>
+    </SketchySuspense>
   </>;
 }

@@ -57,7 +57,7 @@ const DEMOS: Demo[] = [
     id: 'pointer-events',
     title: 'Pointer Events',
     thumbnail: 'demos/pointer-events.jpg',
-    description: "Work in progress",
+    description: "Some meshes that can be interacted with using pointer events. This demos uses raycasting to detect the meshes that has the cursor over them and listen for click events that affect them: When the cursor is over a clickable mesh, the cursor changes to a pointer and when the mesh is clicked, it changes color.",
     link: "demos/pointer-events",
   },
 ].reverse();
