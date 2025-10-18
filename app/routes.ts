@@ -11,6 +11,7 @@ export default [
       route("load-models", "routes/demos/05-load-models/index.tsx"),
       route("3d-text", "routes/demos/06-3d-text/index.tsx"),
       route("portal", "routes/demos/07-portal/index.tsx"),
+      route("pointer-events", "routes/demos/08-pointer-events/index.tsx"),
     ]),
   ]),
 ] satisfies RouteConfig;

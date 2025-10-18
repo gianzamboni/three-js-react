@@ -2,15 +2,16 @@ import { OrbitControls, Sparkles } from "@react-three/drei";
 import Portal from "./portal";
 import { Suspense } from "react";
 import Label from "~/sketched-components/label";
+import SketchySuspense from "~/sketched-components/SketchySuspense";
 
 export default function MainScene() {
   return <>
     <color attach="background" args={["#080712"]} />
     <OrbitControls makeDefault />
     
-    <Suspense fallback={<Label>Loading...</Label>}>  
+    <SketchySuspense>  
       <Portal />
-    </Suspense>
+    </SketchySuspense>
     <Sparkles 
       size={6} 
       scale={[4, 1, 4]}
