@@ -1,14 +1,3 @@
-
-.home-button-container {
-  background-color: white;
-  position: absolute;
-  top: 2.5em;
-  left: 2.5em;
-  overflow: visible;
-  padding: 0.25em ;
-  z-index: 100;
-}
-
 .home-icon {
   width: 3em;
   margin: 0.5em;

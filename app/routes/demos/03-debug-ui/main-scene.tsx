@@ -1,5 +1,5 @@
 import { OrbitControls } from "@react-three/drei";
-import { button, useControls } from "leva";
+import { button, useControls, levaStore, folder } from "leva";
 import Cube from "~/3d/cube";
 import Floor from "~/3d/floor";
 import Sphere from "~/3d/sphere";
@@ -7,7 +7,7 @@ import { Perf } from 'r3f-perf'
 
 export default function MainScene() {
 
-  const { position, color, visible } = useControls('sphere', {
+  const { position, color, visible } = useControls('Sphere', {
     position: {
       value: { x: -2, y: 0 },
       step: 0.01,
@@ -26,9 +26,9 @@ export default function MainScene() {
     options: {
       options: ['a', 'b', 'c']
     }
-  });
+  }, { store: levaStore });
 
-  const { scale } = useControls('cube', {
+  const { scale } = useControls('Cube', {
     scale:
     {
         value: 1.5,
@@ -36,18 +36,18 @@ export default function MainScene() {
         min: 0,
         max: 5
     }
-})
+}, { store: levaStore })
 
-  const { perf } = useControls('performance', {
+  const { perf } = useControls('Performance', {
     perf: true,
-  })
+  }, { store: levaStore })
 
   return <>
     <OrbitControls makeDefault />
     <directionalLight position={[1, 2, 3]} intensity={4.5} />
     <ambientLight intensity={1.5} />
 
-    {perf && <Perf position="bottom-right" />}
+    {perf && <Perf position="top-right" />}
     
     <Sphere visible={visible} color={color} position={[ position.x, position.y, 0]} />
     <Cube scale={scale} position-x={2}>

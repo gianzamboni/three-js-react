@@ -9,7 +9,7 @@
 @media (min-width: 1080px) {
   .demo-grid {
     grid-template-columns: repeat(2, minmax(300px, 1fr));
-    gap: 4em;
+    gap: 2em;
   }
 
   .two-columns-item {

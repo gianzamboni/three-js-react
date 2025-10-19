@@ -1,0 +1,19 @@
+.bottom-panel {
+  position: absolute;
+  inset-block-end: 0vh;
+  padding-inline-start: 1rem;
+  height: 40vh;
+  overflow: auto;
+  z-index: 100;
+  width: 100%;
+  background-color: white;
+  animation: all 0.3s ease-in-out;
+}
+
+.non-active {
+  inset-block-end: -30vh;
+}
+
+.active {
+  inset-block-end: 0vh;
+}
