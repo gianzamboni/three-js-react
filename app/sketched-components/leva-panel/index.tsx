@@ -31,12 +31,15 @@ export default function SketchyLevaPanel() {
     return folders;
   }, [data]);
 
+  console.log(folders);
+
   return <div className={`${styles["bottom-panel"]} ${activeFolder != null ? styles["active"] : styles["non-active"]}`}>
     {Array.from(folders.entries()).map(([folder, items]) => (
       <div key={folder} className={styles.folder}>
         <h2>{folder}</h2>
       </div>
     ))}
+    <LevaPanel store={levaStore} flat titleBar={false} />
   </div>;
 }
 

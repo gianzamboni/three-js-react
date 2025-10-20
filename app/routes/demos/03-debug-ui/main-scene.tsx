@@ -39,7 +39,7 @@ export default function MainScene() {
 }, { store: levaStore })
 
   const { perf } = useControls('Performance', {
-    perf: true,
+    perf: false,
   }, { store: levaStore })
 
   return <>

@@ -13,5 +13,3 @@ export default function SketchyLink({ children, ...props }: SketchyLinkProps) {
     <SketchyShadow strokeWidth={0.01} offsetX={3} offsetY={3} />
   </Link>;
 }
-
-
