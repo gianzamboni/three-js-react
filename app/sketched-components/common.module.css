@@ -1,5 +1,5 @@
 .sketchy-container-margin {
-  margin: 0.5em 0;
+  margin: var(--spacing-small) 0;
 }
 
 .sketchy-trace {
@@ -16,7 +16,7 @@
     font-family: Helvetica, Arial;
     position: absolute;
     background: #ffffffff;
-    padding: 15px;
+    padding: var(--spacing-md);
     white-space: nowrap;
     user-select: none;
 }

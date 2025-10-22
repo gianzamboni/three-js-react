@@ -1,12 +1,22 @@
 :root {
   --color-background: oklch(0.9422 0.01 166.77);
+
+
+  --font-size-md: 16px;
+  
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 4rem;
 }
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Source Code Pro", sans-serif; 
-  font-size: 16px;
+  font-size: var(--font-size-md);
 }
 
 html,
@@ -22,15 +32,14 @@ a {
   color: inherit;
 }
 
-.p-2 {
-  padding: 0.5em 2em;
+p {
+  max-width: 60ch;
 }
-
 
 .row {
   display: flex;
   flex-direction: row;
-  gap: 1em;
+  gap: var(--spacing-md);
 }
 
 .col {
