@@ -2,8 +2,12 @@
   display: grid;
   grid-template-columns: repeat(1, minmax(300px, 1fr));
   flex-wrap: wrap;
-  gap: 1em;
+  gap: var(--spacing-md);
   padding: 0;
+
+  @media (min-width: 728px) {
+    gap: var(--spacing-lg);
+  }
 
   @media (min-width:1440px) {
     grid-template-columns: repeat(2, minmax(300px, 1fr));
@@ -14,6 +18,10 @@
   padding: var(--spacing-lg);
   gap: var(--spacing-md);
   align-items: center;
+
+  @media (min-width: 728px) {
+    gap: var(--spacing-xl);
+  }
 
   p {
     text-align: justify;
