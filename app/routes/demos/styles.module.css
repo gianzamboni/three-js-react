@@ -1,5 +1,34 @@
 .home-icon {
-  width: 3em;
-  margin: 0.5em;
+  width: 2em;
   aspect-ratio: 1/1;
+
+  @media (min-width: 728px) {
+    width: 3em;
+  }
+
+  @media (min-width: 1440px) {
+    width: 4em;
+  }
+
+  @media (min-width: 2560px) {
+    width: 8em;
+  } 
+}
+
+.home-link {
+  position: absolute;
+  top: var(--spacing-md);
+  left: var(--spacing-md);
+  z-index: 100;
+  padding: var(--spacing-sm);
+
+  @media (min-width: 728px) {
+    top: var(--spacing-lg);
+    left: var(--spacing-lg);
+  }
+
+  @media (min-width: 2560px) {
+    top: var(--spacing-xl);
+    left: var(--spacing-xl);
+  }
 }

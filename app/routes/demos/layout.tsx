@@ -6,7 +6,7 @@ import SketchyLink from "~/sketched-components/link";
 
 export default function Layout() {
   return <main className="full-screen">
-    <SketchyLink to="/" >
+    <SketchyLink to="/" className={styles['home-link']} >
         <img src="/home.svg" alt="Home Icon" className={styles['home-icon']} />
     </SketchyLink>
     <Outlet />
