@@ -4,6 +4,7 @@ import commonStyles from "../common.module.css";
 import { MemoizedSketchedBorder } from "../sketched-border";
 import { SketchedImage } from "../image";
 import { SketchyShadow } from "../randomized-shadow";
+import { ULTRA_SMALL_STROKE_WIDTH } from "../constants";
 
 interface SketchedCardProps {
   link: string;
@@ -33,7 +34,7 @@ export function SketchedCard({
       <MemoizedSketchedBorder 
         className={`relative ${styles['card']} ${commonStyles['sketchy-container-margin']}`}
       >
-        <SketchyShadow offsetX={0.5} offsetY={1} strokeWidth={0.0001}/>
+        <SketchyShadow offsetX={0.5} offsetY={1} strokeWidth={ULTRA_SMALL_STROKE_WIDTH}/>
         <div className={styles['thumbnail-container']}>
           <SketchedImage src={thumbnail} alt={title} className={styles['sketchy-thumbnail']} />
         </div>

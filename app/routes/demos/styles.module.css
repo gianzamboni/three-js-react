@@ -1,18 +1,14 @@
 .home-icon {
-  width: 2em;
+  width: 2.5em;
   aspect-ratio: 1/1;
 
   @media (min-width: 728px) {
     width: 3em;
   }
 
-  @media (min-width: 1440px) {
-    width: 4em;
-  }
-
   @media (min-width: 2560px) {
-    width: 8em;
-  } 
+    width: 5em;
+  }
 }
 
 .home-link {
@@ -25,10 +21,5 @@
   @media (min-width: 728px) {
     top: var(--spacing-lg);
     left: var(--spacing-lg);
-  }
-
-  @media (min-width: 2560px) {
-    top: var(--spacing-xl);
-    left: var(--spacing-xl);
   }
 }

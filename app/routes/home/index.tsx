@@ -22,7 +22,7 @@ export default function Home() {
         ))}
         <SketchedCard
           key="3d-text"
-         targetBlank
+          targetBlank
           link="https://three.gianfrancozamboni.com.ar/"
           title="Three JS Journey without React"
           description="This are the demos made for the Three JS Journey Course before reaching the React Three Fiber Chapter."

@@ -20,6 +20,7 @@
   align-items: center;
   gap: var(--spacing-md);
   padding-block: var(--spacing-lg);
+  padding-inline: var(--spacing-md);
   overflow: visible;
   background-color: white;
 
@@ -27,6 +28,7 @@
     font-family: "Indie Flower", cursive;
     font-weight: 500;
     font-size: 2em;
+    text-align: center;
   }
 
   .description {
@@ -41,6 +43,10 @@
   
   @media(min-width: 768px) {
     padding-inline: var(--spacing-lg);
+    
+    h2 {
+      text-align: left;
+    }
     
     .description {
       display: block;

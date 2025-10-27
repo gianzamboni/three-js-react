@@ -7,7 +7,7 @@ import { SketchyShadow } from '~/sketched-components/randomized-shadow';
 import Floor from '~/3d/floor';
 import Cube from '~/3d/cube';
 import Sphere from '~/3d/sphere';
-import Label from '~/sketched-components/label';
+import Label from '~/sketched-components/label/label';
 export default function Experience() {
 
   const cubeRef = useRef<Object3D>(null);

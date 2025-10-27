@@ -3,7 +3,6 @@ import type { Mesh, MeshStandardMaterial } from "three";
 import Floor from "~/3d/floor";
 import RotatingCube from "~/3d/rotating-cube";
 import Sphere from "~/3d/sphere";
-import Label from "~/sketched-components/label";
 import SketchySuspense from "~/sketched-components/SketchySuspense";
 import Hamburger from "~/3d/hamburger";
 

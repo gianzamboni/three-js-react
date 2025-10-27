@@ -1,0 +1,9 @@
+.button-container {
+  background-color: white;
+  overflow: visible;
+  z-index: 100;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+

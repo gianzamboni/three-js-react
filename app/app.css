@@ -2,6 +2,13 @@
   --color-background: oklch(0.9422 0.01 166.77);
 
 
+  --icon-size-xs: 2.25em;
+  --icon-size-sm: 2.5em;
+  --icon-size-md: 3em;
+  --icon-size-lg: 4em;
+  --icon-size-xl: 6em;
+  --icon-size-2xl: 10em;
+
   --font-size-md: 16px;
   
   --spacing-xs: 0.25rem;
@@ -9,6 +16,7 @@
   --spacing-md: 1rem;
   --spacing-lg: 2rem;
   --spacing-xl: 4rem;
+  --spacing-2xl: 8rem;
 }
 
 * {
