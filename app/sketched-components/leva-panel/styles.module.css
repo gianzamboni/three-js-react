@@ -1,15 +1,19 @@
 .bottom-panel {
   position: absolute;
+  width: 100%;
   inset-block-end: 0;
 }
 
 .tabs-container {
   display: flex;
+  justify-content: center;
 }
 
 .controls-container {
+  transition: all 0.3s ease-in-out;
+  
   &.active {
-    height: auto;
+    height: 30vh;
   }
 
   &.inactive {

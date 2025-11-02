@@ -1,7 +1,7 @@
 import { levaStore } from "leva";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState, type ReactNode } from "react";
 import styles from "./styles.module.css";
-import SketchyButton from "../button";
+import Tabs from "./tabs";
 
 function getTopLevelFolder(path: string): string {
   const split = path.split(".");
@@ -12,9 +12,10 @@ function isColorString(value: unknown): value is string {
   return typeof value === "string" && /^#([0-9a-f]{3}|[0-9a-f]{6})$/i.test(value);
 }
 
-export default function SketchyLevaPanel() {
+function SketchyLevaPanel() {
   const [paths, setPaths] = useState<string[]>(() => levaStore.getVisiblePaths());
   const [activeTab, setActiveTab] = useState<string | null>(null);
+  const [isOpen, setIsOpen] = useState(false);
   const [tick, setTick] = useState(0);
 
   useEffect(() => {
@@ -208,25 +209,41 @@ export default function SketchyLevaPanel() {
     </div>;
   };
 
-  const orderedActivePaths = useMemo(() => {
-    const current = activeTab ? groups[activeTab] : [];
-    return levaStore.orderPaths(current);
-  }, [groups, activeTab, tick]);
+  const tabToOrderedPaths = useMemo(() => {
+    const map: Record<string, string[]> = {};
+    Object.keys(groups).forEach((tab) => {
+      const current = groups[tab] || [];
+      map[tab] = levaStore.orderPaths(current);
+    });
+    return map;
+  }, [groups, tick]);
+
+  const tabPanels = useMemo(() => {
+    const map: Record<string, ReactNode> = {};
+    Object.keys(tabToOrderedPaths).forEach((tab) => {
+      const pathsForTab = tabToOrderedPaths[tab] || [];
+      map[tab] = <div key={tab}>{pathsForTab.map((p) => renderControl(p))}</div>;
+    });
+    return map;
+  }, [tabToOrderedPaths]);
 
   const handleTabClick = (tab: string) => {
-    setActiveTab(activeTab === tab ? null : tab);
+    if (activeTab === tab) {
+      setIsOpen((prev) => !prev);
+    } else {
+      setActiveTab(tab);
+      setIsOpen(true);
+    }
   };
 
   return <div className={styles["bottom-panel"]}>
-    <div className={styles["tabs-container"]}>
-      {tabs.map((tab, index) => (
-        <SketchyButton style={{ zIndex: tabs.length - index }} key={tab} onClick={() => handleTabClick(tab)}>{tab}</SketchyButton>
-      ))}
-    </div>
-    <div className={`${styles["controls-container"]} ${activeTab ? styles["active"] : styles["inactive"]}`}>
-      {orderedActivePaths.map((p) => renderControl(p))}
+    <Tabs tabs={tabs} onTabClick={handleTabClick} />
+    <div className={`${styles["controls-container"]} ${isOpen ? styles["active"] : styles["inactive"]}`}>
+      {activeTab ? tabPanels[activeTab] : null}
     </div>
   </div>;
 }
+
+export default SketchyLevaPanel;
 
 
