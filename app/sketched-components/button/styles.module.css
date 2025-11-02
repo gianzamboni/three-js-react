@@ -3,8 +3,10 @@
   overflow: visible;
   z-index: 100;
   border: none;
-  padding: var(--spacing-xs);
+  padding-block: var(--spacing-xs);
+  padding-inline: var(--spacing-sm) ;
   cursor: pointer;
+  position: relative;
 }
 
 .sketchy-button-content {

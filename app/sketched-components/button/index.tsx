@@ -14,7 +14,8 @@ export default function SketchyButton({ children, className, ...props }: Sketchy
       {...props}
       className={styles["sketchy-button"]}
     >
-      <SketchedBorder baseStrokeWidth={SMALL_STROKE_WIDTH}>
+      <SketchedBorder baseStrokeWidth={MEDIUM_STROKE_WIDTH}>
+        <SketchyShadow />
         {children}
       </SketchedBorder>
     </button>
