@@ -1,9 +1,12 @@
-.button-container {
+.sketchy-button {
   background-color: white;
   overflow: visible;
   z-index: 100;
   border: none;
-  padding: 0;
+  padding: var(--spacing-xs);
   cursor: pointer;
 }
 
+.sketchy-button-content {
+  font-size: var(--font-size-lg);
+}

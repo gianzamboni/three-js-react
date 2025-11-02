@@ -1,45 +1,231 @@
-import { LevaPanel, levaStore, useControls } from "leva";
-import { useEffect, useMemo, useState } from "react";
+import { levaStore } from "leva";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import styles from "./styles.module.css";
-import type { DataItem } from "leva/dist/declarations/src/types";
+import SketchyButton from "../button";
+
+function getTopLevelFolder(path: string): string {
+  const split = path.split(".");
+  return split.length > 1 ? split[0] : "General";
+}
+
+function isColorString(value: unknown): value is string {
+  return typeof value === "string" && /^#([0-9a-f]{3}|[0-9a-f]{6})$/i.test(value);
+}
 
 export default function SketchyLevaPanel() {
+  const [paths, setPaths] = useState<string[]>(() => levaStore.getVisiblePaths());
+  const [activeTab, setActiveTab] = useState<string | null>(null);
+  const [tick, setTick] = useState(0);
 
-  const data = levaStore.useStore(s => s.data);
-  let [activeFolder, setActiveFolder] = useState<string | null>(null);
-  
-  const folders = useMemo(() => {
-    const folders = new Map<string, DataItem[]>();
-    folders.set("Settings", []);
+  useEffect(() => {
+    setPaths(levaStore.getVisiblePaths());
+    const unsubPaths = levaStore.useStore.subscribe(levaStore.getVisiblePaths, setPaths);
+    const unsubData = levaStore.useStore.subscribe(levaStore.getData, () => setTick((t) => t + 1));
+    return () => {
+      unsubPaths();
+      unsubData();
+    };
+  }, []);
 
-    for (const key of Object.keys(data)) {
-      if (key.includes(".")) {
-        const folderName = key.split(".")[0];
-        if(!folders.has(folderName)) {
-          folders.set(folderName, []);
-        }
-        folders.get(folderName)!.push(data[key]);
-      } else {
-       folders.get("Settings")!.push(data[key]);
-      }
+  const groups = useMemo(() => {
+    const folderToPaths: Record<string, string[]> = {};
+    paths.forEach((path) => {
+      const folder = getTopLevelFolder(path);
+      if (!folderToPaths[folder]) folderToPaths[folder] = [];
+      folderToPaths[folder].push(path);
+    });
+    return folderToPaths;
+  }, [paths]);
+
+  const tabs = useMemo(() => Object.keys(groups), [groups]);
+
+  const handleChangeNumber = useCallback((path: string, next: number) => {
+    levaStore.setValueAtPath(path, next, true);
+  }, []);
+
+  const handleChangeBoolean = useCallback((path: string, next: boolean) => {
+    levaStore.setValueAtPath(path, next, true);
+  }, []);
+
+  const handleChangeString = useCallback((path: string, next: string) => {
+    levaStore.setValueAtPath(path, next, true);
+  }, []);
+
+  const handleChangeSelect = useCallback((path: string, next: string | number) => {
+    levaStore.setValueAtPath(path, next, true);
+  }, []);
+
+  const handleChangeVector = useCallback((path: string, key: string, next: number) => {
+    const current = levaStore.get(path) || {};
+    const updated = { ...current, [key]: next };
+    levaStore.setValueAtPath(path, updated, true);
+  }, []);
+
+  const handleChangeInterval = useCallback((path: string, idx: 0 | 1, next: number) => {
+    const current = (levaStore.get(path) as [number, number]) || [0, 0];
+    const updated: [number, number] = idx === 0 ? [next, current[1]] : [current[0], next];
+    levaStore.setValueAtPath(path, updated, true);
+  }, []);
+
+  const renderControl = (path: string) => {
+    const input: any = (levaStore as any).getInput(path);
+    if (!input) return null;
+
+    const value = levaStore.get(path);
+    const label: string = input.label || input.key || path.split(".").pop() || path;
+    const disabled: boolean = !!(input.settings && input.settings.disabled);
+
+    // Button-like special input
+    if (typeof input.onClick === "function") {
+      return <div key={path}>
+        <label>{label}</label>
+        <button onClick={() => input.onClick(levaStore.get)} disabled={disabled}>Run</button>
+      </div>;
     }
 
-    if(folders.get("Settings")!.length === 0) {
-      folders.delete("Settings");
+    // Select
+    const options = input.settings && input.settings.options;
+    if (options && (Array.isArray(options) || typeof options === "object")) {
+      const entries = Array.isArray(options) ? options.map((o: any) => [o, o]) : Object.entries(options);
+      return <div key={path}>
+        <label>{label}</label>
+        <select
+          disabled={disabled}
+          value={value as any}
+          onChange={(e) => handleChangeSelect(path, e.target.value)}
+        >
+          {entries.map(([optValue, optLabel]: any) => (
+            <option key={String(optValue)} value={optValue as any}>{String(optLabel)}</option>
+          ))}
+        </select>
+      </div>;
     }
 
-    return folders;
-  }, [data]);
+    // Color
+    if (isColorString(value)) {
+      return <div key={path}>
+        <label>{label}</label>
+        <input
+          type="color"
+          disabled={disabled}
+          value={value as string}
+          onChange={(e) => handleChangeString(path, e.target.value)}
+        />
+      </div>;
+    }
 
-  console.log(folders);
+    // Interval [min, max]
+    if (Array.isArray(value) && value.length === 2 && value.every((v) => typeof v === "number")) {
+      return <div key={path}>
+        <label>{label}</label>
+        <div>
+          <input
+            type="number"
+            disabled={disabled}
+            value={value[0] as number}
+            onChange={(e) => handleChangeInterval(path, 0, Number(e.target.value))}
+          />
+          <input
+            type="number"
+            disabled={disabled}
+            value={value[1] as number}
+            onChange={(e) => handleChangeInterval(path, 1, Number(e.target.value))}
+          />
+        </div>
+      </div>;
+    }
 
-  return <div className={`${styles["bottom-panel"]} ${activeFolder != null ? styles["active"] : styles["non-active"]}`}>
-    {Array.from(folders.entries()).map(([folder, items]) => (
-      <div key={folder} className={styles.folder}>
-        <h2>{folder}</h2>
-      </div>
-    ))}
-    <LevaPanel store={levaStore} flat titleBar={false} />
+    if (value && typeof value === "object" && ("x" in (value as any) || "y" in (value as any) || "z" in (value as any))) {
+      const vec = value as Record<string, number>;
+      const axes = Object.keys(vec).filter((k) => typeof vec[k] === "number");
+      return <div key={path}>
+        <label>{label}</label>
+        <div>
+          {axes.map((axis) => (
+            <span key={axis}>
+              <span>{axis}</span>
+              <input
+                type="number"
+                disabled={disabled}
+                value={vec[axis] as number}
+                onChange={(e) => handleChangeVector(path, axis, Number(e.target.value))}
+              />
+            </span>
+          ))}
+        </div>
+      </div>;
+    }
+
+    // Boolean
+    if (typeof value === "boolean") {
+      return <div key={path}>
+        <label>{label}</label>
+        <input
+          type="checkbox"
+          disabled={disabled}
+          checked={value}
+          onChange={(e) => handleChangeBoolean(path, e.target.checked)}
+        />
+      </div>;
+    }
+
+    // Number
+    if (typeof value === "number") {
+      const min = input.settings && typeof input.settings.min === "number" ? input.settings.min : undefined;
+      const max = input.settings && typeof input.settings.max === "number" ? input.settings.max : undefined;
+      const step = input.settings && typeof input.settings.step === "number" ? input.settings.step : undefined;
+      return <div key={path}>
+        <label>{label}</label>
+        <input
+          type="number"
+          disabled={disabled}
+          value={value}
+          min={min as any}
+          max={max as any}
+          step={step as any}
+          onChange={(e) => handleChangeNumber(path, Number(e.target.value))}
+        />
+      </div>;
+    }
+
+    // String (fallback)
+    if (typeof value === "string") {
+      return <div key={path}>
+        <label>{label}</label>
+        <input
+          type="text"
+          disabled={disabled}
+          value={value}
+          onChange={(e) => handleChangeString(path, e.target.value)}
+        />
+      </div>;
+    }
+
+    // Unknown type: simple JSON viewer (read-only)
+    return <div key={path}>
+      <label>{label}</label>
+      <pre>{JSON.stringify(value)}</pre>
+    </div>;
+  };
+
+  const orderedActivePaths = useMemo(() => {
+    const current = activeTab ? groups[activeTab] : [];
+    return levaStore.orderPaths(current);
+  }, [groups, activeTab, tick]);
+
+  const handleTabClick = (tab: string) => {
+    setActiveTab(activeTab === tab ? null : tab);
+  };
+
+  return <div className={styles["bottom-panel"]}>
+    <div className={styles["tabs-container"]}>
+      {tabs.map((tab, index) => (
+        <SketchyButton style={{ zIndex: tabs.length - index }} key={tab} onClick={() => handleTabClick(tab)}>{tab}</SketchyButton>
+      ))}
+    </div>
+    <div className={`${styles["controls-container"]} ${activeTab ? styles["active"] : styles["inactive"]}`}>
+      {orderedActivePaths.map((p) => renderControl(p))}
+    </div>
   </div>;
 }
 

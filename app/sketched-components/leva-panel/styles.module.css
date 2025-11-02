@@ -1,19 +1,17 @@
 .bottom-panel {
   position: absolute;
-  inset-block-end: 0vh;
-  padding-inline-start: 1rem;
-  height: 40vh;
-  overflow: auto;
-  z-index: 100;
-  width: 100%;
-  background-color: white;
-  animation: all 0.3s ease-in-out;
+  inset-block-end: 0;
 }
 
-.non-active {
-  inset-block-end: -30vh;
+.tabs-container {
+  display: flex;
 }
 
-.active {
-  inset-block-end: 0vh;
+.controls-container {
+  &.active {
+    height: auto;
+  }
+  &.inactive {
+    height: 0;
+  }
 }

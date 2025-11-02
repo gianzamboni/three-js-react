@@ -3,20 +3,20 @@ import { SketchedBorder } from "~/sketched-components/sketched-border";
 import { SketchyShadow } from "~/sketched-components/randomized-shadow";
 import styles from "./styles.module.css";
 import commonStyles from "../common.module.css";
+import { MEDIUM_STROKE_WIDTH, SMALL_STROKE_WIDTH } from "../constants";
 
 type SketchyButtonProps = PropsWithChildren<ButtonHTMLAttributes<HTMLButtonElement>>;
 
-export default function SketchyButton({ children, className, type = "button", ...props }: SketchyButtonProps) {
+export default function SketchyButton({ children, className, ...props }: SketchyButtonProps) {
   return (
     <button
-      type={type}
+      type="button"
       {...props}
-      className={`${styles["button-container"]} ${className ?? ""} ${commonStyles["interactive-element"]} ${commonStyles["interactive-element-small"]}`}
+      className={styles["sketchy-button"]}
     >
-      <SketchedBorder baseStrokeWidth={0.01}>
+      <SketchedBorder baseStrokeWidth={SMALL_STROKE_WIDTH}>
         {children}
       </SketchedBorder>
-      <SketchyShadow offsetX={3} offsetY={3} />
     </button>
   );
 }
