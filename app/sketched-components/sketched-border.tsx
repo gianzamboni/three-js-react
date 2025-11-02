@@ -1,12 +1,13 @@
 import { RandomRectangle } from "./svg/rectangle";
 import commonStyles from "./common.module.css";
 import { memo, type PropsWithChildren } from "react";
-import { SMALL_STROKE_WIDTH } from "./constants";
+import type { StrokeStyle } from "three/examples/jsm/Addons.js";
+import type { StrokeWidth } from "./utils.ts";
 
 export type SketchedBorderProps = PropsWithChildren<{
   className?: string;
   sketchySVG?: React.ReactNode;
-  baseStrokeWidth?: number;
+  baseStrokeWidth?: StrokeWidth;
 }>;
 
 export function SketchedBorder(props: SketchedBorderProps) {
@@ -20,7 +21,7 @@ export function SketchedBorder(props: SketchedBorderProps) {
         preserveAspectRatio="none"
       >
         {props.sketchySVG}
-        <RandomRectangle strokeWidth={props.baseStrokeWidth ?? SMALL_STROKE_WIDTH} />
+        <RandomRectangle strokeWidth={props.baseStrokeWidth ?? "sm"} />
       </svg>
     </div>
   );

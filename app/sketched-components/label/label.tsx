@@ -4,7 +4,7 @@ import { SketchedBorder } from "~/sketched-components/sketched-border";
 import commonStyles from "../common.module.css";
 import type { HtmlProps } from "@react-three/drei/web/Html";
 import type { PropsWithChildren } from "react";
-import { MEDIUM_STROKE_WIDTH } from "../constants";
+import { MEDIUM_STROKE_WIDTH } from "../utils.ts";
 
 type LabelProps = PropsWithChildren<HtmlProps>
 export default function Label({ children, ...props }: LabelProps) {

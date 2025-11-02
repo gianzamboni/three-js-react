@@ -1,8 +1,10 @@
+import type { Point2D } from "../utils";
+
 type SideProps = {
-  start: [number, number  ];
-  firstControl: [number, number];
-  secondControl: [number, number];
-  end: [number, number];
+  start: Point2D;
+  firstControl: Point2D;
+  secondControl: Point2D;
+  end: Point2D;
   strokeWidth?: number;
 }
 

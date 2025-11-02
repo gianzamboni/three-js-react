@@ -3,7 +3,6 @@ import { SketchedBorder } from "~/sketched-components/sketched-border";
 import { SketchyShadow } from "~/sketched-components/randomized-shadow";
 import styles from "./styles.module.css";
 import commonStyles from "../common.module.css";
-import { MEDIUM_STROKE_WIDTH, SMALL_STROKE_WIDTH } from "../constants";
 
 type SketchyButtonProps = PropsWithChildren<ButtonHTMLAttributes<HTMLButtonElement>>;
 
@@ -14,7 +13,7 @@ export default function SketchyButton({ children, className, ...props }: Sketchy
       {...props}
       className={styles["sketchy-button"]}
     >
-      <SketchedBorder baseStrokeWidth={MEDIUM_STROKE_WIDTH}>
+      <SketchedBorder baseStrokeWidth="md">
         <SketchyShadow />
         {children}
       </SketchedBorder>

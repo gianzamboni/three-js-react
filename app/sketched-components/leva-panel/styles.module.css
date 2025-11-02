@@ -10,13 +10,18 @@
 }
 
 .controls-container {
+  background-color: var(--color-background);
   transition: all 0.3s ease-in-out;
-  
+  position:  relative;
+  padding-block-start: var(--spacing-md);
+  top: -1em;
+  overflow: hidden;
+
   &.active {
     height: 30vh;
   }
 
   &.inactive {
-    height: 0;
+    height: 1em;
   }
 }
