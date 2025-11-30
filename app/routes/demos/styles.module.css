@@ -1,3 +1,7 @@
+html, body {
+  overflow: hidden;
+}
+
 .home-icon {
   width: 2.5em;
   aspect-ratio: 1/1;

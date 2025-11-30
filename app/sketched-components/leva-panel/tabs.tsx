@@ -12,3 +12,5 @@ export default function Tabs({ tabs, onTabClick }: { tabs: string[]; onTabClick:
 }
 
 
+
+

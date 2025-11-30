@@ -9,3 +9,5 @@ export const STROKE_WIDTHS = {
 export type StrokeWidth = keyof typeof STROKE_WIDTHS;
 
 export type Point2D = [number, number];
+
+export type Side = "top" | "right" | "bottom" | "left";

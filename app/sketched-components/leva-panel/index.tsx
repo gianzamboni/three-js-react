@@ -223,7 +223,7 @@ function SketchyLevaPanel() {
     const map: Record<string, ReactNode> = {};
     Object.keys(tabToOrderedPaths).forEach((tab) => {
       const pathsForTab = tabToOrderedPaths[tab] || [];
-      map[tab] = <div key={tab}>{pathsForTab.map((p) => renderControl(p))}</div>;
+      map[tab] = <div key={tab} className={styles["tab-panel"]}>{pathsForTab.map((p) => renderControl(p))}</div>;
     });
     return map;
   }, [tabToOrderedPaths]);
@@ -239,8 +239,14 @@ function SketchyLevaPanel() {
 
   return <div className={styles["bottom-panel"]}>
     <Tabs tabs={tabs} onTabClick={handleTabClick} />
-    <SketchedBorder className={`${styles["controls-container"]} ${isOpen ? styles["active"] : styles["inactive"]}`} baseStrokeWidth="md" hidden-bottom> 
-      {activeTab ? tabPanels[activeTab] : null}
+    <SketchedBorder 
+      className={`${styles["controls-container"]} 
+      ${isOpen ? styles["active"] : styles["inactive"]}`} 
+      baseStrokeWidth="md" 
+      hiddenSides={["bottom", "left", "right"]}
+    > 
+    <div className={styles["sticky-safe-bar"]} />
+    <div className={styles["tab-panel-container"]}> {activeTab ? tabPanels[activeTab] : null} </div>
     </SketchedBorder>
   </div>;
 }
