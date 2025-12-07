@@ -1,4 +1,5 @@
-html, body {
+/* Prevent scrolling within the demos area only, without affecting the global document */
+.no-scroll {
   overflow: hidden;
 }
 
