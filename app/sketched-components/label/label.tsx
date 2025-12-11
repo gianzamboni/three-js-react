@@ -4,13 +4,12 @@ import { SketchedBorder } from "~/sketched-components/sketched-border";
 import commonStyles from "../common.module.css";
 import type { HtmlProps } from "@react-three/drei/web/Html";
 import type { PropsWithChildren } from "react";
-import { MEDIUM_STROKE_WIDTH } from "../utils.ts";
 
 type LabelProps = PropsWithChildren<HtmlProps>
 export default function Label({ children, ...props }: LabelProps) {
 return  <Html {...props} >
-  <SketchedBorder className={commonStyles.label} baseStrokeWidth={0.005}>
-    <SketchyShadow strokeWidth={MEDIUM_STROKE_WIDTH} offsetX={0.1} offsetY={2} />
+  <SketchedBorder className={commonStyles.label} baseStrokeWidth="xs">
+    <SketchyShadow strokeWidth="xs" offsetX={0.1} offsetY={2} />
     {children} 
   </SketchedBorder>
 </Html>;
