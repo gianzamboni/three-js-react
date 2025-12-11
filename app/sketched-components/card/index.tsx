@@ -33,7 +33,7 @@ export function SketchedCard({
       <MemoizedSketchedBorder 
         className={`relative ${styles['card']} ${commonStyles['sketchy-container-margin']}`}
       >
-        <SketchyShadow offsetX={0.5} offsetY={1} strokeWidth="xs"/>
+        <SketchyShadow offsetX={0.5} offsetY={1} strokeWidth="sm"/>
         <div className={styles['thumbnail-container']}>
           <SketchedImage src={thumbnail} alt={title} className={styles['sketchy-thumbnail']} />
         </div>
