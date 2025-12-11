@@ -1,10 +1,16 @@
-html, body {
+
+.no-scroll {
   overflow: hidden;
+  height: 100vh;
 }
 
 .home-icon {
   width: 2.5em;
   aspect-ratio: 1/1;
+  display: inline-block;
+  background-color: currentColor;
+  -webkit-mask: url('/home.svg') no-repeat center / contain;
+  mask: url('/home.svg') no-repeat center / contain;
 
   @media (min-width: 728px) {
     width: 3em;

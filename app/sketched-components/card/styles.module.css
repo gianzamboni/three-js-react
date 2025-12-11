@@ -22,7 +22,7 @@
   padding-block: var(--spacing-lg);
   padding-inline: var(--spacing-md);
   overflow: visible;
-  background-color: white;
+  background-color: var(--color-surface);
 
   h2 {
     font-family: "Indie Flower", cursive;

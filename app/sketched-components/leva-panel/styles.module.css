@@ -12,7 +12,7 @@
 }
 
 .controls-container {
-  background-color: white;
+  background-color: var(--color-surface);
   transition: all 0.3s ease-in-out;
   position:  relative;
   padding-block-end: var(--spacing-lg);
