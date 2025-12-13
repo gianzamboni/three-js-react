@@ -3,6 +3,7 @@ import { SketchedTitle } from "~/sketched-components/title";
 import styles from "./styles.module.css";
 import { SketchedCard } from "~/sketched-components/card";
 import DEMOS from "./demo-list";
+import { useScrollMemory } from "~/utils/useScrollMemory";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -12,6 +13,9 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export default function Home() {
+
+  useScrollMemory();
+  
   return (
     <div className={`col ${styles['home-container']}`}>
       <SketchedTitle>React Three Fiber Demos</SketchedTitle>
