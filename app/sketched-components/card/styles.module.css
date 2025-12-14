@@ -43,6 +43,7 @@
   
   @media(min-width: 768px) {
     padding-inline: var(--spacing-lg);
+    flex-direction: row;
     
     h2 {
       text-align: left;
@@ -53,14 +54,12 @@
     }
 
     .thumbnail-container {
-      display: none;
+      display: inline;
     }
   }
 
   @media (min-width: 1024px) {
-    flex-direction: row;
     padding-inline: var(--spacing-lg);
-    justify-content: center;
     .thumbnail-container {
       display: inline;
     };

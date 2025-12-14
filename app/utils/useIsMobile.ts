@@ -14,7 +14,7 @@ export const useIsMobile = (): UseIsMobileReturn => {
   useEffect(() => {
     const checkIsMobile = () => {
       // Check using media query
-      const mediaQuery = window.matchMedia("(max-width: 768px)");
+      const mediaQuery = window.matchMedia("(max-width: 820px)");
       
       // Check using user agent (additional detection)
       const userAgent = navigator.userAgent.toLowerCase();

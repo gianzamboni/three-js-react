@@ -5,19 +5,17 @@
 }
 
 .home-icon {
-  width: 2.5em;
+  width: var(--icon-size-xs);
   aspect-ratio: 1/1;
-  display: inline-block;
-  background-color: currentColor;
-  -webkit-mask: url('/home.svg') no-repeat center / contain;
-  mask: url('/home.svg') no-repeat center / contain;
+  padding: var(--spacing-xs);
 
   @media (min-width: 728px) {
-    width: 3em;
+    width: var(--icon-size-md);
   }
 
-  @media (min-width: 2560px) {
-    width: 5em;
+  @media (min-width: 1024px) {
+    padding: var(--spacing-sm);
+    width: var(--icon-size-lg);
   }
 }
 
