@@ -11,10 +11,10 @@ export default function SketchyButton({ children, className, ...props }: Sketchy
     <button
       type="button"
       {...props}
-      className={styles["sketchy-button"]}
+      className={`${styles["sketchy-button"]} ${commonStyles["interactive-element"]} ${commonStyles["interactive-element-small"]} ${className}`}
     >
       <SketchedBorder baseStrokeWidth="md">
-        <SketchyShadow />
+        <SketchyShadow strokeWidth="md" offsetX={4} offsetY={4}/>
         {children}
       </SketchedBorder>
     </button>

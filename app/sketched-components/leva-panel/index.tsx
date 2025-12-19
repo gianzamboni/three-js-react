@@ -1,8 +1,10 @@
 import { levaStore } from "leva";
-import { useCallback, useEffect, useMemo, useState, type ReactNode } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import styles from "./styles.module.css";
-import Tabs from "./tabs";
 import { SketchedBorder } from "../sketched-border";
+import SketchyButton from "../button";
+import SettingsIcon from "~/utils/icons/settings.svg?react";
+import commonStyles from "../common.module.css";
 
 function getTopLevelFolder(path: string): string {
   const split = path.split(".");
@@ -15,9 +17,10 @@ function isColorString(value: unknown): value is string {
 
 function SketchyLevaPanel() {
   const [paths, setPaths] = useState<string[]>(() => levaStore.getVisiblePaths());
-  const [activeTab, setActiveTab] = useState<string | null>(null);
   const [isOpen, setIsOpen] = useState(false);
   const [tick, setTick] = useState(0);
+  const [openGroups, setOpenGroups] = useState<Record<string, boolean>>({});
+  const panelRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     setPaths(levaStore.getVisiblePaths());
@@ -40,6 +43,32 @@ function SketchyLevaPanel() {
   }, [paths]);
 
   const tabs = useMemo(() => Object.keys(groups), [groups]);
+
+  // Initialize/maintain open state per group; default open the first one
+  useEffect(() => {
+    setOpenGroups((prev) => {
+      const next: Record<string, boolean> = {};
+      tabs.forEach((t, idx) => {
+        next[t] = prev[t] ?? idx === 0;
+      });
+      return next;
+    });
+  }, [tabs]);
+
+  // Close when clicking outside the bottom sheet
+  useEffect(() => {
+    const handlePointerDown = (e: PointerEvent) => {
+      if (!isOpen) return;
+      const root = panelRef.current;
+      if (root && e.target && !root.contains(e.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+    window.addEventListener("pointerdown", handlePointerDown, { capture: true });
+    return () => {
+      window.removeEventListener("pointerdown", handlePointerDown, { capture: true } as any);
+    };
+  }, [isOpen]);
 
   const handleChangeNumber = useCallback((path: string, next: number) => {
     levaStore.setValueAtPath(path, next, true);
@@ -228,26 +257,34 @@ function SketchyLevaPanel() {
     return map;
   }, [tabToOrderedPaths]);
 
-  const handleTabClick = (tab: string) => {
-    if (activeTab === tab) {
-      setIsOpen((prev) => !prev);
-    } else {
-      setActiveTab(tab);
-      setIsOpen(true);
-    }
+  const toggleGroup = (tab: string) => {
+    setOpenGroups((prev) => ({ ...prev, [tab]: !prev[tab] }));
   };
 
   return <div className={styles["bottom-panel"]}>
-    <Tabs tabs={tabs} onTabClick={handleTabClick} />
-    <SketchedBorder 
-      className={`${styles["controls-container"]} 
-      ${isOpen ? styles["active"] : styles["inactive"]}`} 
-      baseStrokeWidth="md" 
-      hiddenSides={["bottom", "left", "right"]}
-    > 
-    <div className={styles["sticky-safe-bar"]} />
-    <div className={styles["tab-panel-container"]}> {activeTab ? tabPanels[activeTab] : null} </div>
-    </SketchedBorder>
+    <SketchyButton className={`${styles["settings-button"]} ${commonStyles["interactive-element"]}`} onClick={() => setIsOpen((prev) => !prev)}>
+      <SettingsIcon className={styles["settings-icon"]} />
+    </SketchyButton>
+    {/* <div ref={panelRef}>
+      <SketchedBorder 
+        className={`${styles["controls-container"]} 
+        ${isOpen ? styles["active"] : styles["inactive"]}`} 
+        baseStrokeWidth="md" 
+        hiddenSides={["bottom", "left", "right"]}
+      > 
+      <div className={styles["sticky-safe-bar"]} />
+      <div className={styles["tab-panel-container"]}>
+        {tabs.map((tab) => (
+          <div key={tab}>
+            <button onClick={() => toggleGroup(tab)} aria-expanded={!!openGroups[tab]}>
+              {tab}
+            </button>
+            {openGroups[tab] ? tabPanels[tab] : null}
+          </div>
+        ))}
+      </div>
+      </SketchedBorder>
+    </div> */}
   </div>;
 }
 
