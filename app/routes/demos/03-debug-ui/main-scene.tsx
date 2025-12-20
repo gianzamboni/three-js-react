@@ -1,5 +1,5 @@
 import { OrbitControls } from "@react-three/drei";
-import { button, useControls, levaStore, folder } from "leva";
+import { button, useControls, levaStore } from "leva";
 import Cube from "~/3d/cube";
 import Floor from "~/3d/floor";
 import Sphere from "~/3d/sphere";
