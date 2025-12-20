@@ -2,9 +2,6 @@ import { levaStore } from "leva";
 import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import styles from "./styles.module.css";
 import { SketchedBorder } from "../sketched-border";
-import SketchyButton from "../button";
-import SettingsIcon from "~/utils/icons/settings.svg?react";
-import commonStyles from "../common.module.css";
 
 function getTopLevelFolder(path: string): string {
   const split = path.split(".");
@@ -261,10 +258,7 @@ function SketchyLevaPanel() {
     setOpenGroups((prev) => ({ ...prev, [tab]: !prev[tab] }));
   };
 
-  return <div className={styles["bottom-panel"]}>
-    <SketchyButton className={`${styles["settings-button"]} ${commonStyles["interactive-element"]}`} onClick={() => setIsOpen((prev) => !prev)}>
-      <SettingsIcon className={styles["settings-icon"]} />
-    </SketchyButton>
+  return 
     <div ref={panelRef}>
       <SketchedBorder 
         className={`${styles["controls-container"]} 
@@ -285,7 +279,6 @@ function SketchyLevaPanel() {
       </div>
       </SketchedBorder>
     </div>
-  </div>;
 }
 
 export default SketchyLevaPanel;

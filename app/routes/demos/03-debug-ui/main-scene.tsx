@@ -1,5 +1,5 @@
 import { OrbitControls } from "@react-three/drei";
-import { button, useControls, levaStore } from "leva";
+import { useControls, levaStore } from "leva";
 import Cube from "~/3d/cube";
 import Floor from "~/3d/floor";
 import Sphere from "~/3d/sphere";
@@ -15,17 +15,6 @@ export default function MainScene() {
     },
     color: "#ff0000",
     visible: true,
-    myInterval: {
-      min: 0,
-      max: 100,
-      value: [4, 5]
-    },
-    clickMe: button(() => {
-      console.log("clicked");
-    }),
-    options: {
-      options: ['a', 'b', 'c']
-    }
   }, { store: levaStore });
 
   const { scale } = useControls('Cube', {

@@ -12,7 +12,7 @@ export default function RotatingCube({ rotationSpeed = 1, ...props }: RotatingCu
 
   const cubeRef = useRef<Mesh>(null);
 
-  useFrame((state, delta) => {
+  useFrame((_, delta) => {
     if(!cubeRef.current) return;
     cubeRef.current.rotation.y += delta * rotationSpeed;
   });

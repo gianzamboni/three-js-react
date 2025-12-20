@@ -23,11 +23,11 @@
     user-select: none;
 }
 
+.animated {
+  transition: all 0.3s ease-in-out;
+}
 
-.interactive-element {
-
-  transition: transform 0.3s ease-in-out;
-
+.interactive {
   &:hover {
     transform: translateY(-5px);
   }
@@ -46,6 +46,6 @@
   }   
 }
 
-.interactive-element-small {
+.interactive-small {
   transition: transform 0.15s ease-in-out;
 }

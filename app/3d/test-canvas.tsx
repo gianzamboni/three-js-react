@@ -1,5 +1,5 @@
 import { Canvas, type CameraProps, type CanvasProps } from "@react-three/fiber";
-import { useMemo, type PropsWithChildren } from "react";
+import { useMemo } from "react";
 import useIsMobile from "~/utils/useIsMobile";
 
 type TestCanvasProps = CanvasProps;

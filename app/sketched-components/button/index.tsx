@@ -6,12 +6,15 @@ import commonStyles from "../common.module.css";
 
 type SketchyButtonProps = PropsWithChildren<ButtonHTMLAttributes<HTMLButtonElement>>;
 
+const defaultClasses = `${styles["sketchy-button"]} ${commonStyles["interactive"]} ${commonStyles["animated"]} ${commonStyles["interactive-small"]}`
+
 export default function SketchyButton({ children, className, ...props }: SketchyButtonProps) {
+  
   return (
     <button
       type="button"
       {...props}
-      className={`${styles["sketchy-button"]} ${commonStyles["interactive-element"]} ${commonStyles["interactive-element-small"]} ${className}`}
+      className={`${defaultClasses} ${className}`}
     >
       <SketchedBorder baseStrokeWidth="md">
         <SketchyShadow strokeWidth="md" offsetX={4} offsetY={4}/>

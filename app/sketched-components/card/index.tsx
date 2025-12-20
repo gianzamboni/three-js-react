@@ -22,12 +22,11 @@ export function SketchedCard({
   description,
   className,
   targetBlank,
-  expanded=false,
 }: SketchedCardProps) {
   return (
     <Link 
     to={link} 
-    className={`${styles['card-link']} ${className} ${commonStyles["interactive-element"]}`} 
+    className={`${styles['card-link']} ${className} ${commonStyles["interactive"]} ${commonStyles["animated"]}`} 
     target={targetBlank ? '_blank' : '_self'}
     >
       <MemoizedSketchedBorder 

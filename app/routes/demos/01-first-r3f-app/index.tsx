@@ -1,4 +1,4 @@
-import type { Route } from "../+types/first-r3f-app";
+import type { Route } from "./+types/index";
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { extend } from "@react-three/fiber";
 import MainScene from "./main-scene";
