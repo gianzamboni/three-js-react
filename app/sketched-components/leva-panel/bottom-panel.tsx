@@ -14,8 +14,8 @@ const BottomPanel = forwardRef<HTMLDivElement, BottomPanelProps>(({ isOpen }, re
   className += ` ${styles[isOpen ? "opened" : "closed"]}`;
 
   return (
-    <div ref={ref} className={className}>
-      <div className={styles["leva-custom-container"]}>
+    <div className={className}>
+      <div ref={ref}  className={styles["leva-custom-container"]}>
         <Leva
           theme={levaTheme}
           fill={true}
