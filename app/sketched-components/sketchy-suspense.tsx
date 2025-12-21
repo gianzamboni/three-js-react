@@ -1,4 +1,4 @@
-import { Suspense, useEffect, useState } from "react";
+import { Suspense } from "react";
 import Label from "~/sketched-components/label/label";
 
 export default function SketchySuspense({ children }: { children: React.ReactNode }) {  

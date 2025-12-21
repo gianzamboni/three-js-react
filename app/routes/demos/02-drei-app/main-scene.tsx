@@ -1,9 +1,6 @@
-import { Html, TransformControls, OrbitControls, PivotControls, Text, Float, MeshReflectorMaterial } from '@react-three/drei'
+import {  OrbitControls, PivotControls, Text, Float, MeshReflectorMaterial } from '@react-three/drei'
 import { useRef, type RefObject } from 'react';
 import type { Object3D } from 'three';
-import styles from "./styles.module.css";
-import { SketchedBorder } from '~/sketched-components/sketched-border';
-import { SketchyShadow } from '~/sketched-components/randomized-shadow';
 import Floor from '~/3d/floor';
 import Cube from '~/3d/cube';
 import Sphere from '~/3d/sphere';

@@ -1,5 +1,5 @@
 import type { ButtonHTMLAttributes, PropsWithChildren } from "react";
-import { SketchedBorder } from "~/sketched-components/sketched-border";
+import { SketchyBorder } from "~/sketched-components/sketchy-borders";
 import { SketchyShadow } from "~/sketched-components/randomized-shadow";
 import styles from "./styles.module.css";
 import commonStyles from "../common.module.css";
@@ -16,10 +16,10 @@ export default function SketchyButton({ children, className, ...props }: Sketchy
       {...props}
       className={`${defaultClasses} ${className}`}
     >
-      <SketchedBorder baseStrokeWidth="md">
+      <SketchyBorder baseStrokeWidth="md">
         <SketchyShadow strokeWidth="md" offsetX={4} offsetY={4}/>
         {children}
-      </SketchedBorder>
+      </SketchyBorder>
     </button>
   );
 }

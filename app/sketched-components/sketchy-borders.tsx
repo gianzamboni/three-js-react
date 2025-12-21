@@ -1,7 +1,7 @@
 import { RandomRectangle } from "./svg/rectangle";
 import commonStyles from "./common.module.css";
 import { memo, type PropsWithChildren } from "react";
-import type { Side, StrokeWidth } from "./utils.ts";
+import type { Side, StrokeWidth } from "./utils";
 
 export type SketchedBorderProps = PropsWithChildren<{
   className?: string;
@@ -10,7 +10,7 @@ export type SketchedBorderProps = PropsWithChildren<{
   hiddenSides?: Side[];
 }>;
 
-export function SketchedBorder(props: SketchedBorderProps) {
+export function SketchyBorder(props: SketchedBorderProps) {
   const hiddenSides = props.hiddenSides ?? [];
   return (
     <div className={props.className}>
@@ -23,9 +23,10 @@ export function SketchedBorder(props: SketchedBorderProps) {
       >
         {props.sketchySVG}
         <RandomRectangle strokeWidth={props.baseStrokeWidth ?? "sm"} hiddenSides={hiddenSides} />
+        <RandomRectangle strokeWidth={props.baseStrokeWidth ?? "sm"} hiddenSides={hiddenSides} />
       </svg>
     </div>
   );
 };
 
-export const MemoizedSketchedBorder = memo(SketchedBorder);
+export const MemoizedSketchedBorder = memo(SketchyBorder);

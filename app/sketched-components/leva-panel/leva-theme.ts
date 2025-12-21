@@ -27,11 +27,9 @@ export const levaTheme = {
   },
   sizes: {
     controlWidth: '200px',
-    scrubberWidth: '8px',
-    scrubberHeight: '16px',
-    rowHeight: '24px',
-    folderHeight: '20px',
-    checkboxSize: '16px',
+    rowHeight: '30px',
+    folderHeight: '50px',
+    checkboxSize: '20px',
     joystickWidth: '100px',
     joystickHeight: '100px',
     colorPickerWidth: '160px',
@@ -49,7 +47,7 @@ export const levaTheme = {
   },
   fontWeights: {
     label: 'normal',
-    folder: 'normal',
+    folder: '500',
     button: 'normal',
   },
 };

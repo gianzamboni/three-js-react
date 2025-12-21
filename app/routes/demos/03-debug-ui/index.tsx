@@ -1,7 +1,6 @@
 import type { Route } from "./+types/index";
 import MainScene from "./main-scene";
 import { TestCanvas } from "~/3d/test-canvas";
-import SketchyLevaPanel from "~/sketched-components/leva-panel";
 
 export function meta({ }: Route.MetaArgs) {
   return [
@@ -17,7 +16,6 @@ export default function DebugUI() {
     <TestCanvas>
       <MainScene />
     </TestCanvas>
-    <SketchyLevaPanel />
   </>
   );
 }

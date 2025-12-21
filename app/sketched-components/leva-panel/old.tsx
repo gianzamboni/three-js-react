@@ -1,7 +1,7 @@
 import { levaStore } from "leva";
 import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import styles from "./styles.module.css";
-import { SketchedBorder } from "../sketched-border";
+import { SketchyBorder } from "../sketchy-borders";
 
 function getTopLevelFolder(path: string): string {
   const split = path.split(".");
@@ -260,7 +260,7 @@ function SketchyLevaPanel() {
 
   return 
     <div ref={panelRef}>
-      <SketchedBorder 
+      <SketchyBorder 
         className={`${styles["controls-container"]} 
         ${isOpen ? styles["active"] : styles["inactive"]}`} 
         baseStrokeWidth="md" 
@@ -277,7 +277,7 @@ function SketchyLevaPanel() {
           </div>
         ))}
       </div>
-      </SketchedBorder>
+      </SketchyBorder>
     </div>
 }
 

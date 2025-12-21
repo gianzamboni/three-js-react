@@ -3,7 +3,7 @@ import { Perf } from "r3f-perf";
 import Floor from "~/3d/floor";
 import Hamburger from "../../../3d/hamburger";
 import Fox from "./fox";
-import SketchySuspense from "~/sketched-components/SketchySuspense";
+import SketchySuspense from "~/sketched-components/sketchy-suspense";
 
 export default function MainScene() {
   return <>

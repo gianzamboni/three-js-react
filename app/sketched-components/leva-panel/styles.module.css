@@ -8,7 +8,7 @@
   position: absolute;
   inset-inline-start: var(--spacing-md);
   inset-block-end: var(--spacing-md);
-  z-index: 0;
+  z-index: 1;
 
   @media (min-width: 768px) {
     inset-inline-start: var(--spacing-lg);
@@ -26,16 +26,18 @@
 }
 
 .bottom-panel {
-  position: absolute;
+  position: relative;
   bottom: 0;
   width: 100%;
+  user-select: none;
+  z-index: 2;
 
   .leva-custom-container {
+    position: relative;
     width: 100%;
     background: #fff;
     padding: 1rem;
-    overflow-y: auto;
-    max-width: 400px;
+    max-width: 500px;
 
     @media (min-width: 768px) {
       margin: auto;
@@ -53,5 +55,5 @@
 }
 
 .closed {
-  transform: translateY(100%);
+  transform: translateY(calc(100% + 2rem));
 }

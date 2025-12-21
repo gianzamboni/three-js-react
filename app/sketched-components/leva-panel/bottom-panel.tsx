@@ -3,6 +3,8 @@ import { levaTheme } from './leva-theme';
 import { forwardRef } from 'react';
 import styles from "./styles.module.css";
 import commonStyles from "../common.module.css"
+import { MemoizedSketchedBorder } from '../sketchy-borders';
+import { SketchyShadow } from '../randomized-shadow';
 
 type BottomPanelProps = {
   isOpen: boolean;
@@ -15,8 +17,10 @@ const BottomPanel = forwardRef<HTMLDivElement, BottomPanelProps>(({ isOpen }, re
 
   return (
     <div className={className}>
-      <div ref={ref}  className={styles["leva-custom-container"]}>
-        <Leva
+      <MemoizedSketchedBorder className={styles["leva-custom-container"]} baseStrokeWidth='sm'>
+        <SketchyShadow strokeWidth='sm' offsetX={1} offsetY={1}/>
+        <div ref={ref}>
+                  <Leva
           theme={levaTheme}
           fill={true}
           flat={true}
@@ -25,7 +29,8 @@ const BottomPanel = forwardRef<HTMLDivElement, BottomPanelProps>(({ isOpen }, re
           collapsed={false}
           hideCopyButton={true}
         />
-      </div>
+        </div>
+      </MemoizedSketchedBorder>
     </div>
   );
 });
