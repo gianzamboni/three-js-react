@@ -2,9 +2,9 @@ export const levaTheme = {
   colors: {
     elevation1: '#f5f5f5',
     elevation2: '#ffffff',
-    elevation3: '#ccf59eff',
+    elevation3: '#afe274ff',
     accent1: '#B792DE',
-    accent2: '#6B49A8',
+    accent2: '#9f82d4ff',
     accent3: '#141414ff',
     highlight1: '#999',
     highlight2: '#444',

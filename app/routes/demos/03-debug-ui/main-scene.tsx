@@ -9,26 +9,37 @@ export default function MainScene() {
 
   const { position, color, visible } = useControls('Sphere', {
     position: {
+      label: "Position",
       value: { x: -2, y: 0 },
       step: 0.01,
       joystick: "invertY"
     },
-    color: "#ff0000",
-    visible: true,
+    color: {
+      label: "Color",
+      value: "#ff0000",
+    },
+    visible: {
+      label: "Visible",
+      value: true,
+    },
   }, { store: levaStore });
 
   const { scale } = useControls('Cube', {
     scale:
     {
-        value: 1.5,
-        step: 0.01,
-        min: 0,
-        max: 5
+      label: "Scale",
+      value: 1.5,
+      step: 0.01,
+      min: 0,
+      max: 5
     }
 }, { store: levaStore })
 
   const { perf } = useControls('Performance', {
-    perf: false,
+    perf: {
+      label: "Show Panel",
+      value: false,
+    },
   }, { store: levaStore })
 
   return <>

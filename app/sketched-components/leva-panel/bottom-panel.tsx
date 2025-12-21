@@ -17,20 +17,19 @@ const BottomPanel = forwardRef<HTMLDivElement, BottomPanelProps>(({ isOpen }, re
 
   return (
     <div className={className}>
-      <MemoizedSketchedBorder className={styles["leva-custom-container"]} baseStrokeWidth='sm'>
-        <SketchyShadow strokeWidth='sm' offsetX={1} offsetY={1}/>
-        <div ref={ref}>
-                  <Leva
-          theme={levaTheme}
-          fill={true}
-          flat={true}
-          oneLineLabels={false}
-          titleBar={false}
-          collapsed={false}
-          hideCopyButton={true}
-        />
+      <div className={styles["leva-custom-container"]} ref={ref}>
+          <MemoizedSketchedBorder  baseStrokeWidth='sm'>
+            <SketchyShadow strokeWidth='sm' offsetX={1} offsetY={1}/>
+            <Leva
+              theme={levaTheme}
+              fill={true}
+              flat={true}
+              oneLineLabels={false}
+              titleBar={false}
+              hideCopyButton={true}
+            />
+          </MemoizedSketchedBorder>
         </div>
-      </MemoizedSketchedBorder>
     </div>
   );
 });

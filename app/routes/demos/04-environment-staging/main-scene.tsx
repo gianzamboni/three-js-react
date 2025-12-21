@@ -9,8 +9,11 @@ import RotatingCube from "~/3d/rotating-cube";
 
 export default function MainScene() {
 
-  const { envMapIntensity } = useControls('environment map', {
-    envMapIntensity: { value: 7, min: 0, max: 12 },
+  const { envMapIntensity } = useControls('Environment Map', {
+    envMapIntensity: {
+      label: "Intensity",
+      value: 7, min: 0, max: 12 
+    },
 })
 
   const directionalLightRef = useRef<DirectionalLight>(null);
