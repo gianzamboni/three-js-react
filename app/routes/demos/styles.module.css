@@ -8,7 +8,7 @@
     width: var(--icon-size-md);
   }
 
-  @media (min-width: 1024px) {
+  @media (min-width: 2048px) {
     padding: var(--spacing-sm);
     width: var(--icon-size-lg);
   }
