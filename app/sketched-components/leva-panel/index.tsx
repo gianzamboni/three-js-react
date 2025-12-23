@@ -3,11 +3,16 @@ import SettingsIcon from "~/utils/icons/settings.svg?react";
 import styles from "./styles.module.css";
 import commonStyles from "../common.module.css";
 import BottomPanel from "./bottom-panel";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useMemo } from "react";
+import { levaStore } from "leva";
 
 export default function SketchyLevaPanel() {
     const [panelOpened, setPanelOpened] = useState(false);
     const panelRef = useRef<HTMLDivElement>(null);
+
+    // Used as a triger for a levaStore changes; Not used directly though
+    const store = levaStore.useStore();
+
 
     useEffect(() => {
         if (!panelOpened) return;
@@ -23,8 +28,10 @@ export default function SketchyLevaPanel() {
             document.removeEventListener('mousedown', handleClickOutside);
         };
     }, [panelOpened]);
+
+    const hasControls = levaStore.getVisiblePaths().length > 0;
     
-    return (
+    return (hasControls &&
         <div className={styles["panel-container"]}>
             <SketchyButton 
                 className={`${styles["settings-button"]} ${commonStyles["interactive-element"]}`} 
