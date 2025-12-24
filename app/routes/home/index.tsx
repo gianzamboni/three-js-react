@@ -3,7 +3,7 @@ import { SketchedTitle } from "~/sketched-components/title";
 import styles from "./styles.module.css";
 import { SketchedCard } from "~/sketched-components/card";
 import DEMOS from "./demo-list";
-import { useScrollMemory } from "~/utils/useScrollMemory";
+import { useScrollMemory } from "~/utils/use-scroll-memory";
 
 export function meta({}: Route.MetaArgs) {
   return [

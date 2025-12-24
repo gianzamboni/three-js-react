@@ -3,7 +3,7 @@ import { useControls, levaStore } from "leva";
 import Cube from "~/3d/cube";
 import Floor from "~/3d/floor";
 import Sphere from "~/3d/sphere";
-import { Perf } from 'r3f-perf'
+import ToggablePerfPanel from "~/utils/toggable-perf-panel";
 
 export default function MainScene() {
 
