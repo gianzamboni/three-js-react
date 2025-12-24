@@ -35,19 +35,12 @@ export default function MainScene() {
     }
 }, { store: levaStore })
 
-  const { perf } = useControls('Performance', {
-    perf: {
-      label: "Show Panel",
-      value: false,
-    },
-  }, { store: levaStore })
-
   return <>
     <OrbitControls makeDefault />
     <directionalLight position={[1, 2, 3]} intensity={4.5} />
     <ambientLight intensity={1.5} />
 
-    {perf && <Perf position="top-right" />}
+    <ToggablePerfPanel />
     
     <Sphere visible={visible} color={color} position={[ position.x, position.y, 0]} />
     <Cube scale={scale} position-x={2}>

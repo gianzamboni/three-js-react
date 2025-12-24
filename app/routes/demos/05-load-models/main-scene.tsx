@@ -4,10 +4,11 @@ import Floor from "~/3d/floor";
 import Hamburger from "../../../3d/hamburger";
 import Fox from "./fox";
 import SketchySuspense from "~/sketched-components/sketchy-suspense";
+import ToggablePerfPanel from "~/utils/toggable-perf-panel";
 
 export default function MainScene() {
   return <>
-    <Perf position="bottom-right" />
+    <ToggablePerfPanel />
     <OrbitControls makeDefault />
 
     <directionalLight 

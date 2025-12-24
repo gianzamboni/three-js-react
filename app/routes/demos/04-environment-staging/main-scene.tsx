@@ -1,10 +1,10 @@
 import { useHelper, OrbitControls, Stage } from "@react-three/drei";
-import { Perf } from "r3f-perf";
 import Sphere from "~/3d/sphere";
 import { useRef, type RefObject } from "react";
 import { DirectionalLightHelper, type DirectionalLight } from "three";
 import { useControls } from "leva";
 import RotatingCube from "~/3d/rotating-cube";
+import ToggablePerfPanel from "~/utils/toggable-perf-panel";
 
 export default function MainScene() {
 
@@ -15,19 +15,12 @@ export default function MainScene() {
     },
   })
 
-  const { perf } = useControls('Performance', {
-    perf: {
-      label: "Show Panel",
-      value: false,
-    },
-  })
-
   const directionalLightRef = useRef<DirectionalLight>(null);
 
   useHelper(directionalLightRef as RefObject<DirectionalLight>, DirectionalLightHelper, 1);
 
   return <>
-    {perf && <Perf position="top-right" />}
+    <ToggablePerfPanel />
     <OrbitControls makeDefault />
 
     <Stage
