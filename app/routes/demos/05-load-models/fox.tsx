@@ -11,7 +11,7 @@ export default function Fox(props: MeshProps) {
   const animations = useAnimations(model.animations, model.scene);
 
   const { animationName } = useControls({
-    animationName: { options: animations.names },
+    animationName: { options: animations.names, label: "Fox Animation" },
   });
 
   useEffect(() => {
