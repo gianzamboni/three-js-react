@@ -1,5 +1,4 @@
 import { OrbitControls } from "@react-three/drei";
-import { Perf } from "r3f-perf";
 import Floor from "~/3d/floor";
 import Hamburger from "../../../3d/hamburger";
 import Fox from "./fox";
