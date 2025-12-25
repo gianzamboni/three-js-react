@@ -7,7 +7,7 @@ import { Bvh } from "@react-three/drei";
 
 extend({ OrbitControls });
 
-export function meta({}: Route.MetaArgs) {
+export function meta( _: Route.MetaArgs) {
   return [
     { title: "Pointer Events" },
     { name: "description", content: "Pointer Events" },

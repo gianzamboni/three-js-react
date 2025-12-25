@@ -9,7 +9,7 @@ export const useScrollMemory = (storageKey: string = 'scrollTop') => {
 	useEffect(() => {
     scrollTop.current = parseFloat(localStorage.getItem(storageKey) || '0');
 
-		document.body.scrollTo({ top: scrollTop.current, behavior: 'instant' } as ScrollToOptions);
+		document.body.scrollTo({ top: scrollTop.current, behavior: 'instant' });
 
 		const handleBodyScroll = () => {
 			scrollTop.current = document.body.scrollTop;

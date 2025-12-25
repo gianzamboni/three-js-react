@@ -1,4 +1,4 @@
-import { randomizedOffset, randomizedOffset2D } from "~/utils/random";
+import { randomizedOffset2D } from "~/utils/random";
 import { Side } from "./line";
 import { useEffect, useMemo, useState } from "react";
 import { STROKE_WIDTHS, type Point2D, type StrokeWidth } from "../utils";

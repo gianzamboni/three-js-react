@@ -1,15 +1,13 @@
 import { useFrame } from '@react-three/fiber';
 import type { Mesh } from 'three';
-import React, { useRef } from 'react';
-import type { Group } from 'three';
-import * as THREE from 'three';
+import { useRef } from 'react';
 import type { MeshProps } from '~/3d/types';
 
 export default function RandomPlacedMeshes({ material, geometry }: MeshProps) {
 
   const donuts = useRef<Mesh[]>([]);
 
-  useFrame((state, delta) => {
+  useFrame((_, delta) => {
     for(const donut of donuts.current) {
       donut.rotation.y += delta * 0.2;
     }

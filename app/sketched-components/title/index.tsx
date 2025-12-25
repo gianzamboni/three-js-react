@@ -1,6 +1,10 @@
 import styles from "./styles.module.css";
 import commonStyles from "../common.module.css";
-export function SketchedTitle({ children }: { children: React.ReactNode }) {
+import type { PropsWithChildren } from "react";
+
+type SketchedTitleProps = PropsWithChildren;
+
+export function SketchedTitle({ children }: SketchedTitleProps) {
   return (
     <div className={`relative ${commonStyles['sketchy-container-margin']} ${styles['title']}`}> 
     <h1 className={styles.title}>

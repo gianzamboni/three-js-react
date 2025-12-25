@@ -6,7 +6,7 @@ import MainScene from "./main-scene";
 
 extend({ OrbitControls });
 
-export function meta({}: Route.MetaArgs) {
+export function meta(_: Route.MetaArgs) {
   return [
     { title: "Portal Scene" },
     { name: "description", content: "Portal Scene" },

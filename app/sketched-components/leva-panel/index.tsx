@@ -3,14 +3,17 @@ import SettingsIcon from "~/utils/icons/settings.svg?react";
 import styles from "./styles.module.css";
 import commonStyles from "../common.module.css";
 import BottomPanel from "./bottom-panel";
-import { useState, useRef, useEffect, useMemo } from "react";
+import { useState, useRef, useEffect } from "react";
 import { levaStore } from "leva";
 
 export default function SketchyLevaPanel() {
     const [panelOpened, setPanelOpened] = useState(false);
     const panelRef = useRef<HTMLDivElement>(null);
 
-    // Used as a triger for a levaStore changes; Not used directly though
+    // Used as a triger for a levaStore changes; Not used directly though. 
+    // If removed, this component won't work.
+    // @ts-ignore
+    // eslint-disable-next-line no-unused-vars
     const store = levaStore.useStore();
 
 

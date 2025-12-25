@@ -1,11 +1,11 @@
 import { RandomRectangle } from "./svg/rectangle";
 import commonStyles from "./common.module.css";
-import { memo, type PropsWithChildren } from "react";
+import { memo, type PropsWithChildren, type ReactNode } from "react";
 import type { Side, StrokeWidth } from "./utils";
 
 export type SketchedBorderProps = PropsWithChildren<{
   className?: string;
-  sketchySVG?: React.ReactNode;
+  sketchySVG?: ReactNode;
   baseStrokeWidth?: StrokeWidth;
   hiddenSides?: Side[];
 }>;

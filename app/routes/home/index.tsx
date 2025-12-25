@@ -5,7 +5,7 @@ import { SketchedCard } from "~/sketched-components/card";
 import DEMOS from "./demo-list";
 import { useScrollMemory } from "~/utils/use-scroll-memory";
 
-export function meta({}: Route.MetaArgs) {
+export function meta( _: Route.MetaArgs) {
   return [
     { title: "Three JS Journey | Gianfranco Zamboni" },
     { name: "description", content: "Welcome to React Router!" },

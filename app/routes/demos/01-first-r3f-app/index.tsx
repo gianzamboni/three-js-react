@@ -6,7 +6,7 @@ import { TestCanvas } from "~/3d/test-canvas";
 
 extend({ OrbitControls });
 
-export function meta({}: Route.MetaArgs) {
+export function meta(_: Route.MetaArgs) {
   return [
     { title: "First R3F Application" },
     { name: "description", content: "First R3F Application" },

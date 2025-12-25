@@ -6,7 +6,7 @@ import MainScene from "./main-scene";
 
 extend({ OrbitControls });
 
-export function meta({}: Route.MetaArgs) {
+export function meta(_: Route.MetaArgs) {
   return [
     { title: "Loading Models" },
     { name: "description", content: "Loading Models" },
