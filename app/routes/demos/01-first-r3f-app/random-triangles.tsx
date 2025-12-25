@@ -22,9 +22,8 @@ export default function RandomTriangles() {
     <bufferGeometry ref={geometryRef}>
       <bufferAttribute 
         attach="attributes-position" 
-        count={verticesCount} 
-        itemSize={3} 
-        array={positions} 
+        args={[positions, 3]}
+        count={verticesCount}
       />
     </bufferGeometry>
     <meshStandardMaterial color="red" side={DoubleSide}/>

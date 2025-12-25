@@ -1,6 +1,8 @@
-import { randomizedOffset, randomizedOffset2D } from "~/utils/random";
-import { generateRectangleLimits, type RectangleLimits } from "./utils";
 import { useEffect, useState } from "react";
+
+import { generateRectangleLimits, type RectangleLimits } from "./utils";
+
+import { randomizedOffset, randomizedOffset2D } from "~/utils/random";
 
 type ClipPathState = {
   limits: RectangleLimits;

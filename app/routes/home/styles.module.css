@@ -2,18 +2,29 @@
   display: grid;
   grid-template-columns: repeat(1, minmax(300px, 1fr));
   flex-wrap: wrap;
-  gap: 1em;
-  padding: 2em;
-}
+  gap: var(--spacing-md);
+  padding: 0;
 
-@media (min-width: 1080px) {
-  .demo-grid {
+  @media (min-width: 728px) {
+    gap: var(--spacing-lg);
+  }
+
+  @media (min-width:1440px) {
     grid-template-columns: repeat(2, minmax(300px, 1fr));
-    gap: 4em;
+  }
+} 
+
+.home-container {
+  padding: var(--spacing-lg);
+  gap: var(--spacing-md);
+  align-items: center;
+
+  @media (min-width: 728px) {
+    gap: var(--spacing-xl);
   }
 
-  .two-columns-item {
-    grid-column: span 2;
+  p {
+    text-align: justify;
   }
-  
 }
+

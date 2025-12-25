@@ -1,8 +1,10 @@
 import { useFrame } from "@react-three/fiber";
 import { useRef } from "react";
 import { Mesh } from "three";
-import Cube from "~/3d/cube";
+
 import type { MeshProps } from "~/3d/types";
+
+import Cube from "~/3d/cube";
 
 type RotatingCubeProps = MeshProps & {
   rotationSpeed?: number;
@@ -12,7 +14,7 @@ export default function RotatingCube({ rotationSpeed = 1, ...props }: RotatingCu
 
   const cubeRef = useRef<Mesh>(null);
 
-  useFrame((state, delta) => {
+  useFrame((_, delta) => {
     if(!cubeRef.current) return;
     cubeRef.current.rotation.y += delta * rotationSpeed;
   });

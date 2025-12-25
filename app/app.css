@@ -1,20 +1,54 @@
 :root {
+  /* Light theme (default) */
   --color-background: oklch(0.9422 0.01 166.77);
+  --color-surface: oklch(1 0.01 166.77);
+  --color-text: oklch(0.2101 0.0318 264.66);
+
+  --icon-size-xs: 2.25em;
+  --icon-size-sm: 2.5em;
+  --icon-size-md: 3em;
+  --icon-size-lg: 5em;
+  --icon-size-xl: 6em;
+  --icon-size-2xl: 10em;
+
+  --font-size-md: 16px;
+  --font-size-lg: 24px;
+  
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 4rem;
+  --spacing-2xl: 8rem;
 }
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: oklch(0.2101 0.01 166.77); /* slate-900 */
+    --color-surface: oklch(0.15 0.01 166.77);    /* gray-900 */
+    --color-text: oklch(0.9422 0.0318 264.66);       /* gray-200 */
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Source Code Pro", sans-serif; 
-  font-size: 16px;
+  font-size: var(--font-size-md);
 }
 
 html,
 body {
   height: 100vh;
   width: 100vw;
-  overflow-x: hidden;
   background-color: var(--color-background);
+  color: var(--color-text);
+  overflow-x: hidden;
+}
+
+html:has(body > .parent-no-scroll) {
+  overflow-y: hidden;
 }
 
 a {
@@ -22,15 +56,14 @@ a {
   color: inherit;
 }
 
-.p-2 {
-  padding: 0.5em 2em;
+p {
+  max-width: 60ch;
 }
-
 
 .row {
   display: flex;
   flex-direction: row;
-  gap: 1em;
+  gap: var(--spacing-md);
 }
 
 .col {

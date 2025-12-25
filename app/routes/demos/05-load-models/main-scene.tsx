@@ -1,13 +1,15 @@
 import { OrbitControls } from "@react-three/drei";
-import { Perf } from "r3f-perf";
-import Floor from "~/3d/floor";
+
 import Hamburger from "../../../3d/hamburger";
+
 import Fox from "./fox";
-import SketchySuspense from "~/sketched-components/SketchySuspense";
+
+import Floor from "~/3d/floor";
+import SketchySuspense from "~/sketched-components/sketchy-suspense";
+import ToggablePerfPanel from "~/utils/toggable-perf-panel";
 
 export default function MainScene() {
   return <>
-    <Perf position="bottom-right" />
     <OrbitControls makeDefault />
 
     <directionalLight 
@@ -28,6 +30,7 @@ export default function MainScene() {
         position={[-2.5, 0, 2.5]}
         rotation-y={0.3}
       />
+      <ToggablePerfPanel />
     </SketchySuspense>
   </>;
 }

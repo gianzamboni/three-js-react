@@ -13,19 +13,17 @@
   overflow: visible;
 }
 
-.expanded {
-  width: 100%;
-}
-
 .card {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 1em;
-  padding: 1em 2em;
-  overflow: visible;
-  background-color: white;
   
+  align-items: center;
+  gap: var(--spacing-md);
+  padding-block: var(--spacing-lg);
+  padding-inline: var(--spacing-md);
+  overflow: visible;
+  background-color: var(--color-surface);
+
   h2 {
     font-family: "Indie Flower", cursive;
     font-weight: 500;
@@ -33,55 +31,38 @@
     text-align: center;
   }
 
-  p {
+  .description {
     font-size: 1em;
     margin: 0.125em 0 0 0;
-  }
-}
-
-.thumbnail-container {
-  display: inline;
-}
-
-.description {
-  display: none;
-}
-
-@media (min-width: 600px) {
-  .card {
-    flex-direction: row;
-    align-items: flex-start;
-    background-color: white;
-    h2 {
-      text-align: left;
-    }
-  }
-
-  .description {
-    margin-top: 1em;
-    display: block;
-  }
-
-  .thumbnail-container {
     display: none;
   }
-}
 
-@media (min-width: 1440px) {
-  .sketchy-thumbnail {
-    height: 15em;
-    width: 15em;
+  .thumbnail-container {
+    display: inline;  
   }
-
-  .card {
-    padding: 2em 4em;
-
+  
+  @media(min-width: 768px) {
+    padding-inline: var(--spacing-lg);
+    flex-direction: row;
+    
     h2 {
       text-align: left;
     }
+    
+    .description {
+      display: block;
+    }
+
+    .thumbnail-container {
+      display: inline;
+    }
   }
 
-  .thumbnail-container {
-    display: inline;
+  @media (min-width: 1024px) {
+    padding-inline: var(--spacing-lg);
+    .thumbnail-container {
+      display: inline;
+    };
   }
 }
+

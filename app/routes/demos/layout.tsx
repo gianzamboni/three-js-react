@@ -1,16 +1,26 @@
-import { Link, Outlet } from "react-router";
-import { SketchedBorder } from "~/sketched-components/sketched-border";
+import { levaStore } from "leva";
+import { useEffect } from "react";
+import { Outlet } from "react-router";
+
 import styles from "./styles.module.css";
-import { SketchyShadow } from "~/sketched-components/randomized-shadow";
+
+import SketchyLevaPanel from "~/sketched-components/leva-panel";
+import SketchyLink from "~/sketched-components/link";
+import HomeIcon from "~/utils/icons/home.svg?react";
 
 export default function Layout() {
-  return <main className="full-screen">
-    <Link to="/" className={styles['home-button-container']}>
-      <SketchedBorder baseStrokeWidth={0.01} >
-        <img src="/home.svg" alt="Home Icon" className={styles['home-icon']} />
-      </SketchedBorder>
-      <SketchyShadow strokeWidth={0.01} offsetX={3} offsetY={3} />
-    </Link>
+
+  useEffect(() => {
+    return () => {
+      levaStore.dispose();
+    }
+  }, []);
+
+  return <main className="full-screen parent-no-scroll">
+    <SketchyLink to="/" className={styles['home-link']} aria-label="Home">
+        <HomeIcon className={styles['home-icon']}  />
+    </SketchyLink>
+    <SketchyLevaPanel />
     <Outlet />
-  </main>;  
+  </main>;
 }

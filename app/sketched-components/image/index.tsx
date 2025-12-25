@@ -1,8 +1,11 @@
-import { useEffect, useMemo, useRef, useState, type ImgHTMLAttributes } from "react";
-import { MemoizedSketchedBorder, SketchedBorder } from "../sketched-border";
+import { useEffect, useRef, useState, type ImgHTMLAttributes } from "react";
 import { v4 } from "uuid";
-import styles from "./styles.module.css";
+
+import { MemoizedSketchedBorder } from "../sketchy-borders";
 import { RandomRectangleClipPath } from "../svg/rectangle-clip-path";
+
+import styles from "./styles.module.css";
+
 
 export type SketchedImageProps = ImgHTMLAttributes<HTMLImageElement> & {
   className?: string;

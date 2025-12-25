@@ -1,21 +1,24 @@
 import { meshBounds, OrbitControls } from "@react-three/drei";
+
+import type { ThreeEvent } from "@react-three/fiber";
 import type { Mesh, MeshStandardMaterial } from "three";
+
 import Floor from "~/3d/floor";
+import Hamburger from "~/3d/hamburger";
 import RotatingCube from "~/3d/rotating-cube";
 import Sphere from "~/3d/sphere";
-import Label from "~/sketched-components/label";
-import SketchySuspense from "~/sketched-components/SketchySuspense";
-import Hamburger from "~/3d/hamburger";
+import SketchySuspense from "~/sketched-components/sketchy-suspense";
+
+type ClickEvent = ThreeEvent<PointerEvent> & { object: Mesh & { material: MeshStandardMaterial } };
 
 export default function MainScene() {
 
-  const clickHandler = (event: { object: Mesh & { material: MeshStandardMaterial } }) => {
-    console.log(event.object);
+  const clickHandler = (event: ClickEvent) => {
     event.object.material.color.set(`hsl(${Math.random() * 360}, 100%, 75%)`);
     stopPropagation(event);
   }
 
-  const stopPropagation = (event: any) => {
+  const stopPropagation = (event: ClickEvent) => {
     event.stopPropagation();
   }
 

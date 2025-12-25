@@ -1,8 +1,9 @@
 import { useAnimations, useGLTF } from "@react-three/drei";
-import { useEffect } from "react";
-import type { MeshProps } from "~/3d/types";
 import { useControls } from "leva";
+import { useEffect } from "react";
+
 import type { AnimationAction } from "three";
+import type { MeshProps } from "~/3d/types";
 
 const FOX_URL = "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/refs/heads/main/Models/Fox/glTF/Fox.gltf";
 
@@ -11,7 +12,7 @@ export default function Fox(props: MeshProps) {
   const animations = useAnimations(model.animations, model.scene);
 
   const { animationName } = useControls({
-    animationName: { options: animations.names },
+    animationName: { options: animations.names, label: "Fox Animation" },
   });
 
   useEffect(() => {

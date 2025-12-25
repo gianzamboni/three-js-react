@@ -1,16 +1,28 @@
 
-.home-button-container {
-  background-color: white;
-  position: absolute;
-  top: 2.5em;
-  left: 2.5em;
-  overflow: visible;
-  padding: 0.25em ;
-  z-index: 100;
+.home-icon {
+  width: var(--icon-size-xs);
+  aspect-ratio: 1/1;
+  padding: var(--spacing-xs);
+
+  @media (min-width: 728px) {
+    width: var(--icon-size-md);
+  }
+
+  @media (min-width: 2048px) {
+    padding: var(--spacing-sm);
+    width: var(--icon-size-lg);
+  }
 }
 
-.home-icon {
-  width: 3em;
-  margin: 0.5em;
-  aspect-ratio: 1/1;
+.home-link {
+  position: absolute;
+  top: var(--spacing-md);
+  left: var(--spacing-md);
+  z-index: 100;
+  padding: var(--spacing-sm);
+
+  @media (min-width: 728px) {
+    top: var(--spacing-lg);
+    left: var(--spacing-lg);
+  }
 }

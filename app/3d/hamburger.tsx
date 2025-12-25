@@ -1,7 +1,7 @@
 import { useGLTF } from "@react-three/drei";
+
 import type { Mesh } from "three";
 import type { GroupProps } from "~/3d/types";
-import { useEffect } from "react";
 
 type HamburgerProps = Omit<GroupProps, 'children'>;
 

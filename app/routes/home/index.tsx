@@ -1,10 +1,13 @@
-import type { Route } from "../+types/home";
-import { SketchedTitle } from "~/sketched-components/title";
-import styles from "./styles.module.css";
-import { SketchedCard } from "~/sketched-components/card";
 import DEMOS from "./demo-list";
+import styles from "./styles.module.css";
 
-export function meta({}: Route.MetaArgs) {
+import type { Route } from "./+types/index";
+
+import { SketchedCard } from "~/sketched-components/card";
+import { SketchedTitle } from "~/sketched-components/title";
+import { useScrollMemory } from "~/utils/use-scroll-memory";
+
+export function meta( _: Route.MetaArgs) {
   return [
     { title: "Three JS Journey | Gianfranco Zamboni" },
     { name: "description", content: "Welcome to React Router!" },
@@ -12,16 +15,20 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export default function Home() {
+
+  useScrollMemory();
+  
   return (
-    <div className="p-2 col">
+    <div className={`col ${styles['home-container']}`}>
       <SketchedTitle>React Three Fiber Demos</SketchedTitle>
+      <p>This are the demos made for Three JS Journey Last Chapter where I learned to integrate Three JS with React.</p>
       <div className={styles['demo-grid']}>
         {DEMOS.map((demo) => (
-          <SketchedCard key={demo.id} expanded {...demo} />
+          <SketchedCard key={demo.id} {...demo} />
         ))}
         <SketchedCard
           key="3d-text"
-          expanded targetBlank
+          targetBlank
           link="https://three.gianfrancozamboni.com.ar/"
           title="Three JS Journey without React"
           description="This are the demos made for the Three JS Journey Course before reaching the React Three Fiber Chapter."

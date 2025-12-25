@@ -1,5 +1,5 @@
 .sketchy-container-margin {
-  margin: 0.5em 0;
+  margin: var(--spacing-sm) 0;
 }
 
 .sketchy-trace {
@@ -9,14 +9,43 @@
   width: 100%;
   height: 100%;
   overflow: visible;
+  color: var(--color-text);
 }
 
 
 .label {
     font-family: Helvetica, Arial;
     position: absolute;
-    background: #ffffffff;
-    padding: 15px;
+    background: var(--color-surface);
+    color: var(--color-text);
+    padding: var(--spacing-md);
     white-space: nowrap;
     user-select: none;
+}
+
+.animated {
+  transition: all 0.3s ease-in-out;
+}
+
+.interactive {
+  &:hover {
+    transform: translateY(-5px);
+  }
+  &:active {
+    transform: translateY(5px);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+  }
+ 
+  &:disabled:hover {
+    transform: none;
+  }   
+}
+
+.interactive-small {
+  transition: transform 0.15s ease-in-out;
 }

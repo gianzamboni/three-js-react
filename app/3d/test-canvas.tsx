@@ -1,16 +1,20 @@
 import { Canvas, type CameraProps, type CanvasProps } from "@react-three/fiber";
-import { useMemo, type PropsWithChildren } from "react";
+import { useMemo } from "react";
+
+import useIsMobile from "~/utils/use-is-mobile";
 
 type TestCanvasProps = CanvasProps;
 
 export function TestCanvas({ children, ...props }: TestCanvasProps) {
 
-  const cameraSettings: CameraProps = {
+  const { isMobile } = useIsMobile();
+
+  const cameraSettings: CameraProps = useMemo(() => ({
     fov: 45,
     near: 0.1,
     far: 200,
-    position: [- 4, 3, 6]
-  };
+    position: isMobile ? [-8, 6, 12] : [- 4, 3, 6]
+  }), [isMobile]);
 
   return <Canvas camera={cameraSettings} {...props}>
     {children}

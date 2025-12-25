@@ -1,9 +1,11 @@
-import { RandomSide } from "./svg/randomized-line";
 import commonStyles from "./common.module.css";
+import { RandomSide } from "./svg/randomized-line";
 import { generateRectangleLimits } from "./svg/utils";
 
+import type { StrokeWidth } from "./utils.ts";
+
 export type RandomShadowProps = {
-  strokeWidth?: number;
+  strokeWidth?: StrokeWidth;
 }
 export function RandomShadow({ strokeWidth }: RandomShadowProps) {
   const { xLeft, yTop, xRight, yBottom, yOffset, xOffset } = generateRectangleLimits(null);
@@ -16,7 +18,7 @@ export function RandomShadow({ strokeWidth }: RandomShadowProps) {
 
 
 export type SketchyShadowProps = {
-  strokeWidth?: number;
+  strokeWidth?: StrokeWidth;
   offsetX?: number;
   offsetY?: number;
 }
@@ -24,8 +26,8 @@ export function SketchyShadow({ strokeWidth, offsetX, offsetY }: SketchyShadowPr
   return (
     <svg viewBox="0 0 1 1" preserveAspectRatio="none" className={`${commonStyles['sketchy-trace']}`} style={{ left: `${offsetX}%`, top: `${offsetY}%` }}> 
       <g>
-        <RandomShadow strokeWidth={strokeWidth ?? 0.001} />
-        <RandomShadow strokeWidth={strokeWidth ?? 0.001} />
+        <RandomShadow strokeWidth={strokeWidth ?? "sm"} />
+        <RandomShadow strokeWidth={strokeWidth ?? "sm"} />
       </g>
     </svg>
   )
