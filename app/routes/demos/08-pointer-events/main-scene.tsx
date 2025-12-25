@@ -1,10 +1,12 @@
 import { meshBounds, OrbitControls } from "@react-three/drei";
+
 import type { Mesh, MeshStandardMaterial } from "three";
+
 import Floor from "~/3d/floor";
+import Hamburger from "~/3d/hamburger";
 import RotatingCube from "~/3d/rotating-cube";
 import Sphere from "~/3d/sphere";
 import SketchySuspense from "~/sketched-components/sketchy-suspense";
-import Hamburger from "~/3d/hamburger";
 
 export default function MainScene() {
 

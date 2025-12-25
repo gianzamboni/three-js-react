@@ -1,9 +1,11 @@
 import { Link } from "react-router";
-import styles from "./styles.module.css";
+
 import commonStyles from "../common.module.css";
-import { MemoizedSketchedBorder } from "../sketchy-borders";
 import { SketchedImage } from "../image";
 import { SketchyShadow } from "../randomized-shadow";
+import { MemoizedSketchedBorder } from "../sketchy-borders";
+
+import styles from "./styles.module.css";
 
 interface SketchedCardProps {
   link: string;

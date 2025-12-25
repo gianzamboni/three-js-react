@@ -1,10 +1,12 @@
 import { Leva } from 'leva';
-import { levaTheme } from './leva-theme';
 import { forwardRef } from 'react';
-import styles from "./styles.module.css";
+
 import commonStyles from "../common.module.css"
-import { MemoizedSketchedBorder } from '../sketchy-borders';
 import { SketchyShadow } from '../randomized-shadow';
+import { MemoizedSketchedBorder } from '../sketchy-borders';
+
+import { levaTheme } from './leva-theme';
+import styles from "./styles.module.css";
 
 type BottomPanelProps = {
   isOpen: boolean;

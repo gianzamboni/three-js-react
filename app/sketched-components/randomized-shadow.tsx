@@ -1,6 +1,7 @@
-import { RandomSide } from "./svg/randomized-line";
 import commonStyles from "./common.module.css";
+import { RandomSide } from "./svg/randomized-line";
 import { generateRectangleLimits } from "./svg/utils";
+
 import type { StrokeWidth } from "./utils.ts";
 
 export type RandomShadowProps = {

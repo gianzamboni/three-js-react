@@ -1,5 +1,7 @@
-import styles from "./styles.module.css";
 import commonStyles from "../common.module.css";
+
+import styles from "./styles.module.css";
+
 import type { PropsWithChildren } from "react";
 
 type SketchedTitleProps = PropsWithChildren;

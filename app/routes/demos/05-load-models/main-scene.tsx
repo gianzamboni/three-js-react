@@ -1,7 +1,10 @@
 import { OrbitControls } from "@react-three/drei";
-import Floor from "~/3d/floor";
+
 import Hamburger from "../../../3d/hamburger";
+
 import Fox from "./fox";
+
+import Floor from "~/3d/floor";
 import SketchySuspense from "~/sketched-components/sketchy-suspense";
 import ToggablePerfPanel from "~/utils/toggable-perf-panel";
 

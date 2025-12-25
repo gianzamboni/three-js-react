@@ -1,6 +1,8 @@
-import { RandomRectangle } from "./svg/rectangle";
-import commonStyles from "./common.module.css";
 import { memo, type PropsWithChildren, type ReactNode } from "react";
+
+import commonStyles from "./common.module.css";
+import { RandomRectangle } from "./svg/rectangle";
+
 import type { Side, StrokeWidth } from "./utils";
 
 export type SketchedBorderProps = PropsWithChildren<{

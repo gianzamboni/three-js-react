@@ -4,6 +4,7 @@ import tsPlugin from '@typescript-eslint/eslint-plugin';
 import reactPlugin from 'eslint-plugin-react';
 import reactHooksPlugin from 'eslint-plugin-react-hooks';
 import reactRefreshPlugin from 'eslint-plugin-react-refresh';
+import importPlugin from 'eslint-plugin-import';
 import globals from 'globals';
 
 export default [
@@ -36,12 +37,33 @@ export default [
           caughtErrorsIgnorePattern: '^_',
         },
       ],
+      'import/order': [
+        'error',
+        {
+          'groups': [
+            'builtin',
+            'external',
+            'internal',
+            'parent',
+            'sibling',
+            'index',
+            'object',
+            'type'
+          ],
+          'newlines-between': 'always',
+          'alphabetize': {
+            'order': 'asc',
+            'caseInsensitive': true
+          }
+        }
+      ],
     },
     plugins: {
       '@typescript-eslint': tsPlugin,
       'react': reactPlugin,
       'react-hooks': reactHooksPlugin,
       'react-refresh': reactRefreshPlugin,
+      'import': importPlugin,
     },
     settings: {
       react: {

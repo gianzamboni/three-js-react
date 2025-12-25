@@ -1,9 +1,10 @@
 import { useHelper, OrbitControls, Stage } from "@react-three/drei";
-import Sphere from "~/3d/sphere";
+import { useControls } from "leva";
 import { useRef, type RefObject } from "react";
 import { DirectionalLightHelper, type DirectionalLight } from "three";
-import { useControls } from "leva";
+
 import RotatingCube from "~/3d/rotating-cube";
+import Sphere from "~/3d/sphere";
 import ToggablePerfPanel from "~/utils/toggable-perf-panel";
 
 export default function MainScene() {

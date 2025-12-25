@@ -1,7 +1,9 @@
 import { memo, useEffect, useState } from "react";
+
+import { type Side, type StrokeWidth } from "../utils";
+
 import { RandomSide } from "./randomized-line";
 import { generateRectangleLimits, type RectangleLimits } from "./utils";
-import { type Side, type StrokeWidth } from "../utils";
 
 type RandomRectangleProps = {
   strokeWidth: StrokeWidth

@@ -1,7 +1,10 @@
-import { randomizedOffset2D } from "~/utils/random";
-import { Side } from "./line";
 import { useEffect, useMemo, useState } from "react";
+
 import { STROKE_WIDTHS, type Point2D, type StrokeWidth } from "../utils";
+
+import { Side } from "./line";
+
+import { randomizedOffset2D } from "~/utils/random";
 
 
 type RandomSideProps = {

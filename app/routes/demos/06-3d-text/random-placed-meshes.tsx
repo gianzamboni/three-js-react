@@ -1,6 +1,7 @@
 import { useFrame } from '@react-three/fiber';
-import type { Mesh } from 'three';
 import { useRef } from 'react';
+
+import type { Mesh } from 'three';
 import type { MeshProps } from '~/3d/types';
 
 export default function RandomPlacedMeshes({ material, geometry }: MeshProps) {

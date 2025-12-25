@@ -1,5 +1,7 @@
 import { OrbitControls, Sparkles } from "@react-three/drei";
+
 import Portal from "./portal";
+
 import SketchySuspense from "~/sketched-components/sketchy-suspense";
 
 export default function MainScene() {

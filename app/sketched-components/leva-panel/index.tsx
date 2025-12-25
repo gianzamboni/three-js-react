@@ -1,10 +1,13 @@
-import SketchyButton from "../button";
-import SettingsIcon from "~/utils/icons/settings.svg?react";
-import styles from "./styles.module.css";
-import commonStyles from "../common.module.css";
-import BottomPanel from "./bottom-panel";
-import { useState, useRef, useEffect } from "react";
 import { levaStore } from "leva";
+import { useState, useRef, useEffect } from "react";
+
+import SketchyButton from "../button";
+import commonStyles from "../common.module.css";
+
+import BottomPanel from "./bottom-panel";
+import styles from "./styles.module.css";
+
+import SettingsIcon from "~/utils/icons/settings.svg?react";
 
 export default function SketchyLevaPanel() {
     const [panelOpened, setPanelOpened] = useState(false);

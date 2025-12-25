@@ -1,8 +1,10 @@
-import type { Route } from "./+types/index";
-import { SketchedTitle } from "~/sketched-components/title";
-import styles from "./styles.module.css";
-import { SketchedCard } from "~/sketched-components/card";
 import DEMOS from "./demo-list";
+import styles from "./styles.module.css";
+
+import type { Route } from "./+types/index";
+
+import { SketchedCard } from "~/sketched-components/card";
+import { SketchedTitle } from "~/sketched-components/title";
 import { useScrollMemory } from "~/utils/use-scroll-memory";
 
 export function meta( _: Route.MetaArgs) {

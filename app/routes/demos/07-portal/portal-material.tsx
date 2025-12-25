@@ -1,11 +1,11 @@
-import { Color, ShaderMaterial } from "three";
-
-import portalVertexShader from "./shaders/portal.vert";
-import portalFragmentShader from "./shaders/portal.frag";
-import portalFragmentShaderV2 from "./shaders/portal_v2.frag";
-import { useState, useEffect } from "react";
 import { useFrame, type RootState } from "@react-three/fiber";
 import { useControls } from "leva";
+import { useState, useEffect } from "react";
+import { Color, ShaderMaterial } from "three";
+
+import portalFragmentShader from "./shaders/portal.frag";
+import portalVertexShader from "./shaders/portal.vert";
+import portalFragmentShaderV2 from "./shaders/portal_v2.frag";
 
 export default function PortalMaterial() {
 

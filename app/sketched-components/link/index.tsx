@@ -1,8 +1,12 @@
 import { Link, type LinkProps } from "react-router";
-import { SketchyBorder } from "~/sketched-components/sketchy-borders";
-import { SketchyShadow } from "~/sketched-components/randomized-shadow";
-import styles from "./styles.module.css";
+
 import commonStyles from "../common.module.css";
+
+import styles from "./styles.module.css";
+
+import { SketchyShadow } from "~/sketched-components/randomized-shadow";
+import { SketchyBorder } from "~/sketched-components/sketchy-borders";
+
 
 type SketchyLinkProps = LinkProps;
   

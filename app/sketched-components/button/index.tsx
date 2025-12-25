@@ -1,8 +1,11 @@
-import type { ButtonHTMLAttributes, PropsWithChildren } from "react";
-import { SketchyBorder } from "~/sketched-components/sketchy-borders";
-import { SketchyShadow } from "~/sketched-components/randomized-shadow";
-import styles from "./styles.module.css";
 import commonStyles from "../common.module.css";
+
+import styles from "./styles.module.css";
+
+import type { ButtonHTMLAttributes, PropsWithChildren } from "react";
+
+import { SketchyShadow } from "~/sketched-components/randomized-shadow";
+import { SketchyBorder } from "~/sketched-components/sketchy-borders";
 
 type SketchyButtonProps = PropsWithChildren<ButtonHTMLAttributes<HTMLButtonElement>>;
 

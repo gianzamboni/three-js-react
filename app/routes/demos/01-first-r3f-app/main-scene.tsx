@@ -1,9 +1,13 @@
 import { useThree } from "@react-three/fiber";
-import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { extend } from "@react-three/fiber";
-import Floor from "~/3d/floor";
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+
 import RotatingCube from "../../../3d/rotating-cube";
+
 import RandomTriangles from "./random-triangles";
+
+import Floor from "~/3d/floor";
 import Sphere from "~/3d/sphere";
 
 extend({ OrbitControls });
