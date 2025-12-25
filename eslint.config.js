@@ -37,6 +37,7 @@ export default [
           caughtErrorsIgnorePattern: '^_',
         },
       ],
+      '@typescript-eslint/no-explicit-any': 'error',
       'import/order': [
         'error',
         {

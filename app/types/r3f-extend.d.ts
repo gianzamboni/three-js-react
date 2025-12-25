@@ -1,11 +1,9 @@
-import * as THREE from 'three'
-import { OrbitControls } from 'three/addons/controls/OrbitControls.js'
-
+import { Camera } from 'three'
+import { OrbitControls } from '@react-three/drei'
 declare module '@react-three/fiber' {
-  interface ThreeElements {
+  export interface ThreeElements {
     orbitControls: {
-      args?: [THREE.Camera, HTMLElement]
-      [key: string]: any
+      args?: [Camera, HTMLElement]
     }
   }
 }
