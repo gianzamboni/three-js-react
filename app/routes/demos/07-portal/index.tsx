@@ -8,8 +8,8 @@ extend({ OrbitControls });
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "Loading Models" },
-    { name: "description", content: "Loading Models" },
+    { title: "Portal Scene" },
+    { name: "description", content: "Portal Scene" },
   ];
 }
 

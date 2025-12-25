@@ -7,7 +7,6 @@ import ToggablePerfPanel from "~/utils/toggable-perf-panel";
 
 export default function MainScene() {
   return <>
-    <ToggablePerfPanel />
     <OrbitControls makeDefault />
 
     <directionalLight 
@@ -28,6 +27,7 @@ export default function MainScene() {
         position={[-2.5, 0, 2.5]}
         rotation-y={0.3}
       />
+      <ToggablePerfPanel />
     </SketchySuspense>
   </>;
 }
