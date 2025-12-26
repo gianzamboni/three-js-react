@@ -17,7 +17,6 @@
 .home-container {
   padding: var(--spacing-lg);
   gap: var(--spacing-md);
-  align-items: center;
 
   @media (min-width: 728px) {
     gap: var(--spacing-xl);
@@ -26,5 +25,11 @@
   p {
     text-align: justify;
   }
+}
+
+h2, a {
+  justify-self: center;
+  font-size: var(--font-size-md);
+  font-family: "Indie Flower", cursive;
 }
 
