@@ -1,5 +1,6 @@
 import { Center, useGLTF, useTexture } from "@react-three/drei";
 import { type Mesh } from "three";
+
 import PortalMaterial from "./portal-material";
 
 const PORTAL_URL = "https://i0hci4avyoqkwwp1.public.blob.vercel-storage.com/portal/portal.glb";

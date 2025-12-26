@@ -1,5 +1,4 @@
-import { Camera } from 'three'
-import type { OrbitControls } from 'three/examples/jsm/Addons.js'
+import type { OrbitControls } from 'three/examples/jsm/Addons.js';
 
 declare module '@react-three/fiber' {
   export interface ThreeElements {

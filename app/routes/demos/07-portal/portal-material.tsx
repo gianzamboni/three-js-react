@@ -1,12 +1,12 @@
+import { shaderMaterial } from "@react-three/drei";
 import { extend, useFrame, type ThreeElement } from "@react-three/fiber";
+import gsap from "gsap";
+import { useControls } from "leva";
+import { useEffect, useRef } from "react";
 import { Color } from "three";
 
 import portalFragmentShader from "./shaders/portal.frag";
 import portalVertexShader from "./shaders/portal.vert";
-import { shaderMaterial } from "@react-three/drei";
-import { useEffect, useRef } from "react";
-import { useControls } from "leva";
-import gsap from "gsap";
 
 const PortalShaderMaterial = shaderMaterial({
   uTime: 0,
@@ -20,7 +20,7 @@ const PortalShaderMaterial = shaderMaterial({
 extend({ PortalShaderMaterial })
 
 declare module '@react-three/fiber' {
-  interface ThreeElements {
+  export interface ThreeElements {
     portalShaderMaterial: ThreeElement<typeof PortalShaderMaterial>
   }
 }
