@@ -4,12 +4,17 @@ export type SphereProps = MeshProps & {
   color?: string;
 };
 
-export default function Sphere({ children, color, ...props }: SphereProps) {
+export default function Sphere({ children, ...props }: SphereProps) {
   return (
     <mesh {...props}>
       <sphereGeometry />
-      <meshStandardMaterial color={color} />
       {children}
     </mesh>
   );
 };  
+
+export function OrangeSphere(props: SphereProps) {
+  return <Sphere position-x={-2} {...props}>
+    <meshStandardMaterial color="orange" />
+  </Sphere>;
+}

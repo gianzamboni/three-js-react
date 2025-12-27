@@ -8,7 +8,7 @@ import RotatingCube from "../../../3d/rotating-cube";
 import RandomTriangles from "./random-triangles";
 
 import Floor from "~/3d/floor";
-import Sphere from "~/3d/sphere";
+import { OrangeSphere } from "~/3d/sphere";
 
 extend({ OrbitControls });
 
@@ -23,7 +23,7 @@ export default function MainScene() {
         <RotatingCube scale={1.5} position-x={2} >
           <meshStandardMaterial color="mediumpurple" />
         </RotatingCube>
-        <Sphere color="orange" position-x={-2}/>
+        <OrangeSphere />
         <RandomTriangles />
       </group>
       <Floor position-y={-1}>
