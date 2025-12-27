@@ -1,5 +1,6 @@
 import { OrbitControls } from "@react-three/drei";
 import { PurpleCube } from "~/3d/cube";
+import { GreenFloor } from "~/3d/floor";
 import DefaultDirectionalLight from "~/3d/lights";
 import { OrangeSphere } from "~/3d/sphere";
 import ToggablePerfPanel from "~/utils/toggable-perf-panel";
@@ -17,10 +18,6 @@ export default function MainScene() {
 
         <OrangeSphere castShadow />
         <PurpleCube castShadow />
-        {/* 
-        <mesh receiveShadow position-y={- 1} rotation-x={- Math.PI * 0.5} scale={10}>
-            <planeGeometry />
-            <meshStandardMaterial color="greenyellow" />
-        </mesh> */}
+        <GreenFloor receiveShadow />
     </>
 }
