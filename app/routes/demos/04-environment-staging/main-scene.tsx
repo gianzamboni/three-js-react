@@ -4,7 +4,7 @@ import { useRef, type RefObject } from "react";
 import { DirectionalLightHelper, type DirectionalLight } from "three";
 
 import RotatingCube from "~/3d/rotating-cube";
-import Sphere from "~/3d/sphere";
+import { OrangeSphere } from "~/3d/sphere";
 import ToggablePerfPanel from "~/utils/toggable-perf-panel";
 
 export default function MainScene() {
@@ -30,7 +30,7 @@ export default function MainScene() {
       preset="upfront"
       intensity={envMapIntensity}
     >
-      <Sphere position-y={1} color="orange" position-x={-2} castShadow />
+      <OrangeSphere position-y={1} color="orange" castShadow />
       <RotatingCube position-y={1} rotationSpeed={0.2} scale={1.5} position-x={2} castShadow >
         <meshStandardMaterial color="mediumpurple" />
       </RotatingCube>
