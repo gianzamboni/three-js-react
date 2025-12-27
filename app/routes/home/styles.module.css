@@ -19,11 +19,19 @@
   gap: var(--spacing-md);
 
   @media (min-width: 728px) {
+    gap: var(--spacing-lg);
+  }
+
+  @media (min-width: 1200px) {
     gap: var(--spacing-xl);
   }
 
   p {
-    text-align: center;
+    text-align: justify;
+
+    @media (min-width: 728px) {
+      text-align: center;
+    }
   }
 }
 
