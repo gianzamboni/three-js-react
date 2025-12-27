@@ -17,6 +17,7 @@ export default function MainScene() {
       position={ [ 1, 2, 3 ] } 
       intensity={ 4.5 }
       shadow-normalBias={0.04}
+      shadow-mapSize={[2048, 2048]}
     />
     <ambientLight intensity={ 1.5 } />
 
