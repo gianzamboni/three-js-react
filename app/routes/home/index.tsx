@@ -4,7 +4,7 @@ import styles from "./styles.module.css";
 import type { Route } from "./+types/index";
 
 import { SketchedCard } from "~/sketched-components/card";
-import { SketchedTitle } from "~/sketched-components/title";
+import { SketchyH1 } from "~/sketched-components/title/h1";
 import { useScrollMemory } from "~/utils/use-scroll-memory";
 
 export function meta( _: Route.MetaArgs) {
@@ -19,8 +19,11 @@ export default function Home() {
   useScrollMemory();
   
   return (
-    <div className={`col ${styles['home-container']}`}>
-      <SketchedTitle>React Three Fiber Demos</SketchedTitle>
+    <div className={`col align-items-center ${styles['home-container']}`}>
+      <div className="align-items-center">
+        <SketchyH1>React Three Fiber Demos</SketchyH1>
+        <h2>by <a href="https://www.linkedin.com/in/gianfranco-zamboni/" target="_blank">Gianfranco Zamboni</a></h2>
+      </div>
       <p>This are the demos made for Three JS Journey Last Chapter where I learned to integrate Three JS with React.</p>
       <div className={styles['demo-grid']}>
         {DEMOS.map((demo) => (

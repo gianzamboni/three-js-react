@@ -25,5 +25,8 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true
-  }
+  },  
+  "files": [
+    "node_modules/gsap/types/index.d.ts"
+  ]
 }

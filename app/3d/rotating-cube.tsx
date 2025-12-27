@@ -1,7 +1,7 @@
 import { useFrame } from "@react-three/fiber";
 import { useRef } from "react";
-import { Mesh } from "three";
 
+import type { Mesh } from "three";
 import type { MeshProps } from "~/3d/types";
 
 import Cube from "~/3d/cube";

@@ -11,8 +11,8 @@ export default function Fox(props: MeshProps) {
   const model = useGLTF(FOX_URL);
   const animations = useAnimations(model.animations, model.scene);
 
-  const { animationName } = useControls({
-    animationName: { options: animations.names, label: "Fox Animation" },
+  const { animationName } = useControls("Fox", {
+    animationName: { options: animations.names, label: "Animation" },
   });
 
   useEffect(() => {

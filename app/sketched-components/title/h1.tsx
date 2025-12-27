@@ -6,7 +6,7 @@ import type { PropsWithChildren } from "react";
 
 type SketchedTitleProps = PropsWithChildren;
 
-export function SketchedTitle({ children }: SketchedTitleProps) {
+export function SketchyH1({ children }: SketchedTitleProps) {
   return (
     <div className={`relative ${commonStyles['sketchy-container-margin']} ${styles['title']}`}> 
     <h1 className={styles.title}>

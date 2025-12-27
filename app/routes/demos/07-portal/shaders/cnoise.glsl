@@ -1,10 +1,3 @@
-#define PI 3.14159
-
-uniform float uTime;
-uniform vec3 uStartColor;
-uniform vec3 uEndColor;
-
-varying vec2 vUv;
 
 vec4 permute(vec4 x){ return mod(((x*34.0)+1.0)*x, 289.0); }
 vec4 taylorInvSqrt(vec4 r){ return 1.79284291400159 - 0.85373472095314 * r; }
@@ -27,7 +20,7 @@ float cnoise(vec3 P)
     vec4 ixy0 = permute(ixy + iz0);
     vec4 ixy1 = permute(ixy + iz1);
 
-    vec4 gx0 = ixy0 / 7.0;
+    vec4 gx0 = ixy0 / 7.0;  
     vec4 gy0 = fract(floor(gx0) / 7.0) - 0.5;
     gx0 = fract(gx0);
     vec4 gz0 = vec4(0.5) - abs(gx0) - abs(gy0);
@@ -78,40 +71,4 @@ float cnoise(vec3 P)
     float n_xyz = mix(n_yz.x, n_yz.y, fade_xyz.x); 
     
     return 2.2 * n_xyz;
-}
-
-vec2 rotate(vec2 uv, float rotation, vec2 center) {
-  vec2 rotatedUv = vec2(
-    cos(rotation) * (uv.x - center.x) - sin(rotation) * (uv.y - center.y) + center.x,
-    sin(rotation) * (uv.x - center.x) + cos(rotation) * (uv.y - center.y) + center.y
-  );
-  return rotatedUv;
-}
-
-void main() {
-
-  float effectRadius = .5;
-  float effectAngle = 2. * PI;
-  
-  vec2 center = vec2(.5, .5);
-  
-  vec2 uv = vUv - center;
-  
-  float len = length(uv );
-  float angle = atan(uv.y, uv.x) + effectAngle * smoothstep(effectRadius, 0., len);
-  float radius = length(uv);
-
-  vec2 displacedUv = vec2(radius * cos(angle), radius * sin(angle)) + center; 
-  displacedUv = rotate(displacedUv, uTime * 0.1, center);
-  displacedUv = displacedUv + cnoise(vec3(displacedUv * 10., uTime * 0.2));
-  
-  float strength = cnoise(vec3(displacedUv * 5.0, 2.0));
-
-
-  float outerGlow = distance(vUv, vec2(0.5)) * 3.5 - 0.9; 
-  strength += outerGlow;
-
-  strength += step(0.125, strength);
-  strength = clamp(strength, 0.0, 1.0);
-  gl_FragColor = vec4(mix(uStartColor, uEndColor, 1.0 - strength), 1.0);
 }
