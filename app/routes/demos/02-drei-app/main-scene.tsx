@@ -5,7 +5,8 @@ import type { Object3D } from 'three';
 
 import Cube from '~/3d/cube';
 import Floor from '~/3d/floor';
-import Sphere, { OrangeSphere } from '~/3d/sphere';
+import DefaultDirectionalLight from '~/3d/lights';
+import { OrangeSphere } from '~/3d/sphere';
 import Label from '~/sketched-components/label/label';
 export default function Experience() {
 
@@ -16,7 +17,7 @@ export default function Experience() {
 
   return <>
     <OrbitControls makeDefault />
-    <directionalLight position={[1, 2, 3]} intensity={4.5} />
+    <DefaultDirectionalLight />
     <ambientLight intensity={1.5} />
 
     <PivotControls anchor={[0, 0, 0]} depthTest={false} lineWidth={4} axisColors={['#9381ff', '#ff4d6d', '#7ae582']} scale={2}>

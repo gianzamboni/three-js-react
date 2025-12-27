@@ -5,8 +5,9 @@ import type { Mesh, MeshStandardMaterial } from "three";
 
 import Floor from "~/3d/floor";
 import Hamburger from "~/3d/hamburger";
+import DefaultDirectionalLight from "~/3d/lights";
 import RotatingCube from "~/3d/rotating-cube";
-import Sphere from "~/3d/sphere";
+import { OrangeSphere } from "~/3d/sphere";
 import SketchySuspense from "~/sketched-components/sketchy-suspense";
 
 type ClickEvent = ThreeEvent<PointerEvent> & { object: Mesh & { material: MeshStandardMaterial } };
@@ -32,10 +33,10 @@ export default function MainScene() {
   return <>
       <OrbitControls makeDefault />
 
-      <directionalLight position={ [ 1, 2, 3 ] } intensity={ 4.5 } />
+      <DefaultDirectionalLight />
       <ambientLight intensity={ 1.5 } />
 
-      <Sphere position-x={ - 2 } color="orange" 
+      <OrangeSphere 
         onClick={stopPropagation} 
         onPointerEnter={stopPropagation}
         onPointerLeave={stopPropagation}

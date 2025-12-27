@@ -9,6 +9,7 @@ import RandomTriangles from "./random-triangles";
 
 import Floor from "~/3d/floor";
 import { OrangeSphere } from "~/3d/sphere";
+import DefaultDirectionalLight from "~/3d/lights";
 
 extend({ OrbitControls });
 
@@ -29,7 +30,7 @@ export default function MainScene() {
       <Floor position-y={-1}>
         <meshBasicMaterial color="greenyellow" />
       </Floor>
-      <directionalLight position={[1, 2, 3]} intensity={4.5}/>
+      <DefaultDirectionalLight />
       <ambientLight intensity={1.5}/>
     </>
   );

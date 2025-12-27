@@ -7,17 +7,14 @@ import Fox from "./fox";
 import Floor from "~/3d/floor";
 import SketchySuspense from "~/sketched-components/sketchy-suspense";
 import ToggablePerfPanel from "~/utils/toggable-perf-panel";
+import DefaultDirectionalLight from "~/3d/lights";
 
 export default function MainScene() {
   return <>
     <OrbitControls makeDefault />
 
-    <directionalLight 
-      castShadow 
-      position={ [ 1, 2, 3 ] } 
-      intensity={ 4.5 }
+    <DefaultDirectionalLight 
       shadow-normalBias={0.04}
-      shadow-mapSize={[2048, 2048]}
     />
     <ambientLight intensity={ 1.5 } />
 
