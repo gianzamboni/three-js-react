@@ -30,10 +30,8 @@ export default function MainScene() {
       preset="upfront"
       intensity={envMapIntensity}
     >
-      <OrangeSphere position-y={1} color="orange" castShadow />
-      <RotatingCube position-y={1} rotationSpeed={0.2} scale={1.5} position-x={2} castShadow >
-        <meshStandardMaterial color="mediumpurple" />
-      </RotatingCube>
+      <OrangeSphere position-y={1} castShadow />
+      <RotatingCube position-y={1} rotationSpeed={0.2} castShadow />
     </Stage>
   </>;
 }

@@ -13,7 +13,7 @@ export default function Sphere({ children, ...props }: SphereProps) {
   );
 };  
 
-export function OrangeSphere(props: SphereProps) {
+export function OrangeSphere(props: Omit<SphereProps, 'position-x'>) {
   return <Sphere position-x={-2} {...props}>
     <meshStandardMaterial color="orange" />
   </Sphere>;

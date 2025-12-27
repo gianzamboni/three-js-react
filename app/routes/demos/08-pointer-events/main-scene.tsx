@@ -43,16 +43,12 @@ export default function MainScene() {
       />
 
       <RotatingCube 
-        position-x={ 2 } 
-        scale={ 1.5 } 
         rotationSpeed={0.2}
         raycast={ meshBounds } 
         onClick={clickHandler}
         onPointerEnter={showPointerCursor}
         onPointerLeave={hidePointerCursor}
-      >
-          <meshStandardMaterial color="mediumpurple" />
-      </RotatingCube>
+      />
 
       <Floor position-y={-1}>
         <meshStandardMaterial color="greenyellow" />

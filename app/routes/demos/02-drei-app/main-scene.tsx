@@ -3,7 +3,7 @@ import { useRef, type RefObject } from 'react';
 
 import type { Object3D } from 'three';
 
-import Cube from '~/3d/cube';
+import Cube, { PurpleCube } from '~/3d/cube';
 import Floor from '~/3d/floor';
 import DefaultDirectionalLight from '~/3d/lights';
 import { OrangeSphere } from '~/3d/sphere';
@@ -30,9 +30,7 @@ export default function Experience() {
     <Floor position-y={-1}>
       <MeshReflectorMaterial resolution={1024} blur={[1000, 1000]} mixBlur={1} mirror={0.5} color="greenyellow" />
     </Floor>
-    <Cube ref={cubeRef} scale={1.5} position-x={2} >
-      <meshStandardMaterial color="mediumpurple" />
-    </Cube>
+    <PurpleCube />
     <Float speed={5} floatIntensity={ 2 } >
             <Text 
                 font="/fonts/bangers-v20-latin-regular.woff" 
