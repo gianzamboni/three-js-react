@@ -1,7 +1,7 @@
 import type { MeshProps } from "./types";
 
-
-export default function Cube({ children, ...props }: MeshProps) {
+type CubeProps = MeshProps;
+export default function Cube({ children, ...props }: CubeProps) {
   return (
     <mesh {...props}>
       <boxGeometry />
@@ -10,7 +10,7 @@ export default function Cube({ children, ...props }: MeshProps) {
   );
 }
 
-export type PurpleCubeProps = Omit<MeshProps, 'position-x' | 'scale'>
+export type PurpleCubeProps = Omit<CubeProps, 'position-x' | 'scale'>
 export function PurpleCube(props: PurpleCubeProps ) {
   return <Cube 
     position-x={2}

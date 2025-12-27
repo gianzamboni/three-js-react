@@ -1,11 +1,11 @@
-import { OrbitControls, PivotControls, Text, Float, MeshReflectorMaterial } from '@react-three/drei'
+import { PivotControls, Text, Float, MeshReflectorMaterial } from '@react-three/drei'
 import { useRef, type RefObject } from 'react';
 
 import type { Object3D } from 'three';
 
-import Cube, { PurpleCube } from '~/3d/cube';
+import BasicSetup from '~/3d/basic-setup';
+import { PurpleCube } from '~/3d/cube';
 import Floor from '~/3d/floor';
-import DefaultDirectionalLight from '~/3d/lights';
 import { OrangeSphere } from '~/3d/sphere';
 import Label from '~/sketched-components/label/label';
 export default function Experience() {
@@ -16,9 +16,7 @@ export default function Experience() {
   const occludeObjects = [sphereRef, cubeRef] as RefObject<Object3D>[];
 
   return <>
-    <OrbitControls makeDefault />
-    <DefaultDirectionalLight />
-    <ambientLight intensity={1.5} />
+    <BasicSetup hidePerfPanel />
 
     <PivotControls
       anchor={[0, 0, 0]}

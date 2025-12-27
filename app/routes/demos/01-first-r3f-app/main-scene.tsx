@@ -8,8 +8,8 @@ import RotatingCube from "../../../3d/rotating-cube";
 import RandomTriangles from "./random-triangles";
 
 import { GreenFloor } from "~/3d/floor";
-import { OrangeSphere } from "~/3d/sphere";
 import DefaultDirectionalLight from "~/3d/lights";
+import { OrangeSphere } from "~/3d/sphere";
 
 extend({ OrbitControls });
 

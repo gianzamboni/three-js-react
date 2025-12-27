@@ -1,11 +1,11 @@
-import { useHelper, OrbitControls, Stage } from "@react-three/drei";
+import { useHelper, Stage } from "@react-three/drei";
 import { useControls } from "leva";
 import { useRef, type RefObject } from "react";
 import { DirectionalLightHelper, type DirectionalLight } from "three";
 
+import BasicSetup from "~/3d/basic-setup";
 import RotatingCube from "~/3d/rotating-cube";
 import { OrangeSphere } from "~/3d/sphere";
-import ToggablePerfPanel from "~/utils/toggable-perf-panel";
 
 export default function MainScene() {
 
@@ -21,8 +21,7 @@ export default function MainScene() {
   useHelper(directionalLightRef as RefObject<DirectionalLight>, DirectionalLightHelper, 1);
 
   return <>
-    <ToggablePerfPanel />
-    <OrbitControls makeDefault />
+    <BasicSetup withoutLights />
 
     <Stage
       shadows={{ type: 'contact', opacity: 0.2, blur: 3 }}

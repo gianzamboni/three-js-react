@@ -1,11 +1,11 @@
-import { meshBounds, OrbitControls } from "@react-three/drei";
+import { meshBounds } from "@react-three/drei";
 
 import type { ThreeEvent } from "@react-three/fiber";
 import type { Mesh, MeshStandardMaterial } from "three";
 
-import Floor, { GreenFloor } from "~/3d/floor";
+import BasicSetup from "~/3d/basic-setup";
+import Floor from "~/3d/floor";
 import Hamburger from "~/3d/hamburger";
-import DefaultDirectionalLight from "~/3d/lights";
 import RotatingCube from "~/3d/rotating-cube";
 import { OrangeSphere } from "~/3d/sphere";
 import SketchySuspense from "~/sketched-components/sketchy-suspense";
@@ -31,10 +31,7 @@ export default function MainScene() {
     document.body.style.cursor = 'default';
   }
   return <>
-      <OrbitControls makeDefault />
-
-      <DefaultDirectionalLight />
-      <ambientLight intensity={ 1.5 } />
+      <BasicSetup hidePerfPanel />
 
       <OrangeSphere 
         onClick={stopPropagation} 
@@ -48,9 +45,13 @@ export default function MainScene() {
         onClick={clickHandler}
         onPointerEnter={showPointerCursor}
         onPointerLeave={hidePointerCursor}
-      />
+      >
+          <meshStandardMaterial color="mediumpurple" />
+      </RotatingCube>
 
-      <GreenFloor />
+      <Floor position-y={-1}>
+        <meshStandardMaterial color="greenyellow" />
+      </Floor>
 
       <SketchySuspense>
         <Hamburger scale={0.25} position-y={ 1 } position-x={ -0.125 } 

@@ -1,11 +1,9 @@
-import { OrbitControls } from "@react-three/drei";
 import { useControls, levaStore } from "leva";
 
+import BasicSetup from "~/3d/basic-setup";
 import Cube from "~/3d/cube";
-import Floor, { GreenFloor } from "~/3d/floor";
-import DefaultDirectionalLight from "~/3d/lights";
+import { GreenFloor } from "~/3d/floor";
 import Sphere from "~/3d/sphere";
-import ToggablePerfPanel from "~/utils/toggable-perf-panel";
 
 export default function MainScene() {
 
@@ -38,12 +36,7 @@ export default function MainScene() {
 }, { store: levaStore })
 
   return <>
-    <OrbitControls makeDefault />
-    <DefaultDirectionalLight />
-    <ambientLight intensity={1.5} />
-
-    <ToggablePerfPanel />
-    
+    <BasicSetup />
     <Sphere visible={visible} position={[ position.x, position.y, 0]} >
       <meshStandardMaterial color={color} />
     </Sphere>
