@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef } from "react";
-import { BufferGeometry, DoubleSide } from "three";
+import { type BufferGeometry, DoubleSide } from "three";
 
 export default function RandomTriangles() {
 
