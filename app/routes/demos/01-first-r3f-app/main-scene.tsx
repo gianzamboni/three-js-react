@@ -7,7 +7,7 @@ import RotatingCube from "../../../3d/rotating-cube";
 
 import RandomTriangles from "./random-triangles";
 
-import Floor from "~/3d/floor";
+import { GreenFloor } from "~/3d/floor";
 import { OrangeSphere } from "~/3d/sphere";
 import DefaultDirectionalLight from "~/3d/lights";
 
@@ -25,9 +25,7 @@ export default function MainScene() {
         <OrangeSphere />
         <RandomTriangles />
       </group>
-      <Floor position-y={-1}>
-        <meshBasicMaterial color="greenyellow" />
-      </Floor>
+      <GreenFloor />
       <DefaultDirectionalLight />
       <ambientLight intensity={1.5}/>
     </>

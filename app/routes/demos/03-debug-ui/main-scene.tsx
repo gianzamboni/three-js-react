@@ -2,7 +2,7 @@ import { OrbitControls } from "@react-three/drei";
 import { useControls, levaStore } from "leva";
 
 import Cube from "~/3d/cube";
-import Floor from "~/3d/floor";
+import Floor, { GreenFloor } from "~/3d/floor";
 import DefaultDirectionalLight from "~/3d/lights";
 import Sphere from "~/3d/sphere";
 import ToggablePerfPanel from "~/utils/toggable-perf-panel";
@@ -50,8 +50,6 @@ export default function MainScene() {
     <Cube scale={scale} position-x={2}>
       <meshStandardMaterial color="mediumpurple" />
     </Cube>
-    <Floor position-y={-1}>
-      <meshStandardMaterial color="greenyellow" />
-    </Floor>
+    <GreenFloor />
   </>;
 }
