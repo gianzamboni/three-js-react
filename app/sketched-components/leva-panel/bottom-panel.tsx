@@ -18,6 +18,7 @@ const BottomPanel = forwardRef<HTMLDivElement, BottomPanelProps>(({ isOpen }, re
 
   const { levaStores } = useLevaStores();
   const mainStore = levaStore.useStore();
+  
   const [borderKey, setBorderKey] = useState(0);
   const [previousControlCount, setPreviousControlCount] = useState(0);
   
@@ -25,10 +26,25 @@ const BottomPanel = forwardRef<HTMLDivElement, BottomPanelProps>(({ isOpen }, re
   className += ` ${styles[isOpen ? "opened" : "closed"]}`;
 
   useEffect(() => {
-    const currentControlCount = Object.keys(mainStore.data).length;
-    if (currentControlCount !== previousControlCount) {
+    // Get all paths and check which ones are actually rendered
+    const allPaths = levaStore.getVisiblePaths();
+    const visiblePaths = allPaths.filter((path: string) => {
+      try {
+        const schema = levaStore.getInput(path);
+        // Control is visible if it has a schema (input definition)
+        return schema !== undefined;
+      } catch {
+        return false;
+      }
+    });
+    
+    const currentVisibleCount = visiblePaths.length;
+    console.log("Current visible controls:", currentVisibleCount);
+    console.log("Previous visible controls:", previousControlCount);
+    
+    if (currentVisibleCount !== previousControlCount) {
       setBorderKey(prev => prev + 1);
-      setPreviousControlCount(currentControlCount);
+      setPreviousControlCount(currentVisibleCount);
     }
   }, [mainStore, previousControlCount]);
 
@@ -46,9 +62,11 @@ const BottomPanel = forwardRef<HTMLDivElement, BottomPanelProps>(({ isOpen }, re
               hideCopyButton={true}
             />
           </MemoizedSketchedBorder>
-          {levaStores.map((store) => (
-            <LevaPanel key={store.storeId} store={store} theme={levaTheme}/>
-          ))}
+          {
+            levaStores.map((store, index) => (
+              <LevaPanel key={index} store={store} />
+            ))
+          }
         </div>
     </div>
   );
