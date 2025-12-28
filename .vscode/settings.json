@@ -3,5 +3,9 @@
     "*.svg": "default"
   },
   "glsl-linter.linter": "glslangValidator",
-  "glsl-linter.glslangValidator.args": ["-S", "-V"]
+  "glsl-linter.glslangValidator.args": [
+    "-S",
+    "-V"
+  ],
+  "editor.tabSize": 2
 }
