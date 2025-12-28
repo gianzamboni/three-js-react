@@ -12,8 +12,6 @@ import Cube from "~/3d/cube";
 import { GreenFloor } from "~/3d/floor";
 import { OrangeSphere } from "~/3d/sphere";
 
-
-
 const effectTypes = ["Vignette", "Glitch", "Noise", "Bloom", "DepthOfField", "Drunk"];
 
 export default function MainScene() {
@@ -23,11 +21,6 @@ export default function MainScene() {
       label: "Effect",
       options: effectTypes
     }
-  })
-
-  const drunkProps = useControls('Drunk Effect', {
-      frequency: { value: 2, min: 1, max: 20 },
-      amplitude: { value: 0.1, min: 0, max: 1 }
   })
 
   let effectComponent: JSX.Element;
@@ -68,9 +61,7 @@ export default function MainScene() {
       />;
       break;
     case "Drunk":
-      effectComponent = <Drunk 
-        { ...drunkProps }
-      />;
+      effectComponent = <Drunk />;
       break;
     default:
       effectComponent = <></>;

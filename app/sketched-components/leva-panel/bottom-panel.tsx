@@ -1,4 +1,4 @@
-import { Leva } from 'leva';
+import { Leva, LevaPanel } from 'leva';
 import { forwardRef } from 'react';
 
 import commonStyles from "../common.module.css"
@@ -8,12 +8,16 @@ import { MemoizedSketchedBorder } from '../sketchy-borders';
 import { levaTheme } from './leva-theme';
 import styles from "./styles.module.css";
 
+import { useLevaStores } from '~/stores/leva-stores';
+
 type BottomPanelProps = {
   isOpen: boolean;
 };
 
 const BottomPanel = forwardRef<HTMLDivElement, BottomPanelProps>(({ isOpen }, ref) => {
 
+  const { levaStores } = useLevaStores();
+  
   let className = `${styles["bottom-panel"]} ${commonStyles["animated"]}`
   className += ` ${styles[isOpen ? "opened" : "closed"]}`;
 
@@ -31,6 +35,9 @@ const BottomPanel = forwardRef<HTMLDivElement, BottomPanelProps>(({ isOpen }, re
               hideCopyButton={true}
             />
           </MemoizedSketchedBorder>
+          {levaStores.map((store) => (
+            <LevaPanel key={store.storeId} store={store} theme={levaTheme}/>
+          ))}
         </div>
     </div>
   );
