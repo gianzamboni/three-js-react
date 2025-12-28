@@ -1,5 +1,3 @@
-import { levaStore } from "leva";
-import { useEffect } from "react";
 import { Outlet } from "react-router";
 
 import styles from "./styles.module.css";
