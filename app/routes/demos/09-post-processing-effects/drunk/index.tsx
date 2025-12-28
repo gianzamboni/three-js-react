@@ -1,8 +1,14 @@
-import DrunkEffect from "./effect"
+import DrunkEffect, { type DrunkEffectProps } from "./effect"
 
-export default function Drunk() {
+import type { ThreeElements } from "@react-three/fiber";
+import type { Ref } from "react";
 
-  const effect = new DrunkEffect();
+type DrunkProps = DrunkEffectProps & {
+  ref?: Ref<ThreeElements["primitive"]>
+}
+export default function Drunk(props: DrunkProps) {
 
-  return <primitive object={effect} />;
+  const effect = new DrunkEffect(props);
+
+  return <primitive ref={props.ref} object={effect} />;
 }

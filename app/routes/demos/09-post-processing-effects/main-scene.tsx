@@ -1,35 +1,33 @@
-import BasicSetup from "~/3d/basic-setup";
-import Cube, { PurpleCube } from "~/3d/cube";
-import { GreenFloor } from "~/3d/floor";
-import Sphere, { OrangeSphere } from "~/3d/sphere";
 import { Bloom, DepthOfField, EffectComposer, Glitch, Noise, ToneMapping, Vignette } from '@react-three/postprocessing'
+import { useControls } from "leva";
 import { ToneMappingMode, GlitchMode, BlendFunction } from "postprocessing";
 import { Vector2 } from "three";
-import { useControls } from "leva";
-import type { JSX } from "react";
+
 import Drunk from "./drunk";
 
-enum Effect {
-  Vignette,
-  Glitch,
-  Noise,
-  Bloom,
-  DepthOfField,
-  Drunk
-}
+import type { JSX } from "react";
 
-type Effects = keyof typeof Effect;
-const effectTypes = Object.keys(Effect).filter(key => isNaN(Number(key))) as Effects[];
-console.log(effectTypes)
+import BasicSetup from "~/3d/basic-setup";
+import Cube from "~/3d/cube";
+import { GreenFloor } from "~/3d/floor";
+import { OrangeSphere } from "~/3d/sphere";
+
+
+
+const effectTypes = ["Vignette", "Glitch", "Noise", "Bloom", "DepthOfField", "Drunk"];
 
 export default function MainScene() {
 
   let { effect } = useControls("Post Processing", {
     effect: {
       label: "Effect",
-      value: "Vignette" as Effects,
       options: effectTypes
     }
+  })
+
+  const drunkProps = useControls('Drunk Effect', {
+      frequency: { value: 2, min: 1, max: 20 },
+      amplitude: { value: 0.1, min: 0, max: 1 }
   })
 
   let effectComponent: JSX.Element;
@@ -70,7 +68,9 @@ export default function MainScene() {
       />;
       break;
     case "Drunk":
-      effectComponent = <Drunk />;
+      effectComponent = <Drunk 
+        { ...drunkProps }
+      />;
       break;
     default:
       effectComponent = <></>;
