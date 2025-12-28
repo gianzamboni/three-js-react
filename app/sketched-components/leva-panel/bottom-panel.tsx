@@ -26,8 +26,6 @@ const BottomPanel = forwardRef<HTMLDivElement, BottomPanelProps>(({ isOpen }, re
 
   useEffect(() => {
     const currentControlCount = Object.keys(mainStore.data).length;
-    console.log('Control count changed:', currentControlCount);
-    console.log
     if (currentControlCount !== previousControlCount) {
       setBorderKey(prev => prev + 1);
       setPreviousControlCount(currentControlCount);
