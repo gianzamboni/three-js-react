@@ -7,13 +7,15 @@ import { ToneMappingMode, GlitchMode, BlendFunction } from "postprocessing";
 import { Vector2 } from "three";
 import { useControls } from "leva";
 import type { JSX } from "react";
+import Drunk from "./drunk";
 
 enum Effect {
   Vignette,
   Glitch,
   Noise,
   Bloom,
-  DepthOfField
+  DepthOfField,
+  Drunk
 }
 
 type Effects = keyof typeof Effect;
@@ -66,6 +68,9 @@ export default function MainScene() {
         focalLength={0.026}
         bokehScale={6} 
       />;
+      break;
+    case "Drunk":
+      effectComponent = <Drunk />;
       break;
     default:
       effectComponent = <></>;
