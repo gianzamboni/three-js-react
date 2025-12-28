@@ -39,8 +39,6 @@ const BottomPanel = forwardRef<HTMLDivElement, BottomPanelProps>(({ isOpen }, re
     });
     
     const currentVisibleCount = visiblePaths.length;
-    console.log("Current visible controls:", currentVisibleCount);
-    console.log("Previous visible controls:", previousControlCount);
     
     if (currentVisibleCount !== previousControlCount) {
       setBorderKey(prev => prev + 1);
@@ -64,7 +62,11 @@ const BottomPanel = forwardRef<HTMLDivElement, BottomPanelProps>(({ isOpen }, re
           </MemoizedSketchedBorder>
           {
             levaStores.map((store, index) => (
-              <LevaPanel key={index} store={store} />
+              <LevaPanel 
+                key={index} 
+                store={store} 
+                theme={levaTheme}
+                />
             ))
           }
         </div>
