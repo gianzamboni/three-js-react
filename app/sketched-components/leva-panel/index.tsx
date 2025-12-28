@@ -36,7 +36,6 @@ export default function SketchyLevaPanel() {
     }, [panelOpened]);
 
     const hasControls = levaStore.getVisiblePaths().length > 0;
-    
     return (hasControls &&
         <div className={styles["panel-container"]}>
             <SketchyButton 

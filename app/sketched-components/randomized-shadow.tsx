@@ -1,3 +1,4 @@
+import { memo } from "react";
 import commonStyles from "./common.module.css";
 import { RandomSide } from "./svg/randomized-line";
 import { generateRectangleLimits } from "./svg/utils";
@@ -32,3 +33,5 @@ export function SketchyShadow({ strokeWidth, offsetX, offsetY }: SketchyShadowPr
     </svg>
   )
 }
+
+export const MemoizedSketchyShadow = memo(SketchyShadow);
