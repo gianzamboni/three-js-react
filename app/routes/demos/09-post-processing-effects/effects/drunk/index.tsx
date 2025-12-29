@@ -1,5 +1,5 @@
 import { useControls, useCreateStore } from "leva";
-import { useEffect, useMemo, useRef } from "react";
+import { useEffect, useRef } from "react";
 
 import DrunkEffect, { type DrunkEffectProps } from "./effect"
 
