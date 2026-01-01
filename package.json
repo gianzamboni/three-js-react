@@ -54,6 +54,9 @@
   "pnpm": {
     "onlyBuiltDependencies": [
       "esbuild"
-    ]
+    ],
+    "patchedDependencies": {
+      "@react-three/postprocessing": "patches/@react-three__postprocessing.patch"
+    }
   }
 }

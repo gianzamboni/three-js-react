@@ -1,7 +1,7 @@
-import { useControls, useCreateStore } from "leva";
-import { useEffect, useRef } from "react";
+import { useControls } from "leva";
 
-import { useRegisterLevaStore } from "~/stores/leva-stores";
+import { useRegisterLevaStore } from "~/stores/side-panel";
+import { EffectType } from "./effect-type";
 
 export interface DepthOfFieldControls {
   focusDistance: number;
@@ -9,13 +9,9 @@ export interface DepthOfFieldControls {
   bokehScale: number;
 }
 
-export function useDepthOfFieldControls(show: boolean) {
-  const storeRef = useRef<ReturnType<typeof useCreateStore> | null>(null);
-  
-  const depthOfFieldStore = useCreateStore();
-  useRegisterLevaStore(show ? depthOfFieldStore : null);
+export function useDepthOfFieldControls() {
+  const depthOfFieldStore = useRegisterLevaStore(EffectType.DepthOfField);
 
-  // Always call useControls to follow rules of hooks, but only use the result when show is true
   const controls = useControls("Depth of Field Effect", {
     focusDistance: {
       value: 0.025,
@@ -42,13 +38,5 @@ export function useDepthOfFieldControls(show: boolean) {
     store: depthOfFieldStore
   });
   
-  useEffect(() => {
-    if (show) {
-      storeRef.current = depthOfFieldStore;
-    } else {
-      storeRef.current = null;
-    }
-  }, [show, depthOfFieldStore]);
-
-  return show ? controls : null;
+  return controls;
 }

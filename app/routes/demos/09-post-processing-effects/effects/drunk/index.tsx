@@ -1,4 +1,4 @@
-import { useControls, useCreateStore } from "leva";
+import { useControls } from "leva";
 import { useEffect, useRef } from "react";
 
 import DrunkEffect, { type DrunkEffectProps } from "./effect"
@@ -6,19 +6,19 @@ import DrunkEffect, { type DrunkEffectProps } from "./effect"
 import type { ThreeElements } from "@react-three/fiber";
 import type { Ref } from "react";
 
-import { useRegisterLevaStore } from "~/stores/leva-stores";
+import { useRegisterLevaStore } from "~/stores/side-panel";
+import { EffectType } from "../effect-type";
 
 type DrunkProps = Partial<DrunkEffectProps> & {
   ref?: Ref<ThreeElements["primitive"]>
 }
 export default function Drunk(props: DrunkProps) {
 
-  const drunkStore = useCreateStore();
-  useRegisterLevaStore(drunkStore);
+  const drunkStore = useRegisterLevaStore(EffectType.Drunk);
 
   const { frequency, amplitude } = useControls('Drunk Effect', {
-    frequency: { value: props.frequency ?? 2, min: 1, max: 20 },
-    amplitude: { value: props.amplitude ?? 0.1, min: 0, max: 1 }
+    frequency: { label: "Frequency", value: props.frequency ?? 2, min: 1, max: 20 },
+    amplitude: { label: "Amplitude", value: props.amplitude ?? 0.1, min: 0, max: 1 }
   }, { store: drunkStore });
 
   const effect = useRef(new DrunkEffect({

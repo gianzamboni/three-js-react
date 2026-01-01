@@ -8,7 +8,7 @@ import { MemoizedSketchedBorder } from '../sketchy-borders';
 import { levaTheme } from './leva-theme';
 import styles from "./styles.module.css";
 
-import { useLevaStores } from '~/stores/leva-stores';
+import { useSidePanel } from '~/stores/side-panel';
 
 type BottomPanelProps = {
   isOpen: boolean;
@@ -16,7 +16,7 @@ type BottomPanelProps = {
 
 const BottomPanel = forwardRef<HTMLDivElement, BottomPanelProps>(({ isOpen }, ref) => {
 
-  const { levaStores } = useLevaStores();
+  const { levaStores, activeStore } = useSidePanel();
   const mainStore = levaStore.useStore();
   
   const [borderKey, setBorderKey] = useState(0);
@@ -60,16 +60,17 @@ const BottomPanel = forwardRef<HTMLDivElement, BottomPanelProps>(({ isOpen }, re
               hideCopyButton={true}
             />
           </MemoizedSketchedBorder>
-          {
-            levaStores.map((store, index) => (
-              <LevaPanel 
-                key={index} 
-                store={store} 
-                theme={levaTheme}
-                />
-            ))
-          }
         </div>
+        { activeStore && <div className={styles["leva-custom-container"]}>
+          <LevaPanel 
+            store={levaStores[activeStore]} 
+            fill={true}
+            flat={true}
+            oneLineLabels={false}
+            theme={levaTheme}
+            hideCopyButton={true}
+            />
+          </div> }
     </div>
   );
 });

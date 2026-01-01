@@ -1,0 +1,21 @@
+diff --git a/src/EffectComposer.tsx b/src/EffectComposer.tsx
+index c21ec02604cbecaeb3fc66dc2b1ad1e5a13fdc83..b801a5bcb1d97a943929f1fcf03c374597c0c611 100644
+--- a/src/EffectComposer.tsx
++++ b/src/EffectComposer.tsx
+@@ -10,6 +10,7 @@ import {
+   createContext,
+   useRef,
+   useImperativeHandle,
++  ReactNode,
+ } from 'react'
+ import { useThree, useFrame, type Instance } from '@react-three/fiber'
+ import {
+@@ -34,7 +35,7 @@ export const EffectComposerContext = /* @__PURE__ */ createContext<{
+ 
+ export type EffectComposerProps = {
+   enabled?: boolean
+-  children: JSX.Element | JSX.Element[]
++  children: ReactNode | ReactNode[]
+   depthBuffer?: boolean
+   /** Only used for SSGI currently, leave it disabled for everything else unless it's needed */
+   enableNormalPass?: boolean

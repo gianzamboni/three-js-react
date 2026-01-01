@@ -1,8 +1,8 @@
-import { useControls, useCreateStore } from "leva";
+import { useControls } from "leva";
 import { BlendFunction } from "postprocessing";
-import { useEffect, useRef } from "react";
 
-import { useRegisterLevaStore } from "~/stores/leva-stores";
+import { useRegisterLevaStore } from "~/stores/side-panel";
+import { EffectType } from "./effect-type";
 
 
 export interface NoiseControls {
@@ -10,13 +10,9 @@ export interface NoiseControls {
   blendFunction: BlendFunction;
 }
 
-export function useNoiseControls(show: boolean) {
-  const storeRef = useRef<ReturnType<typeof useCreateStore> | null>(null);
-  
-  const noiseStore = useCreateStore();
-  useRegisterLevaStore(show ? noiseStore : null);
+export function useNoiseControls() {
+  const noiseStore = useRegisterLevaStore(EffectType.Noise);
 
-  // Always call useControls to follow rules of hooks, but only use the result when show is true
   const controls = useControls("Noise Effect", {
     premultiply: {
       value: true,
@@ -46,15 +42,7 @@ export function useNoiseControls(show: boolean) {
     }
   }, {
     store: noiseStore
-  });
-  
-  useEffect(() => {
-    if (show) {
-      storeRef.current = noiseStore;
-    } else {
-      storeRef.current = null;
-    }
-  }, [show, noiseStore]);
+  });  
 
-  return show ? controls : null;
+  return controls;
 }

@@ -7,66 +7,43 @@ import { useDepthOfFieldControls } from './depth-of-field-controls';
 import Drunk from "./drunk";
 import { useNoiseControls } from './noise-controls';
 import { useVignetteControls } from './vignette-controls';
-
-import type { JSX } from "react";
-
-
-const effectTypes = ["Vignette", "Glitch", "Noise", "Bloom", "DepthOfField", "Drunk"];
+import { EffectType } from './effect-type';
 
 interface PostProcessingEffectsProps {
-  effect: string;
+  effect: EffectType;
 }
 
 export default function PostProcessingEffects({ effect }: PostProcessingEffectsProps) {
-  const vignetteControls = useVignetteControls(effect === "Vignette");
-  const noiseControls = useNoiseControls(effect === "Noise");
-  const bloomControls = useBloomControls(effect === "Bloom");
-  const depthOfFieldControls = useDepthOfFieldControls(effect === "DepthOfField");
 
-  let effectComponent: JSX.Element;
-  
-  switch(effect) {
-    case "Vignette":
-      effectComponent = <Vignette 
-        { ...vignetteControls}
-      />;
-      break;
-    case "Glitch":
-      effectComponent = <Glitch 
-        delay={new Vector2(0.5, 1)} 
-        duration={new Vector2(0.1, 0.3)} 
-        strength={new Vector2(0.2, 0.4)} 
-        mode={GlitchMode.CONSTANT_MILD} 
-      />;
-      break;
-    case "Noise":
-      effectComponent = <Noise 
-        { ...noiseControls}
-      />;
-      break;
-    case "Bloom":
-      effectComponent = <Bloom 
-        { ...bloomControls}
-      />;
-      break;
-    case "DepthOfField":
-      effectComponent = <DepthOfField 
-        { ...depthOfFieldControls}
-      />;
-      break;
-    case "Drunk":
-      effectComponent = <Drunk />;
-      break;
-    default:
-      effectComponent = <></>;
-  }
+  // It would be nice to have this inside a component with its respective effect.
+  // But given the @react-three/postprocessing and postprocessing APIs states at the moment of implementing this. 
+  // it's not possible because the EffectComposer doesn't relize it has to remake the render pipeline if we add
+  // a level of nesting to the effects components.
+  const vignetteControls = useVignetteControls();
+  const noiseControls = useNoiseControls();
+  const bloomControls = useBloomControls();
+  const depthOfFieldControls = useDepthOfFieldControls();
 
   return (
     <EffectComposer>
-      {effectComponent}
+      {effect === EffectType.Vignette &&  <Vignette { ...vignetteControls}/> }
+      {effect === EffectType.Glitch && <Glitch 
+          delay={new Vector2(0.5, 1)} 
+          duration={new Vector2(0.1, 0.3)} 
+          strength={new Vector2(0.2, 0.4)} 
+          mode={GlitchMode.CONSTANT_MILD} 
+      />}
+      {effect === EffectType.Noise && <Noise 
+        { ...noiseControls}
+      />}
+      {effect === EffectType.Bloom && <Bloom 
+        { ...bloomControls}
+      />}
+      {effect === EffectType.DepthOfField && <DepthOfField 
+        { ...depthOfFieldControls}
+      />}
+      {effect === EffectType.Drunk && <Drunk />}
       <ToneMapping mode={ToneMappingMode.ACES_FILMIC} />
     </EffectComposer>
   );
 }
-
-export { effectTypes };

@@ -1,7 +1,7 @@
-import { useControls, useCreateStore } from "leva";
-import { useEffect, useRef } from "react";
+import { useControls } from "leva";
 
-import { useRegisterLevaStore } from "~/stores/leva-stores";
+import { useRegisterLevaStore } from "~/stores/side-panel";
+import { EffectType } from "./effect-type";
 
 export interface BloomControls {
   luminanceThreshold: number;
@@ -9,13 +9,9 @@ export interface BloomControls {
   height: number;
 }
 
-export function useBloomControls(show: boolean) {
-  const storeRef = useRef<ReturnType<typeof useCreateStore> | null>(null);
-  
-  const bloomStore = useCreateStore();
-  useRegisterLevaStore(show ? bloomStore : null);
+export function useBloomControls() {
+  const bloomStore = useRegisterLevaStore(EffectType.Bloom);
 
-  // Always call useControls to follow rules of hooks, but only use the result when show is true
   const controls = useControls("Bloom Effect", {
     luminanceThreshold: {
       value: 0.2,
@@ -34,14 +30,6 @@ export function useBloomControls(show: boolean) {
   }, {
     store: bloomStore
   });
-  
-  useEffect(() => {
-    if (show) {
-      storeRef.current = bloomStore;
-    } else {
-      storeRef.current = null;
-    }
-  }, [show, bloomStore]);
 
-  return show ? controls : null;
+  return controls;
 }
