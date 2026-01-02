@@ -1,6 +1,6 @@
 import { useControls } from "leva";
 
-import { useRegisterLevaStore } from "~/stores/side-panel";
+import { useRegisterSidePanelConfig } from "~/stores/side-panel";
 import { EffectType } from "./effect-type";
 
 export interface BloomControls {
@@ -10,7 +10,7 @@ export interface BloomControls {
 }
 
 export function useBloomControls() {
-  const bloomStore = useRegisterLevaStore(EffectType.Bloom);
+  const bloomStore = useRegisterSidePanelConfig(EffectType.Bloom);
 
   const controls = useControls("Bloom Effect", {
     luminanceThreshold: {

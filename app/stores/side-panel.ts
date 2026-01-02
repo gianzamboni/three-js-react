@@ -30,17 +30,17 @@ export const useSidePanel = create<SidePanelState>((set) => ({
   clear: () => set({ levaStores: {} }),
 }));
 
-export function useRegisterLevaStore(key: string) {
+export function useRegisterSidePanelConfig(key: string) {
   const register = useSidePanel((s) => s.register);
   const unregister = useSidePanel((s) => s.unregister);
-  const store = useRef(useCreateStore()).current;
+  const store = useRef(useCreateStore());
 
   useEffect(() => {
-    register(key, store);
+    register(key, store.current);
     return () => {
       unregister(key);
     };
   }, [key, store, register, unregister]);
 
-  return store;
+  return store.current;
 }
