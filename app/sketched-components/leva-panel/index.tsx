@@ -28,18 +28,23 @@ export default function SketchyLevaPanel() {
             }
         };
 
-        document.addEventListener('mousedown', handleClickOutside);
+        document.addEventListener('click', handleClickOutside);
         return () => {
-            document.removeEventListener('mousedown', handleClickOutside);
+            document.removeEventListener('click', handleClickOutside);
         };
     }, [panelOpened]);
+
+    
+    const buttonClickHandler = () => {
+        setPanelOpened(!panelOpened);
+    };
 
     const hasControls = levaStore.getVisiblePaths().length > 0;
     return (hasControls &&
         <div className={styles["panel-container"]}>
             <SketchyButton 
                 className={`${styles["settings-button"]} ${commonStyles["interactive-element"]}`} 
-                onClick={() => setPanelOpened(!panelOpened)}
+                onClick={buttonClickHandler}
             >
                 <SettingsIcon className={styles["settings-icon"]} />
             </SketchyButton>

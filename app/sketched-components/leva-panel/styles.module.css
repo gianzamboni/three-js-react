@@ -35,7 +35,8 @@
   flex-direction: column;
 
   @media (min-width: 768px) {
-    padding-inline-start: calc(var(--spacing-lg) * 4);
+    width: fit-content;
+    margin-inline-start: calc(var(--spacing-lg) * 4);
     padding-block-end: var(--spacing-lg);
     gap: var(--spacing-sm);
   }

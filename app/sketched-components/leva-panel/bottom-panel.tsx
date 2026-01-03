@@ -20,8 +20,8 @@ const BottomPanel = forwardRef<HTMLDivElement, BottomPanelProps>(({ isOpen }, re
   className += ` ${styles[isOpen ? "opened" : "closed"]}`;
 
   return (
-    <div className={className}>
-      <div className={styles["leva-custom-container"]} ref={ref}>
+    <div className={className} ref={ref}>
+      <div className={styles["leva-custom-container"]} >
           <ResponsiveSketchyPanel store={levaStore} />
         </div>
         { activeStore && levaStores[activeStore] && <div className={styles["leva-custom-container"]}>
