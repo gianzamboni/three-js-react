@@ -1,7 +1,8 @@
 import { useControls } from "leva";
 
-import { useRegisterSidePanelConfig } from "~/stores/side-panel";
 import { EffectType } from "./effect-type";
+
+import { useRegisterSidePanelConfig } from "~/stores/side-panel";
 
 export interface VignetteControls {
   offset: number;

@@ -1,13 +1,14 @@
 import { useControls } from "leva";
 import { useEffect, useRef } from "react";
 
+import { EffectType } from "../effect-type";
+
 import DrunkEffect, { type DrunkEffectProps } from "./effect"
 
 import type { ThreeElements } from "@react-three/fiber";
 import type { Ref } from "react";
 
 import { useRegisterSidePanelConfig } from "~/stores/side-panel";
-import { EffectType } from "../effect-type";
 
 type DrunkProps = Partial<DrunkEffectProps> & {
   ref?: Ref<ThreeElements["primitive"]>

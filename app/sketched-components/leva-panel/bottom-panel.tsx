@@ -1,9 +1,8 @@
-import { LevaPanel, levaStore } from 'leva';
+import { levaStore } from 'leva';
 import { forwardRef } from 'react';
 
 import commonStyles from "../common.module.css"
 
-import { levaTheme } from './leva-theme';
 import ResponsiveSketchyPanel from './responsive-sketchy-panel';
 import styles from "./styles.module.css";
 
@@ -24,17 +23,7 @@ const BottomPanel = forwardRef<HTMLDivElement, BottomPanelProps>(({ isOpen }, re
     <div className={className}>
       <ResponsiveSketchyPanel levaStore={levaStore} ref={ref} />
         { activeStore && levaStores[activeStore] && 
-          <div className={styles["leva-custom-container"]}>
-            <LevaPanel 
-              store={levaStores[activeStore]} 
-              fill={true}
-              flat={true}
-              oneLineLabels={false}
-              theme={levaTheme}
-              titleBar={false}
-              hideCopyButton={true}
-              />
-          </div> }
+          <ResponsiveSketchyPanel  levaStore={levaStores[activeStore]} /> }
     </div>
   );
 });

@@ -1,6 +1,6 @@
+import { useCreateStore } from "leva";
 import { useEffect, useRef } from "react";
 import { create } from "zustand";
-import { useCreateStore } from "leva";
 
 import type { StoreType } from "leva/dist/declarations/src/types";
 

@@ -5,9 +5,9 @@ import { Vector2 } from "three";
 import { useBloomControls } from './bloom-controls';
 import { useDepthOfFieldControls } from './depth-of-field-controls';
 import Drunk from "./drunk";
+import { EffectType } from './effect-type';
 import { useNoiseControls } from './noise-controls';
 import { useVignetteControls } from './vignette-controls';
-import { EffectType } from './effect-type';
 
 interface PostProcessingEffectsProps {
   effect: EffectType;

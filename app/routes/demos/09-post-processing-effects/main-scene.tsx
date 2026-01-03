@@ -1,13 +1,13 @@
 import { useControls } from "leva";
+import { useEffect } from "react";
 
-import PostProcessingEffects from "./effects/post-processing-effects";
 import { EffectType } from "./effects/effect-type";
+import PostProcessingEffects from "./effects/post-processing-effects";
 
 import BasicSetup from "~/3d/basic-setup";
 import Cube from "~/3d/cube";
 import { GreenFloor } from "~/3d/floor";
 import { OrangeSphere } from "~/3d/sphere";
-import { useEffect } from "react";
 import { useSidePanel } from "~/stores/side-panel";
 
 export default function MainScene() {

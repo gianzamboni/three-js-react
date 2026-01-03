@@ -1,8 +1,9 @@
 import { useControls } from "leva";
 import { BlendFunction } from "postprocessing";
 
-import { useRegisterSidePanelConfig } from "~/stores/side-panel";
 import { EffectType } from "./effect-type";
+
+import { useRegisterSidePanelConfig } from "~/stores/side-panel";
 
 
 export interface NoiseControls {
