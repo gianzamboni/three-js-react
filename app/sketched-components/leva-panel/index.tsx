@@ -15,8 +15,8 @@ export default function SketchyLevaPanel() {
 
     // Used as a triger for a levaStore changes; Not used directly though. 
     // If removed, this component won't work.
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const store = levaStore.useStore();
+    // @ts-ignore
+    const _store = levaStore.useStore();
 
 
     useEffect(() => {

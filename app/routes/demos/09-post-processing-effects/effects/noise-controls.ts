@@ -3,7 +3,7 @@ import { BlendFunction } from "postprocessing";
 
 import { EffectType } from "./effect-type";
 
-import { useRegisterSidePanelConfig } from "~/stores/side-panel";
+import { useRegisterLevaStore } from "~/stores/side-panel";
 
 
 export interface NoiseControls {
@@ -12,7 +12,7 @@ export interface NoiseControls {
 }
 
 export function useNoiseControls() {
-  const noiseStore = useRegisterSidePanelConfig(EffectType.Noise);
+  const noiseStore = useRegisterLevaStore(EffectType.Noise);
 
   const controls = useControls("Noise Effect", {
     premultiply: {

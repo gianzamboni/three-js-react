@@ -2,7 +2,7 @@ import { useControls } from "leva";
 
 import { EffectType } from "./effect-type";
 
-import { useRegisterSidePanelConfig } from "~/stores/side-panel";
+import { useRegisterLevaStore } from "~/stores/side-panel";
 
 export interface VignetteControls {
   offset: number;
@@ -10,7 +10,7 @@ export interface VignetteControls {
 }
 
 export function useVignetteControls() {
-  const vignetteStore = useRegisterSidePanelConfig(EffectType.Vignette);  
+  const vignetteStore = useRegisterLevaStore(EffectType.Vignette);  
 
   const controls = useControls("Vignette Effect", {
     offset: {

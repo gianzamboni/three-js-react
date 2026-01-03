@@ -8,14 +8,14 @@ import DrunkEffect, { type DrunkEffectProps } from "./effect"
 import type { ThreeElements } from "@react-three/fiber";
 import type { Ref } from "react";
 
-import { useRegisterSidePanelConfig } from "~/stores/side-panel";
+import { useRegisterLevaStore } from "~/stores/side-panel";
 
 type DrunkProps = Partial<DrunkEffectProps> & {
   ref?: Ref<ThreeElements["primitive"]>
 }
 export default function Drunk(props: DrunkProps) {
 
-  const drunkStore = useRegisterSidePanelConfig(EffectType.Drunk);
+  const drunkStore = useRegisterLevaStore(EffectType.Drunk);
 
   const { frequency, amplitude } = useControls('Drunk Effect', {
     frequency: { label: "Frequency", value: props.frequency ?? 2, min: 1, max: 20 },

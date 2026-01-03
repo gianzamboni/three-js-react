@@ -2,7 +2,7 @@ import { useControls } from "leva";
 
 import { EffectType } from "./effect-type";
 
-import {useRegisterSidePanelConfig } from "~/stores/side-panel";
+import { useRegisterLevaStore } from "~/stores/side-panel";
 
 export interface DepthOfFieldControls {
   focusDistance: number;
@@ -11,7 +11,7 @@ export interface DepthOfFieldControls {
 }
 
 export function useDepthOfFieldControls() {
-  const depthOfFieldStore = useRegisterSidePanelConfig(EffectType.DepthOfField);
+  const depthOfFieldStore = useRegisterLevaStore(EffectType.DepthOfField);
 
   const controls = useControls("Depth of Field Effect", {
     focusDistance: {
