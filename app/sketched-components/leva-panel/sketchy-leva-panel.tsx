@@ -1,7 +1,7 @@
 import { LevaPanel, levaStore } from 'leva'
 
 import { MemoizedSketchyShadow } from '../randomized-shadow'
-import { MemoizedSketchedBorder } from '../sketchy-borders'
+import { SketchyBorder } from '../sketchy-borders'
 
 import { levaTheme } from './leva-theme'
 
@@ -9,9 +9,9 @@ type ResponsiveSketchyPanelProps = {
   store: typeof levaStore
 }
 
-export default function ResponsiveSketchyPanel({ store }: ResponsiveSketchyPanelProps) {
+export default function SketchyLevaPanel({ store }: ResponsiveSketchyPanelProps) {
   return (
-    <MemoizedSketchedBorder baseStrokeWidth='sm'>
+    <SketchyBorder baseStrokeWidth='sm'>
       <MemoizedSketchyShadow strokeWidth='sm' offsetX={1} offsetY={1}/>
       <LevaPanel
         store={store}
@@ -22,7 +22,7 @@ export default function ResponsiveSketchyPanel({ store }: ResponsiveSketchyPanel
         titleBar={false}
         hideCopyButton={true}
       />
-    </MemoizedSketchedBorder>
+    </SketchyBorder>
   )
 }
 

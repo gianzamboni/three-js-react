@@ -50,6 +50,7 @@
     background: #fff;
     padding: 1rem;
     max-width: 500px;
+    height: fit-content;
   }
 }
 

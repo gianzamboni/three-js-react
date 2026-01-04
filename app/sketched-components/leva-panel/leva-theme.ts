@@ -35,7 +35,7 @@ export const levaTheme = {
     colorPickerWidth: '160px',
     colorPickerHeight: '100px',
     monitorHeight: '60px',
-    titleBarHeight: '39px',
+    titleBarHeight: '40px',
      numberInputMinWidth: '50px',
   },
   borderWidths: {

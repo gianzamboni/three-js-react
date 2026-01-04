@@ -3,7 +3,7 @@ import { forwardRef } from 'react';
 
 import commonStyles from "../common.module.css"
 
-import ResponsiveSketchyPanel from './responsive-sketchy-panel';
+import SketchyLevaPanel from './sketchy-leva-panel';
 import styles from "./styles.module.css";
 
 import { useSidePanel } from '~/stores/side-panel';
@@ -22,10 +22,10 @@ const BottomPanel = forwardRef<HTMLDivElement, BottomPanelProps>(({ isOpen }, re
   return (
     <div className={className} ref={ref}>
       <div className={styles["leva-custom-container"]} >
-          <ResponsiveSketchyPanel store={levaStore} />
+          <SketchyLevaPanel store={levaStore} />
         </div>
         { activeStore && levaStores[activeStore] && <div className={styles["leva-custom-container"]}>
-          <ResponsiveSketchyPanel store={levaStores[activeStore]} />
+          <SketchyLevaPanel store={levaStores[activeStore]} />
           </div> }
     </div>
   );
