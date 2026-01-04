@@ -1,5 +1,5 @@
 import { levaStore } from 'leva';
-import { forwardRef } from 'react';
+import { forwardRef, useEffect, useState } from 'react';
 
 import commonStyles from "../common.module.css"
 
@@ -15,6 +15,24 @@ type BottomPanelProps = {
 const BottomPanel = forwardRef<HTMLDivElement, BottomPanelProps>(({ isOpen }, ref) => {
 
   const { levaStores, activeStore } = useSidePanel();
+  const [renderedStore, setRenderedStore] = useState<string | null>(activeStore ?? null);
+  const [isAtBottom, setIsAtBottom] = useState(!activeStore);
+  const transitionMs = 300;
+
+  useEffect(() => {
+    if (activeStore === renderedStore) return;
+
+    setIsAtBottom(true);
+    const timeout = setTimeout(() => {
+      setRenderedStore(activeStore ?? null);
+      // Slide back up only when we have a store to show.
+      setIsAtBottom(!activeStore);
+    }, transitionMs);
+
+    return () => clearTimeout(timeout);
+  }, [activeStore, renderedStore, transitionMs]);
+
+  const displayedStore = renderedStore ? levaStores[renderedStore] : undefined;
   
   let className = `${styles["bottom-panel"]} ${commonStyles["animated"]}`
   className += ` ${styles[isOpen ? "opened" : "closed"]}`;
@@ -24,9 +42,16 @@ const BottomPanel = forwardRef<HTMLDivElement, BottomPanelProps>(({ isOpen }, re
       <div className={styles["leva-custom-container"]} >
           <SketchyLevaPanel store={levaStore} />
         </div>
-        { activeStore && levaStores[activeStore] && <div className={styles["leva-custom-container"]}>
-          <SketchyLevaPanel store={levaStores[activeStore]} />
-          </div> }
+        <div
+          className={`${styles["active-store-wrapper"]} ${commonStyles["animated"]} ${isAtBottom ? styles["closed"] : styles["opened"]}`}
+          style={{ transitionDuration: `${transitionMs}ms` }}
+        >
+          {displayedStore && (
+            <div className={styles["leva-custom-container"]}>
+              <SketchyLevaPanel store={displayedStore} />
+            </div>
+          )}
+        </div>
     </div>
   );
 });

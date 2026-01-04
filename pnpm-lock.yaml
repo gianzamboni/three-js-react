@@ -8,9 +8,6 @@ patchedDependencies:
   '@react-three/postprocessing':
     hash: bbf6e036a5f9c984a4352f659b8facf5352948ec7c453fa7a72ece0144c15991
     path: patches/@react-three__postprocessing.patch
-  leva:
-    hash: db51387b1e96fa079f0c10f2a72702c264fba4b668c91d0249ed94bc2e91d84c
-    path: patches/leva.patch
 
 importers:
 
@@ -51,7 +48,7 @@ importers:
         version: 5.1.32
       leva:
         specifier: ^0.10.1
-        version: 0.10.1(patch_hash=db51387b1e96fa079f0c10f2a72702c264fba4b668c91d0249ed94bc2e91d84c)(@types/react-dom@19.2.3(@types/react@19.2.7))(@types/react@19.2.7)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
+        version: 0.10.1(@types/react-dom@19.2.3(@types/react@19.2.7))(@types/react@19.2.7)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       postprocessing:
         specifier: ^6.38.2
         version: 6.38.2(three@0.182.0)
@@ -5421,7 +5418,7 @@ snapshots:
     dependencies:
       json-buffer: 3.0.1
 
-  leva@0.10.1(patch_hash=db51387b1e96fa079f0c10f2a72702c264fba4b668c91d0249ed94bc2e91d84c)(@types/react-dom@19.2.3(@types/react@19.2.7))(@types/react@19.2.7)(react-dom@19.2.3(react@19.2.3))(react@19.2.3):
+  leva@0.10.1(@types/react-dom@19.2.3(@types/react@19.2.7))(@types/react@19.2.7)(react-dom@19.2.3(react@19.2.3))(react@19.2.3):
     dependencies:
       '@radix-ui/react-portal': 1.1.10(@types/react-dom@19.2.3(@types/react@19.2.7))(@types/react@19.2.7)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@radix-ui/react-tooltip': 1.2.8(@types/react-dom@19.2.3(@types/react@19.2.7))(@types/react@19.2.7)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
