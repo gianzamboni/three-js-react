@@ -1,0 +1,48 @@
+diff --git a/dist/vector-plugin-5405c78c.cjs.prod.js b/dist/vector-plugin-5405c78c.cjs.prod.js
+index fd833dde5476da3d759974644269c19a50a588a1..a1c599dbe1c0d5ace552a2a4269d948d81c19e3d 100644
+--- a/dist/vector-plugin-5405c78c.cjs.prod.js
++++ b/dist/vector-plugin-5405c78c.cjs.prod.js
+@@ -981,6 +981,7 @@ const StyledTitle = styled('div', {
+   cursor: 'pointer',
+   height: '$folderTitleHeight',
+   fontWeight: '$folder',
++  paddingBottom: '$md',
+   '> svg': {
+     marginLeft: -4,
+     marginRight: 4,
+diff --git a/dist/vector-plugin-5e122f40.esm.js b/dist/vector-plugin-5e122f40.esm.js
+index be0bbfbf2bde37ac38cc0f166b2c07d614faacce..d815081c4359e3570041d1d79cf4b08d03651e58 100644
+--- a/dist/vector-plugin-5e122f40.esm.js
++++ b/dist/vector-plugin-5e122f40.esm.js
+@@ -954,6 +954,7 @@ const StyledTitle = styled('div', {
+   cursor: 'pointer',
+   height: '$folderTitleHeight',
+   fontWeight: '$folder',
++  paddingBottom: '$md',
+   '> svg': {
+     marginLeft: -4,
+     marginRight: 4,
+diff --git a/dist/vector-plugin-d09ec28c.cjs.dev.js b/dist/vector-plugin-d09ec28c.cjs.dev.js
+index fd833dde5476da3d759974644269c19a50a588a1..a1c599dbe1c0d5ace552a2a4269d948d81c19e3d 100644
+--- a/dist/vector-plugin-d09ec28c.cjs.dev.js
++++ b/dist/vector-plugin-d09ec28c.cjs.dev.js
+@@ -981,6 +981,7 @@ const StyledTitle = styled('div', {
+   cursor: 'pointer',
+   height: '$folderTitleHeight',
+   fontWeight: '$folder',
++  paddingBottom: '$md',
+   '> svg': {
+     marginLeft: -4,
+     marginRight: 4,
+diff --git a/src/components/Folder/StyledFolder.ts b/src/components/Folder/StyledFolder.ts
+index 518114c190e56248e524d3a0af2fecc0375c70c2..67d7622cd8a26c341c2c9a45d08ebb62a1fccf22 100644
+--- a/src/components/Folder/StyledFolder.ts
++++ b/src/components/Folder/StyledFolder.ts
+@@ -53,6 +53,7 @@ export const StyledTitle = styled('div', {
+   cursor: 'pointer',
+   height: '$folderTitleHeight',
+   fontWeight: '$folder',
++  marginBottom: '$md',
+ 
+   '> svg': {
+     marginLeft: -4,

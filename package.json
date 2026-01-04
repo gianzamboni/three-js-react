@@ -56,7 +56,8 @@
       "esbuild"
     ],
     "patchedDependencies": {
-      "@react-three/postprocessing": "patches/@react-three__postprocessing.patch"
+      "@react-three/postprocessing": "patches/@react-three__postprocessing.patch",
+      "leva": "patches/leva.patch"
     }
   }
 }
