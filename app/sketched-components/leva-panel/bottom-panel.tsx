@@ -43,8 +43,8 @@ const BottomPanel = forwardRef<HTMLDivElement, BottomPanelProps>(({ isOpen }, re
           <SketchyLevaPanel store={levaStore} />
         </div>
         <div
-          className={`${styles["active-store-wrapper"]} ${commonStyles["animated"]} ${isAtBottom ? styles["closed"] : styles["opened"]}`}
-          style={{ transitionDuration: `${transitionMs}ms` }}
+          className={`${commonStyles["animated"]} ${isAtBottom ? styles["closed"] : styles["opened"]}`}
+          style={{ zIndex: `-1` }}
         >
           {displayedStore && (
             <div className={styles["leva-custom-container"]}>

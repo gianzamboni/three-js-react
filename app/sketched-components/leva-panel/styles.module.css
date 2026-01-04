@@ -32,9 +32,9 @@
   user-select: none;
   z-index: 2;
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
 
-  @media (min-width: 768px) {
+  @media (min-width: 728px) {
     width: fit-content;
     margin-inline-start: calc(var(--spacing-lg) * 4);
     padding-block-end: var(--spacing-lg);
@@ -49,7 +49,7 @@
     position: relative;
     background: #fff;
     padding: 1rem;
-    max-width: 500px;
+    width: 410px;
     height: fit-content;
   }
 }
