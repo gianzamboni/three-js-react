@@ -4,12 +4,6 @@ import { EffectType } from "./effect-type";
 
 import { useRegisterLevaStore } from "~/stores/side-panel";
 
-export interface BloomControls {
-  luminanceThreshold: number;
-  luminanceSmoothing: number;
-  height: number;
-}
-
 export function useBloomControls() {
   const bloomStore = useRegisterLevaStore(EffectType.Bloom);
 

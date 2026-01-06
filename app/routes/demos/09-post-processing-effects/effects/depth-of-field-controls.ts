@@ -4,12 +4,6 @@ import { EffectType } from "./effect-type";
 
 import { useRegisterLevaStore } from "~/stores/side-panel";
 
-export interface DepthOfFieldControls {
-  focusDistance: number;
-  focalLength: number;
-  bokehScale: number;
-}
-
 export function useDepthOfFieldControls() {
   const depthOfFieldStore = useRegisterLevaStore(EffectType.DepthOfField);
 

@@ -5,12 +5,6 @@ import { EffectType } from "./effect-type";
 
 import { useRegisterLevaStore } from "~/stores/side-panel";
 
-
-export interface NoiseControls {
-  premultiply: boolean;
-  blendFunction: BlendFunction;
-}
-
 export function useNoiseControls() {
   const noiseStore = useRegisterLevaStore(EffectType.Noise);
 

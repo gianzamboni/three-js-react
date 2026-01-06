@@ -5,6 +5,7 @@ import { Vector2 } from "three";
 import { useBloomControls } from './bloom-controls';
 import { useDepthOfFieldControls } from './depth-of-field-controls';
 import Drunk from "./drunk";
+import { useDrunkControls } from './drunk-controls';
 import { EffectType } from './effect-type';
 import { useNoiseControls } from './noise-controls';
 import { useVignetteControls } from './vignette-controls';
@@ -23,6 +24,7 @@ export default function PostProcessingEffects({ effect }: PostProcessingEffectsP
   const noiseControls = useNoiseControls();
   const bloomControls = useBloomControls();
   const depthOfFieldControls = useDepthOfFieldControls();
+  const drunkControls = useDrunkControls();
 
   return (
     <EffectComposer>
@@ -42,7 +44,7 @@ export default function PostProcessingEffects({ effect }: PostProcessingEffectsP
       {effect === EffectType.DepthOfField && <DepthOfField 
         { ...depthOfFieldControls}
       />}
-      {effect === EffectType.Drunk && <Drunk />}
+      {effect === EffectType.Drunk && <Drunk {...drunkControls} />}
       <ToneMapping mode={ToneMappingMode.ACES_FILMIC} />
     </EffectComposer>
   );

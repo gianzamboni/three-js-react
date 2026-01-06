@@ -4,11 +4,6 @@ import { EffectType } from "./effect-type";
 
 import { useRegisterLevaStore } from "~/stores/side-panel";
 
-export interface VignetteControls {
-  offset: number;
-  darkness: number;
-}
-
 export function useVignetteControls() {
   const vignetteStore = useRegisterLevaStore(EffectType.Vignette);  
 

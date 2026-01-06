@@ -6,7 +6,7 @@ settings:
 
 patchedDependencies:
   '@react-three/postprocessing':
-    hash: bbf6e036a5f9c984a4352f659b8facf5352948ec7c453fa7a72ece0144c15991
+    hash: 14c0e904e50483b8364a61c0af6029102c3990153babd96377f60ff500678748
     path: patches/@react-three__postprocessing.patch
   leva:
     hash: db51387b1e96fa079f0c10f2a72702c264fba4b668c91d0249ed94bc2e91d84c
@@ -30,7 +30,7 @@ importers:
         version: 9.4.2(@types/react@19.2.7)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(three@0.182.0)
       '@react-three/postprocessing':
         specifier: ^3.0.4
-        version: 3.0.4(patch_hash=bbf6e036a5f9c984a4352f659b8facf5352948ec7c453fa7a72ece0144c15991)(@react-three/fiber@9.4.2(@types/react@19.2.7)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(three@0.182.0))(@types/three@0.182.0)(react@19.2.3)(three@0.182.0)
+        version: 3.0.4(patch_hash=14c0e904e50483b8364a61c0af6029102c3990153babd96377f60ff500678748)(@react-three/fiber@9.4.2(@types/react@19.2.7)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(three@0.182.0))(@types/three@0.182.0)(react@19.2.3)(three@0.182.0)
       '@types/three':
         specifier: ^0.182.0
         version: 0.182.0
@@ -3952,7 +3952,7 @@ snapshots:
       - '@types/react'
       - immer
 
-  '@react-three/postprocessing@3.0.4(patch_hash=bbf6e036a5f9c984a4352f659b8facf5352948ec7c453fa7a72ece0144c15991)(@react-three/fiber@9.4.2(@types/react@19.2.7)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(three@0.182.0))(@types/three@0.182.0)(react@19.2.3)(three@0.182.0)':
+  '@react-three/postprocessing@3.0.4(patch_hash=14c0e904e50483b8364a61c0af6029102c3990153babd96377f60ff500678748)(@react-three/fiber@9.4.2(@types/react@19.2.7)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(three@0.182.0))(@types/three@0.182.0)(react@19.2.3)(three@0.182.0)':
     dependencies:
       '@react-three/fiber': 9.4.2(@types/react@19.2.7)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(three@0.182.0)
       maath: 0.6.0(@types/three@0.182.0)(three@0.182.0)

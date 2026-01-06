@@ -1,52 +1,33 @@
-import { useControls } from "leva";
+import { BlendFunction } from "postprocessing";
 import { useEffect, useRef } from "react";
-
-import { EffectType } from "../effect-type";
 
 import DrunkEffect, { type DrunkEffectProps } from "./effect"
 
 import type { ThreeElements } from "@react-three/fiber";
 import type { Ref } from "react";
+import type { Uniform } from "three";
 
-import { useRegisterLevaStore } from "~/stores/side-panel";
-
-type DrunkProps = Partial<DrunkEffectProps> & {
+type DrunkProps = DrunkEffectProps & {
   ref?: Ref<ThreeElements["primitive"]>
 }
 export default function Drunk(props: DrunkProps) {
 
-  const drunkStore = useRegisterLevaStore(EffectType.Drunk);
-
-  const { frequency, amplitude } = useControls('Drunk Effect', {
-    frequency: { label: "Frequency", value: props.frequency ?? 2, min: 1, max: 20 },
-    amplitude: { label: "Amplitude", value: props.amplitude ?? 0.1, min: 0, max: 1 }
-  }, { store: drunkStore });
+  const { frequency, amplitude } = props;
 
   const effect = useRef(new DrunkEffect({
-      frequency,
-      amplitude,
-      blendFunction: props.blendFunction
-    }));
+    frequency,
+    amplitude,
+  }));
 
   useEffect(() => {
-    const uniform = effect.current.uniforms.get('frequency');
-    if (uniform) {
-      uniform.value = frequency;
-    }
+    const uniform = effect.current.uniforms.get('frequency') as Uniform;
+    uniform.value = frequency ?? 2;
   }, [frequency]);
 
   useEffect(() => {
-    const uniform = effect.current.uniforms.get('amplitude');
-    if (uniform) {
-      uniform.value = amplitude;
-    }
+    const uniform = effect.current.uniforms.get('amplitude') as Uniform;
+    uniform.value = amplitude ?? 0.1;
   }, [amplitude]);
-
-  useEffect(() => {
-    if (props.blendFunction !== undefined) {
-      effect.current.blendMode.blendFunction = props.blendFunction;
-    }
-  }, [props.blendFunction]);
 
   return <primitive ref={props.ref} object={effect.current} />;
 }
