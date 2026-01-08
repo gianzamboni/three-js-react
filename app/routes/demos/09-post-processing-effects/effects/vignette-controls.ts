@@ -18,7 +18,7 @@ export function useVignetteControls() {
     darkness: {
       value: 0.9,
       min: 0,
-      max: 2,
+      max: 1.5,
       step: 0.01,
       label: "Darkness"
     }

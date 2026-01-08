@@ -11,14 +11,14 @@ export function useDepthOfFieldControls() {
     focusDistance: {
       value: 0.025,
       min: 0,
-      max: 0.1,
+      max: 10,
       step: 0.001,
       label: "Focus Distance"
     },
     focalLength: {
       value: 0.026,
       min: 0,
-      max: 0.1,
+      max: 10,
       step: 0.001,
       label: "Focal Length"
     },
@@ -26,7 +26,7 @@ export function useDepthOfFieldControls() {
       value: 6,
       min: 0,
       max: 20,
-      step: 0.5,
+      step: 0.1,
       label: "Bokeh Scale"
     }
   }, {

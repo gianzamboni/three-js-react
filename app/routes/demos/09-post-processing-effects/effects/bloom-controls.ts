@@ -18,7 +18,7 @@ export function useBloomControls() {
     luminanceSmoothing: {
       value: 0.9,
       min: 0,
-      max: 1,
+      max: 3,
       step: 0.01,
       label: "Luminance Smoothing"
     }
