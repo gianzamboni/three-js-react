@@ -1,4 +1,3 @@
-import { BlendFunction } from "postprocessing";
 import { useEffect, useRef } from "react";
 
 import DrunkEffect, { type DrunkEffectProps } from "./effect"
