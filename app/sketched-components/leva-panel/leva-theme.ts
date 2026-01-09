@@ -1,16 +1,4 @@
-export const levaTheme = {
-  colors: {
-    elevation1: '#f5f5f5',
-    elevation2: '#ffffff',
-    elevation3: '#afe274ff',
-    accent1: '#B792DE',
-    accent2: '#9f82d4ff',
-    accent3: '#141414ff',
-    highlight1: '#999',
-    highlight2: '#444',
-    highlight3: '#000000', /* Folder title color */
-    vivid1: '#ffcc00',
-  },
+const shared = {
   radii: {
     xs: '0px',
     sm: '0px',
@@ -52,4 +40,36 @@ export const levaTheme = {
     folder: '500',
     button: 'normal',
   },
+};
+
+export const levaLightTheme = {
+  colors: {
+    elevation1: '#b8c0bc',
+    elevation2: '#E6EEEA',
+    elevation3: '#afe274ff',
+    accent1: '#B792DE',
+    accent2: '#9f82d4ff',
+    accent3: '#141414ff',
+    highlight1: '#999',
+    highlight2: '#444',
+    highlight3: '#000000', /* Folder title color */
+    vivid1: '#ffcc00',
+  },
+  ...shared,
+};
+
+export const levaDarkTheme = {
+  colors: {
+    elevation1: '#303734',
+    elevation2: '#141a17',
+    elevation3: '#1b3600',
+    accent1: '#B792DE',
+    accent2: '#9f82d4ff',
+    accent3: '#666666',
+    highlight1: '#c0c0c0',
+    highlight2: '#d0d0d0',
+    highlight3: '#f5f5f5', /* Folder title color */
+    vivid1: '#ffcc00',
+  },
+  ...shared,
 };
