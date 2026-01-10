@@ -7,8 +7,9 @@ import RotatingCube from "../../../3d/rotating-cube";
 
 import RandomTriangles from "./random-triangles";
 
-import Floor from "~/3d/floor";
-import Sphere from "~/3d/sphere";
+import { GreenFloor } from "~/3d/floor";
+import DefaultDirectionalLight from "~/3d/lights";
+import { OrangeSphere } from "~/3d/sphere";
 
 extend({ OrbitControls });
 
@@ -20,16 +21,12 @@ export default function MainScene() {
     <>
       <orbitControls args={[camera, gl.domElement]} />
       <group>
-        <RotatingCube scale={1.5} position-x={2} >
-          <meshStandardMaterial color="mediumpurple" />
-        </RotatingCube>
-        <Sphere color="orange" position-x={-2}/>
+        <RotatingCube />
+        <OrangeSphere />
         <RandomTriangles />
       </group>
-      <Floor position-y={-1}>
-        <meshBasicMaterial color="greenyellow" />
-      </Floor>
-      <directionalLight position={[1, 2, 3]} intensity={4.5}/>
+      <GreenFloor />
+      <DefaultDirectionalLight />
       <ambientLight intensity={1.5}/>
     </>
   );

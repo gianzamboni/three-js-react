@@ -1,11 +1,11 @@
-import { Center, OrbitControls, useMatcapTexture } from "@react-three/drei";
+import { Center, useMatcapTexture } from "@react-three/drei";
 import { useEffect } from "react";
 import { TorusGeometry, MeshMatcapMaterial, SRGBColorSpace } from "three";
 
 import HelloR3FText from "./hello-r3f-text";
 import RandomPlacedMeshes from './random-placed-meshes';
 
-import ToggablePerfPanel from "~/utils/toggable-perf-panel";
+import BasicSetup from "~/3d/basic-setup";
 
 export default function MainScene() {
 
@@ -22,8 +22,7 @@ export default function MainScene() {
   }, []);
 
   return <>
-    <ToggablePerfPanel />
-    <OrbitControls makeDefault />
+    <BasicSetup withoutLights />
     <Center>
       <HelloR3FText material={material} />
     </Center>

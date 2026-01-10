@@ -1,11 +1,12 @@
-import {  OrbitControls, PivotControls, Text, Float, MeshReflectorMaterial } from '@react-three/drei'
+import { PivotControls, Text, Float, MeshReflectorMaterial } from '@react-three/drei'
 import { useRef, type RefObject } from 'react';
 
 import type { Object3D } from 'three';
 
-import Cube from '~/3d/cube';
+import BasicSetup from '~/3d/basic-setup';
+import { PurpleCube } from '~/3d/cube';
 import Floor from '~/3d/floor';
-import Sphere from '~/3d/sphere';
+import { OrangeSphere } from '~/3d/sphere';
 import Label from '~/sketched-components/label/label';
 export default function Experience() {
 
@@ -15,33 +16,41 @@ export default function Experience() {
   const occludeObjects = [sphereRef, cubeRef] as RefObject<Object3D>[];
 
   return <>
-    <OrbitControls makeDefault />
-    <directionalLight position={[1, 2, 3]} intensity={4.5} />
-    <ambientLight intensity={1.5} />
+    <BasicSetup hidePerfPanel />
 
-    <PivotControls anchor={[0, 0, 0]} depthTest={false} lineWidth={4} axisColors={['#9381ff', '#ff4d6d', '#7ae582']} scale={2}>
-      <Sphere color="orange" ref={sphereRef} position-x={-2} >
+    <PivotControls
+      anchor={[0, 0, 0]}
+      axisColors={['#9381ff', '#ff4d6d', '#7ae582']}
+      depthTest={false}
+      lineWidth={4}
+      scale={2}
+    >
+      <OrangeSphere>
         <Label position={[1, 1, 0]} distanceFactor={8} occlude={occludeObjects}>
-            That's a sphere! 👍
+          That's a sphere! 👍
         </Label>
-      </Sphere>
+      </OrangeSphere>
     </PivotControls>
     <Floor position-y={-1}>
-      <MeshReflectorMaterial resolution={1024} blur={[1000, 1000]} mixBlur={1} mirror={0.5} color="greenyellow" />
+      <MeshReflectorMaterial 
+        blur={[1000, 1000]} 
+        color="greenyellow" 
+        mirror={0.5} 
+        mixBlur={1} 
+        resolution={1024} 
+      />
     </Floor>
-    <Cube ref={cubeRef} scale={1.5} position-x={2} >
-      <meshStandardMaterial color="mediumpurple" />
-    </Cube>
-    <Float speed={5} floatIntensity={ 2 } >
-            <Text 
-                font="/fonts/bangers-v20-latin-regular.woff" 
-                color="salmon"
-                fontSize={ 1 }
-                position-y={ 2 }
-                maxWidth={ 2 }
-                >
-                I love R3F
-            </Text>
-        </Float>
+    <PurpleCube />
+    <Float speed={5} floatIntensity={2} >
+      <Text
+        color="salmon"
+        font="/fonts/bangers-v20-latin-regular.woff"
+        fontSize={1}
+        maxWidth={2}
+        position-y={2}
+      >
+        I love R3F
+      </Text>
+    </Float>
   </>;
 }

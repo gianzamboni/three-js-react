@@ -1,3 +1,5 @@
+import { memo } from "react";
+
 import commonStyles from "./common.module.css";
 import { RandomSide } from "./svg/randomized-line";
 import { generateRectangleLimits } from "./svg/utils";
@@ -22,6 +24,7 @@ export type SketchyShadowProps = {
   offsetX?: number;
   offsetY?: number;
 }
+
 export function SketchyShadow({ strokeWidth, offsetX, offsetY }: SketchyShadowProps) {
   return (
     <svg viewBox="0 0 1 1" preserveAspectRatio="none" className={`${commonStyles['sketchy-trace']}`} style={{ left: `${offsetX}%`, top: `${offsetY}%` }}> 
@@ -32,3 +35,5 @@ export function SketchyShadow({ strokeWidth, offsetX, offsetY }: SketchyShadowPr
     </svg>
   )
 }
+
+export const MemoizedSketchyShadow = memo(SketchyShadow);

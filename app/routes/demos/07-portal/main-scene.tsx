@@ -1,13 +1,14 @@
-import { OrbitControls, Sparkles } from "@react-three/drei";
+import { Sparkles } from "@react-three/drei";
 
 import Portal from "./portal";
 
+import BasicSetup from "~/3d/basic-setup";
 import SketchySuspense from "~/sketched-components/sketchy-suspense";
 
 export default function MainScene() {
   return <>
+    <BasicSetup withoutLights hidePerfPanel />
     <color attach="background" args={["#080712"]} />
-    <OrbitControls makeDefault />
 
     <SketchySuspense>
       <Portal />

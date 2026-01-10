@@ -27,7 +27,7 @@ export default function Home() {
      <p>A set of demos I made to practice for the last chapter of Three JS Journey where I learned to integrate Three JS with React.</p>
       <div className={styles['demo-grid']}>
         {DEMOS.map((demo) => (
-          <SketchedCard key={demo.id} {...demo} />
+          <SketchedCard key={demo.id} link={`demos/${demo.id}`} {...demo} />
         ))}
         <SketchedCard
           key="3d-text"

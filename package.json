@@ -14,6 +14,7 @@
     "@react-router/serve": "^7.11.0",
     "@react-three/drei": "^10.7.7",
     "@react-three/fiber": "^9.4.2",
+    "@react-three/postprocessing": "^3.0.4",
     "@types/three": "^0.182.0",
     "@vercel/blob": "^2.0.0",
     "@vercel/react-router": "^1.2.4",
@@ -21,12 +22,14 @@
     "gsap": "^3.14.2",
     "isbot": "^5.1.32",
     "leva": "^0.10.1",
+    "postprocessing": "^6.38.2",
     "r3f-perf": "^7.2.3",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
     "react-router": "^7.11.0",
     "three": "^0.182.0",
-    "uuid": "^13.0.0"
+    "uuid": "^13.0.0",
+    "zustand": "^5.0.9"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.2",
@@ -51,6 +54,10 @@
   "pnpm": {
     "onlyBuiltDependencies": [
       "esbuild"
-    ]
+    ],
+    "patchedDependencies": {
+      "@react-three/postprocessing": "patches/@react-three__postprocessing.patch",
+      "leva": "patches/leva.patch"
+    }
   }
 }

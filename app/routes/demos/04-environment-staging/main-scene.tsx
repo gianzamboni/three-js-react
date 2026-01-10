@@ -1,11 +1,11 @@
-import { useHelper, OrbitControls, Stage } from "@react-three/drei";
+import { useHelper, Stage } from "@react-three/drei";
 import { useControls } from "leva";
 import { useRef, type RefObject } from "react";
 import { DirectionalLightHelper, type DirectionalLight } from "three";
 
+import BasicSetup from "~/3d/basic-setup";
 import RotatingCube from "~/3d/rotating-cube";
-import Sphere from "~/3d/sphere";
-import ToggablePerfPanel from "~/utils/toggable-perf-panel";
+import { OrangeSphere } from "~/3d/sphere";
 
 export default function MainScene() {
 
@@ -21,8 +21,7 @@ export default function MainScene() {
   useHelper(directionalLightRef as RefObject<DirectionalLight>, DirectionalLightHelper, 1);
 
   return <>
-    <ToggablePerfPanel />
-    <OrbitControls makeDefault />
+    <BasicSetup withoutLights />
 
     <Stage
       shadows={{ type: 'contact', opacity: 0.2, blur: 3 }}
@@ -30,10 +29,8 @@ export default function MainScene() {
       preset="upfront"
       intensity={envMapIntensity}
     >
-      <Sphere position-y={1} color="orange" position-x={-2} castShadow />
-      <RotatingCube position-y={1} rotationSpeed={0.2} scale={1.5} position-x={2} castShadow >
-        <meshStandardMaterial color="mediumpurple" />
-      </RotatingCube>
+      <OrangeSphere position-y={1} castShadow />
+      <RotatingCube position-y={1} rotationSpeed={0.2} castShadow />
     </Stage>
   </>;
 }

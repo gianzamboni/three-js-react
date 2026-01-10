@@ -1,12 +1,13 @@
-import { meshBounds, OrbitControls } from "@react-three/drei";
+import { meshBounds } from "@react-three/drei";
 
 import type { ThreeEvent } from "@react-three/fiber";
 import type { Mesh, MeshStandardMaterial } from "three";
 
+import BasicSetup from "~/3d/basic-setup";
 import Floor from "~/3d/floor";
 import Hamburger from "~/3d/hamburger";
 import RotatingCube from "~/3d/rotating-cube";
-import Sphere from "~/3d/sphere";
+import { OrangeSphere } from "~/3d/sphere";
 import SketchySuspense from "~/sketched-components/sketchy-suspense";
 
 type ClickEvent = ThreeEvent<PointerEvent> & { object: Mesh & { material: MeshStandardMaterial } };
@@ -30,20 +31,15 @@ export default function MainScene() {
     document.body.style.cursor = 'default';
   }
   return <>
-      <OrbitControls makeDefault />
+      <BasicSetup hidePerfPanel />
 
-      <directionalLight position={ [ 1, 2, 3 ] } intensity={ 4.5 } />
-      <ambientLight intensity={ 1.5 } />
-
-      <Sphere position-x={ - 2 } color="orange" 
+      <OrangeSphere 
         onClick={stopPropagation} 
         onPointerEnter={stopPropagation}
         onPointerLeave={stopPropagation}
       />
 
       <RotatingCube 
-        position-x={ 2 } 
-        scale={ 1.5 } 
         rotationSpeed={0.2}
         raycast={ meshBounds } 
         onClick={clickHandler}

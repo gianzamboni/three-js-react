@@ -16,8 +16,7 @@ export default function SketchyLevaPanel() {
     // Used as a triger for a levaStore changes; Not used directly though. 
     // If removed, this component won't work.
     // @ts-ignore
-    // eslint-disable-next-line no-unused-vars
-    const store = levaStore.useStore();
+    const _store = levaStore.useStore();
 
 
     useEffect(() => {
@@ -29,19 +28,23 @@ export default function SketchyLevaPanel() {
             }
         };
 
-        document.addEventListener('mousedown', handleClickOutside);
+        document.addEventListener('click', handleClickOutside);
         return () => {
-            document.removeEventListener('mousedown', handleClickOutside);
+            document.removeEventListener('click', handleClickOutside);
         };
     }, [panelOpened]);
 
-    const hasControls = levaStore.getVisiblePaths().length > 0;
     
+    const buttonClickHandler = () => {
+        setPanelOpened(!panelOpened);
+    };
+
+    const hasControls = levaStore.getVisiblePaths().length > 0;
     return (hasControls &&
         <div className={styles["panel-container"]}>
             <SketchyButton 
                 className={`${styles["settings-button"]} ${commonStyles["interactive-element"]}`} 
-                onClick={() => setPanelOpened(!panelOpened)}
+                onClick={buttonClickHandler}
             >
                 <SettingsIcon className={styles["settings-icon"]} />
             </SketchyButton>

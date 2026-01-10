@@ -14,6 +14,7 @@ export type SketchedBorderProps = PropsWithChildren<{
 
 export function SketchyBorder(props: SketchedBorderProps) {
   const hiddenSides = props.hiddenSides ?? [];
+  
   return (
     <div className={props.className}>
       {props.children}

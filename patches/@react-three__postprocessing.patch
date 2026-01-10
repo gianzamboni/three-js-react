@@ -1,0 +1,42 @@
+diff --git a/dist/EffectComposer.d.ts b/dist/EffectComposer.d.ts
+index ebed36dc8d5c2318762d67e4cd01e4e4b549fe2e..5b038fb280df5b24bd1f1433a0bb6fe46f5a28df 100644
+--- a/dist/EffectComposer.d.ts
++++ b/dist/EffectComposer.d.ts
+@@ -1,6 +1,6 @@
+ import type { TextureDataType, Camera, Scene } from 'three';
+-import { type JSX } from 'react';
+ import { EffectComposer as EffectComposerImpl, NormalPass, DepthDownsamplingPass } from 'postprocessing';
++import type { ReactNode } from 'react';
+ export declare const EffectComposerContext: import("react").Context<{
+     composer: EffectComposerImpl;
+     normalPass: NormalPass | null;
+@@ -11,7 +11,7 @@ export declare const EffectComposerContext: import("react").Context<{
+ }>;
+ export type EffectComposerProps = {
+     enabled?: boolean;
+-    children: JSX.Element | JSX.Element[];
++    children: ReactNode | ReactNode[];
+     depthBuffer?: boolean;
+     /** Only used for SSGI currently, leave it disabled for everything else unless it's needed */
+     enableNormalPass?: boolean;
+diff --git a/src/EffectComposer.tsx b/src/EffectComposer.tsx
+index c21ec02604cbecaeb3fc66dc2b1ad1e5a13fdc83..b801a5bcb1d97a943929f1fcf03c374597c0c611 100644
+--- a/src/EffectComposer.tsx
++++ b/src/EffectComposer.tsx
+@@ -10,6 +10,7 @@ import {
+   createContext,
+   useRef,
+   useImperativeHandle,
++  ReactNode,
+ } from 'react'
+ import { useThree, useFrame, type Instance } from '@react-three/fiber'
+ import {
+@@ -34,7 +35,7 @@ export const EffectComposerContext = /* @__PURE__ */ createContext<{
+ 
+ export type EffectComposerProps = {
+   enabled?: boolean
+-  children: JSX.Element | JSX.Element[]
++  children: ReactNode | ReactNode[]
+   depthBuffer?: boolean
+   /** Only used for SSGI currently, leave it disabled for everything else unless it's needed */
+   enableNormalPass?: boolean
