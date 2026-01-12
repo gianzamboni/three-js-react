@@ -1,4 +1,4 @@
-import { Environment, Float, PresentationControls, useGLTF } from "@react-three/drei";
+import { ContactShadows, Environment, Float, PresentationControls, useGLTF } from "@react-three/drei";
 
 export default function MainScene() {
 
@@ -17,8 +17,17 @@ export default function MainScene() {
       snap
     >
       <Float rotationIntensity={0.4}>
-        <primitive object={computer.scene} position-y={-1.2} />
+        <primitive 
+          object={computer.scene} 
+          position-y={-1.2}
+        />
       </Float>
     </PresentationControls>
+    <ContactShadows 
+      position-y={-1.4} 
+      opacity={0.4}
+      blur={2.4}
+      scale={5}
+    />
   </>
 }
