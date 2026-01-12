@@ -1,4 +1,5 @@
 import MainScene from "./main-scene";
+import styles from "./styles.module.css";
 
 import { TestCanvas } from "~/3d/test-canvas";
 
@@ -10,7 +11,7 @@ export function meta() {
 }
 
 export default function SimplePortfolio() {
-  return <TestCanvas>
+  return <TestCanvas className={styles["r3f-container"]}>
     <MainScene />
   </TestCanvas>;
 }
