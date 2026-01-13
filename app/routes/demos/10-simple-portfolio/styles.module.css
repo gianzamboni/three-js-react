@@ -1,3 +1,11 @@
 .r3f-container {
  touch-action: none;
 }
+
+.html-screen iframe {
+  width: 1024px;
+  height: 670px;
+  border: none;
+  border-radius: 20px;
+  background-color: #000000;
+}
