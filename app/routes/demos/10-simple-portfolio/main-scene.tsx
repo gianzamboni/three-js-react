@@ -5,6 +5,7 @@ import {
   Html, 
   PresentationControls, 
   useGLTF,
+  Text,
  } from "@react-three/drei";
 
 import styles from "./styles.module.css";
@@ -45,9 +46,17 @@ export default function MainScene() {
             position={[0, 1.56, -1.4]}
             rotation-x={-0.256}
           >
-            <iframe src="https://portfolio.gianfrancozamboni.com.ar/calisthenics" />
+            <iframe src="https://portfolio.gianfrancozamboni.com.ar/developer" />
           </Html>
         </primitive>
+        <Text
+          font="/fonts/bangers-v20-latin-regular.woff"
+          fontSize={1}
+          position={[2.5, 0.75, 1]}
+          rotation-y={-1.25}
+          maxWidth={2}
+          textAlign="center"
+        >Gianfranco Zamboni</Text>
       </Float>
     </PresentationControls>
     <ContactShadows 
