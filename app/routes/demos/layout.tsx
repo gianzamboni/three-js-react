@@ -1,3 +1,6 @@
+import gsap from "gsap";
+import { CustomBounce } from "gsap/CustomBounce";
+import { CustomEase } from "gsap/CustomEase";
 import { Leva } from "leva";
 import { Outlet } from "react-router";
 
@@ -6,6 +9,8 @@ import styles from "./styles.module.css";
 import SketchyLevaPanel from "~/sketched-components/leva-panel";
 import SketchyLink from "~/sketched-components/link";
 import HomeIcon from "~/utils/icons/home.svg?react";
+
+gsap.registerPlugin(CustomEase, CustomBounce);
 
 
 export default function Layout() {
