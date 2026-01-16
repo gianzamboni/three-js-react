@@ -6,19 +6,24 @@ import { Euler, type Group, type Object3D } from "three";
 
 import styles from "./styles.module.css";
 
-export function Computer() {
+type ComputerProps = {
+  onMouseEnterScreen: () => void;
+  onMouseLeaveScreen: () => void;
+};
+
+export function Computer({ onMouseEnterScreen, onMouseLeaveScreen }: ComputerProps) {
   const computer = useGLTF("../models/macbook.gltf");
   const groupRef = useRef<Group>(null);
+  const htmlScreenRef = useRef<HTMLDivElement>(null);
 
   const topLid = computer.nodes.Top as Object3D;
 
   const progress = useRef({
     xRotation: Math.PI,
+    htmlScreenOpacity: 0,
   });
   
   useEffect(() => {
-    const originalRotation = topLid.rotation.x;
-    console.log(originalRotation);
     topLid.setRotationFromEuler(new Euler(progress.current.xRotation, 0, 0));
 
     if (groupRef.current) {
@@ -30,11 +35,14 @@ export function Computer() {
 
       gsap.to(progress.current, {
         xRotation: 1.3105023838474816,
+        htmlScreenOpacity: 1,
         duration: 10,
         ease: `elastic.out(1,0.625)`,
         delay: 1.5,
         onUpdate: () => {
           topLid.setRotationFromEuler(new Euler(progress.current.xRotation, 0, 0));
+          htmlScreenRef.current?.style
+            .setProperty('opacity', progress.current.htmlScreenOpacity.toString());
         },
       });
     }
@@ -46,13 +54,20 @@ export function Computer() {
       {createPortal(
         <Html
           transform
+          ref={htmlScreenRef}
           occlude={'raycast'}
           wrapperClass={styles["html-screen"]}
           distanceFactor={1.95}
           position={[0, 0, -1.925]}
           rotation-x={-Math.PI / 2}
+          style={{ opacity: 0 }}
         >
-          <iframe src="https://portfolio.gianfrancozamboni.com.ar/developer" />
+          <div
+            onMouseEnter={onMouseEnterScreen}
+            onMouseLeave={onMouseLeaveScreen}
+          >
+            <iframe src="https://portfolio.gianfrancozamboni.com.ar/developer" />
+          </div>
         </Html>,
         topLid
       )}

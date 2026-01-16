@@ -11,6 +11,15 @@ import { Computer } from "./computer";
 import SketchySuspense from "~/sketched-components/sketchy-suspense";
 
 export default function MainScene() {
+
+  const handleMouseEnterScreen = () => {
+    console.log('mouse entered');
+  };
+  
+  const handleMouseLeaveScreen = () => {
+    console.log('mouse left');
+  };
+
   return (
     <>
       <Environment preset="city" />
@@ -34,15 +43,19 @@ export default function MainScene() {
             position={[0, 0.55, -1.15]}
           />
           <SketchySuspense>
-            <Computer />
+            <Computer 
+              onMouseEnterScreen={handleMouseEnterScreen} 
+              onMouseLeaveScreen={handleMouseLeaveScreen} 
+            />
           </SketchySuspense>
           <Text
             font="/fonts/bangers-v20-latin-regular.woff"
             fontSize={1}
-            position={[2.5, 0.75, 1]}
+            position={[2.4, 0.75, 1]}
             rotation-y={-1.25}
             maxWidth={2}
             textAlign="center"
+            color={"#ffffff"}
           >
             Gianfranco Zamboni
           </Text>
