@@ -3,7 +3,7 @@ import { useMemo, useRef } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
 import type { Mesh } from 'three';
-import type { MeshProps } from '~/3d/types';
+import type { MeshProps } from '~/types/types';
 
 export default function RandomPlacedMeshes({ material, geometry }: MeshProps) {
 

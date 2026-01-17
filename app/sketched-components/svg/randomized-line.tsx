@@ -1,8 +1,10 @@
 import { useEffect, useMemo, useState } from "react";
 
-import { STROKE_WIDTHS, type Point2D, type StrokeWidth } from "../utils";
+import { STROKE_WIDTHS, type StrokeWidth } from "../utils";
 
 import { Side } from "./line";
+
+import type { Point2D } from "~/types/types";
 
 import { randomizedOffset2D } from "~/utils/random";
 

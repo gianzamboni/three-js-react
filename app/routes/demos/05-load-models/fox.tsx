@@ -3,7 +3,7 @@ import { useControls } from "leva";
 import { useEffect } from "react";
 
 import type { AnimationAction } from "three";
-import type { MeshProps } from "~/3d/types";
+import type { MeshProps } from "~/types/types";
 
 const FOX_URL = "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/refs/heads/main/Models/Fox/glTF/Fox.gltf";
 

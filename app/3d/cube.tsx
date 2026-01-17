@@ -1,4 +1,4 @@
-import type { MeshProps } from "./types";
+import type { MeshProps } from "../types/types";
 
 type CubeProps = MeshProps;
 export default function Cube({ children, ...props }: CubeProps) {
