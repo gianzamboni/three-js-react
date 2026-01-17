@@ -2,7 +2,7 @@ import { Html, useGLTF } from "@react-three/drei";
 import { createPortal } from "@react-three/fiber";
 import gsap from "gsap";
 import { useEffect, useRef } from "react";
-import { Euler, type Group, type Object3D } from "three";
+import { Euler, type Object3D } from "three";
 
 import styles from "./styles.module.css";
 
