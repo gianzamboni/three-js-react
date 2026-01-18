@@ -1,19 +1,12 @@
 import { useState, useEffect } from "react";
 
-interface UseMediaQueryReturn {
-  matches: boolean;
-  isLoading: boolean;
-}
-
-export const useMediaQuery = (query: string): UseMediaQueryReturn => {
+export const useMediaQuery = (query: string): boolean => {
   const [matches, setMatches] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const checkMediaQuery = () => {
       const mediaQuery = window.matchMedia(query);
       setMatches(mediaQuery.matches);
-      setIsLoading(false);
     };
 
     // Initial check
@@ -28,10 +21,7 @@ export const useMediaQuery = (query: string): UseMediaQueryReturn => {
     };
   }, [query]);
 
-  return {
-    matches,
-    isLoading,
-  };
+  return matches;
 };
 
 export default useMediaQuery;
