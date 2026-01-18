@@ -4,6 +4,7 @@ import {
   PresentationControls,
   Text,
 } from "@react-three/drei";
+import { Perf } from "r3f-perf";
 
 import { AnimatedFloat } from "./components/animated-float";
 import { CameraController } from "./components/camera-controller";
@@ -17,6 +18,7 @@ export default function MainScene() {
     <>
       <Environment preset="city" />
       <color args={["#241a1a"]} attach="background" />
+      <Perf position="top-right" />
       <CameraController />
 
       <PresentationControls
@@ -27,6 +29,8 @@ export default function MainScene() {
         damping={0.1}
         snap
       >
+      <SketchySuspense>
+
         <AnimatedFloat>
           <rectAreaLight
             width={2.5}
@@ -36,9 +40,7 @@ export default function MainScene() {
             rotation={[-0.1, Math.PI, 0]}
             position={[0, 0.55, -1.15]}
           />
-          <SketchySuspense>
             <Computer />
-          </SketchySuspense>
           <Text
             font="/fonts/bangers-v20-latin-regular.woff"
             fontSize={1}
@@ -51,6 +53,7 @@ export default function MainScene() {
             Gianfranco Zamboni
           </Text>
         </AnimatedFloat>
+      </SketchySuspense>
       </PresentationControls>
       <ContactShadows
         position-y={-1.4}
@@ -58,6 +61,7 @@ export default function MainScene() {
         blur={2.4}
         scale={5}
       />
+
     </>
   );
 }
