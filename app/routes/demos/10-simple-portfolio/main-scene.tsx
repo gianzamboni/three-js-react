@@ -6,7 +6,7 @@ import {
   Text,
 } from "@react-three/drei";
 import { useThree } from "@react-three/fiber";
-import { gsap } from "gsap";
+import gsap from "gsap";
 import { useEffect, useRef, useState } from "react";
 
 import { Computer } from "./computer";
@@ -15,6 +15,8 @@ import type { Group } from "three";
 import type { Point3D } from "~/types/types";
 
 import SketchySuspense from "~/sketched-components/sketchy-suspense";
+import { useSimplePortfolioState } from "./use-simple-portfolio-state";
+
 
 type TweenTarget = gsap.TweenTarget
 type Tween = gsap.core.Tween;
@@ -32,6 +34,8 @@ function move3DPoint(target: TweenTarget, newPosition: Point3D) {
 }
 export default function MainScene() {
 
+  const { zoomedIn } = useSimplePortfolioState();
+
   const { camera } = useThree();
   const [rotationIntensity, setRotationIntensity] = useState(0.4);
   const [floatPosition, setFloatPosition] = useState(-10);
@@ -45,7 +49,7 @@ export default function MainScene() {
     positionAnimationRef.current?.kill();
     rotationAnimationRef.current?.kill();
     floatAnimationRef.current?.kill();
-    
+
     positionAnimationRef.current = move3DPoint(camera.position, position);
     rotationAnimationRef.current = move3DPoint(camera.rotation, rotation);
 
@@ -59,28 +63,29 @@ export default function MainScene() {
     });
   }
 
-  const handleMouseEnterScreen = () => {
-    moveCamera(
-      [0.34, 0.5, 3.3],
-      [0, 0, 0],
-      0
-    );
-  };
+  useEffect(() => {
+    if (zoomedIn) {
+      moveCamera(
+        [0.34, 0.5, 3.3],
+        [0, 0, 0],
+        0
+      );
+    } else {
+      moveCamera(
+        [-4, 3, 6],
+        [-0.4636476090008062, -0.5376832530932062, -0.2506869231230346],
+        0.4
+      );
+    }
 
-  const handleMouseLeaveScreen = () => {
-    moveCamera(
-      [-4, 3, 6],
-      [-0.4636476090008062, -0.5376832530932062, -0.2506869231230346],
-      0.4
-    );
-  };
+  }, [zoomedIn])
 
   useEffect(() => {
     gsap.to({ value: floatPosition }, {
       value: 0,
       duration: 5,
       ease: `elastic.out(1,0.6)`,
-      onUpdate: function() {
+      onUpdate: function () {
         setFloatPosition(this.targets()[0].value);
       }
     });
@@ -109,10 +114,7 @@ export default function MainScene() {
             position={[0, 0.55, -1.15]}
           />
           <SketchySuspense>
-            <Computer
-              onMouseEnterScreen={handleMouseEnterScreen}
-              onMouseLeaveScreen={handleMouseLeaveScreen}
-            />
+            <Computer />
           </SketchySuspense>
           <Text
             font="/fonts/bangers-v20-latin-regular.woff"

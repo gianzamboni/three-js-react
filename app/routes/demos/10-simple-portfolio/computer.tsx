@@ -5,15 +5,15 @@ import { useEffect, useRef } from "react";
 import { Euler, type Object3D } from "three";
 
 import styles from "./styles.module.css";
+import { useSimplePortfolioState } from "./use-simple-portfolio-state";
 
-type ComputerProps = {
-  onMouseEnterScreen: () => void;
-  onMouseLeaveScreen: () => void;
-};
+export function Computer() {
+  
+  const { setZoomedIn } = useSimplePortfolioState();
 
-export function Computer({ onMouseEnterScreen, onMouseLeaveScreen }: ComputerProps) {
   const computer = useGLTF("../models/macbook.gltf");
   const htmlScreenRef = useRef<HTMLDivElement>(null);
+
 
   const topLid = computer.nodes.Top as Object3D;
 
@@ -21,6 +21,14 @@ export function Computer({ onMouseEnterScreen, onMouseLeaveScreen }: ComputerPro
     xRotation: Math.PI,
     htmlScreenOpacity: 0,
   });
+
+  const handleMouseEnterScreen = () => {
+    setZoomedIn(true);
+  };
+
+  const handleMouseLeaveScreen = () => {
+    setZoomedIn(false);
+  };
 
   useEffect(() => {
     computer.scene.getObjectByName('FrontCameraRing001')?.removeFromParent();
@@ -56,8 +64,8 @@ export function Computer({ onMouseEnterScreen, onMouseLeaveScreen }: ComputerPro
           style={{ opacity: 0 }}
         >
           <div
-            onMouseEnter={onMouseEnterScreen}
-            onMouseLeave={onMouseLeaveScreen}
+            onMouseEnter={handleMouseEnterScreen}
+            onMouseLeave={handleMouseLeaveScreen}
           >
             <iframe src="https://portfolio.gianfrancozamboni.com.ar" />
           </div>
