@@ -23,6 +23,8 @@ export function Computer({ onMouseEnterScreen, onMouseLeaveScreen }: ComputerPro
   });
 
   useEffect(() => {
+    computer.scene.getObjectByName('FrontCameraRing001')?.removeFromParent();
+
     topLid.setRotationFromEuler(new Euler(progress.current.xRotation, 0, 0));
 
     gsap.to(progress.current, {
