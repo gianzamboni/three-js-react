@@ -5,7 +5,7 @@ import type { Route } from "./+types/index";
 
 import { SketchedCard } from "~/sketched-components/card";
 import { SketchyH1 } from "~/sketched-components/title/h1";
-import { useScrollMemory } from "~/utils/use-scroll-memory";
+import { useScrollMemory } from "~/utils/hooks/use-scroll-memory";
 
 export function meta( _: Route.MetaArgs) {
   return [

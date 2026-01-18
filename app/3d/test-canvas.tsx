@@ -1,7 +1,7 @@
 import { Canvas, type CameraProps, type CanvasProps } from "@react-three/fiber";
 import { useMemo } from "react";
 
-import useIsMobile from "~/utils/use-is-mobile";
+import useIsMobile from "~/utils/hooks/use-is-mobile";
 
 type TestCanvasProps = Readonly<CanvasProps>;
 

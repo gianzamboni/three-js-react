@@ -5,7 +5,7 @@ import { SketchyBorder } from '../sketchy-borders'
 
 import { levaLightTheme, levaDarkTheme } from './leva-theme'
 
-import { usePrefersDarkTheme } from '~/utils/use-prefers-dark-theme'
+import { usePrefersDarkTheme } from '~/utils/hooks/use-prefers-dark-theme'
 
 type ResponsiveSketchyPanelProps = Readonly<{
   store: typeof levaStore
