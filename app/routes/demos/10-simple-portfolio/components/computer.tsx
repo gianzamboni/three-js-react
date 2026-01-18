@@ -4,8 +4,8 @@ import gsap from "gsap";
 import { useEffect, useRef } from "react";
 import { Euler, type Object3D } from "three";
 
-import styles from "./styles.module.css";
-import { useSimplePortfolioState } from "./use-simple-portfolio-state";
+import styles from "../styles.module.css";
+import { useSimplePortfolioState } from "../use-simple-portfolio-state";
 
 export function Computer() {
   
