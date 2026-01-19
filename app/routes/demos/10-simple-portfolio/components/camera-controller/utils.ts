@@ -2,7 +2,11 @@ import gsap from "gsap";
 
 import { CAMERA_MOVE_DURATION } from "../../use-simple-portfolio-state";
 
+import type { Camera } from "three";
 import type { Point3D } from "~/types/types";
+
+export type Tween = gsap.core.Tween;
+
 export type MeshStatus = {
   position: Point3D;
   rotation: Point3D;

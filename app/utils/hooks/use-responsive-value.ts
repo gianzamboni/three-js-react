@@ -10,7 +10,7 @@ export function useResponsiveValue<T>(breakpointMap: BreakpointMap<T>): T {
       .sort((a, b) => b - a),
     [breakpointMap]
   );
-
+  console.log(sortedBreakpoints);
   const getValueForWidth = (width: number): T => {
     for (const breakpoint of sortedBreakpoints) {
       if (width >= breakpoint) {

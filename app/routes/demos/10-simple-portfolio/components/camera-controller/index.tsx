@@ -1,13 +1,11 @@
 import { useThree } from "@react-three/fiber";
-import gsap from "gsap";
-
 import { useControls, levaStore } from "leva";
 import { useEffect, useRef } from "react";
 
 import { useSimplePortfolioState } from "../../use-simple-portfolio-state";
 
 
-import { CAMERA_SETTINGS, positionControlSettings, rotationControlSettings, move3DPoint } from "./utils";
+import { CAMERA_SETTINGS, positionControlSettings, rotationControlSettings, move3DPoint, type Tween } from "./utils";
 
 import { useResponsiveValue } from "~/utils/hooks/use-responsive-value";
 
@@ -29,8 +27,8 @@ export function CameraController() {
     rotationZ: rotationControlSettings('z', cameraSettings.default.rotation[2], camera),
   }), { store: levaStore }, [camera, cameraSettings]);
 
-  const positionAnimationRef = useRef<gsap.core.Tween | null>(null);
-  const rotationAnimationRef = useRef<gsap.core.Tween | null>(null);
+  const positionAnimationRef = useRef<Tween | null>(null);
+  const rotationAnimationRef = useRef<Tween | null>(null);
 
   useEffect(() => {
     const targetPosition = zoomedIn ? cameraSettings.zoomedIn.position : cameraSettings.default.position;
