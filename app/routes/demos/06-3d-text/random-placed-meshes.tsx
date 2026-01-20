@@ -16,7 +16,7 @@ export default function RandomPlacedMeshes({ material, geometry }: MeshProps) {
 
   return (
     <>
-      {[...Array(100)].map((_, index) => (
+      {Array.from({ length: 100 }).map((_, index) => (
         <mesh key={index}
           ref={(element: Mesh) => {
             donuts.current[index] = element;
