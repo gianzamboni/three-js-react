@@ -10,7 +10,7 @@ export default function Cube({ children, ...props }: CubeProps) {
   );
 }
 
-export type PurpleCubeProps = Omit<CubeProps, 'position-x' | 'scale'>
+export type PurpleCubeProps = Readonly<Omit<CubeProps, 'position-x' | 'scale'>>
 export function PurpleCube(props: PurpleCubeProps ) {
   return <Cube 
     position-x={2}

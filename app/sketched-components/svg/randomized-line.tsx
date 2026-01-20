@@ -7,12 +7,12 @@ import { Side } from "./line";
 import { randomizedOffset2D } from "~/utils/random";
 
 
-type RandomSideProps = {
+type RandomSideProps = Readonly<{
   start: Point2D;
   end: Point2D;
   power: number;
   strokeWidth?: StrokeWidth;
-}
+}>
 
 export function RandomSide(props: RandomSideProps) {
 

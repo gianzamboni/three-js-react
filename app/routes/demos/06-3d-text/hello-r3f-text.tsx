@@ -1,6 +1,6 @@
 import { Text3D, type Text3DProps } from "@react-three/drei";
 
-type HelloR3FTextProps = Omit<Text3DProps, 'font'>;
+type HelloR3FTextProps = Readonly<Omit<Text3DProps, 'font'>>;
 export default function HelloR3FText({ children, ...props }: HelloR3FTextProps) {
   return (
     <Text3D 

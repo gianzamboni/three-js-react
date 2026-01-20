@@ -1,8 +1,8 @@
 import type { MeshProps } from "./types";
 
-export type SphereProps = MeshProps & {
+export type SphereProps = Readonly<MeshProps & {
   color?: string;
-};
+}>;
 
 export default function Sphere({ children, ...props }: SphereProps) {
   return (

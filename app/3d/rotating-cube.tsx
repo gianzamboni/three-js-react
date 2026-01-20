@@ -5,9 +5,9 @@ import type { Mesh } from "three";
 
 import { PurpleCube, type PurpleCubeProps } from "~/3d/cube";
 
-type RotatingCubeProps = PurpleCubeProps & {
+type RotatingCubeProps = Readonly<PurpleCubeProps & {
   rotationSpeed?: number;
-}
+}>
 
 export default function RotatingCube({ rotationSpeed = 1, ...props }: RotatingCubeProps) {
 

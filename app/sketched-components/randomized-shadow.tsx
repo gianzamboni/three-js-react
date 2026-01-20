@@ -6,9 +6,9 @@ import { generateRectangleLimits } from "./svg/utils";
 
 import type { StrokeWidth } from "./utils.ts";
 
-export type RandomShadowProps = {
+export type RandomShadowProps = Readonly<{
   strokeWidth?: StrokeWidth;
-}
+}>
 export function RandomShadow({ strokeWidth }: RandomShadowProps) {
   const { xLeft, yTop, xRight, yBottom, yOffset, xOffset } = generateRectangleLimits(null);
 
@@ -19,11 +19,11 @@ export function RandomShadow({ strokeWidth }: RandomShadowProps) {
 }
 
 
-export type SketchyShadowProps = {
+export type SketchyShadowProps = Readonly<{
   strokeWidth?: StrokeWidth;
   offsetX?: number;
   offsetY?: number;
-}
+}>
 
 export function SketchyShadow({ strokeWidth, offsetX, offsetY }: SketchyShadowProps) {
   return (

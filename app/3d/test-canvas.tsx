@@ -3,7 +3,7 @@ import { useMemo } from "react";
 
 import useIsMobile from "~/utils/use-is-mobile";
 
-type TestCanvasProps = CanvasProps;
+type TestCanvasProps = Readonly<CanvasProps>;
 
 export function TestCanvas({ children, ...props }: TestCanvasProps) {
 

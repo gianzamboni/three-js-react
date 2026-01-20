@@ -3,7 +3,7 @@ import { useGLTF } from "@react-three/drei";
 import type { Mesh } from "three";
 import type { GroupProps } from "~/3d/types";
 
-type HamburgerProps = Omit<GroupProps, 'children'>;
+type HamburgerProps = Readonly<Omit<GroupProps, 'children'>>;
 
 const HAMBURGER_URL = "https://i0hci4avyoqkwwp1.public.blob.vercel-storage.com/hamburger.glb";
 

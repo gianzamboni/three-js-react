@@ -7,7 +7,7 @@ import type { ButtonHTMLAttributes, PropsWithChildren } from "react";
 import { SketchyShadow } from "~/sketched-components/randomized-shadow";
 import { SketchyBorder } from "~/sketched-components/sketchy-borders";
 
-type SketchyButtonProps = PropsWithChildren<ButtonHTMLAttributes<HTMLButtonElement>>;
+type SketchyButtonProps = Readonly<PropsWithChildren<ButtonHTMLAttributes<HTMLButtonElement>>>;
 
 const defaultClasses = `${styles["sketchy-button"]} ${commonStyles["interactive"]} ${commonStyles["animated"]} ${commonStyles["interactive-small"]}`
 

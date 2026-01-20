@@ -9,7 +9,7 @@ type ClipPathState = {
   controls: [number, number][];
 }
 
-export function RandomRectangleClipPath(props: { boundingBox: DOMRect | null }) {
+export function RandomRectangleClipPath(props: Readonly<{ boundingBox: DOMRect | null }>) {
   const [ state, setState ] = useState<ClipPathState | null>(null);
 
   useEffect(() => {

@@ -3,10 +3,10 @@ import { Uniform, WebGLRenderer, WebGLRenderTarget } from "three";
 
 import fragmentShader from './shader.frag';
 
-export type DrunkEffectProps = {
+export type DrunkEffectProps = Readonly<{
   frequency?: number;
   amplitude?: number;
-};
+}>;
 
 export default class DrunkEffect extends Effect {
   constructor(props: DrunkEffectProps) {

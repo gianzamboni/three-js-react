@@ -1,12 +1,12 @@
 import type { Point2D } from "../utils";
 
-type SideProps = {
+type SideProps = Readonly<{
   start: Point2D;
   firstControl: Point2D;
   secondControl: Point2D;
   end: Point2D;
   strokeWidth?: number;
-}
+}>
 
 export function Side(props: SideProps) {
   return <path 

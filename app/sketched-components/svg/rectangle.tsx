@@ -5,10 +5,10 @@ import { type Side, type StrokeWidth } from "../utils";
 import { RandomSide } from "./randomized-line";
 import { generateRectangleLimits, type RectangleLimits } from "./utils";
 
-type RandomRectangleProps = {
+type RandomRectangleProps = Readonly<{
   strokeWidth: StrokeWidth
   hiddenSides?: Side[];
-}
+}>
 
 function isSideVisible(side: Side, hiddenSides: Side[]) {
   return !hiddenSides.includes(side);

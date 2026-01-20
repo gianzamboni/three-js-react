@@ -8,9 +8,9 @@ import styles from "./styles.module.css";
 
 import { useSidePanel } from '~/stores/side-panel';
 
-type BottomPanelProps = {
+type BottomPanelProps = Readonly<{
   isOpen: boolean;
-};
+}>;
 
 const BottomPanel = forwardRef<HTMLDivElement, BottomPanelProps>(({ isOpen }, ref) => {
 

@@ -4,7 +4,7 @@ import styles from "./styles.module.css";
 
 import type { PropsWithChildren } from "react";
 
-type SketchedTitleProps = PropsWithChildren;
+type SketchedTitleProps = Readonly<PropsWithChildren>;
 
 export function SketchyH1({ children }: SketchedTitleProps) {
   return (

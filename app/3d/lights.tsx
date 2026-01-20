@@ -1,6 +1,6 @@
 import type { JSX } from "react";
 
-type DirectionalLightProps = JSX.IntrinsicElements["directionalLight"];
+type DirectionalLightProps = Readonly<JSX.IntrinsicElements["directionalLight"]>;
 
 export default function DefaultDirectionalLight(props: DirectionalLightProps) {
     return <directionalLight 

@@ -7,12 +7,12 @@ import { RandomRectangleClipPath } from "../svg/rectangle-clip-path";
 import styles from "./styles.module.css";
 
 
-export type SketchedImageProps = ImgHTMLAttributes<HTMLImageElement> & {
+export type SketchedImageProps = Readonly<ImgHTMLAttributes<HTMLImageElement> & {
   className?: string;
   baseStrokeWidth?: number;
   src: string;
   alt: string;
-}
+}>
 
 export const SketchedImage = (props: SketchedImageProps) => {
   const [pathId, setPathId] = useState<string>();

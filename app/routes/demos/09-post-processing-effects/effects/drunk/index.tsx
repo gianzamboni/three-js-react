@@ -6,9 +6,9 @@ import type { ThreeElements } from "@react-three/fiber";
 import type { Ref } from "react";
 import type { Uniform } from "three";
 
-type DrunkProps = DrunkEffectProps & {
+type DrunkProps = Readonly<DrunkEffectProps & {
   ref?: Ref<ThreeElements["primitive"]>
-}
+}>
 export default function Drunk(props: DrunkProps) {
 
   const { frequency, amplitude } = props;

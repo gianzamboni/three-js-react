@@ -5,12 +5,12 @@ import { RandomRectangle } from "./svg/rectangle";
 
 import type { Side, StrokeWidth } from "./utils";
 
-export type SketchedBorderProps = PropsWithChildren<{
+export type SketchedBorderProps = Readonly<PropsWithChildren<{
   className?: string;
   sketchySVG?: ReactNode;
   baseStrokeWidth?: StrokeWidth;
   hiddenSides?: Side[];
-}>;
+}>>;
 
 export function SketchyBorder(props: SketchedBorderProps) {
   const hiddenSides = props.hiddenSides ?? [];

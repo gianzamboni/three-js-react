@@ -8,7 +8,7 @@ import { SketchyShadow } from "~/sketched-components/randomized-shadow";
 import { SketchyBorder } from "~/sketched-components/sketchy-borders";
 
 
-type SketchyLinkProps = LinkProps;
+type SketchyLinkProps = Readonly<LinkProps>;
   
 export default function SketchyLink({ children, className, ...props }: SketchyLinkProps) {
   return <Link {...props} className={`${styles['link-container']} ${className} ${commonStyles["interactive"]} ${commonStyles["animated"]} ${commonStyles["interactive-small"]} ${commonStyles["animated"]}`}>

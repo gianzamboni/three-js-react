@@ -4,11 +4,11 @@ import DefaultDirectionalLight, { DirectionalLightWithShadows } from "./lights"
 
 import ToggablePerfPanel from "~/utils/toggable-perf-panel";
 
-type DefaultSetupProps = {
+type DefaultSetupProps = Readonly<{
     hidePerfPanel?: boolean
     withoutLights?: boolean
     castShadow?: boolean
-};
+}>;
 
 export default function DefaultSetup({ hidePerfPanel, withoutLights, castShadow }: DefaultSetupProps) {
 
