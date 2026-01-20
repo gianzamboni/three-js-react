@@ -2,7 +2,6 @@ import gsap from "gsap";
 
 import { CAMERA_MOVE_DURATION } from "../../use-simple-portfolio-state";
 
-import type { Camera } from "three";
 import type { Point3D } from "~/types/types";
 
 export type Tween = gsap.core.Tween;
@@ -27,36 +26,24 @@ export function move3DPoint(target: gsap.TweenTarget, newPosition: Point3D) {
   });
 }
 
-export function positionControlSettings(label: 'x' | 'y' | 'z', defaultValue: number, target: Camera, min: number, max: number) {
-  return {
-    label: label,
-    value: defaultValue,
-    min: min,
-    max: max,
-    step: 0.001,
-    onChange: (v: number) => { target.position[label] = v }
-  }
-};
-
-export function rotationControlSettings(label: 'x' | 'y' | 'z', defaultValue: number, target: Camera, min: number, max: number) {
-  return {
-    label: label,
-    value: defaultValue,
-    min: min,
-    max: max,
-    step: 0.001,
-    onChange: (v: number) => { target.rotation[label] = v }
-  }
-}
-
 export const CAMERA_SETTINGS: Record<number, CameraSettings> = {
   320: {
     zoomedIn: {
-      position: [0.34, 0.5, 3.3],
+      position: [0.11, 1, 4.60],
       rotation: [0, 0, 0],
     },
     default: {
       position: [-4.36, 3.69, 6.45],
+      rotation: [-0.45, -0.51, -0.22],
+    },
+  },
+  1028: {
+    zoomedIn: {
+      position: [0.04, 0.49, 2.05],
+      rotation: [0, 0.05, 0],
+    },
+    default: {
+      position: [-2.75, 3.69, 7],
       rotation: [-0.45, -0.51, -0.22],
     },
   },
