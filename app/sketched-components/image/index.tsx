@@ -9,7 +9,6 @@ import styles from "./styles.module.css";
 
 export type SketchedImageProps = Readonly<ImgHTMLAttributes<HTMLImageElement> & {
   className?: string;
-  baseStrokeWidth?: number;
   src: string;
   alt: string;
 }>
