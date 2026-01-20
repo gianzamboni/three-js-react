@@ -2,8 +2,9 @@ import { Html } from "@react-three/drei";
 import gsap from "gsap";
 import { useEffect, useRef } from "react";
 
-import styles from "../styles.module.css";
-import { useSimplePortfolioState } from "../use-simple-portfolio-state";
+import { useSimplePortfolioState } from "../../use-simple-portfolio-state";
+
+import styles from "./styles.module.css";
 
 type PortfolioHtmlProps = {
   orientation: "landscape" | "portrait";

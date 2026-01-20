@@ -29,7 +29,6 @@ export default function MainScene() {
         snap
       >
       <SketchySuspense>
-
         <AnimatedFloat>
           <Computer />
           <NameText />
@@ -42,7 +41,6 @@ export default function MainScene() {
         blur={2.4}
         scale={5}
       />
-
     </>
   );
 }
