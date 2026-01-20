@@ -16,15 +16,15 @@ export function CameraController() {
   const { camera } = useThree();
 
   useControls('Camera Position', () => ({
-    positionX: positionControlSettings('x', cameraSettings.default.position[0], camera),
-    positionY: positionControlSettings('y', cameraSettings.default.position[1], camera),
-    positionZ: positionControlSettings('z', cameraSettings.default.position[2], camera),
+    positionX: positionControlSettings('x', cameraSettings.default.position[0], camera, -5, -3),
+    positionY: positionControlSettings('y', cameraSettings.default.position[1], camera, 2, 4),
+    positionZ: positionControlSettings('z', cameraSettings.default.position[2], camera, 5, 7),
   }), { store: levaStore }, [camera, cameraSettings]);
 
   useControls('Camera Rotation', () => ({
-    rotationX: rotationControlSettings('x', cameraSettings.default.rotation[0], camera),
-    rotationY: rotationControlSettings('y', cameraSettings.default.rotation[1], camera),
-    rotationZ: rotationControlSettings('z', cameraSettings.default.rotation[2], camera),
+    rotationX: rotationControlSettings('x', cameraSettings.default.rotation[0], camera, -1, 0),
+    rotationY: rotationControlSettings('y', cameraSettings.default.rotation[1], camera, -1, 0),
+    rotationZ: rotationControlSettings('z', cameraSettings.default.rotation[2], camera, -1, 0),
   }), { store: levaStore }, [camera, cameraSettings]);
 
   const positionAnimationRef = useRef<Tween | null>(null);

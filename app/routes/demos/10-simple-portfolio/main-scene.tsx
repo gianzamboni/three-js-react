@@ -2,14 +2,13 @@ import {
   ContactShadows,
   Environment,
   PresentationControls,
-  Text,
 } from "@react-three/drei";
 import { Perf } from "r3f-perf";
 
 import { AnimatedFloat } from "./components/animated-float";
 import { CameraController } from "./components/camera-controller";
 import { Computer } from "./components/computer";
-
+import { NameText } from "./components/name-text";
 
 import SketchySuspense from "~/sketched-components/sketchy-suspense";
 
@@ -32,26 +31,8 @@ export default function MainScene() {
       <SketchySuspense>
 
         <AnimatedFloat>
-          <rectAreaLight
-            width={2.5}
-            height={1.65}
-            intensity={65}
-            color="#ffffff"
-            rotation={[-0.1, Math.PI, 0]}
-            position={[0, 0.55, -1.15]}
-          />
-            <Computer />
-          <Text
-            font="/fonts/bangers-v20-latin-regular.woff"
-            fontSize={1}
-            position={[2.4, 0.75, 1]}
-            rotation-y={-1.25}
-            maxWidth={2}
-            textAlign="center"
-            color={"#ffffff"}
-          >
-            Gianfranco Zamboni
-          </Text>
+          <Computer />
+          <NameText />
         </AnimatedFloat>
       </SketchySuspense>
       </PresentationControls>

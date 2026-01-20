@@ -27,12 +27,12 @@ export function move3DPoint(target: gsap.TweenTarget, newPosition: Point3D) {
   });
 }
 
-export function positionControlSettings(label: 'x' | 'y' | 'z', defaultValue: number, target: Camera) {
+export function positionControlSettings(label: 'x' | 'y' | 'z', defaultValue: number, target: Camera, min: number, max: number) {
   return {
     label: label,
     value: defaultValue,
-    min: -10,
-    max: 10,
+    min: min,
+    max: max,
     step: 0.001,
     onChange: (v: number) => { target.position[label] = v; 
       console.log(target);
@@ -40,25 +40,25 @@ export function positionControlSettings(label: 'x' | 'y' | 'z', defaultValue: nu
   }
 };
 
-export function rotationControlSettings(label: 'x' | 'y' | 'z', defaultValue: number, target: Camera) {
+export function rotationControlSettings(label: 'x' | 'y' | 'z', defaultValue: number, target: Camera, min: number, max: number) {
   return {
     label: label,
     value: defaultValue,
-    min: -1,
-    max: 1,
+    min: min,
+    max: max,
     step: 0.001,
     onChange: (v: number) => { target.rotation[label] = v; console.log(target); }
   }
 }
 
 export const CAMERA_SETTINGS: Record<number, CameraSettings> = {
-  1536: {
+  320: {
     zoomedIn: {
       position: [0.34, 0.5, 3.3],
       rotation: [0, 0, 0],
     },
     default: {
-      position: [-3.96, 3.23, 6.45],
+      position: [-4.36, 3.69, 6.45],
       rotation: [-0.45, -0.51, -0.22],
     },
   },
