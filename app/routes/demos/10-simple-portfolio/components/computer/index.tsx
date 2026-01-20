@@ -23,10 +23,13 @@ export function Computer() {
 
   useEffect(() => {
     computer.scene.getObjectByName('FrontCameraRing001')?.removeFromParent();
+    if (topLid) {
+      topLid.setRotationFromEuler(new Euler(progress.current.xRotation, 0, 0));
+    }
+  }, []);
 
-    topLid.setRotationFromEuler(new Euler(progress.current.xRotation, 0, 0));
-
-    gsap.to(progress.current, {
+  useEffect(() => {
+    const lidRotationAnimation = gsap.to(progress.current, {
       xRotation: computerSettings.lidRotation,
       duration: 10,
       ease: `elastic.out(1,${computerSettings.elasticBounce})`,
@@ -35,24 +38,29 @@ export function Computer() {
       },
     });
 
-    if (groupRef.current) {
-      gsap.to(groupRef.current.position, {
-        x: computerSettings.position[0],
-        y: computerSettings.position[1],
-        z: computerSettings.position[2],
-        duration: 10,
-        ease: `elastic.out(1,0.625)`,
-      });
+    if (!groupRef.current) return;
+    
+    const positionAnimation = gsap.to(groupRef.current.position, {
+      x: computerSettings.position[0],
+      y: computerSettings.position[1],
+      z: computerSettings.position[2],
+      duration: 10,
+      ease: `elastic.out(1,0.625)`,
+    });
 
-      gsap.to(groupRef.current.rotation, {
-        x: computerSettings.rotation[0],
-        y: computerSettings.rotation[1],
-        z: computerSettings.rotation[2],
-        duration: 10,
-        ease: `elastic.out(1,0.625)`,
-      });
-    }
+    const rotationAnimation = gsap.to(groupRef.current.rotation, {
+      x: computerSettings.rotation[0],
+      y: computerSettings.rotation[1],
+      z: computerSettings.rotation[2],
+      duration: 10,
+      ease: `elastic.out(1,0.625)`,
+    });
 
+    return () => {
+      positionAnimation.kill();
+      rotationAnimation.kill();
+      lidRotationAnimation.kill();
+    };
   }, [computerSettings]);
 
   return (
