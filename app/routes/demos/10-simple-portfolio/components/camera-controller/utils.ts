@@ -34,9 +34,7 @@ export function positionControlSettings(label: 'x' | 'y' | 'z', defaultValue: nu
     min: min,
     max: max,
     step: 0.001,
-    onChange: (v: number) => { target.position[label] = v; 
-      console.log(target);
-    }
+    onChange: (v: number) => { target.position[label] = v }
   }
 };
 
@@ -47,7 +45,7 @@ export function rotationControlSettings(label: 'x' | 'y' | 'z', defaultValue: nu
     min: min,
     max: max,
     step: 0.001,
-    onChange: (v: number) => { target.rotation[label] = v; console.log(target); }
+    onChange: (v: number) => { target.rotation[label] = v }
   }
 }
 
