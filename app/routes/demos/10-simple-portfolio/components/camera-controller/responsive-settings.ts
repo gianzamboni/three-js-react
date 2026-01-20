@@ -37,7 +37,7 @@ export const CAMERA_SETTINGS: Record<number, CameraSettings> = {
       rotation: [-0.45, -0.51, -0.22],
     },
   },
-  1028: {
+  1024: {
     zoomedIn: {
       position: [0.04, 0.49, 2.05],
       rotation: [0, 0.05, 0],
@@ -47,7 +47,7 @@ export const CAMERA_SETTINGS: Record<number, CameraSettings> = {
       rotation: [-0.45, -0.51, -0.22],
     },
   },
-  2560: {
+  1920: {
     zoomedIn: {
       position: [0.34, 0.5, 3.3],
       rotation: [0, 0, 0],

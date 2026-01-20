@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import { useSimplePortfolioState } from "../../use-simple-portfolio-state";
 
 
-import { CAMERA_SETTINGS, move3DPoint, type Tween } from "./utils";
+import { CAMERA_SETTINGS, move3DPoint, type Tween } from "./responsive-settings";
 
 import { useResponsiveValue } from "~/utils/hooks/use-responsive-value";
 
