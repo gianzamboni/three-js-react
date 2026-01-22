@@ -13,10 +13,10 @@ export default class DrunkEffect extends Effect {
     super("DrunkEffect", fragmentShader, {
       blendFunction: BlendFunction.DARKEN,
       uniforms: new Map([
-            [ 'frequency', new Uniform(props.frequency || 2) ],
-            [ 'amplitude', new Uniform(props.amplitude || 0.1) ],
-            [ 'time', new Uniform(0) ]
-        ])
+        [ 'frequency', new Uniform(props.frequency || 2) ],
+        [ 'amplitude', new Uniform(props.amplitude || 0.1) ],
+        [ 'time', new Uniform(0) ]
+      ])
     });
   }
 
