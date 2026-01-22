@@ -14,6 +14,7 @@ export function DirectionalLightWithShadows(props: DirectionalLightProps) {
     return <DefaultDirectionalLight
         castShadow
         shadow-mapSize={[2048, 2048]}
+        shadow-normalBias={ 0.04 }
         {...props}
     />
 }
