@@ -63,7 +63,7 @@
     padding-inline: var(--spacing-lg);
     .thumbnail-container {
       display: inline;
-    };
+    }
   }
 }
 
