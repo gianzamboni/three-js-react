@@ -2,17 +2,12 @@ import { useState, useEffect } from "react";
 
 import { window } from "./globals";
 
-interface UseIsMobileReturn {
-  isMobile: boolean;
-  isLoading: boolean;
-}
-
-export const useIsMobile = (): UseIsMobileReturn => {
+export const useIsMobile = (): boolean => {
   const [isMobile, setIsMobile] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const checkIsMobile = () => {
+      if (window === undefined) return;
       const mediaQuery = window.matchMedia("(max-width: 820px)");
       
       const userAgent = navigator.userAgent.toLowerCase();
@@ -29,7 +24,6 @@ export const useIsMobile = (): UseIsMobileReturn => {
         (isMobileUA && window.innerWidth <= 768);
       
       setIsMobile(isMobileDevice);
-      setIsLoading(false);
     };
 
     checkIsMobile();
@@ -47,10 +41,7 @@ export const useIsMobile = (): UseIsMobileReturn => {
     };
   }, []);
 
-  return {
-    isMobile,
-    isLoading,
-  };
+  return isMobile;
 };
 
 export default useIsMobile;
