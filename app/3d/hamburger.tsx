@@ -18,14 +18,12 @@ type HamburgerElement = Readonly<{
 export default function Hamburger({ ...props }: HamburgerProps) {
   const {nodes, materials} = useGLTF(HAMBURGER_URL);
 
-  const elements: HamburgerElement[] = useMemo(() => {
-    return [
-      { node: nodes.bottomBun as Mesh, material: materials.BunMaterial, position: [0, 0, 0] },
-      { node: nodes.meat as Mesh, material: materials.SteakMaterial, position: [0, 2.75, 0] },
-      { node: nodes.cheese as Mesh, material: materials.CheeseMaterial, position: [0, 3, 0] },
-      { node: nodes.topBun as Mesh, material: materials.BunMaterial, position: [0, 1.715, 0] },
-    ]
-  }, [nodes]);
+  const elements: HamburgerElement[] = useMemo(() => [
+      { node: nodes.bottomBun as Mesh, material: materials.BunMaterial.clone(), position: [0, 0, 0] },
+      { node: nodes.meat as Mesh, material: materials.SteakMaterial.clone(), position: [0, 2.75, 0] },
+      { node: nodes.cheese as Mesh, material: materials.CheeseMaterial.clone(), position: [0, 3, 0] },
+      { node: nodes.topBun as Mesh, material: materials.BunMaterial.clone(), position: [0, 1.715, 0] },
+    ], [nodes]);
 
   return (
     <group {...props}>
