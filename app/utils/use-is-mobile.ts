@@ -1,16 +1,16 @@
 import { useState, useEffect } from "react";
 
-import { window } from "./globals";
+import { globalWindow } from "./globals";
 
 export const useIsMobile = (): boolean => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const checkIsMobile = () => {
-      if (window === undefined) return;
-      const mediaQuery = window.matchMedia("(max-width: 820px)");
+      if (globalWindow === undefined) return;
+      const mediaQuery = globalWindow.matchMedia("(max-width: 768px)");
       
-      const userAgent = navigator.userAgent.toLowerCase();
+      const userAgent = navigator?.userAgent.toLowerCase();
       const mobileKeywords = [
         'android', 'webos', 'iphone', 'ipad', 'ipod', 
         'blackberry', 'windows phone', 'mobile'
@@ -21,23 +21,23 @@ export const useIsMobile = (): boolean => {
       );
       
       const isMobileDevice = mediaQuery.matches || 
-        (isMobileUA && window.innerWidth <= 768);
+        (isMobileUA && globalWindow.innerWidth <= 768);
       
       setIsMobile(isMobileDevice);
     };
 
     checkIsMobile();
 
-    const mediaQuery = window.matchMedia("(max-width: 768px)");
+    const mediaQuery = globalWindow?.matchMedia("(max-width: 768px)");
     const handleChange = () => checkIsMobile();
 
-    mediaQuery.addEventListener('change', handleChange);
+    mediaQuery?.addEventListener('change', handleChange);
  
-    window.addEventListener('resize', checkIsMobile);
+    globalWindow.addEventListener('resize', checkIsMobile);
 
     return () => {
-      mediaQuery.removeEventListener('change', handleChange);
-      window.removeEventListener('resize', checkIsMobile);
+      mediaQuery?.removeEventListener('change', handleChange);
+      globalWindow.removeEventListener('resize', checkIsMobile);
     };
   }, []);
 

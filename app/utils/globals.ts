@@ -1,1 +1,1 @@
-export const window = globalThis.window;
+export const globalWindow = globalThis.window;
