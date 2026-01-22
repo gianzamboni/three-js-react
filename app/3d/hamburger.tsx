@@ -1,7 +1,7 @@
 import { useGLTF } from "@react-three/drei";
 import { useMemo } from "react";
 
-import type { Material, Mesh, Vector3 } from "three";
+import type { Material, Mesh } from "three";
 import type { GroupProps } from "~/3d/types";
 import type { Point3D } from "~/sketched-components/utils";
 
@@ -27,15 +27,15 @@ export default function Hamburger({ ...props }: HamburgerProps) {
 
   return (
     <group {...props}>
-      {elements.map((element, index) => (
+      {elements.map((element) => (
         <mesh
-          key={index}
+          key={element.node.name}
           castShadow
           receiveShadow
           geometry={element.node.geometry}
           material={element.material}
           position={element.position}
-            />
+        />
       ))}
     </group>
   );

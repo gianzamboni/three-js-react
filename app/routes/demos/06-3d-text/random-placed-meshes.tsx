@@ -1,5 +1,5 @@
 import { useFrame } from '@react-three/fiber';
-import { useRef } from 'react';
+import { useMemo, useRef } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
 import type { Mesh } from 'three';
@@ -8,6 +8,7 @@ import type { MeshProps } from '~/3d/types';
 export default function RandomPlacedMeshes({ material, geometry }: MeshProps) {
 
   const donuts = useRef<Mesh[]>([]);
+  const uuids = useMemo(() => Array.from({ length: 100 }).map(() => uuidv4()), []);
 
   useFrame((_, delta) => {
     for(const donut of donuts.current) {
@@ -17,8 +18,8 @@ export default function RandomPlacedMeshes({ material, geometry }: MeshProps) {
 
   return (
     <>
-      {Array.from({ length: 100 }).map((_, index) => (
-        <mesh key={uuidv4()}
+      {uuids.map((uuid, index) => (
+        <mesh key={uuid}
           ref={(element: Mesh) => {
             donuts.current[index] = element;
           }}
