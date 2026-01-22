@@ -13,11 +13,7 @@ export function meta(_: Route.MetaArgs) {
 
 
 export default function DebugUI() {
-  return(
-  <>
-    <TestCanvas>
-      <MainScene />
-    </TestCanvas>
-  </>
-  );
+  return(<TestCanvas>
+    <MainScene />
+  </TestCanvas>);
 }

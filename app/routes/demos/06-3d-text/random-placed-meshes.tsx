@@ -1,5 +1,6 @@
 import { useFrame } from '@react-three/fiber';
 import { useRef } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 import type { Mesh } from 'three';
 import type { MeshProps } from '~/3d/types';
@@ -17,7 +18,7 @@ export default function RandomPlacedMeshes({ material, geometry }: MeshProps) {
   return (
     <>
       {Array.from({ length: 100 }).map((_, index) => (
-        <mesh key={index}
+        <mesh key={uuidv4()}
           ref={(element: Mesh) => {
             donuts.current[index] = element;
           }}
