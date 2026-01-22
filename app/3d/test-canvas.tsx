@@ -7,7 +7,7 @@ type TestCanvasProps = Readonly<CanvasProps>;
 
 export function TestCanvas({ children, ...props }: TestCanvasProps) {
 
-  const { isMobile } = useIsMobile();
+  const isMobile = useIsMobile();
 
   const cameraSettings: CameraProps = useMemo(() => ({
     fov: 45,

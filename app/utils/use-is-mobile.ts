@@ -1,21 +1,17 @@
 import { useState, useEffect } from "react";
 
-interface UseIsMobileReturn {
-  isMobile: boolean;
-  isLoading: boolean;
-}
+import { globalWindow } from "./globals";
 
-export const useIsMobile = (): UseIsMobileReturn => {
+export const useIsMobile = (): boolean => {
   const [isMobile, setIsMobile] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    if (globalWindow === undefined) return;
+
     const checkIsMobile = () => {
-      // Check using media query
-      const mediaQuery = window.matchMedia("(max-width: 820px)");
+      const mediaQuery = globalWindow.matchMedia("(max-width: 768px)");
       
-      // Check using user agent (additional detection)
-      const userAgent = navigator.userAgent.toLowerCase();
+      const userAgent = navigator?.userAgent.toLowerCase();
       const mobileKeywords = [
         'android', 'webos', 'iphone', 'ipad', 'ipod', 
         'blackberry', 'windows phone', 'mobile'
@@ -25,45 +21,28 @@ export const useIsMobile = (): UseIsMobileReturn => {
         userAgent.includes(keyword)
       );
       
-      // Combine both checks - prioritize media query but consider user agent
       const isMobileDevice = mediaQuery.matches || 
-        (isMobileUA && window.innerWidth <= 768);
+        (isMobileUA && globalWindow.innerWidth <= 768);
       
       setIsMobile(isMobileDevice);
-      setIsLoading(false);
     };
 
-    // Initial check
     checkIsMobile();
 
-    // Listen for media query changes
-    const mediaQuery = window.matchMedia("(max-width: 768px)");
+    const mediaQuery = globalWindow.matchMedia("(max-width: 768px)");
     const handleChange = () => checkIsMobile();
-    
-    if (mediaQuery.addEventListener) {
-      mediaQuery.addEventListener('change', handleChange);
-    } else {
-      // Fallback for older browsers
-      mediaQuery.addListener(handleChange);
-    }
 
-    // Listen for window resize
-    window.addEventListener('resize', checkIsMobile);
+    mediaQuery.addEventListener('change', handleChange);
+ 
+    globalWindow.addEventListener('resize', checkIsMobile);
 
     return () => {
-      if (mediaQuery.removeEventListener) {
-        mediaQuery.removeEventListener('change', handleChange);
-      } else {
-        mediaQuery.removeListener(handleChange);
-      }
-      window.removeEventListener('resize', checkIsMobile);
+      mediaQuery.removeEventListener('change', handleChange);
+      globalWindow.removeEventListener('resize', checkIsMobile);
     };
   }, []);
 
-  return {
-    isMobile,
-    isLoading,
-  };
+  return isMobile;
 };
 
 export default useIsMobile;

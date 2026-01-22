@@ -1,21 +1,23 @@
 import { useEffect, useState } from 'react'
 
+import { globalWindow } from './globals'
+
 export function usePrefersDarkTheme() {
   const [prefersDark, setPrefersDark] = useState(() => {
-    return typeof window !== 'undefined'
-      ? window.matchMedia('(prefers-color-scheme: dark)').matches
-      : false
+    return globalWindow === undefined 
+      ? false 
+      : globalWindow.matchMedia('(prefers-color-scheme: dark)').matches
   })
 
-  const handleChange = (event: MediaQueryListEvent) => setPrefersDark(event.matches);
 
   useEffect(() => {
-    if (typeof window === 'undefined') return
-    
-    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
+    if (globalWindow === undefined) return
+    const handleChange = (event: MediaQueryListEvent) => setPrefersDark(event.matches);
+
+    const mediaQuery = globalWindow.matchMedia('(prefers-color-scheme: dark)')
     mediaQuery.addEventListener('change', handleChange)
     return () => mediaQuery.removeEventListener('change', handleChange)
-  }, [handleChange])
+  }, [])
 
   return prefersDark
 }

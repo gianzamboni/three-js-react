@@ -15,7 +15,7 @@ type HamburgerElement = Readonly<{
     position: Point3D;
 }>;
 
-export default function Hamburger({ ...props }: HamburgerProps) {
+export default function Hamburger(props: HamburgerProps) {
   const {nodes, materials} = useGLTF(HAMBURGER_URL);
 
   const elements: HamburgerElement[] = useMemo(() => [

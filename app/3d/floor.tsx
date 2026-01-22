@@ -11,7 +11,7 @@ export default function Floor({ children, ...props }: FloorProps) {
   );
 };
 
-export function GreenFloor(props: Omit<FloorProps, 'position-y'>) {
+export function GreenFloor(props: Readonly<Omit<FloorProps, 'position-y'>>) {
   return <Floor position-y={-1} {...props}>
     <meshStandardMaterial color="greenYellow" />
   </Floor>
