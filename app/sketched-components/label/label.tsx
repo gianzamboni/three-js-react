@@ -8,7 +8,7 @@ import type { PropsWithChildren } from "react";
 import { SketchyShadow } from "~/sketched-components/randomized-shadow";
 import { SketchyBorder } from "~/sketched-components/sketchy-borders";
 
-type LabelProps = PropsWithChildren<HtmlProps>
+type LabelProps = Readonly<PropsWithChildren<HtmlProps>>
 export default function Label({ children, ...props }: LabelProps) {
 return  <Html {...props} >
   <SketchyBorder className={commonStyles.label} baseStrokeWidth="xs">

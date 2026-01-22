@@ -1,7 +1,5 @@
-import { useThree } from "@react-three/fiber";
-import { extend } from "@react-three/fiber";
+import { useThree, extend } from "@react-three/fiber";
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
-
 
 import RotatingCube from "../../../3d/rotating-cube";
 

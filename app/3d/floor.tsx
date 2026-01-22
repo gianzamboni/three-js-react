@@ -1,6 +1,6 @@
 import type { MeshProps } from "./types";
 
-type FloorProps = Omit<MeshProps, 'rotation-x' | 'scale'>;
+type FloorProps = Readonly<Omit<MeshProps, 'rotation-x' | 'scale'>>;
 
 export default function Floor({ children, ...props }: FloorProps) {
   return (

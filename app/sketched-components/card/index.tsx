@@ -7,7 +7,7 @@ import { MemoizedSketchedBorder } from "../sketchy-borders";
 
 import styles from "./styles.module.css";
 
-interface SketchedCardProps {
+type SketchedCardProps = Readonly<{
   link: string;
   thumbnail: string;
   title: string;
@@ -15,7 +15,7 @@ interface SketchedCardProps {
   expanded?: boolean;
   className?: string;
   targetBlank?: boolean;
-}
+}>
 
 export function SketchedCard({
   link,

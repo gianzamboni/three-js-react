@@ -7,9 +7,9 @@ import { levaLightTheme, levaDarkTheme } from './leva-theme'
 
 import { usePrefersDarkTheme } from '~/utils/use-prefers-dark-theme'
 
-type ResponsiveSketchyPanelProps = {
+type ResponsiveSketchyPanelProps = Readonly<{
   store: typeof levaStore
-}
+}>
 
 export default function SketchyLevaPanel({ store }: ResponsiveSketchyPanelProps) {
   const prefersDarkTheme = usePrefersDarkTheme()

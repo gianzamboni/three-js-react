@@ -10,9 +10,9 @@ import { EffectType } from './effect-type';
 import { useNoiseControls } from './noise-controls';
 import { useVignetteControls } from './vignette-controls';
 
-interface PostProcessingEffectsProps {
+type PostProcessingEffectsProps = Readonly<{
   effect: EffectType;
-}
+}>
 
 export default function PostProcessingEffects({ effect }: PostProcessingEffectsProps) {
 
