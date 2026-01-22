@@ -15,9 +15,13 @@ gsap.registerPlugin(CustomEase, CustomBounce);
 
 export default function Layout() {
   return <main className="full-screen parent-no-scroll">
-    <SketchyLink to="/" className={styles['home-link']} aria-label="Home">
-        <HomeIcon className={styles['home-icon']}  />
-    </SketchyLink>
+    <SketchyLink 
+      to="/" 
+      icon={HomeIcon} 
+      className={`${styles['home-link']}`} 
+      aria-label="Home" 
+      target="_blank"
+    />
     <SketchyLevaPanel />
     <Leva hidden />
     <Outlet />

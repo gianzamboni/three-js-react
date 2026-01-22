@@ -3,5 +3,22 @@
   background-color: var(--color-surface);
   overflow: visible;
   z-index: 100;
+  position: absolute;
+  z-index: 20000000;
+  padding: var(--spacing-sm);
 }
-  
+
+.sketchy-link-icon {
+  width: var(--icon-size-xs);
+  aspect-ratio: 1/1;
+  padding: var(--spacing-xs);
+
+  @media (min-width: 728px) {
+    width: var(--icon-size-md);
+  }
+
+  @media (min-width: 2048px) {
+    padding: var(--spacing-sm);
+    width: var(--icon-size-lg);
+  }
+}

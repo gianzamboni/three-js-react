@@ -1,5 +1,5 @@
 
-.home-icon {
+.sketchy-link-icon {
   width: var(--icon-size-xs);
   aspect-ratio: 1/1;
   padding: var(--spacing-xs);
@@ -15,11 +15,8 @@
 }
 
 .home-link {
-  position: absolute;
   top: var(--spacing-md);
   left: var(--spacing-md);
-  z-index: 100;
-  padding: var(--spacing-sm);
 
   @media (min-width: 728px) {
     top: var(--spacing-lg);
