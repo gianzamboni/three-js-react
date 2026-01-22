@@ -6,8 +6,9 @@ export const useIsMobile = (): boolean => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    if (globalWindow === undefined) return;
+
     const checkIsMobile = () => {
-      if (globalWindow === undefined) return;
       const mediaQuery = globalWindow.matchMedia("(max-width: 768px)");
       
       const userAgent = navigator?.userAgent.toLowerCase();
@@ -28,15 +29,15 @@ export const useIsMobile = (): boolean => {
 
     checkIsMobile();
 
-    const mediaQuery = globalWindow?.matchMedia("(max-width: 768px)");
+    const mediaQuery = globalWindow.matchMedia("(max-width: 768px)");
     const handleChange = () => checkIsMobile();
 
-    mediaQuery?.addEventListener('change', handleChange);
+    mediaQuery.addEventListener('change', handleChange);
  
     globalWindow.addEventListener('resize', checkIsMobile);
 
     return () => {
-      mediaQuery?.removeEventListener('change', handleChange);
+      mediaQuery.removeEventListener('change', handleChange);
       globalWindow.removeEventListener('resize', checkIsMobile);
     };
   }, []);
