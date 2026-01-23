@@ -57,8 +57,9 @@ export function PortfolioHtml({ orientation, animationDuration, elasticBounce }:
       <div
         onMouseEnter={handleMouseEnterScreen}
         onMouseLeave={handleMouseLeaveScreen}
-        role="button"
-        aria-label="Zoom in into the computer screen"
+        role="application"
+        aria-roledescription="Zoom in into the computer screen so you can see the portfolio website"
+        aria-label="Zoom in/out"
       >
         <iframe
           title="My Portfolio Website"
