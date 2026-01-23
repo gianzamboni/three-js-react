@@ -2,7 +2,7 @@ import { Text } from "@react-three/drei";
 import gsap from "gsap";
 import { useEffect, useRef } from "react";
 
-import type { Group, Mesh } from "three";
+import type { Mesh } from "three";
 import type { Point3D } from "~/types/types";
 
 import useResponsiveValue from "~/utils/hooks/use-responsive-value";
