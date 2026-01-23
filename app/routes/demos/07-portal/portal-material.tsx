@@ -1,6 +1,6 @@
 import { shaderMaterial } from "@react-three/drei";
 import { extend, useFrame, type ThreeElement } from "@react-three/fiber";
-import { gsap } from "gsap/dist/gsap";
+import gsap from "gsap";
 import { useControls } from "leva";
 import { useEffect, useRef } from "react";
 import { Color } from "three";
