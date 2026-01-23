@@ -6,11 +6,11 @@ import { useSimplePortfolioState } from "../../use-simple-portfolio-state";
 
 import styles from "./styles.module.css";
 
-type PortfolioHtmlProps = {
+type PortfolioHtmlProps = Readonly<{ 
   orientation: "landscape" | "portrait";
   animationDuration: number;
   elasticBounce: number;
-};
+}>;
 
 export function PortfolioHtml({ orientation, animationDuration, elasticBounce }: PortfolioHtmlProps) {
   const { setZoomedIn } = useSimplePortfolioState();
@@ -57,6 +57,8 @@ export function PortfolioHtml({ orientation, animationDuration, elasticBounce }:
       <div
         onMouseEnter={handleMouseEnterScreen}
         onMouseLeave={handleMouseLeaveScreen}
+        role="button"
+        aria-label="Zoom in into the computer screen"
       >
         <iframe
           title="My Portfolio Website"

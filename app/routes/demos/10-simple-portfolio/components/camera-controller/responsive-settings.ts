@@ -29,7 +29,7 @@ export function move3DPoint(target: gsap.TweenTarget, newPosition: Point3D) {
 export const CAMERA_SETTINGS: Record<number, CameraSettings> = {
   320: {
     zoomedIn: {
-      position: [0.11, 0.6, 4.60],
+      position: [0.11, 0.6, 4.6],
       rotation: [0, 0, 0],
     },
     default: {

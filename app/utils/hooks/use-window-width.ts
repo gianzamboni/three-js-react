@@ -1,23 +1,24 @@
 import { create } from 'zustand';
+import { globalWindow } from '../globals';
 
 interface WindowWidthState {
   width: number;
 }
 
 export const useWindowWidthStore = create<WindowWidthState>(() => ({
-  width: typeof window !== 'undefined' ? window.innerWidth : 1920,
+  width: globalWindow?.innerWidth ?? 1920,
 }));
 
 let initialized = false;
 
 export function initWindowWidthListener() {
-  if (initialized || typeof window === 'undefined') return;
+  if (initialized || globalWindow === undefined) return;
   initialized = true;
   
   const handleResize = () => {
-    useWindowWidthStore.setState({ width: window.innerWidth });
+    useWindowWidthStore.setState({ width: globalWindow.innerWidth });
   };
   
   handleResize();
-  window.addEventListener('resize', handleResize);
+  globalWindow.addEventListener('resize', handleResize);
 }

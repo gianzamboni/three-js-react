@@ -10,7 +10,7 @@ type ComputerFinalState = {
 
 export const COMPUTER_SETTINGS: Record<number, ComputerFinalState> = {
   320: {
-    lidRotation: -2.0,
+    lidRotation: -2,
     elasticBounce: 2,
     position: [0, 0.5, -1.3],
     rotation: [-0.5, 2.58, -1.5],
