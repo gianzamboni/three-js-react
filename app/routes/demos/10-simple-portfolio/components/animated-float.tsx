@@ -16,7 +16,7 @@ export const AnimatedFloat = ({ children }: PropsWithChildren) => {
   const rotationAnimationRef = useRef<gsap.core.Tween | null>(null);
 
   useEffect(() => {
-    gsap.to({ value: yPosition }, {
+    const yPositionAnimation = gsap.to({ value: yPosition }, {
       value: 0,
       duration: 5,
       ease: `elastic.out(1,0.6)`,
@@ -24,6 +24,10 @@ export const AnimatedFloat = ({ children }: PropsWithChildren) => {
         setYPosition(this.targets()[0].value);
       }
     });
+
+    return () => {
+      yPositionAnimation.kill();
+    };
   }, []);
 
   useEffect(() => {
