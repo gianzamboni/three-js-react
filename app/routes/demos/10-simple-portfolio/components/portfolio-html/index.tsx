@@ -26,10 +26,11 @@ export function PortfolioHtml({ orientation, animationDuration, elasticBounce }:
   };
 
   useEffect(() => {
-    if (htmlScreenRef.current) {
-      htmlScreenRef.current.style.setProperty('opacity', '0');
+    if (!htmlScreenRef.current) return;
 
-      gsap.to(progress.current, {
+    htmlScreenRef.current.style.setProperty('opacity', '0');
+
+    const opacityAnimation = gsap.to(progress.current, {
         opacity: 1,
         duration: animationDuration,
         ease: `elastic.out(1,${elasticBounce})`,
@@ -38,7 +39,9 @@ export function PortfolioHtml({ orientation, animationDuration, elasticBounce }:
         },
       });
 
-    }
+    return () => {
+      opacityAnimation.kill();
+    };
   }, []);
 
   return (
