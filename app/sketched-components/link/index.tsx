@@ -14,7 +14,8 @@ type SketchyLinkProps = Readonly<LinkProps> & {
 };
   
 export default function SketchyLink({ icon: Icon, className, ...props }: SketchyLinkProps) {
-  return <Link {...props} className={`${styles['link-container']} ${className} ${commonStyles["interactive"]} ${commonStyles["animated"]} ${commonStyles["interactive-small"]} ${commonStyles["animated"]}`}>
+  return <Link {...props} 
+  className={`${className}  ${styles['link-container']} ${commonStyles["interactive"]} ${commonStyles["animated"]} ${commonStyles["interactive-small"]}`}>
       <SketchyBorder baseStrokeWidth="md" >
         <Icon className={styles['sketchy-link-icon']} />
       </SketchyBorder>
