@@ -45,11 +45,17 @@
   @media(min-width: 768px) {
     padding-inline: var(--spacing-lg);
     flex-direction: row;
+    align-items: flex-start;
     
     h2 {
       text-align: left;
     }
     
+    .text-container {
+      display: flex;
+      flex-direction: column;
+    }
+
     .description {
       display: block;
     }

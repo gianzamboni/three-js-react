@@ -59,8 +59,8 @@ const DEMOS: Demo[] = [
   }, {
     id: 'simple-portfolio',
     title: 'Simple Portfolio',
-    thumbnail: "demos/simple-portfolio.jpg",
-    description: 'WIP',
+    thumbnail: "demos/simple-portfolio.png",
+    description: 'A computer that has my portfolio website opened. You can navigate through the portfolio as if it the computer was a real one.',
   }
 ].reverse();
 
