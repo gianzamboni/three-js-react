@@ -1,6 +1,7 @@
+import { useGSAP } from "@gsap/react";
 import { Float } from "@react-three/drei";
 import gsap from "gsap";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 
 import { useSimplePortfolioState } from "../use-simple-portfolio-state";
 
@@ -15,8 +16,8 @@ export const AnimatedFloat = ({ children }: PropsWithChildren) => {
 
   const rotationAnimationRef = useRef<gsap.core.Tween | null>(null);
 
-  useEffect(() => {
-    const yPositionAnimation = gsap.to({ value: yPosition }, {
+  useGSAP(() => {
+    gsap.to({ value: yPosition }, {
       value: 0,
       duration: 5,
       ease: `elastic.out(1,0.6)`,
@@ -24,13 +25,9 @@ export const AnimatedFloat = ({ children }: PropsWithChildren) => {
         setYPosition(this.targets()[0].value);
       }
     });
+  }, { dependencies: [] });
 
-    return () => {
-      yPositionAnimation.kill();
-    };
-  }, []);
-
-  useEffect(() => {
+  useGSAP(() => {
     rotationAnimationRef.current = gsap.to({ value: rotation }, {
       value: zoomedIn ? 0 : 0.4,
       duration: 5,
@@ -39,12 +36,7 @@ export const AnimatedFloat = ({ children }: PropsWithChildren) => {
         setRotation(this.targets()[0].value);
       }
     });
-
-    return () => {
-      rotationAnimationRef.current?.kill();
-    };
-    
-  }, [ zoomedIn ]);
+  }, { dependencies: [zoomedIn] });
 
   return (<Float rotationIntensity={rotation} position-y={yPosition}>
     {children}

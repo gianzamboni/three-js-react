@@ -1,6 +1,7 @@
+import { useGSAP } from "@gsap/react";
 import { Html } from "@react-three/drei";
 import gsap from "gsap";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 
 import { useSimplePortfolioState } from "../../use-simple-portfolio-state";
 
@@ -25,12 +26,12 @@ export function PortfolioHtml({ orientation, animationDuration, elasticBounce }:
     setZoomedIn(false);
   };
 
-  useEffect(() => {
+  useGSAP(() => {
     if (!htmlScreenRef.current) return;
 
     htmlScreenRef.current.style.setProperty('opacity', '0');
 
-    const opacityAnimation = gsap.to(progress.current, {
+    gsap.to(progress.current, {
         opacity: 1,
         duration: animationDuration,
         ease: `elastic.out(1,${elasticBounce})`,
@@ -38,11 +39,7 @@ export function PortfolioHtml({ orientation, animationDuration, elasticBounce }:
           htmlScreenRef.current?.style.setProperty('opacity', progress.current.opacity.toString());
         },
       });
-
-    return () => {
-      opacityAnimation.kill();
-    };
-  }, []);
+  }, { dependencies: [] });
 
   return (
     <Html

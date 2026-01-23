@@ -1,6 +1,7 @@
+import { useGSAP } from "@gsap/react";
 import { Text } from "@react-three/drei";
 import gsap from "gsap";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 
 import type { Mesh } from "three";
 import type { Point3D } from "~/types/types";
@@ -36,10 +37,10 @@ export function NameText() {
 
   const nameTextRef = useRef<Mesh>(null);
 
-  useEffect(() => {
+  useGSAP(() => {
     if (!nameTextRef.current) return;
 
-    const positionAnimation = gsap.to(nameTextRef.current.position, {
+    gsap.to(nameTextRef.current.position, {
       x: nameTextSettings.position[0],
       y: nameTextSettings.position[1],
       z: nameTextSettings.position[2],
@@ -47,7 +48,7 @@ export function NameText() {
       ease: `elastic.out(1,0.625)`,
     });
     
-    const rotationAnimation = gsap.to(nameTextRef.current.rotation, {
+    gsap.to(nameTextRef.current.rotation, {
       x: nameTextSettings.rotation[0],
       y: nameTextSettings.rotation[1],
       z: nameTextSettings.rotation[2],
@@ -55,21 +56,14 @@ export function NameText() {
       ease: `elastic.out(1,0.625)`,
     });
     
-    const fontSizeAnimation = gsap.to(nameTextRef.current.scale, {
+    gsap.to(nameTextRef.current.scale, {
       x: nameTextSettings.fontSize,
       y: nameTextSettings.fontSize,
       z: nameTextSettings.fontSize,
       duration: 10,
       ease: `elastic.out(1,0.625)`,
     });
-    
-    return () => {
-      positionAnimation.kill();
-      rotationAnimation.kill();
-      fontSizeAnimation.kill();
-    };
-
-  }, [nameTextSettings]);
+  }, { dependencies: [nameTextSettings] });
   
   return (
     <Text

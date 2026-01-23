@@ -1,3 +1,4 @@
+import { useGSAP } from "@gsap/react";
 import { useGLTF } from "@react-three/drei";
 import { createPortal } from "@react-three/fiber";
 import gsap from "gsap";
@@ -29,10 +30,10 @@ export function Computer() {
     topLid.setRotationFromEuler(new Euler(progress.current.xRotation, 0, 0));
   }, []);
 
-  useEffect(() => {
+  useGSAP(() => {
     if (!groupRef.current) return;
 
-    const lidRotationAnimation = gsap.to(progress.current, {
+    gsap.to(progress.current, {
       xRotation: computerSettings.lidRotation,
       duration: 10,
       ease: `elastic.out(1,${computerSettings.elasticBounce})`,
@@ -43,7 +44,7 @@ export function Computer() {
     });
 
     
-    const positionAnimation = gsap.to(groupRef.current.position, {
+    gsap.to(groupRef.current.position, {
       x: computerSettings.position[0],
       y: computerSettings.position[1],
       z: computerSettings.position[2],
@@ -51,20 +52,14 @@ export function Computer() {
       ease: `elastic.out(1,0.625)`,
     });
 
-    const rotationAnimation = gsap.to(groupRef.current.rotation, {
+    gsap.to(groupRef.current.rotation, {
       x: computerSettings.rotation[0],
       y: computerSettings.rotation[1],
       z: computerSettings.rotation[2],
       duration: 10,
       ease: `elastic.out(1,0.625)`,
     });
-
-    return () => {
-      positionAnimation.kill();
-      rotationAnimation.kill();
-      lidRotationAnimation.kill();
-    };
-  }, [computerSettings]);
+  }, { dependencies: [computerSettings] });
 
   return (
     <group ref={groupRef}>
