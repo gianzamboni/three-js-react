@@ -3,7 +3,6 @@ import {
   Environment,
   PresentationControls,
 } from "@react-three/drei";
-import { Perf } from "r3f-perf";
 
 import { AnimatedFloat } from "./components/animated-float";
 import { CameraController } from "./components/camera-controller";
