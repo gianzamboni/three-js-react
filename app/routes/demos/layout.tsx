@@ -1,6 +1,3 @@
-import gsap from "gsap";
-import { CustomBounce } from "gsap/CustomBounce";
-import { CustomEase } from "gsap/CustomEase";
 import { Leva } from "leva";
 import { Outlet } from "react-router";
 
@@ -10,9 +7,6 @@ import SketchyLevaPanel from "~/sketched-components/leva-panel";
 import SketchyLink from "~/sketched-components/link";
 import HomeIcon from "~/utils/icons/home.svg?react";
 
-gsap.registerPlugin(CustomEase, CustomBounce);
-
-
 export default function Layout() {
   return <main className="full-screen parent-no-scroll">
     <SketchyLink 
@@ -20,7 +14,6 @@ export default function Layout() {
       icon={HomeIcon} 
       className={`${styles['home-link']}`} 
       aria-label="Home" 
-      target="_blank"
     />
     <SketchyLevaPanel />
     <Leva hidden />
