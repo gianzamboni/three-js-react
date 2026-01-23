@@ -23,22 +23,25 @@ export function Computer() {
 
   useEffect(() => {
     computer.scene.getObjectByName('FrontCameraRing001')?.removeFromParent();
-    if (topLid) {
-      topLid.setRotationFromEuler(new Euler(progress.current.xRotation, 0, 0));
-    }
+
+    if(!topLid) return;
+
+    topLid.setRotationFromEuler(new Euler(progress.current.xRotation, 0, 0));
   }, []);
 
   useEffect(() => {
+    if (!groupRef.current) return;
+
     const lidRotationAnimation = gsap.to(progress.current, {
       xRotation: computerSettings.lidRotation,
       duration: 10,
       ease: `elastic.out(1,${computerSettings.elasticBounce})`,
       onUpdate: () => {
+        if (!topLid) return;
         topLid.setRotationFromEuler(new Euler(progress.current.xRotation, 0, 0));
       },
     });
 
-    if (!groupRef.current) return;
     
     const positionAnimation = gsap.to(groupRef.current.position, {
       x: computerSettings.position[0],
@@ -66,7 +69,7 @@ export function Computer() {
   return (
     <group ref={groupRef}>
       <primitive object={computer.scene} />
-      {createPortal(
+      {topLid && createPortal(
         <group>
           <rectAreaLight
             width={2.5}
