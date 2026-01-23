@@ -30,13 +30,11 @@ const NAME_TEXT_SETTINGS: Record<number, NameTextSettings> = {
   },
 }
 
-type Text3D = typeof Text & Mesh; 
-
 export function NameText() {
 
   const nameTextSettings = useResponsiveValue(NAME_TEXT_SETTINGS);
 
-  const nameTextRef = useRef<Text3D>(null);
+  const nameTextRef = useRef<Mesh>(null);
 
   useEffect(() => {
     if (!nameTextRef.current) return;
