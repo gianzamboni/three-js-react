@@ -17,7 +17,6 @@ export default function MainScene() {
     <>
       <Environment preset="city" />
       <color args={["#241a1a"]} attach="background" />
-      <Perf position="top-right" />
       <CameraController />
 
       <PresentationControls
