@@ -2,7 +2,6 @@
 .link-container {
   background-color: var(--color-surface);
   overflow: visible;
-  z-index: 100;
   position: absolute;
   z-index: 20000000;
   padding: var(--spacing-sm);
