@@ -59,6 +59,7 @@ export function PortfolioHtml({ orientation, animationDuration, elasticBounce }:
         onMouseLeave={handleMouseLeaveScreen}
       >
         <iframe
+          title="My Portfolio Website"
           src="https://portfolio.gianfrancozamboni.com.ar?embed=true"
           className={styles[orientation]}
         />
