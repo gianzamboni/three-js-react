@@ -43,7 +43,7 @@ export const CAMERA_SETTINGS: Record<number, CameraSettings> = {
       rotation: [0, 0.05, 0],
     },
     default: {
-      position: [-2.75, 3.69, 7],
+      position: [-5, 5, 10],
       rotation: [-0.45, -0.51, -0.22],
     },
   },
