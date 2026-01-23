@@ -40,7 +40,7 @@ export function NameText() {
 
   useEffect(() => {
     if (!nameTextRef.current) return;
-    console.log(nameTextRef.current);
+
     const positionAnimation = gsap.to(nameTextRef.current.position, {
       x: nameTextSettings.position[0],
       y: nameTextSettings.position[1],
