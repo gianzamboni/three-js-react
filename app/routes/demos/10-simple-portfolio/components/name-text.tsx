@@ -2,7 +2,7 @@ import { Text } from "@react-three/drei";
 import gsap from "gsap";
 import { useEffect, useRef } from "react";
 
-import type { Group } from "three";
+import type { Group, Mesh } from "three";
 import type { Point3D } from "~/types/types";
 
 import useResponsiveValue from "~/utils/hooks/use-responsive-value";
@@ -30,15 +30,17 @@ const NAME_TEXT_SETTINGS: Record<number, NameTextSettings> = {
   },
 }
 
+type Text3D = typeof Text & Mesh; 
+
 export function NameText() {
 
   const nameTextSettings = useResponsiveValue(NAME_TEXT_SETTINGS);
 
-  const nameTextRef = useRef<Group>(null);
+  const nameTextRef = useRef<Text3D>(null);
 
   useEffect(() => {
     if (!nameTextRef.current) return;
-
+    console.log(nameTextRef.current);
     const positionAnimation = gsap.to(nameTextRef.current.position, {
       x: nameTextSettings.position[0],
       y: nameTextSettings.position[1],
@@ -77,7 +79,7 @@ export function NameText() {
       font="/fonts/bangers-v20-latin-regular.woff"
       position={DEFAULT_POSITION}
       rotation={DEFAULT_ROTATION}
-      fontSize={DEFAULT_FONT_SIZE}
+      scale={DEFAULT_FONT_SIZE}
       maxWidth={2}
       textAlign="center"
       color={"#ffffff"}
