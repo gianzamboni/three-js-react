@@ -11,7 +11,11 @@ import { COMPUTER_SETTINGS } from "./responsive-settings";
 
 import useResponsiveValue from "~/utils/hooks/use-responsive-value";
 
-export function Computer() {
+type ComputerProps = Readonly<{
+  emitLight?: boolean;
+}>;
+
+export function Computer({ emitLight = true }: ComputerProps) {
   const computerSettings = useResponsiveValue(COMPUTER_SETTINGS);
 
   const computer = useGLTF("../models/macbook.gltf");
@@ -66,14 +70,14 @@ export function Computer() {
       <primitive object={computer.scene} />
       {topLid && createPortal(
         <group>
-          <rectAreaLight
+          {emitLight &&  <rectAreaLight
             width={2.5}
             height={1.65}
             intensity={65}
             color="#ffffff"
             rotation={[Math.PI / 2, 0, 0]}
             position={[-0.2, 0.11, -2]}
-          />
+          />}
           <PortfolioHtml
             orientation={computerSettings.orientation}
             animationDuration={10}

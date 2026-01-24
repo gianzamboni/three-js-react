@@ -1,8 +1,11 @@
 import {
   ContactShadows,
   Environment,
+  PerformanceMonitor,
   PresentationControls,
+  type PerformanceMonitorApi,
 } from "@react-three/drei";
+import { useState } from "react";
 
 import { AnimatedFloat } from "./components/animated-float";
 import { CameraController } from "./components/camera-controller";
@@ -10,13 +13,31 @@ import { Computer } from "./components/computer";
 import { NameText } from "./components/name-text";
 
 import SketchySuspense from "~/sketched-components/sketchy-suspense";
+import ToggablePerfPanel from "~/utils/toggable-perf-panel";
 
 export default function MainScene() {
+
+  const [perfSettings, setPerfSettings] = useState({
+    shadows: true,
+    emitLight: true,
+  });
+
+  const handleFPSChange = (api: PerformanceMonitorApi) => {
+    if(api.fps < 30) {
+      setPerfSettings({
+        shadows: false,
+        emitLight: false,
+      });
+    }
+  };
+
   return (
     <>
+      <PerformanceMonitor onDecline={handleFPSChange} />
       <Environment preset="city" />
       <color args={["#241a1a"]} attach="background" />
       <CameraController />
+      <ToggablePerfPanel />
 
       <PresentationControls
         global
@@ -28,17 +49,17 @@ export default function MainScene() {
       >
       <SketchySuspense>
         <AnimatedFloat>
-          <Computer />
+          <Computer emitLight={perfSettings.emitLight} />
           <NameText />
         </AnimatedFloat>
       </SketchySuspense>
       </PresentationControls>
-      <ContactShadows
+      { perfSettings.shadows && <ContactShadows
         position-y={-1.4}
         opacity={0.4}
         blur={2.4}
         scale={5}
-      />
+      />}
     </>
   );
 }
