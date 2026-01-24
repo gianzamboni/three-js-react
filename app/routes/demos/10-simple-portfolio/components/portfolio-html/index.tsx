@@ -33,12 +33,12 @@ export function PortfolioHtml({ orientation, animationDuration, elasticBounce }:
     gsap.to(opacity, {
         current: 1,
         duration: animationDuration,
-        ease: `elastic.out(1,${elasticBounce})`,
+        ease: `expo.out`,
         onUpdate: () => {
           htmlScreenRef.current?.style.setProperty('opacity', opacity.current.toString());
         },
       });
-  }, { dependencies: [isLoaded] });
+  }, { dependencies: [isLoaded, htmlScreenRef] });
 
   return (
     <Html
