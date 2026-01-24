@@ -1,7 +1,7 @@
 import { useGSAP } from "@gsap/react";
 import { Html } from "@react-three/drei";
 import gsap from "gsap";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 import { useSimplePortfolioState } from "../../use-simple-portfolio-state";
 
@@ -10,13 +10,13 @@ import styles from "./styles.module.css";
 type PortfolioHtmlProps = Readonly<{ 
   orientation: "landscape" | "portrait";
   animationDuration: number;
-  elasticBounce: number;
 }>;
 
-export function PortfolioHtml({ orientation, animationDuration, elasticBounce }: PortfolioHtmlProps) {
+export function PortfolioHtml({ orientation, animationDuration }: PortfolioHtmlProps) {
   const { setZoomedIn } = useSimplePortfolioState();
   const htmlScreenRef = useRef<HTMLDivElement>(null);
-  const progress = useRef({ opacity: 0 });
+  const [ isLoaded, setIsLoaded ] = useState(false);
+  const opacity = useRef(0);
 
   const handleMouseEnterScreen = () => {
     setZoomedIn(true);
@@ -29,17 +29,15 @@ export function PortfolioHtml({ orientation, animationDuration, elasticBounce }:
   useGSAP(() => {
     if (!htmlScreenRef.current) return;
 
-    htmlScreenRef.current.style.setProperty('opacity', '0');
-
-    gsap.to(progress.current, {
-        opacity: 1,
+    gsap.to(opacity, {
+        current: 1,
         duration: animationDuration,
-        ease: `elastic.out(1,${elasticBounce})`,
+        ease: `expo.out`,
         onUpdate: () => {
-          htmlScreenRef.current?.style.setProperty('opacity', progress.current.opacity.toString());
+          htmlScreenRef.current?.style.setProperty('opacity', opacity.current.toString());
         },
       });
-  }, { dependencies: [] });
+  }, { dependencies: [isLoaded, htmlScreenRef] });
 
   return (
     <Html
@@ -50,6 +48,7 @@ export function PortfolioHtml({ orientation, animationDuration, elasticBounce }:
       distanceFactor={1.975}
       position={[0, 0.01, -1.925]}
       rotation-x={-Math.PI / 2}
+      style={{ opacity: 0 }}
     >
       <div
         onMouseEnter={handleMouseEnterScreen}
@@ -59,6 +58,7 @@ export function PortfolioHtml({ orientation, animationDuration, elasticBounce }:
         aria-label="Zoom in/out"
       >
         <iframe
+          onLoad={() => setIsLoaded(true)}
           title="My Portfolio Website"
           src="https://portfolio.gianfrancozamboni.com.ar?embed=true"
           className={styles[orientation]}
