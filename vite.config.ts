@@ -20,6 +20,6 @@ export default defineConfig(({ mode }) => ({
     include: ['gsap', '@gsap/react'],
   },
   ssr: {
-    noExternal: ['@gsap/react'],
+    noExternal: ['@gsap/react', 'gsap'],
   },
 }));

@@ -17,7 +17,7 @@ export const COMPUTER_SETTINGS: Record<number, ComputerFinalState> = {
     orientation: 'portrait',
   },
   1024: {
-    lidRotation: 1.3105023838474816,
+    lidRotation: 1.31,
     elasticBounce: 0.625,
     position: [0, -1.2, 0],
     rotation: [0, 0, 0],
