@@ -10,10 +10,9 @@ import styles from "./styles.module.css";
 type PortfolioHtmlProps = Readonly<{ 
   orientation: "landscape" | "portrait";
   animationDuration: number;
-  elasticBounce: number;
 }>;
 
-export function PortfolioHtml({ orientation, animationDuration, elasticBounce }: PortfolioHtmlProps) {
+export function PortfolioHtml({ orientation, animationDuration }: PortfolioHtmlProps) {
   const { setZoomedIn } = useSimplePortfolioState();
   const htmlScreenRef = useRef<HTMLDivElement>(null);
   const [ isLoaded, setIsLoaded ] = useState(false);

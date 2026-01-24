@@ -81,7 +81,6 @@ export function Computer({ emitLight = true }: ComputerProps) {
           <PortfolioHtml
             orientation={computerSettings.orientation}
             animationDuration={10}
-            elasticBounce={computerSettings.elasticBounce}
           />
         </group>,
         topLid
