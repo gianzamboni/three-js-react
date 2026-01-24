@@ -11,9 +11,10 @@ import { SketchyBorder } from "~/sketched-components/sketchy-borders";
 
 type SketchyLinkProps = Readonly<LinkProps> & {
   icon: ComponentType<{ className?: string }>;
-  ariaLabel: string;
-  arialLabelledBy: string     
-};
+} & (
+  | { ariaLabel: string; arialLabelledBy?: never }
+  | { ariaLabel?: never; arialLabelledBy: string }
+);
   
 export default function SketchyLink({ icon: Icon, className, ariaLabel, arialLabelledBy, ...props }: SketchyLinkProps) {
   return <Link {...props} 
