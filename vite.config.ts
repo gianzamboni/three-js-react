@@ -16,4 +16,10 @@ export default defineConfig(({ mode }) => ({
       minify: mode === 'production',
     }),
   ],
+  optimizeDeps: {
+    include: ['gsap', '@gsap/react'],
+  },
+  ssr: {
+    noExternal: ['@gsap/react'],
+  },
 }));
