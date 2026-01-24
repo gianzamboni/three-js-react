@@ -7,12 +7,15 @@ import SketchyLevaPanel from "~/sketched-components/leva-panel";
 import SketchyLink from "~/sketched-components/link";
 import HomeIcon from "~/utils/icons/home.svg?react";
 
-
 export default function Layout() {
   return <main className="full-screen parent-no-scroll">
-    <SketchyLink to="/" className={styles['home-link']} aria-label="Home">
-        <HomeIcon className={styles['home-icon']}  />
-    </SketchyLink>
+    <SketchyLink 
+      to="/" 
+      icon={HomeIcon} 
+      className={`${styles['home-link']}`} 
+      ariaLabel="Home" 
+      arialLabelledBy="home-link"
+    />
     <SketchyLevaPanel />
     <Leva hidden />
     <Outlet />

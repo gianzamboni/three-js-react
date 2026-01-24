@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-import { globalWindow } from './globals'
+import { globalWindow } from '../globals'
 
 export function usePrefersDarkTheme() {
   const [prefersDark, setPrefersDark] = useState(() => {

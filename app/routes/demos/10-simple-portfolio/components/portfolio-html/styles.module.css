@@ -1,0 +1,16 @@
+.html-screen iframe {
+  border: none;
+  border-radius: 20px;
+  background-color: #000000;
+}
+
+.landscape {
+  width: 1024px;
+  height: 670px;
+}
+
+.portrait {
+  width: 670px;
+  height: 1024px;
+  transform: rotate(-90deg);
+}

@@ -1,8 +1,9 @@
+import { useGSAP } from "@gsap/react";
 import { shaderMaterial } from "@react-three/drei";
 import { extend, useFrame, type ThreeElement } from "@react-three/fiber";
-import { gsap } from "gsap/dist/gsap";
+import gsap from "gsap";
 import { useControls } from "leva";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { Color } from "three";
 
 import portalFragmentShader from "./shaders/portal.frag";
@@ -63,7 +64,7 @@ export default function PortalMaterial() {
     }
   }))
 
-  useEffect(() => {
+  useGSAP(() => {
     gsap.to(portalMaterial.current, {
       duration: 2,
       uSmokyMix: PORTAL_SETTINGS[portalType].uSmokyMix,
@@ -77,7 +78,7 @@ export default function PortalMaterial() {
         })
       }
     })
-  }, [portalType])
+  }, { dependencies: [portalType] })
 
   useFrame((_, delta) => {
     if (portalMaterial.current != null) {

@@ -56,6 +56,11 @@ const DEMOS: Demo[] = [
     title: 'Post Processing Effects',
     thumbnail: "demos/post-processing.png",
     description: 'A showcase of some post processing effects available in the @react-three/postprocessing library and a "Drunk" effect that I implemented from scratch.',
+  }, {
+    id: 'simple-portfolio',
+    title: 'Simple Portfolio',
+    thumbnail: "demos/simple-portfolio.png",
+    description: 'A computer that has my portfolio website opened. You can navigate through the portfolio as if it the computer was a real one.',
   }
 ].reverse();
 

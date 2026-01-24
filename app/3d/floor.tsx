@@ -1,4 +1,4 @@
-import type { MeshProps } from "./types";
+import type { MeshProps } from "../types/types";
 
 type FloorProps = Readonly<Omit<MeshProps, 'rotation-x' | 'scale'>>;
 

@@ -1,4 +1,4 @@
-import { StrictMode, type PropsWithChildren } from "react";
+import { StrictMode, useEffect, type PropsWithChildren } from "react";
 import {
   isRouteErrorResponse,
   Links,
@@ -7,6 +7,8 @@ import {
   Scripts,
   ScrollRestoration,
 } from "react-router";
+
+import { initWindowWidthListener } from "./utils/hooks/use-window-width";
 
 import type { Route } from "./+types/root";
 import "./app.css";
@@ -52,6 +54,10 @@ export function Layout({ children }: PropsWithChildren) {
 }
 
 export default function App() {
+  useEffect(() => {
+    initWindowWidthListener();
+  }, []);
+
   return <Outlet />;
 }
 

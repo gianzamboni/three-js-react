@@ -38,7 +38,7 @@ export function SketchedCard({
         <div className={styles['thumbnail-container']}>
           <SketchedImage src={thumbnail} alt={title} className={styles['sketchy-thumbnail']} />
         </div>
-        <div>
+        <div className={styles['text-container']}>
           <h2>{title}</h2>
           <p className={styles['description']}>{description}</p>
         </div>
