@@ -3,18 +3,20 @@ import { useState, useEffect } from "react";
 import { globalWindow } from "../globals";
 
 export const useMediaQuery = (query: string): boolean => {
-  const [matches, setMatches] = useState(false);
+  const [matches, setMatches] = useState(
+    () => globalWindow.matchMedia(query).matches ?? false
+  );
 
   useEffect(() => {
+    if (!globalWindow) return;
+
+    const mediaQuery = globalWindow.matchMedia(query);
+
     const checkMediaQuery = () => {
-      const mediaQuery = globalWindow.matchMedia(query);
       setMatches(mediaQuery.matches);
     };
 
-    // Initial check
     checkMediaQuery();
-
-    const mediaQuery = globalWindow.matchMedia(query);
     mediaQuery.addEventListener('change', checkMediaQuery);
 
     return () => {
