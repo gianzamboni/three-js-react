@@ -16,7 +16,7 @@ type NameTextSettings = {
 
 const DEFAULT_POSITION: Point3D = [2.4, 0.75, 1];
 const DEFAULT_ROTATION: Point3D = [0, -1.25, 0];
-const DEFAULT_FONT_SIZE = 1;
+const DEFAULT_FONT_SCALE = 1;
 
 const NAME_TEXT_SETTINGS: Record<number, NameTextSettings> = {
   320: {
@@ -27,7 +27,7 @@ const NAME_TEXT_SETTINGS: Record<number, NameTextSettings> = {
   1024: {
     position: DEFAULT_POSITION,
     rotation: DEFAULT_ROTATION,
-    fontSize: DEFAULT_FONT_SIZE,
+    fontSize: DEFAULT_FONT_SCALE,
   },
 }
 
@@ -71,7 +71,7 @@ export function NameText() {
       font="/fonts/bangers-v20-latin-regular.woff"
       position={DEFAULT_POSITION}
       rotation={DEFAULT_ROTATION}
-      scale={DEFAULT_FONT_SIZE}
+      scale={DEFAULT_FONT_SCALE}
       maxWidth={2}
       textAlign="center"
       color={"#ffffff"}

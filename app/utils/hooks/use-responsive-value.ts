@@ -4,7 +4,7 @@ import { useWindowWidthStore } from "./use-window-width";
 
 type BreakpointMap<T> = Record<number, T>;
 
-export function useResponsiveValue<T>(breakpointMap: BreakpointMap<T>): T {
+export default function useResponsiveValue<T>(breakpointMap: BreakpointMap<T>): T {
   const sortedBreakpoints = useMemo(() => 
     Object.keys(breakpointMap)
       .map(Number)
@@ -23,5 +23,3 @@ export function useResponsiveValue<T>(breakpointMap: BreakpointMap<T>): T {
 
   return value;
 }
-
-export default useResponsiveValue;

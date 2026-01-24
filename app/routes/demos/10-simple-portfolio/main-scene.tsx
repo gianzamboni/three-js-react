@@ -17,17 +17,11 @@ import ToggablePerfPanel from "~/utils/toggable-perf-panel";
 
 export default function MainScene() {
 
-  const [perfSettings, setPerfSettings] = useState({
-    shadows: true,
-    emitLight: true,
-  });
+  const [highQuality, setHighQuality] = useState(true);
 
   const handleFPSChange = (api: PerformanceMonitorApi) => {
-    if(api.fps < 30) {
-      setPerfSettings({
-        shadows: false,
-        emitLight: false,
-      });
+    if(api.fps < 30 && highQuality) {
+      setHighQuality(false);
     }
   };
 
@@ -49,12 +43,12 @@ export default function MainScene() {
       >
       <SketchySuspense>
         <AnimatedFloat>
-          <Computer emitLight={perfSettings.emitLight} />
+          <Computer emitLight={highQuality} />
           <NameText />
         </AnimatedFloat>
       </SketchySuspense>
       </PresentationControls>
-      { perfSettings.shadows && <ContactShadows
+      { highQuality && <ContactShadows
         position-y={-1.4}
         opacity={0.4}
         blur={2.4}

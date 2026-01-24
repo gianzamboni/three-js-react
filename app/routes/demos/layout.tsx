@@ -13,7 +13,8 @@ export default function Layout() {
       to="/" 
       icon={HomeIcon} 
       className={`${styles['home-link']}`} 
-      aria-label="Home" 
+      ariaLabel="Home" 
+      arialLabelledBy="home-link"
     />
     <SketchyLevaPanel />
     <Leva hidden />

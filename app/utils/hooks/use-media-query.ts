@@ -4,7 +4,7 @@ import { globalWindow } from "../globals";
 
 export const useMediaQuery = (query: string): boolean => {
   const [matches, setMatches] = useState(
-    () => globalWindow.matchMedia(query).matches ?? false
+    () => globalWindow?.matchMedia(query).matches ?? false
   );
 
   useEffect(() => {

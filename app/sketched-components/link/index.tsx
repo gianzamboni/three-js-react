@@ -11,11 +11,15 @@ import { SketchyBorder } from "~/sketched-components/sketchy-borders";
 
 type SketchyLinkProps = Readonly<LinkProps> & {
   icon: ComponentType<{ className?: string }>;
+  ariaLabel: string;
+  arialLabelledBy: string     
 };
   
-export default function SketchyLink({ icon: Icon, className, ...props }: SketchyLinkProps) {
+export default function SketchyLink({ icon: Icon, className, ariaLabel, arialLabelledBy, ...props }: SketchyLinkProps) {
   return <Link {...props} 
-  className={`${className}  ${styles['link-container']} ${commonStyles["interactive"]} ${commonStyles["animated"]} ${commonStyles["interactive-small"]}`}>
+  className={`${className}  ${styles['link-container']} ${commonStyles["interactive"]} ${commonStyles["animated"]} ${commonStyles["interactive-small"]}`}
+  aria-label={ariaLabel}
+  aria-labelledby={arialLabelledBy}>
       <SketchyBorder baseStrokeWidth="md" >
         <Icon className={styles['sketchy-link-icon']} />
       </SketchyBorder>
