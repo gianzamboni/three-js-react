@@ -1,0 +1,301 @@
+{
+  "buildManifest": {
+    "serverBundles": {
+      "nodejs_eyJydW50aW1lIjoibm9kZWpzIn0": {
+        "id": "nodejs_eyJydW50aW1lIjoibm9kZWpzIn0",
+        "file": "build/server/nodejs_eyJydW50aW1lIjoibm9kZWpzIn0/index.js",
+        "config": {
+          "runtime": "nodejs"
+        }
+      }
+    },
+    "routeIdToServerBundleId": {
+      "routes/home/index": "nodejs_eyJydW50aW1lIjoibm9kZWpzIn0",
+      "routes/demos/01-first-r3f-app/index": "nodejs_eyJydW50aW1lIjoibm9kZWpzIn0",
+      "routes/demos/02-drei-app/index": "nodejs_eyJydW50aW1lIjoibm9kZWpzIn0",
+      "routes/demos/03-debug-ui/index": "nodejs_eyJydW50aW1lIjoibm9kZWpzIn0",
+      "routes/demos/04-environment-staging/index": "nodejs_eyJydW50aW1lIjoibm9kZWpzIn0",
+      "routes/demos/05-load-models/index": "nodejs_eyJydW50aW1lIjoibm9kZWpzIn0",
+      "routes/demos/06-3d-text/index": "nodejs_eyJydW50aW1lIjoibm9kZWpzIn0",
+      "routes/demos/07-portal/index": "nodejs_eyJydW50aW1lIjoibm9kZWpzIn0",
+      "routes/demos/08-pointer-events/index": "nodejs_eyJydW50aW1lIjoibm9kZWpzIn0",
+      "routes/demos/09-post-processing-effects/index": "nodejs_eyJydW50aW1lIjoibm9kZWpzIn0",
+      "routes/demos/10-simple-portfolio/index": "nodejs_eyJydW50aW1lIjoibm9kZWpzIn0"
+    },
+    "routes": {
+      "root": {
+        "id": "root",
+        "file": "app/root.tsx",
+        "path": "",
+        "config": {}
+      },
+      "routes/home/index": {
+        "id": "routes/home/index",
+        "parentId": "root",
+        "file": "app/routes/home/index.tsx",
+        "index": true,
+        "config": {
+          "runtime": "nodejs"
+        }
+      },
+      "routes/demos/layout": {
+        "id": "routes/demos/layout",
+        "parentId": "root",
+        "file": "app/routes/demos/layout.tsx",
+        "config": {}
+      },
+      "routes/demos/01-first-r3f-app/index": {
+        "id": "routes/demos/01-first-r3f-app/index",
+        "parentId": "routes/demos/layout",
+        "file": "app/routes/demos/01-first-r3f-app/index.tsx",
+        "path": "demos/first-r3f-app",
+        "config": {
+          "runtime": "nodejs"
+        }
+      },
+      "routes/demos/02-drei-app/index": {
+        "id": "routes/demos/02-drei-app/index",
+        "parentId": "routes/demos/layout",
+        "file": "app/routes/demos/02-drei-app/index.tsx",
+        "path": "demos/drei-app",
+        "config": {
+          "runtime": "nodejs"
+        }
+      },
+      "routes/demos/03-debug-ui/index": {
+        "id": "routes/demos/03-debug-ui/index",
+        "parentId": "routes/demos/layout",
+        "file": "app/routes/demos/03-debug-ui/index.tsx",
+        "path": "demos/debug-ui",
+        "config": {
+          "runtime": "nodejs"
+        }
+      },
+      "routes/demos/04-environment-staging/index": {
+        "id": "routes/demos/04-environment-staging/index",
+        "parentId": "routes/demos/layout",
+        "file": "app/routes/demos/04-environment-staging/index.tsx",
+        "path": "demos/environment-staging",
+        "config": {
+          "runtime": "nodejs"
+        }
+      },
+      "routes/demos/05-load-models/index": {
+        "id": "routes/demos/05-load-models/index",
+        "parentId": "routes/demos/layout",
+        "file": "app/routes/demos/05-load-models/index.tsx",
+        "path": "demos/load-models",
+        "config": {
+          "runtime": "nodejs"
+        }
+      },
+      "routes/demos/06-3d-text/index": {
+        "id": "routes/demos/06-3d-text/index",
+        "parentId": "routes/demos/layout",
+        "file": "app/routes/demos/06-3d-text/index.tsx",
+        "path": "demos/3d-text",
+        "config": {
+          "runtime": "nodejs"
+        }
+      },
+      "routes/demos/07-portal/index": {
+        "id": "routes/demos/07-portal/index",
+        "parentId": "routes/demos/layout",
+        "file": "app/routes/demos/07-portal/index.tsx",
+        "path": "demos/portal",
+        "config": {
+          "runtime": "nodejs"
+        }
+      },
+      "routes/demos/08-pointer-events/index": {
+        "id": "routes/demos/08-pointer-events/index",
+        "parentId": "routes/demos/layout",
+        "file": "app/routes/demos/08-pointer-events/index.tsx",
+        "path": "demos/pointer-events",
+        "config": {
+          "runtime": "nodejs"
+        }
+      },
+      "routes/demos/09-post-processing-effects/index": {
+        "id": "routes/demos/09-post-processing-effects/index",
+        "parentId": "routes/demos/layout",
+        "file": "app/routes/demos/09-post-processing-effects/index.tsx",
+        "path": "demos/post-processing-effects",
+        "config": {
+          "runtime": "nodejs"
+        }
+      },
+      "routes/demos/10-simple-portfolio/index": {
+        "id": "routes/demos/10-simple-portfolio/index",
+        "parentId": "routes/demos/layout",
+        "file": "app/routes/demos/10-simple-portfolio/index.tsx",
+        "path": "demos/simple-portfolio",
+        "config": {
+          "runtime": "nodejs"
+        }
+      }
+    }
+  },
+  "reactRouterConfig": {
+    "appDirectory": "C:/Users/Gian/Documents/GitHub/three-js-react/app",
+    "basename": "/",
+    "buildDirectory": "C:/Users/Gian/Documents/GitHub/three-js-react/build",
+    "future": {
+      "unstable_optimizeDeps": false,
+      "unstable_subResourceIntegrity": false,
+      "unstable_trailingSlashAwareDataRequests": false,
+      "v8_middleware": false,
+      "v8_splitRouteModules": false,
+      "v8_viteEnvironmentApi": false
+    },
+    "routes": {
+      "root": {
+        "id": "root",
+        "file": "root.tsx",
+        "path": ""
+      },
+      "routes/home/index": {
+        "id": "routes/home/index",
+        "parentId": "root",
+        "file": "routes/home/index.tsx",
+        "index": true
+      },
+      "routes/demos/layout": {
+        "id": "routes/demos/layout",
+        "parentId": "root",
+        "file": "routes/demos/layout.tsx"
+      },
+      "routes/demos/01-first-r3f-app/index": {
+        "id": "routes/demos/01-first-r3f-app/index",
+        "parentId": "routes/demos/layout",
+        "file": "routes/demos/01-first-r3f-app/index.tsx",
+        "path": "demos/first-r3f-app"
+      },
+      "routes/demos/02-drei-app/index": {
+        "id": "routes/demos/02-drei-app/index",
+        "parentId": "routes/demos/layout",
+        "file": "routes/demos/02-drei-app/index.tsx",
+        "path": "demos/drei-app"
+      },
+      "routes/demos/03-debug-ui/index": {
+        "id": "routes/demos/03-debug-ui/index",
+        "parentId": "routes/demos/layout",
+        "file": "routes/demos/03-debug-ui/index.tsx",
+        "path": "demos/debug-ui"
+      },
+      "routes/demos/04-environment-staging/index": {
+        "id": "routes/demos/04-environment-staging/index",
+        "parentId": "routes/demos/layout",
+        "file": "routes/demos/04-environment-staging/index.tsx",
+        "path": "demos/environment-staging"
+      },
+      "routes/demos/05-load-models/index": {
+        "id": "routes/demos/05-load-models/index",
+        "parentId": "routes/demos/layout",
+        "file": "routes/demos/05-load-models/index.tsx",
+        "path": "demos/load-models"
+      },
+      "routes/demos/06-3d-text/index": {
+        "id": "routes/demos/06-3d-text/index",
+        "parentId": "routes/demos/layout",
+        "file": "routes/demos/06-3d-text/index.tsx",
+        "path": "demos/3d-text"
+      },
+      "routes/demos/07-portal/index": {
+        "id": "routes/demos/07-portal/index",
+        "parentId": "routes/demos/layout",
+        "file": "routes/demos/07-portal/index.tsx",
+        "path": "demos/portal"
+      },
+      "routes/demos/08-pointer-events/index": {
+        "id": "routes/demos/08-pointer-events/index",
+        "parentId": "routes/demos/layout",
+        "file": "routes/demos/08-pointer-events/index.tsx",
+        "path": "demos/pointer-events"
+      },
+      "routes/demos/09-post-processing-effects/index": {
+        "id": "routes/demos/09-post-processing-effects/index",
+        "parentId": "routes/demos/layout",
+        "file": "routes/demos/09-post-processing-effects/index.tsx",
+        "path": "demos/post-processing-effects"
+      },
+      "routes/demos/10-simple-portfolio/index": {
+        "id": "routes/demos/10-simple-portfolio/index",
+        "parentId": "routes/demos/layout",
+        "file": "routes/demos/10-simple-portfolio/index.tsx",
+        "path": "demos/simple-portfolio"
+      }
+    },
+    "routeDiscovery": {
+      "mode": "lazy",
+      "manifestPath": "/__manifest"
+    },
+    "serverBuildFile": "index.js",
+    "serverModuleFormat": "esm",
+    "ssr": true,
+    "allowedActionOrigins": false,
+    "unstable_routeConfig": [
+      {
+        "id": "root",
+        "path": "",
+        "file": "root.tsx",
+        "children": [
+          {
+            "file": "routes/home/index.tsx",
+            "index": true
+          },
+          {
+            "file": "routes/demos/layout.tsx",
+            "children": [
+              {
+                "file": "routes/demos/01-first-r3f-app/index.tsx",
+                "path": "demos/first-r3f-app"
+              },
+              {
+                "file": "routes/demos/02-drei-app/index.tsx",
+                "path": "demos/drei-app"
+              },
+              {
+                "file": "routes/demos/03-debug-ui/index.tsx",
+                "path": "demos/debug-ui"
+              },
+              {
+                "file": "routes/demos/04-environment-staging/index.tsx",
+                "path": "demos/environment-staging"
+              },
+              {
+                "file": "routes/demos/05-load-models/index.tsx",
+                "path": "demos/load-models"
+              },
+              {
+                "file": "routes/demos/06-3d-text/index.tsx",
+                "path": "demos/3d-text"
+              },
+              {
+                "file": "routes/demos/07-portal/index.tsx",
+                "path": "demos/portal"
+              },
+              {
+                "file": "routes/demos/08-pointer-events/index.tsx",
+                "path": "demos/pointer-events"
+              },
+              {
+                "file": "routes/demos/09-post-processing-effects/index.tsx",
+                "path": "demos/post-processing-effects"
+              },
+              {
+                "file": "routes/demos/10-simple-portfolio/index.tsx",
+                "path": "demos/simple-portfolio"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "viteConfig": {
+    "build": {
+      "assetsDir": "assets"
+    }
+  }
+}
