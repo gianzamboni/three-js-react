@@ -1,3 +1,6 @@
+import { TestCanvas } from "~/3d/test-canvas";
+import MainScene from "./main-scene";
+
 export function meta() {
   return [
     { title: "Physics" },
@@ -6,5 +9,7 @@ export function meta() {
 }
 
 export default function Physics() {
-  return <p>WORK IN PROGRESS</p>;
+  return <TestCanvas>
+    <MainScene />
+  </TestCanvas>;
 }
