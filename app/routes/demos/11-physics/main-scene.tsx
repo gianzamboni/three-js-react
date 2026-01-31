@@ -16,9 +16,11 @@ export default function MainScene() {
           </Sphere>
         </RigidBody>
 
-        <Cube castShadow position={[2, 2, 0]}>
-          <meshStandardMaterial color="mediumpurple" />
-        </Cube>
+        <RigidBody>
+          <Cube castShadow position={[2, 2, 0]}>
+            <meshStandardMaterial color="mediumpurple" />
+          </Cube>
+        </RigidBody>
 
         <RigidBody type="fixed">
           <mesh receiveShadow position-y={- 1.25}>
