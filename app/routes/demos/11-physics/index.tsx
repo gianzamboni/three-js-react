@@ -9,7 +9,7 @@ export function meta() {
 }
 
 export default function Physics() {
-  return <TestCanvas>
+  return <TestCanvas shadows>
     <MainScene />
   </TestCanvas>;
 }
