@@ -1,10 +1,24 @@
+import { Physics, RapierRigidBody, RigidBody } from '@react-three/rapier';
+import gsap from 'gsap';
+import { Suspense, useRef } from 'react';
+
 import DefaultSetup from '~/3d/basic-setup';
 import Cube from '~/3d/cube';
 import Sphere from '~/3d/sphere';
-import { Physics, RigidBody } from '@react-three/rapier';
-import { Suspense } from 'react';
 
 export default function MainScene() {
+
+  const cubeRef = useRef<RapierRigidBody>(null);
+
+  const cubeJump = () => {
+    cubeRef.current?.applyImpulse({ x: 0, y: 5, z: 0 }, true);
+    cubeRef.current?.applyTorqueImpulse({ 
+      x: gsap.utils.random(-0.5, 0.5), 
+      y: gsap.utils.random(-0.5, 0.5), 
+      z: gsap.utils.random(-0.5, 0.5) 
+    }, true);
+  }
+
   return <>
 
     <DefaultSetup castShadow />
@@ -16,8 +30,8 @@ export default function MainScene() {
           </Sphere>
         </RigidBody>
 
-        <RigidBody>
-          <Cube castShadow position={[2, 2, 0]}>
+        <RigidBody ref={cubeRef} position={[2, 2, 0]}>
+          <Cube castShadow onClick={cubeJump} >
             <meshStandardMaterial color="mediumpurple" />
           </Cube>
         </RigidBody>
