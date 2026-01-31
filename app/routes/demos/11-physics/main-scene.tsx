@@ -11,6 +11,18 @@ import SketchySuspense from '~/sketched-components/sketchy-suspense';
 
 
 export default function MainScene() {
+
+  const cubeRef = useRef<RapierRigidBody>(null);
+
+  const cubeJump = () => {
+    cubeRef.current?.applyImpulse({ x: 0, y: 5, z: 0 }, true);
+    cubeRef.current?.applyTorqueImpulse({ 
+      x: gsap.utils.random(-0.5, 0.5), 
+      y: gsap.utils.random(-0.5, 0.5), 
+      z: gsap.utils.random(-0.5, 0.5) 
+    }, true);
+  }
+
   return <>
     <DefaultSetup castShadow />
     <SketchySuspense>
