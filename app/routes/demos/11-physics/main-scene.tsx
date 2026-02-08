@@ -1,5 +1,5 @@
 import { useFrame } from '@react-three/fiber';
-import { CuboidCollider, Physics, RapierRigidBody, RigidBody } from '@react-three/rapier';
+import { CuboidCollider, CylinderCollider, Physics, RapierRigidBody, RigidBody } from '@react-three/rapier';
 import gsap from 'gsap';
 import { Suspense, useRef, useState } from 'react';
 import { Euler, Quaternion } from 'three';
@@ -14,7 +14,7 @@ export default function MainScene() {
   const cubeRef = useRef<RapierRigidBody>(null);
   const twister = useRef<RapierRigidBody>(null);
 
-  const [ hitSound ] = useState(() => new Audio("https://i0hci4avyoqkwwp1.public.blob.vercel-storage.com/sounds/hit.mp3"));
+  // const [ hitSound ] = useState(() => new Audio("https://i0hci4avyoqkwwp1.public.blob.vercel-storage.com/sounds/hit.mp3"));
 
   const cubeJump = () => {
     if (!cubeRef.current) return;
@@ -89,9 +89,12 @@ export default function MainScene() {
             <meshStandardMaterial color="greenyellow" />
           </mesh>
         </RigidBody>
-        <RigidBody position={[0, 4, 0]}>
-          <Hamburger scale={0.25}  />
+
+        <RigidBody position={[0, 4, 0]} colliders={false}>
+          <Hamburger scale={0.25}  /> 
+          <CylinderCollider args={[0.5, 1.25]} position={[0, 0.625, 0]} />
         </RigidBody>
+      
       </Physics>
     </Suspense>
   </>
