@@ -6,6 +6,7 @@ import { Euler, Quaternion } from 'three';
 
 import DefaultSetup from '~/3d/basic-setup';
 import Cube from '~/3d/cube';
+import Hamburger from '~/3d/hamburger';
 import Sphere from '~/3d/sphere';
 
 export default function MainScene() {
@@ -28,7 +29,7 @@ export default function MainScene() {
       z: gsap.utils.random(-0.5, 0.5)
     }, true);
   }
-  
+
   useFrame((state) => {
     if (!twister.current) return;
 
@@ -87,6 +88,9 @@ export default function MainScene() {
             <boxGeometry args={[10, 0.5, 10]} />
             <meshStandardMaterial color="greenyellow" />
           </mesh>
+        </RigidBody>
+        <RigidBody position={[0, 4, 0]}>
+          <Hamburger scale={0.25}  />
         </RigidBody>
       </Physics>
     </Suspense>
