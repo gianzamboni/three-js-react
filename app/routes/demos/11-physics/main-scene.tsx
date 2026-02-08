@@ -1,7 +1,7 @@
 import { useFrame } from '@react-three/fiber';
 import { CuboidCollider, Physics, RapierRigidBody, RigidBody } from '@react-three/rapier';
 import gsap from 'gsap';
-import { Suspense, useRef } from 'react';
+import { Suspense, useRef, useState } from 'react';
 import { Euler, Quaternion } from 'three';
 
 import DefaultSetup from '~/3d/basic-setup';
@@ -12,6 +12,8 @@ export default function MainScene() {
 
   const cubeRef = useRef<RapierRigidBody>(null);
   const twister = useRef<RapierRigidBody>(null);
+
+  const [ hitSound ] = useState(() => new Audio("https://i0hci4avyoqkwwp1.public.blob.vercel-storage.com/sounds/hit.mp3"));
 
   const cubeJump = () => {
     if (!cubeRef.current) return;
@@ -26,7 +28,7 @@ export default function MainScene() {
       z: gsap.utils.random(-0.5, 0.5)
     }, true);
   }
-
+  
   useFrame((state) => {
     if (!twister.current) return;
 
