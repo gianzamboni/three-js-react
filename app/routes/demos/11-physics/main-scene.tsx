@@ -30,7 +30,7 @@ export default function MainScene() {
       z: gsap.utils.random(-0.5, 0.5)
     }, true);
   }
-  
+
   useFrame((state) => {
     if (!twister.current) return;
 
