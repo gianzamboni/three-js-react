@@ -15,6 +15,8 @@ export default function MainScene() {
   const cubeRef = useRef<RapierRigidBody>(null);
   const twister = useRef<RapierRigidBody>(null);
 
+  const [ hitSound ] = useState(() => new Audio("https://i0hci4avyoqkwwp1.public.blob.vercel-storage.com/sounds/hit.mp3"));
+
   const cubeJump = () => {
     if (!cubeRef.current) return;
     const cube = cubeRef.current;
@@ -28,7 +30,7 @@ export default function MainScene() {
       z: gsap.utils.random(-0.5, 0.5)
     }, true);
   }
-
+  
   useFrame((state) => {
     if (!twister.current) return;
 
