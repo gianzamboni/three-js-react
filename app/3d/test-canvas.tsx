@@ -3,13 +3,15 @@ import { useMemo } from "react";
 
 import type { Point3D } from "~/sketched-components/utils";
 
-import useResponsiveValue from "~/utils/hooks/use-responsive-value";
+import useResponsiveValue, { type ResponsiveValue } from "~/utils/hooks/use-responsive-value";
 
-type TestCanvasProps = Readonly<CanvasProps>;
+type TestCanvasProps = Readonly<CanvasProps & {
+  position?: ResponsiveValue<Point3D>;
+}>;
 
-export function TestCanvas({ children, ...props }: TestCanvasProps) {
+export function TestCanvas({ children, position, ...props }: TestCanvasProps) {
 
-  const cameraPosition: Point3D = useResponsiveValue({
+  const cameraPosition: Point3D = useResponsiveValue(position ?? {
     320: [-8, 6, 12],
     1024: [-4, 3, 6],
   });

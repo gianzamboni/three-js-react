@@ -1,5 +1,6 @@
-import { TestCanvas } from "~/3d/test-canvas";
 import MainScene from "./main-scene";
+
+import { TestCanvas } from "~/3d/test-canvas";
 
 export function meta() {
   return [
@@ -9,7 +10,10 @@ export function meta() {
 }
 
 export default function Physics() {
-  return <TestCanvas shadows>
+  return <TestCanvas shadows position={{
+    320: [-32, 24, 48],
+    1024: [-16, 12, 24],
+  }}>
     <MainScene />
   </TestCanvas>;
 }
