@@ -11,6 +11,10 @@
 
   @media (min-width:1440px) {
     grid-template-columns: repeat(2, minmax(300px, 1fr));
+    
+  .two-columns-item {
+    grid-column: span 2;
+  }
   }
 } 
 

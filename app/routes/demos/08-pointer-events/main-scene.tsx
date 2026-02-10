@@ -31,15 +31,17 @@ export default function MainScene() {
     document.body.style.cursor = 'default';
   }
   return <>
-      <BasicSetup hidePerfPanel />
+      <BasicSetup hidePerfPanel castShadow />
 
       <OrangeSphere 
+        castShadow
         onClick={stopPropagation} 
         onPointerEnter={stopPropagation}
         onPointerLeave={stopPropagation}
       />
 
       <RotatingCube 
+        castShadow
         rotationSpeed={0.2}
         raycast={ meshBounds } 
         onClick={clickHandler}
@@ -49,12 +51,15 @@ export default function MainScene() {
           <meshStandardMaterial color="mediumpurple" />
       </RotatingCube>
 
-      <Floor position-y={-1}>
+      <Floor position-y={-1} receiveShadow>
         <meshStandardMaterial color="greenyellow" />
       </Floor>
 
       <SketchySuspense>
-        <Hamburger scale={0.25} position-y={ 1 } position-x={ -0.125 } 
+        <Hamburger 
+          castShadow
+          scale={0.25}
+          position={[ -0.125, 1, 0]} 
           onClick={clickHandler}
           onPointerEnter={showPointerCursor}
           onPointerLeave={hidePointerCursor}

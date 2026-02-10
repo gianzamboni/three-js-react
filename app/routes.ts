@@ -13,7 +13,8 @@ export default [
       route("portal", "routes/demos/07-portal/index.tsx"),
       route("pointer-events", "routes/demos/08-pointer-events/index.tsx"),
       route("post-processing-effects", "routes/demos/09-post-processing-effects/index.tsx"),
-      route("simple-portfolio", "routes/demos/10-simple-portfolio/index.tsx")
+      route("simple-portfolio", "routes/demos/10-simple-portfolio/index.tsx"),
+      route("physics", "routes/demos/11-physics/index.tsx")
     ]),
   ]),
 ] satisfies RouteConfig;

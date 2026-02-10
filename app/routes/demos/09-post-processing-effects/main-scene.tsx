@@ -38,8 +38,8 @@ export default function MainScene() {
     <PostProcessingEffects effect={effect} />
 
     <BasicSetup castShadow />
-    <OrangeSphere />
-    <Cube position-x={2} scale={1.5}>
+    <OrangeSphere castShadow />
+    <Cube castShadow position-x={2} scale={1.5}>
       <meshStandardMaterial color={ effect === EffectType.Bloom ? [1.5, 1, 4] : "mediumpurple"} />
     </Cube>
     <GreenFloor receiveShadow />
