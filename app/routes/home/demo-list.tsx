@@ -65,7 +65,7 @@ const DEMOS: Demo[] = [
     id: 'physics',
     title: 'Physics',
     thumbnail: "demos/physics.png",
-    description: 'WIP',
+    description: 'A lot of cubes falling down and colliding with each other. Used React Three Fiber and Rapier Physics to create this demo.',
   }
 ].reverse();
 
