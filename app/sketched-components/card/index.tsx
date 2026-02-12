@@ -3,7 +3,7 @@ import { Link } from "react-router";
 import commonStyles from "../common.module.css";
 import { SketchedImage } from "../image";
 import { SketchyShadow } from "../randomized-shadow";
-import { MemoizedSketchedBorder } from "../sketchy-borders";
+import { SketchyBorder } from "../sketchy-borders";
 
 import styles from "./styles.module.css";
 
@@ -31,7 +31,7 @@ export function SketchedCard({
     className={`${styles['card-link']} ${className} ${commonStyles["interactive"]} ${commonStyles["animated"]}`} 
     target={targetBlank ? '_blank' : '_self'}
     >
-      <MemoizedSketchedBorder 
+      <SketchyBorder 
         className={`relative ${styles['card']} ${commonStyles['sketchy-container-margin']}`}
       >
         <SketchyShadow offsetX={0.5} offsetY={1} strokeWidth="sm"/>
@@ -42,7 +42,7 @@ export function SketchedCard({
           <h2>{title}</h2>
           <p className={styles['description']}>{description}</p>
         </div>
-      </MemoizedSketchedBorder>
+      </SketchyBorder>
     </Link>
   );
 }

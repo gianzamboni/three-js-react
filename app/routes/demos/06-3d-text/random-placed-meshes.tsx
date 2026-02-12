@@ -1,41 +1,63 @@
 import { useFrame } from '@react-three/fiber';
-import { useMemo, useRef } from 'react';
+import { useRef, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
 import type { Mesh } from 'three';
+import type { Point3D } from '~/types/types';
 import type { MeshProps } from '~/types/types';
+
+function getRandomPosition(): Point3D {
+  return [
+    (Math.random() - 0.5) * 10,
+    (Math.random() - 0.5) * 10,
+    (Math.random() - 0.5) * 10
+  ];
+}
+
+function getRandomRotation(): Point3D {
+  return [
+    Math.random() * Math.PI,
+    Math.random() * Math.PI,
+    0
+  ];
+}
+
+function getRandomScale(): number {
+  return 0.2 + Math.random() * 0.2;
+}
+
+function getRandomDonut() {
+  return {
+    uuid: uuidv4(),
+    position: getRandomPosition(),
+    rotation: getRandomRotation(),
+    scale: getRandomScale()
+  }
+}
 
 export default function RandomPlacedMeshes({ material, geometry }: MeshProps) {
 
-  const donuts = useRef<Mesh[]>([]);
-  const uuids = useMemo(() => Array.from({ length: 100 }).map(() => uuidv4()), []);
+  const donutsRefs = useRef<Mesh[]>([]);
+  const [ donuts ]= useState(() => Array.from({ length: 100 }).map(() => getRandomDonut()));
 
   useFrame((_, delta) => {
-    for(const donut of donuts.current) {
+    for(const donut of donutsRefs.current) {
       donut.rotation.y += delta * 0.2;
     }
   });
 
   return (
     <>
-      {uuids.map((uuid, index) => (
-        <mesh key={uuid}
+      {donuts.map((donut, index) => (
+        <mesh key={donut.uuid}
           ref={(element: Mesh) => {
-            donuts.current[index] = element;
+            donutsRefs.current[index] = element;
           }}
-          material={material} 
+          material={material}
           geometry={geometry}
-          position={[
-            (Math.random() - 0.5) * 10,
-            (Math.random() - 0.5) * 10,
-            (Math.random() - 0.5) * 10
-          ]}
-          scale={0.2 + Math.random() * 0.2}
-          rotation={[
-            Math.random() * Math.PI,
-            Math.random() * Math.PI,
-            0
-          ]}>
+          position={donut.position}
+          rotation={donut.rotation}
+          scale={donut.scale}>
         </mesh>
       ))}
     </>

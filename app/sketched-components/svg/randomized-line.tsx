@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useState } from "react";
 
 import { STROKE_WIDTHS, type StrokeWidth } from "../utils";
 
@@ -18,17 +18,10 @@ type RandomSideProps = Readonly<{
 
 export function RandomSide(props: RandomSideProps) {
 
-  const [ controls, setControls ] = useState<Point2D[]>([]);
-
-  const offset: [number, number] = useMemo(() => [props.power, props.power], [props.power]);
-
-  useEffect(() => {
-    setControls([randomizedOffset2D(props.start, offset), randomizedOffset2D(props.end, offset)]);
-  }, []);
-
-  if(controls.length === 0) {
-    return null;
-  }
+  const [controls] = useState<Point2D[]>(() => {
+    const offset: [number, number] = [props.power, props.power];
+    return [randomizedOffset2D(props.start, offset), randomizedOffset2D(props.end, offset)];
+  });
 
   return <Side 
     start={props.start}

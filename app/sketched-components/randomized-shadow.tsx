@@ -1,4 +1,4 @@
-import { memo } from "react";
+import { useState } from "react";
 
 import commonStyles from "./common.module.css";
 import { RandomSide } from "./svg/randomized-line";
@@ -10,7 +10,7 @@ export type RandomShadowProps = Readonly<{
   strokeWidth?: StrokeWidth;
 }>
 export function RandomShadow({ strokeWidth }: RandomShadowProps) {
-  const { xLeft, yTop, xRight, yBottom, yOffset, xOffset } = generateRectangleLimits(null);
+  const [{ xLeft, yTop, xRight, yBottom, yOffset, xOffset }] = useState(() => generateRectangleLimits(null));
 
   return (<g>
     <RandomSide start={[xRight, yTop]} end={[xRight, yBottom]} power={yOffset} strokeWidth={strokeWidth} />
@@ -35,5 +35,3 @@ export function SketchyShadow({ strokeWidth, offsetX, offsetY }: SketchyShadowPr
     </svg>
   )
 }
-
-export const MemoizedSketchyShadow = memo(SketchyShadow);
