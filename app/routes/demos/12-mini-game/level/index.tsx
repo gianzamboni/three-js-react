@@ -13,15 +13,14 @@ import { Random } from "~/utils/random";
 
 
 type LevelProps = {
-  count: number;
-  blockTypes: ComponentType<BlockProps>[];
+  count?: number;
+  blockTypes?: ComponentType<BlockProps>[];
 }
 
 export default function Level({ 
   count = 5, 
   blockTypes = [ BlockSpinner, BlockLimbo, BlockAxe ] 
 }: LevelProps) {
-
   const blocks = useMemo(() => {
     const blocks = [];
     for (let i = 0; i < count; i++) {
