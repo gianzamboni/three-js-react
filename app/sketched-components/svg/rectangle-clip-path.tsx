@@ -2,7 +2,7 @@ import { useMemo } from "react";
 
 import { generateRectangleLimits } from "./utils";
 
-import { randomizedOffset2D } from "~/utils/random";
+import { Random } from "~/utils/random";
 
 export function RandomRectangleClipPath(props: Readonly<{ boundingBox: DOMRect | null }>) {
   const state = useMemo(() => {
@@ -13,14 +13,14 @@ export function RandomRectangleClipPath(props: Readonly<{ boundingBox: DOMRect |
     limits.yBottom += 1;
 
     const controls = [
-      randomizedOffset2D([limits.xLeft, limits.yTop], [limits.xOffset, limits.yOffset]),
-      randomizedOffset2D([limits.xLeft, limits.yBottom], [limits.xOffset, limits.yOffset]),
-      randomizedOffset2D([limits.xLeft, limits.yBottom], [limits.xOffset, limits.yOffset]),
-      randomizedOffset2D([limits.xRight, limits.yBottom], [limits.xOffset, limits.yOffset]),
-      randomizedOffset2D([limits.xRight, limits.yBottom], [limits.xOffset, limits.yOffset]),
-      randomizedOffset2D([limits.xRight, limits.yTop], [limits.xOffset, limits.yOffset]),
-      randomizedOffset2D([limits.xRight, limits.yTop], [limits.xOffset, limits.yOffset]),
-      randomizedOffset2D([limits.xLeft, limits.yTop], [limits.xOffset, limits.yOffset]),
+      Random.offset2D([limits.xLeft, limits.yTop], [limits.xOffset, limits.yOffset]),
+      Random.offset2D([limits.xLeft, limits.yBottom], [limits.xOffset, limits.yOffset]),
+      Random.offset2D([limits.xLeft, limits.yBottom], [limits.xOffset, limits.yOffset]),
+      Random.offset2D([limits.xRight, limits.yBottom], [limits.xOffset, limits.yOffset]),
+      Random.offset2D([limits.xRight, limits.yBottom], [limits.xOffset, limits.yOffset]),
+      Random.offset2D([limits.xRight, limits.yTop], [limits.xOffset, limits.yOffset]),
+      Random.offset2D([limits.xRight, limits.yTop], [limits.xOffset, limits.yOffset]),
+      Random.offset2D([limits.xLeft, limits.yTop], [limits.xOffset, limits.yOffset]),
     ];
 
     return { limits, controls };

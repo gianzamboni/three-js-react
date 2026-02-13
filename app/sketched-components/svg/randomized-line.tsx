@@ -6,8 +6,7 @@ import { Side } from "./line";
 
 import type { Point2D } from "~/types/types";
 
-import { randomizedOffset2D } from "~/utils/random";
-
+import { Random } from "~/utils/random";
 
 type RandomSideProps = Readonly<{
   start: Point2D;
@@ -20,7 +19,7 @@ export function RandomSide(props: RandomSideProps) {
 
   const [controls] = useState<Point2D[]>(() => {
     const offset: [number, number] = [props.power, props.power];
-    return [randomizedOffset2D(props.start, offset), randomizedOffset2D(props.end, offset)];
+    return [Random.offset2D(props.start, offset), Random.offset2D(props.end, offset)];
   });
 
   return <Side 
