@@ -5,6 +5,7 @@ import BlockEnd from "./blocks/end";
 import BlockLimbo from "./blocks/limbo";
 import BlockSpinner from "./blocks/spinner";
 import BlockStart from "./blocks/start";
+import Bounds from "./bounds";
 
 import type { BlockProps } from "./blocks/base-block";
 
@@ -34,5 +35,7 @@ export default function Level({
     <BlockStart position={ [ 0, 0, 0 ] } />
     {blocks.map((Block, index) => <Block key={index} position={ [ 0, 0, -(index + 1) * 4 ] } />)}
     <BlockEnd position={ [ 0, 0, - (count + 1) * 4 ] } />
+
+    <Bounds length={count + 2} />
   </>
 }
