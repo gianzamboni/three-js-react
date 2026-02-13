@@ -2,10 +2,13 @@ import { useGLTF } from "@react-three/drei";
 import { useMemo } from "react";
 
 import type { Material, Mesh } from "three";
-import type { GroupProps } from "~/3d/types";
 import type { Point3D } from "~/sketched-components/utils";
+import type { GroupProps } from "~/types/types";
 
-type HamburgerProps = Readonly<Omit<GroupProps, 'children'>>;
+type HamburgerProps = Readonly<Omit<GroupProps, 'children'> & {
+  castShadow?: boolean;
+  receiveShadow?: boolean;
+}>;
 
 const HAMBURGER_URL = "https://i0hci4avyoqkwwp1.public.blob.vercel-storage.com/hamburger.glb";
 
@@ -15,7 +18,7 @@ type HamburgerElement = Readonly<{
     position: Point3D;
 }>;
 
-export default function Hamburger(props: HamburgerProps) {
+export default function Hamburger({ castShadow, receiveShadow, ...props }: HamburgerProps) {
   const {nodes, materials} = useGLTF(HAMBURGER_URL);
 
   const elements: HamburgerElement[] = useMemo(() => [
@@ -30,8 +33,8 @@ export default function Hamburger(props: HamburgerProps) {
       {elements.map((element) => (
         <mesh
           key={element.node.name}
-          castShadow
-          receiveShadow
+          castShadow={castShadow}
+          receiveShadow={receiveShadow}
           geometry={element.node.geometry}
           material={element.material}
           position={element.position}

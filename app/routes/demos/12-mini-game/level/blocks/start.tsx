@@ -1,9 +1,9 @@
 import { boxGeometry } from "../globals/geometries";
-import { endsMaterial, obstacleMaterial } from "../globals/materials";
+import { endsMaterial } from "../globals/materials";
 
 import type { BlockProps } from "./block";
 
-export default function BlockStart({ position }: BlockProps) {
+export default function BlockStart({ position = [0, 0, 0] }: BlockProps) {
   return <group position={position}>  
     <mesh 
       receiveShadow 
@@ -14,3 +14,4 @@ export default function BlockStart({ position }: BlockProps) {
     </mesh>
   </group>
 }
+

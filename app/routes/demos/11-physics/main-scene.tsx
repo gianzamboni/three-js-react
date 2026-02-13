@@ -42,7 +42,7 @@ export default function MainScene() {
         <Twister />
         
         <RigidBody position={[0, 4, 0]} colliders={false}>
-          <Hamburger scale={0.25} />
+          <Hamburger scale={0.25} castShadow />
           <CylinderCollider args={[0.5, 1.25]} position={[0, 0.625, 0]} />
         </RigidBody>
 
