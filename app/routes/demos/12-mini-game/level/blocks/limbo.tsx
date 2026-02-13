@@ -1,14 +1,10 @@
 import { useFrame } from "@react-three/fiber";
-import { RigidBody } from "@react-three/rapier";
 import { useRef, useState } from "react";
 
-import { boxGeometry } from "../globals/geometries";
-import { obstacleMaterial } from "../globals/materials";
-
 import BlockBase, { type BlockProps } from "./base-block";
+import Obstacle from "./obstacle";
 
 import type { RapierRigidBody } from "@react-three/rapier";
-
 
 export default function BlockLimbo({ position = [0, 0, 0] }: BlockProps) {
 
@@ -26,21 +22,7 @@ export default function BlockLimbo({ position = [0, 0, 0] }: BlockProps) {
   
   return (
     <BlockBase position={position}>
-      <RigidBody 
-        ref={obstacleRef}
-        type="kinematicPosition"
-        position={[0, 0.3, 0]}
-        restitution={0.2}
-        friction={0}
-      >
-        <mesh 
-          receiveShadow 
-          castShadow
-          geometry={boxGeometry} 
-          material={obstacleMaterial} 
-          scale={[3.5, 0.3, 0.3]}
-        />
-      </RigidBody>
+      <Obstacle ref={obstacleRef} scale={[3.5, 0.3, 0.3]} />
     </BlockBase>
   );
 }
