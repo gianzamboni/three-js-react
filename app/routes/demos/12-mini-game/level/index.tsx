@@ -6,7 +6,7 @@ import BlockLimbo from "./blocks/limbo";
 import BlockSpinner from "./blocks/spinner";
 import BlockStart from "./blocks/start";
 
-import type { BlockProps } from "./blocks/block";
+import type { BlockProps } from "./blocks/base-block";
 
 import { Random } from "~/utils/random";
 

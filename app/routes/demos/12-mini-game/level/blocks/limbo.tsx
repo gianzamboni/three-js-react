@@ -1,11 +1,14 @@
 import { useFrame } from "@react-three/fiber";
-import { RapierRigidBody, RigidBody } from "@react-three/rapier";
+import { RigidBody } from "@react-three/rapier";
 import { useRef, useState } from "react";
 
 import { boxGeometry } from "../globals/geometries";
-import { obstacleMaterial, trapBlockMaterial } from "../globals/materials";
+import { obstacleMaterial } from "../globals/materials";
 
-import type { BlockProps } from "./block";
+import BlockBase, { type BlockProps } from "./base-block";
+
+import type { RapierRigidBody } from "@react-three/rapier";
+
 
 export default function BlockLimbo({ position = [0, 0, 0] }: BlockProps) {
 
@@ -15,34 +18,29 @@ export default function BlockLimbo({ position = [0, 0, 0] }: BlockProps) {
   
   useFrame((state) => {
     if (!obstacleRef.current) return;
-    const time = state.clock.getElapsedTime()
+    const time = state.clock.getElapsedTime();
 
     const y = Math.sin(time + offset) + 1.25;
-    obstacleRef.current.setNextKinematicTranslation({ x: position[0], y, z: position[2] })
+    obstacleRef.current.setNextKinematicTranslation({ x: position[0], y, z: position[2] });
   });
   
-  return <group position={position}>  
-    <mesh 
-      receiveShadow 
-      scale={[4, 0.2, 4]} 
-      geometry={boxGeometry}
-      material={trapBlockMaterial}
-    >
-    </mesh>
-    <RigidBody 
-      ref={obstacleRef}
-      type="kinematicPosition"
-      position={[0, 0.3, 0]}
-      restitution={0.2}
-      friction={0}
-    >
-      <mesh 
-        receiveShadow 
-        castShadow
-        geometry={boxGeometry} 
-        material={obstacleMaterial} 
-        scale={[3.5, 0.3, 0.3]} 
-      />
-    </RigidBody>
-  </group>
+  return (
+    <BlockBase position={position}>
+      <RigidBody 
+        ref={obstacleRef}
+        type="kinematicPosition"
+        position={[0, 0.3, 0]}
+        restitution={0.2}
+        friction={0}
+      >
+        <mesh 
+          receiveShadow 
+          castShadow
+          geometry={boxGeometry} 
+          material={obstacleMaterial} 
+          scale={[3.5, 0.3, 0.3]}
+        />
+      </RigidBody>
+    </BlockBase>
+  );
 }
