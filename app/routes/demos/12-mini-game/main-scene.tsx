@@ -1,4 +1,3 @@
-import { OrbitControls } from "@react-three/drei";
 import { Physics } from "@react-three/rapier";
 
 import Level from "./level";
@@ -7,8 +6,7 @@ import Player from "./player";
 
 export default function MainScene() {
   return <>
-    <OrbitControls makeDefault />
-    <Physics debug>
+    <Physics>
       <Lights />
       <Player />
       <Level />
