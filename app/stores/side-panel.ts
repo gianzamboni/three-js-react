@@ -7,15 +7,18 @@ import type { StoreType } from "leva/dist/declarations/src/types";
 type SidePanelState = {
   levaStores: Record<string, StoreType>;
   activeStore: string | null;
+  isOpen: boolean;
   register: (key: string, store: StoreType) => void;
   unregister: (key: string) => void;
   setActiveStore: (key: string) => void;
+  setIsOpen: (isOpen: boolean) => void;
   clear: () => void;
 };
 
 export const useSidePanel = create<SidePanelState>((set) => ({
   levaStores: {},
   activeStore: null,
+  isOpen: false,
   register: (key, store) =>
     set((state) => ({
       levaStores: { ...state.levaStores, [key]: store }
@@ -27,6 +30,7 @@ export const useSidePanel = create<SidePanelState>((set) => ({
       return { levaStores: newStores };
     }),
   setActiveStore: (key) => set({ activeStore: key }),
+  setIsOpen: (isOpen) => set({ isOpen }),
   clear: () => set({ levaStores: {} }),
 }));
 

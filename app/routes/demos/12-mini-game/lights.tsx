@@ -19,8 +19,6 @@ export default function Lights() {
       ref={lightRef}
       position={[4, 4, 1]}
       intensity={4.5}
-      shadow-normalBias={0}
-      shadow-mapSize={[4096, 4096]}
       shadow-camera-near={1}
       shadow-camera-far={10}
       shadow-camera-top={4}
