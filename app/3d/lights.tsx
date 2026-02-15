@@ -13,7 +13,7 @@ export default function DefaultDirectionalLight(props: DirectionalLightProps) {
 export function DirectionalLightWithShadows(props: DirectionalLightProps) {
     return <DefaultDirectionalLight
         castShadow
-        shadow-mapSize={[4096, 2048]}
+        shadow-mapSize={[4096, 4096]}
         {...props}
     />
 }

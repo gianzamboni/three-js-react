@@ -1,10 +1,11 @@
 import { CuboidCollider, RigidBody } from "@react-three/rapier";
 
+import { BLOCK_LENGTH } from "./globals/constants";
 import { boxGeometry } from "./globals/geometries";
 import { wallMaterial } from "./globals/materials";
 
 type BoundsProps = {
-  length: number;
+  length?: number;
 }
 
 type BoundWallProps = {
@@ -24,16 +25,16 @@ function BoundWall({ position, scale }: BoundWallProps) {
 export default function Bounds({ length = 1 }: BoundsProps) {
   return <RigidBody type="fixed" restitution={0.2} friction={0} >
     <BoundWall 
-      position={[2.15, 0.75, - (length / 2) * 4 + 2]} 
-      scale={[0.3, 1.5, 4 * length]} 
+      position={[2.15, 0.75, - (length / 2) * BLOCK_LENGTH + 2]} 
+      scale={[0.3, 1.5, BLOCK_LENGTH * length]} 
     />
     <BoundWall 
-      position={[-2.15, 0.75, - (length / 2) * 4 + 2]} 
-      scale={[0.3, 1.5, 4 * length]} 
+      position={[-2.15, 0.75, - (length / 2) * BLOCK_LENGTH + 2]} 
+      scale={[0.3, 1.5, BLOCK_LENGTH * length]} 
     />
     <BoundWall 
-      position={[0, 0.75, - (length * 4) + 2]} 
-      scale={[4, 1.5, 0.3]} 
+      position={[0, 0.75, - (length * BLOCK_LENGTH) + 2]} 
+      scale={[BLOCK_LENGTH, 1.5, 0.3]} 
     />
     <CuboidCollider
       args={ [ 2, 0.1, 2 * length ] }

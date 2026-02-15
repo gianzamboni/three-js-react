@@ -12,7 +12,7 @@ export namespace Random {
   }
 
   export function choice<T>(array: T[]): T {
-    return array[Math.round(number(0, array.length - 1))];
+    return array[Math.floor(number(0, array.length))];
   }
 }
 

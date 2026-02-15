@@ -20,6 +20,10 @@ export default function DebugUI() {
 
   useEffect(() => {
     setIsOpen(true);
+
+    return () => {
+      setIsOpen(false);
+    }
   }, []);
 
   return(<TestCanvas>

@@ -12,8 +12,6 @@ export default function MainScene() {
   const seed = useGame((state) => state.seed);
   
   return <>
-    <color args={ ["#bdedfc"] } attach="background" />
-
     <Physics>
       <Lights />
       <Player />

@@ -26,10 +26,12 @@ export default function Level({
   const blocks = useMemo(() => {
     const blocks = [];
     for (let i = 0; i < count; i++) {
-      const newBlock = Random.choice(blockTypes);
+      const newBlock = Random.choice(blockTypes, );
       blocks.push(newBlock)
     }
     return blocks;
+    // seed is intentionally
+    // used as a cache-buster: changing it forces a fresh set of random blocks.
   }, [blockTypes, count, seed]);
 
   return <>

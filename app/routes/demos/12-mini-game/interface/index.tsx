@@ -1,7 +1,6 @@
 import { useKeyboardControls } from "@react-three/drei";
 import { addEffect } from "@react-three/fiber";
 import { useEffect, useRef } from "react";
-import { element } from "three/src/nodes/TSL.js";
 
 import useGame from "../use-game";
 
@@ -45,15 +44,15 @@ export function Interface() {
     <div ref={timeRef} className={styles.time}>00:00</div>
     {phase === "ended" && <div className={styles.restart} onClick={restart}>Restart</div>}
     <div className={styles.controls}>
-        <div className={styles.raw}>
+        <div className={styles.row}>
             <div className={`${styles.key} ${forward ? styles.active : ""}`}></div>
         </div>
-        <div className={styles.raw}>
+        <div className={styles.row}>
             <div className={`${styles.key} ${leftward ? styles.active : ""}`}></div>
             <div className={`${styles.key} ${backward ? styles.active : ""}`}></div>
             <div className={`${styles.key} ${rightward ? styles.active : ""}`}></div>
         </div>
-        <div className={styles.raw}>
+        <div className={styles.row}>
           <div className={`${styles.key} ${styles.large} ${jump ? styles.active : ""}`}></div>
         </div>
     </div>
