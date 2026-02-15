@@ -6,7 +6,7 @@ import Twister from './twister';
 
 import DefaultSetup from '~/3d/basic-setup';
 import Hamburger from '~/3d/hamburger';
-import Sphere from '~/3d/sphere';
+import { OrangeSphere } from '~/3d/sphere';
 import SketchySuspense from '~/sketched-components/sketchy-suspense';
 
 
@@ -34,20 +34,15 @@ export default function MainScene() {
         </RigidBody>
 
         <RigidBody>
-          <Sphere castShadow position={[- 2, 2, 0]}>
-            <meshStandardMaterial color="orange" />
-          </Sphere>
+          <OrangeSphere castShadow position-y={2} />
         </RigidBody>
 
         <JumpyCube />
 
         <Twister />
-
-
-
-
+        
         <RigidBody position={[0, 4, 0]} colliders={false}>
-          <Hamburger scale={0.25} />
+          <Hamburger scale={0.25} castShadow />
           <CylinderCollider args={[0.5, 1.25]} position={[0, 0.625, 0]} />
         </RigidBody>
 

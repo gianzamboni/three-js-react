@@ -1,4 +1,4 @@
-import { memo, type PropsWithChildren, type ReactNode } from "react";
+import { type PropsWithChildren, type ReactNode } from "react";
 
 import commonStyles from "./common.module.css";
 import { RandomRectangle } from "./svg/rectangle";
@@ -31,5 +31,3 @@ export function SketchyBorder(props: SketchedBorderProps) {
     </div>
   );
 };
-
-export const MemoizedSketchedBorder = memo(SketchyBorder);

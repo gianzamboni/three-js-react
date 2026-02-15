@@ -61,11 +61,16 @@ const DEMOS: Demo[] = [
     title: 'Simple Portfolio',
     thumbnail: "demos/simple-portfolio.png",
     description: 'A computer that has my portfolio website opened. You can navigate through the portfolio as if it the computer was a real one.',
-  }, {
+  },   {
     id: 'physics',
     title: 'Physics',
     thumbnail: "demos/physics.png",
     description: 'A lot of cubes falling down and colliding with each other. Used React Three Fiber and Rapier Physics to create this demo.',
+  }, {
+    id: 'mini-game',
+    title: 'Marble Race Game',
+    thumbnail: "demos/marble-race.png",
+    description: 'For the last chapter of Three JS Journey, I was tasked to create a mini game using Three JS and React Three Fiber. Give it a try! <strong>You must have a keyboard to play it.</strong>',
   }
 ].reverse();
 

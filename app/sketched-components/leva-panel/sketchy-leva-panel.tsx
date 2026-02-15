@@ -1,6 +1,6 @@
 import { LevaPanel, levaStore } from 'leva'
 
-import { MemoizedSketchyShadow } from '../randomized-shadow'
+import { SketchyShadow } from '../randomized-shadow'
 import { SketchyBorder } from '../sketchy-borders'
 
 import { levaLightTheme, levaDarkTheme } from './leva-theme'
@@ -17,7 +17,7 @@ export default function SketchyLevaPanel({ store }: ResponsiveSketchyPanelProps)
   
   return (
     <SketchyBorder baseStrokeWidth='sm'>
-      <MemoizedSketchyShadow strokeWidth='sm' offsetX={1} offsetY={1}/>
+      <SketchyShadow strokeWidth='sm' offsetX={1} offsetY={1}/>
       <LevaPanel
         key={store.storeId} // This is needed to force a re-render of the panel when the store changes. Otherwise, the panel will not update its size causing a visible overflow.
         store={store}

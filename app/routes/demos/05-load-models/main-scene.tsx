@@ -12,13 +12,12 @@ export default function MainScene() {
 
     <GreenFloor receiveShadow />
     <SketchySuspense>
-      <Hamburger scale={0.35} position={[0, -1, 0]} />
+      <Hamburger scale={0.35} position={[0, -1, 0]} castShadow />
       <Fox 
         scale={0.02}
         position={[-2.5, -1, 2.5]}
         rotation-y={0.3}
         castShadow
-        receiveShadow
       />
     </SketchySuspense>
   </>;

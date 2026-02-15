@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState, type ImgHTMLAttributes } from "react";
 import { v4 } from "uuid";
 
-import { MemoizedSketchedBorder } from "../sketchy-borders";
+import { SketchyBorder } from "../sketchy-borders";
 import { RandomRectangleClipPath } from "../svg/rectangle-clip-path";
 
 import styles from "./styles.module.css";
@@ -35,7 +35,7 @@ export const SketchedImage = (props: SketchedImageProps) => {
     }
   }, []);
 
-  return (<MemoizedSketchedBorder className={`relative ${props.className}`}
+  return (<SketchyBorder className={`relative ${props.className}`}
     sketchySVG={<defs>
       <clipPath id={pathId}>
         <RandomRectangleClipPath boundingBox={boundingBox} />
@@ -48,5 +48,5 @@ export const SketchedImage = (props: SketchedImageProps) => {
       style={{ clipPath: `url(#${pathId})` }} 
       ref={imgRef}
     />
-  </MemoizedSketchedBorder>);
+  </SketchyBorder>);
 }

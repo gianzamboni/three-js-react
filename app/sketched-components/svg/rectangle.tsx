@@ -1,9 +1,9 @@
-import { memo, useEffect, useState } from "react";
+import { memo, useState } from "react";
 
 import { type Side, type StrokeWidth } from "../utils";
 
 import { RandomSide } from "./randomized-line";
-import { generateRectangleLimits, type RectangleLimits } from "./utils";
+import { generateRectangleLimits } from "./utils";
 
 type RandomRectangleProps = Readonly<{
   strokeWidth: StrokeWidth
@@ -17,15 +17,7 @@ function isSideVisible(side: Side, hiddenSides: Side[]) {
 export function RandomRectangle(props: RandomRectangleProps) {
   const hiddenSides = props.hiddenSides ?? [];
 
-  const [ limits, setLimits ] = useState<RectangleLimits | null>(null);
-
-  useEffect(() => {
-    setLimits(generateRectangleLimits(null));
-  }, []);
-
-  if(limits === null) {
-    return null;
-  }
+  const [limits] = useState(() => generateRectangleLimits(null));
 
   return (<g>
     {isSideVisible("top", hiddenSides) && (

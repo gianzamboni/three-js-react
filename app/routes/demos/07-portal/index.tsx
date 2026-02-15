@@ -12,7 +12,7 @@ export function meta(_: Route.MetaArgs) {
 }
 
 export default function FirstR3fApplication() {
-  return <TestCanvas shadows flat>
+  return <TestCanvas flat>
     <MainScene />
   </TestCanvas>;
 };

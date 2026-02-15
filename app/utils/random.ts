@@ -1,19 +1,18 @@
-export function randomBoolean() {
-  return Math.random() < 0.5;
+export namespace Random {
+  export function number(min: number, max: number) {
+    return Math.random() * (max - min) + min;
+  }
+  
+  export function offset(base: number, offset: number) {
+    return base + number(-offset, offset);
+  }
+  
+  export function offset2D(base: [number, number], offsetValues: [number, number]): [number, number] {
+    return [offset(base[0], offsetValues[0]), offset(base[1], offsetValues[1])];
+  }
+
+  export function choice<T>(array: T[]): T {
+    return array[Math.floor(number(0, array.length))];
+  }
 }
 
-export function randomSelection<T>(arr: T[]) {
-  return arr[Math.floor(Math.random() * arr.length)];
-}
-
-export function getRandomNumber(min: number, max: number) {
-  return Math.random() * (max - min) + min;
-}
-
-export function randomizedOffset(base: number, offset: number) {
-  return base + getRandomNumber(-offset, offset);
-}
-
-export function randomizedOffset2D(base: [number, number], offset: [number, number]): [number, number] {
-  return [randomizedOffset(base[0], offset[0]), randomizedOffset(base[1], offset[1])];
-}
