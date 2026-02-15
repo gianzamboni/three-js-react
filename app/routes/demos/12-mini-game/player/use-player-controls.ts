@@ -3,6 +3,8 @@ import { useFrame } from "@react-three/fiber";
 import { RapierRigidBody, useRapier } from "@react-three/rapier";
 import { useCallback, useEffect, useRef, type RefObject } from "react";
 
+import useGame from "../use-game";
+
 export function usePlayerControls(playerRef: RefObject<RapierRigidBody | null>) {
   const impulseRef = useRef({ x: 0, y: 0, z: 0 });
   const torqueRef = useRef({ x: 0, y: 0, z: 0 });
@@ -10,6 +12,8 @@ export function usePlayerControls(playerRef: RefObject<RapierRigidBody | null>) 
   const { rapier, world } = useRapier();
   const [subscribeKeys, getKeys] = useKeyboardControls();
 
+  const start = useGame((state) => state.start);
+  
   const jump = useCallback(() => {
     if (!playerRef.current) return;
 
@@ -25,14 +29,21 @@ export function usePlayerControls(playerRef: RefObject<RapierRigidBody | null>) 
   }, []);
 
   useEffect(() => {
-    const unsubscribeKeys = subscribeKeys(
+    const unsubscribeAny = subscribeKeys(() => {
+      start();
+    });
+
+    const unsubscribeJump = subscribeKeys(
       (state) => state.jump,
       (value) => {
         if (value) jump();
       }
     );
 
-    return () => unsubscribeKeys();
+    return () => {
+      unsubscribeAny();
+      unsubscribeJump();
+    };
   }, []);
 
   useFrame((_, delta) => {

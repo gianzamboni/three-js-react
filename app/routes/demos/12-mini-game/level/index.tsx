@@ -15,11 +15,13 @@ import { Random } from "~/utils/random";
 type LevelProps = {
   count?: number;
   blockTypes?: ComponentType<BlockProps>[];
+  seed?: number;
 }
 
 export default function Level({ 
   count = 5, 
-  blockTypes = [ BlockSpinner, BlockLimbo, BlockAxe ] 
+  blockTypes = [ BlockSpinner, BlockLimbo, BlockAxe ],
+  seed = 0
 }: LevelProps) {
   const blocks = useMemo(() => {
     const blocks = [];
@@ -28,7 +30,7 @@ export default function Level({
       blocks.push(newBlock)
     }
     return blocks;
-  }, [blockTypes, count]);
+  }, [blockTypes, count, seed]);
 
   return <>
     <BlockStart position={ [ 0, 0, 0 ] } />

@@ -1,14 +1,17 @@
 import { RapierRigidBody, RigidBody } from "@react-three/rapier";
 import { useRef } from "react";
 
+
 import { useCameraFollow } from "./use-camera-follow";
 import { usePlayerControls } from "./use-player-controls";
+import { usePlayerPhaseSync } from "./use-player-phase-sync";
 
 export default function Player() {
   const playerRef = useRef<RapierRigidBody>(null);
 
   usePlayerControls(playerRef);
   useCameraFollow(playerRef);
+  usePlayerPhaseSync(playerRef);
 
   return <RigidBody
     ref={playerRef}
