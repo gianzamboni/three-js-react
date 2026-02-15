@@ -40,7 +40,7 @@ export function SketchedCard({
         </div>
         <div className={styles['text-container']}>
           <h2>{title}</h2>
-          <p className={styles['description']}>{description}</p>
+          <p className={styles['description']} dangerouslySetInnerHTML={{ __html: description }}></p>
         </div>
       </SketchyBorder>
     </Link>

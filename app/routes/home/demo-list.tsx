@@ -68,9 +68,9 @@ const DEMOS: Demo[] = [
     description: 'A lot of cubes falling down and colliding with each other. Used React Three Fiber and Rapier Physics to create this demo.',
   }, {
     id: 'mini-game',
-    title: 'Mini Game',
-    thumbnail: "demos/mini-game.png",
-    description: 'WIP',
+    title: 'Marble Race Game',
+    thumbnail: "demos/marble-race.png",
+    description: 'For the last chapter of Three JS Journey, I was tasked to create a mini game using Three JS and React Three Fiber. Give it a try! <strong>You must have a keyboard to play it.</strong>',
   }
 ].reverse();
 
