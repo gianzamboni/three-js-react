@@ -45,7 +45,7 @@ export function Interface() {
 
   return <div className={styles.interface}>
     <div ref={timeRef} className={styles.time}>0.00</div>
-    {phase === "ended" && <div className={styles.restart} onClick={restart}>Restart</div>}
+    {phase === "ended" && <button className={styles.restart} onClick={restart}>Restart</button>}
     <div className={styles.controls}>
         <div className={styles.row}>
             <div className={`${styles.key} ${forward ? styles.active : ""}`}></div>
