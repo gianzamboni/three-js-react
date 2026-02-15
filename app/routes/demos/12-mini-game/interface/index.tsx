@@ -35,13 +35,16 @@ export function Interface() {
 
       elapsedTime /= 1000;
       const parsedElapsedTime = elapsedTime.toFixed(2);
-      timeRef.current!.textContent = parsedElapsedTime;
+
+      if(timeRef.current) {
+        timeRef.current.textContent = parsedElapsedTime;
+      }
     });
     return () => unsubscribe();
   }, [])
 
   return <div className={styles.interface}>
-    <div ref={timeRef} className={styles.time}>00:00</div>
+    <div ref={timeRef} className={styles.time}>0.00</div>
     {phase === "ended" && <div className={styles.restart} onClick={restart}>Restart</div>}
     <div className={styles.controls}>
         <div className={styles.row}>
