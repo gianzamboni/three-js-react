@@ -61,7 +61,7 @@ export function Interface() {
     </div>
     <div className={styles["beta-version"]}>
       <h3>New Version</h3>
-      <p>You can try <a href="https://three-js-react-bm4577zd6-gianzambonis-projects.vercel.app/demos/mini-game" target="_blank">new beta version 2 here</a>. But beware, it's in progress, so it might not be perfect yet.</p>
+      <p>You can try <a href="https://three-js-react-bm4577zd6-gianzambonis-projects.vercel.app/demos/mini-game" target="_blank" rel="noopener noreferrer">new beta version 2 here</a>. But beware, it's in progress, so it might not be perfect yet.</p>
     </div>
   </div>;
 }
