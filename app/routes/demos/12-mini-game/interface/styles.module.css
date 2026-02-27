@@ -15,7 +15,7 @@
   width: 100%;
   color: #ffffff;
   font-size: 6vh;
-  background: #00000033;
+  background: #00000066;
   padding-top: 5px;
   text-align: center;
 }
@@ -29,7 +29,7 @@
   width: 100%;
   color: #ffffff;
   font-size: 80px;
-  background: #00000033;
+  background: #00000066;
   border: none;
   padding-top: 10px;
   pointer-events: auto;
@@ -61,5 +61,29 @@
     &.active {
       background: #ffffff99;
     }
+  }
+}
+
+.beta-version {
+  position: absolute;
+  top: 80%;
+  left: 0;
+  color: #ffffff;
+  background: #00000066;
+  padding: 10px 20px;
+  pointer-events: auto;
+  max-width: 60ch;
+  h3 {
+    font-size: 2rem;
+  }
+
+  p {
+    font-size: 1.5rem;
+  }
+
+  a {
+    font-size: inherit;
+    font-family: inherit;
+    text-decoration: underline;
   }
 }
