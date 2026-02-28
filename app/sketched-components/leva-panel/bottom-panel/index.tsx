@@ -46,7 +46,7 @@ function BottomPanel({ isOpen, ref }: BottomPanelProps) {
           <SketchyLevaPanel store={levaStore} />
         </div>
         <div
-          className={`${commonStyles["animated"]} ${isAtBottom ? styles["closed"] : styles["opened"]}`}
+          className={`${commonStyles["animated"]} ${isAtBottom && styles["closed"]}`}
           style={{ zIndex: `-1` }}
         >
           {displayedStore && (

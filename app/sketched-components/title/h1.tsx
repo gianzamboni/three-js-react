@@ -6,8 +6,8 @@ type SketchedTitleProps = Readonly<PropsWithChildren>;
 
 export function SketchyH1({ children }: SketchedTitleProps) {
   return (
-    <div className={`relative ${styles['title']}`}> 
-    <h1 className={styles.title}>
+    <div className={`relative`}> 
+    <h1 className={styles["title"]}>
       {children}
     </h1>
     <svg
