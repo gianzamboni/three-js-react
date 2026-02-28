@@ -1,9 +1,9 @@
 import { levaStore } from 'leva';
 import { useEffect, useState, type Ref } from 'react';
 
-import commonStyles from "../common.module.css"
+import commonStyles from "../../common.module.css";
+import SketchyLevaPanel from '../sketchy-leva-panel';
 
-import SketchyLevaPanel from './sketchy-leva-panel';
 import styles from "./styles.module.css";
 
 import { useSidePanel } from '~/stores/side-panel';

@@ -23,3 +23,7 @@
     left: var(--spacing-lg);
   }
 }
+
+.leva-panel-container {
+  z-index: 1;
+}

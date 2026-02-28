@@ -3,7 +3,7 @@ import { useControls, levaStore } from "leva";
 import BasicSetup from "~/3d/basic-setup";
 import Cube from "~/3d/cube";
 import { GreenFloor } from "~/3d/floor";
-import Sphere from "~/3d/sphere";
+import { Sphere } from "~/3d/sphere";
 
 export default function MainScene() {
 

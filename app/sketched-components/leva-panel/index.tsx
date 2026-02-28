@@ -1,16 +1,16 @@
 import { levaStore } from "leva";
 import { useRef, useEffect } from "react";
 
-import SketchyButton from "../button";
-import commonStyles from "../common.module.css";
-
 import BottomPanel from "./bottom-panel";
+import SettingsButton from "./settings-button";
 import styles from "./styles.module.css";
 
 import { useSidePanel } from "~/stores/side-panel";
-import SettingsIcon from "~/utils/icons/settings.svg?react";
 
-export default function SketchyLevaPanel() {
+type SketchyLevaPanelProps = Readonly<{
+  className?: string;
+}>
+export default function SketchyLevaPanel({ className }: SketchyLevaPanelProps) {
     const panelOpened = useSidePanel((s) => s.isOpen);
     const setIsOpen = useSidePanel((s) => s.setIsOpen);
     const panelRef = useRef<HTMLDivElement>(null);
@@ -43,13 +43,8 @@ export default function SketchyLevaPanel() {
 
     const hasControls = levaStore.getVisiblePaths().length > 0;
     return (hasControls &&
-        <div className={styles["panel-container"]}>
-            <SketchyButton 
-                className={`${styles["settings-button"]} ${commonStyles["interactive-element"]}`} 
-                onClick={buttonClickHandler}
-            >
-                <SettingsIcon className={styles["settings-icon"]} />
-            </SketchyButton>
+        <div className={`${styles["panel-container"]} ${className}`}>
+            <SettingsButton onClick={buttonClickHandler} />
             <BottomPanel ref={panelRef} isOpen={panelOpened} />
         </div>
     );

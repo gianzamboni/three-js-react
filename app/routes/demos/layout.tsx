@@ -21,7 +21,7 @@ export default function Layout() {
         ariaLabel="Go to home"
       />
     )}
-    {showSketchyLevaPanel && <SketchyLevaPanel />}
+    {showSketchyLevaPanel && <SketchyLevaPanel className={styles['leva-panel-container']} />}
     <Leva hidden={showSketchyLevaPanel} />
     <div className="full-screen" style={{ isolation: "isolate" }}>
       <Outlet />

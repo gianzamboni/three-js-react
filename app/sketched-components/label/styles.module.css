@@ -1,0 +1,6 @@
+.label {
+  background: #ffffffff;
+  padding: 16px;
+  white-space: nowrap;
+  user-select: none;
+}

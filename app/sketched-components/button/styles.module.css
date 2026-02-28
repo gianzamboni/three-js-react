@@ -1,11 +1,6 @@
 .sketchy-button {
-  background-color: var(--color-surface);
-  color: var(--color-text);
-  overflow: visible;
-  z-index: 100;
   border: none;
-  padding-block: var(--spacing-sm);
-  padding-inline: var(--spacing-sm) ;
+  color: var(--color-text);
   cursor: pointer;
-  position: relative;
+  padding: var(--spacing-sm) ;
 }
