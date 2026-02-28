@@ -44,7 +44,7 @@ export default function SketchyLevaPanel({ className }: SketchyLevaPanelProps) {
     return (hasControls &&
         <div className={`${styles["panel-container"]} ${className ?? ""}`}>
             <SettingsButton onClick={buttonClickHandler} />
-            <BottomPanel ref={panelRef} isOpen={panelOpened} />
+            <BottomPanel ref={panelRef} />
         </div>
     );
 }
