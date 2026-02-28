@@ -42,7 +42,7 @@ export default function SketchyLevaPanel({ className }: SketchyLevaPanelProps) {
 
     const hasControls = levaStore.getVisiblePaths().length > 0;
     return (hasControls &&
-        <div className={`${styles["panel-container"]} ${className}`}>
+        <div className={`${styles["panel-container"]} ${className ?? ""}`}>
             <SettingsButton onClick={buttonClickHandler} />
             <BottomPanel ref={panelRef} isOpen={panelOpened} />
         </div>
