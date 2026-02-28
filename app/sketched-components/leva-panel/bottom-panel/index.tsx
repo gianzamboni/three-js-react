@@ -36,7 +36,9 @@ function BottomPanel({ isOpen, ref }: BottomPanelProps) {
   const displayedStore = renderedStore ? levaStores[renderedStore] : undefined;
   
   let className = `${styles["bottom-panel"]} ${commonStyles["animated"]}`
-  className += ` ${styles[isOpen ? "opened" : "closed"]}`;
+  if(!isOpen) {
+    className += ` ${styles["closed"]}`;
+  }
 
   return (
     <div className={className} ref={ref}>

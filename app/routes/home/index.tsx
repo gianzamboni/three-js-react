@@ -20,7 +20,7 @@ export default function Home() {
   
   return (
     <main className={`col align-items-center ${styles['home-container']}`}>
-      <div className="align-items-center">
+      <div className={styles['title-container']}>
         <SketchyH1>React Three Fiber Demos</SketchyH1>
         <h2>by <a href="https://www.linkedin.com/in/gianfranco-zamboni/" target="_blank">Gianfranco Zamboni</a></h2>
       </div>

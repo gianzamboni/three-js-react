@@ -1,7 +1,9 @@
 import SketchyButton from "../../button";
-import SettingsIcon from "~/utils/icons/settings.svg?react";
 
 import styles from "./styles.module.css";
+
+import SettingsIcon from "~/utils/icons/settings.svg?react";
+
 
 type SettingsButtonProps = Readonly<{
   onClick: () => void;

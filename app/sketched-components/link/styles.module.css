@@ -3,21 +3,23 @@
   background-color: var(--color-surface);
   overflow: visible;
   position: absolute;
-  z-index: 20000000;
+  z-index: 1;
   padding: var(--spacing-sm);
+
+  @media (min-width: 2048px) {
+    padding: var(--spacing-md);
+  }
 }
 
 .sketchy-link-icon {
   width: var(--icon-size-xs);
   aspect-ratio: 1/1;
-  padding: var(--spacing-xs);
 
   @media (min-width: 728px) {
-    width: var(--icon-size-md);
+    width: var(--icon-size-sm);
   }
 
   @media (min-width: 2048px) {
-    padding: var(--spacing-sm);
-    width: var(--icon-size-lg);
+    width: var(--icon-size-md);
   }
 }

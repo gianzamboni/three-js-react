@@ -20,7 +20,6 @@ export default function SketchyLevaPanel({ className }: SketchyLevaPanelProps) {
     // @ts-ignore
     const _store = levaStore.useStore();
 
-
     useEffect(() => {
         if (!panelOpened) return;
 
