@@ -26,10 +26,6 @@
     gap: var(--spacing-lg);
   }
 
-  @media (min-width: 1200px) {
-    gap: var(--spacing-lg);
-  }
-
   p {
     text-align: justify;
 
