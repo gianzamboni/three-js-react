@@ -1,7 +1,7 @@
 import { PivotControls, Text, Float, MeshReflectorMaterial } from '@react-three/drei'
 import { useRef, type RefObject } from 'react';
 
-import type { Object3D } from 'three';
+import type { Mesh, Object3D } from 'three';
 
 import BasicSetup from '~/3d/basic-setup';
 import { PurpleCube } from '~/3d/cube';
@@ -10,8 +10,8 @@ import { OrangeSphere } from '~/3d/sphere';
 import Label from '~/sketched-components/label/label';
 export default function Experience() {
 
-  const cubeRef = useRef<Object3D>(null);
-  const sphereRef = useRef<Object3D>(null);
+  const cubeRef = useRef<Mesh>(null);
+  const sphereRef = useRef<Mesh>(null);
 
   const occludeObjects = [sphereRef, cubeRef] as RefObject<Object3D>[];
 
@@ -25,7 +25,7 @@ export default function Experience() {
       lineWidth={4}
       scale={2}
     >
-      <OrangeSphere>
+      <OrangeSphere ref={sphereRef}>
         <Label position={[1, 1, 0]} distanceFactor={8} occlude={occludeObjects}>
           That's a sphere! 👍
         </Label>
@@ -40,7 +40,7 @@ export default function Experience() {
         resolution={1024} 
       />
     </Floor>
-    <PurpleCube />
+    <PurpleCube ref={cubeRef} />
     <Float speed={5} floatIntensity={2} >
       <Text
         color="salmon"
