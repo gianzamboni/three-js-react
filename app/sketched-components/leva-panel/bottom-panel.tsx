@@ -1,5 +1,5 @@
 import { levaStore } from 'leva';
-import { forwardRef, useEffect, useState } from 'react';
+import { useEffect, useState, type Ref } from 'react';
 
 import commonStyles from "../common.module.css"
 
@@ -10,9 +10,10 @@ import { useSidePanel } from '~/stores/side-panel';
 
 type BottomPanelProps = Readonly<{
   isOpen: boolean;
+  ref?: Ref<HTMLDivElement>;
 }>;
 
-const BottomPanel = forwardRef<HTMLDivElement, BottomPanelProps>(({ isOpen }, ref) => {
+function BottomPanel({ isOpen, ref }: BottomPanelProps) {
 
   const { levaStores, activeStore } = useSidePanel();
   const [renderedStore, setRenderedStore] = useState<string | null>(activeStore ?? null);
@@ -54,8 +55,6 @@ const BottomPanel = forwardRef<HTMLDivElement, BottomPanelProps>(({ isOpen }, re
         </div>
     </div>
   );
-});
-
-BottomPanel.displayName = 'BottomPanel';
+}
 
 export default BottomPanel;

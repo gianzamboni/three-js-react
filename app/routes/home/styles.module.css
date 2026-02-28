@@ -27,7 +27,7 @@
   }
 
   @media (min-width: 1200px) {
-    gap: var(--spacing-xl);
+    gap: var(--spacing-lg);
   }
 
   p {

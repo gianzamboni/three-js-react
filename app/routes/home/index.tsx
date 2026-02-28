@@ -19,7 +19,7 @@ export default function Home() {
   useScrollMemory();
   
   return (
-    <div className={`col align-items-center ${styles['home-container']}`}>
+    <main className={`col align-items-center ${styles['home-container']}`}>
       <div className="align-items-center">
         <SketchyH1>React Three Fiber Demos</SketchyH1>
         <h2>by <a href="https://www.linkedin.com/in/gianfranco-zamboni/" target="_blank">Gianfranco Zamboni</a></h2>
@@ -39,6 +39,6 @@ export default function Home() {
           className={DEMOS.length % 2 === 0 ? styles['two-columns-item'] : ''}
         />
       </div>
-    </div>
+    </main>
   );
 }
