@@ -1,0 +1,12 @@
+/* Fredoka – loaded only on mini-game route */
+@font-face {
+  font-family: "Fredoka";
+  src: url("/fonts/Fredoka/Fredoka-VariableFont_wdth,wght.ttf") format("truetype");
+  font-weight: 300 700;
+  font-stretch: 75% 125%;
+  font-display: swap;
+}
+
+:root {
+  --font-fredoka: "Fredoka", sans-serif;
+}

@@ -34,7 +34,7 @@ export default function Home() {
           targetBlank
           link="https://three.gianfrancozamboni.com.ar/"
           title="Three JS Journey without React"
-          description="This are the demos made for the Three JS Journey Course before reaching the React Three Fiber Chapter."
+          description="In this site there are the demos made for the Three JS Journey Course before reaching the React Three Fiber Chapter."
           thumbnail="demos/threejs.jpg"
           className={DEMOS.length % 2 === 0 ? styles['two-columns-item'] : ''}
         />

@@ -7,6 +7,8 @@ import type { Route } from "./+types/index";
 
 import { TestCanvas } from "~/3d/test-canvas";
 
+import "./styles.module.css";
+
 export function meta(_: Route.MetaArgs) {
   return [
     { title: "Mini Game" },
@@ -32,7 +34,7 @@ const MINI_GAME_CONTROLS = [
   { name: "backward", keys: ["ArrowDown", "KeyS"] },
   { name: "leftward", keys: ["ArrowLeft", "KeyA"] },
   { name: "rightward", keys: ["ArrowRight", "KeyD"] },
-  { name: "jump", keys: ["Space"] },
+  { name: "jump/confirm", keys: ["Space", "Enter"] },
 ];
 
 export default function MiniGame() {
