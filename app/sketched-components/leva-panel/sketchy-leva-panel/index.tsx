@@ -1,7 +1,7 @@
 import { LevaPanel, levaStore } from 'leva'
 
-import { SketchyShadow } from '../randomized-shadow'
-import { SketchyBorder } from '../sketchy-borders'
+import { SketchyShadow } from '../../randomized-shadow'
+import { SketchyBorder } from '../../sketchy-borders'
 
 import { levaLightTheme, levaDarkTheme } from './leva-theme'
 
@@ -31,4 +31,3 @@ export default function SketchyLevaPanel({ store }: ResponsiveSketchyPanelProps)
     </SketchyBorder>
   )
 }
-

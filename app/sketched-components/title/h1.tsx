@@ -1,5 +1,3 @@
-import commonStyles from "../common.module.css";
-
 import styles from "./styles.module.css";
 
 import type { PropsWithChildren } from "react";
@@ -8,8 +6,8 @@ type SketchedTitleProps = Readonly<PropsWithChildren>;
 
 export function SketchyH1({ children }: SketchedTitleProps) {
   return (
-    <div className={`relative ${commonStyles['sketchy-container-margin']} ${styles['title']}`}> 
-    <h1 className={styles.title}>
+    <div className={`relative`}> 
+    <h1 className={styles["title"]}>
       {children}
     </h1>
     <svg

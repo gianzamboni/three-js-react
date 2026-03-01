@@ -32,7 +32,7 @@ export function SketchedCard({
     target={targetBlank ? '_blank' : '_self'}
     >
       <SketchyBorder 
-        className={`relative ${styles['card']} ${commonStyles['sketchy-container-margin']}`}
+        className={`relative ${styles['card']}`}
       >
         <SketchyShadow offsetX={0.5} offsetY={1} strokeWidth="sm"/>
         <div className={styles['thumbnail-container']}>

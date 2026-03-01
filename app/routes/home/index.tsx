@@ -19,10 +19,10 @@ export default function Home() {
   useScrollMemory();
   
   return (
-    <div className={`col align-items-center ${styles['home-container']}`}>
-      <div className="align-items-center">
+    <main className={`col align-items-center ${styles['home-container']}`}>
+      <div className={styles['title-container']}>
         <SketchyH1>React Three Fiber Demos</SketchyH1>
-        <h2>by <a href="https://www.linkedin.com/in/gianfranco-zamboni/" target="_blank">Gianfranco Zamboni</a></h2>
+        <h2>by <a href="https://www.linkedin.com/in/gianfranco-zamboni/" target="_blank" rel="noopener noreferrer">Gianfranco Zamboni</a></h2>
       </div>
      <p>A set of demos I made to practice for the last chapter of Three JS Journey where I learned to integrate Three JS with React.</p>
       <div className={styles['demo-grid']}>
@@ -39,6 +39,6 @@ export default function Home() {
           className={DEMOS.length % 2 === 0 ? styles['two-columns-item'] : ''}
         />
       </div>
-    </div>
+    </main>
   );
 }

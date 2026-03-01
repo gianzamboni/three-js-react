@@ -1,12 +1,9 @@
 .sketchy-trace {
   position: absolute;
-  bottom: -10px;
-  left: 0;
-  width: 100%;
 }
 
 .title {
   font-weight: 500;
   font-family: "Indie Flower", cursive;
-  font-size: 1.2em;
+  font-size: var(--font-size-lg);
 }

@@ -1,6 +1,7 @@
 import { Html } from "@react-three/drei";
 
-import commonStyles from "../common.module.css";
+
+import styles from "./styles.module.css";
 
 import type { HtmlProps } from "@react-three/drei/web/Html";
 import type { PropsWithChildren } from "react";
@@ -11,9 +12,9 @@ import { SketchyBorder } from "~/sketched-components/sketchy-borders";
 type LabelProps = Readonly<PropsWithChildren<HtmlProps>>
 export default function Label({ children, ...props }: LabelProps) {
 return  <Html {...props} >
-  <SketchyBorder className={commonStyles.label} baseStrokeWidth="xs">
+  <SketchyBorder className={styles.label} baseStrokeWidth="xs">
     <SketchyShadow strokeWidth="xs" offsetX={0.1} offsetY={2} />
-    {children} 
+    <span>{children}</span> 
   </SketchyBorder>
 </Html>;
 }
