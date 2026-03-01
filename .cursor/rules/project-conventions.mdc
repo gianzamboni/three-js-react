@@ -3,8 +3,10 @@ description: Core conventions for this Three.js + React project (always apply)
 alwaysApply: true
 ---
 
-# Project Conventions
+Start every chat with "🤖".
 
+# Project Conventions
+- **Package Manager**: Use `pnpm` as the package manager.
 - **React 19+**: Use functional components (we target React 19.2.4): use `ref` as a normal prop (include `ref?: Ref<T>` in props, destructure `{ ref, ...props }` in the signature and pass it through) and do not use `forwardRef`.
 - **Imports**: Use the `~` path alias for app code (e.g. `~/sketched-components/...`). Group: external libs, then internal, then types.
 - **Styles**: Use CSS modules (`styles.module.css`) colocated with components; import as `styles` and use `className={styles.xyz}`.
