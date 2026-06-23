@@ -1,0 +1,5 @@
+reviews:
+  auto_review:
+    # Review PRs targeting any branch (not only the default)
+    base_branches:
+      - ".*"

@@ -4,23 +4,19 @@
   --color-surface: oklch(1 0.01 166.77);
   --color-text: oklch(0.2101 0.0318 264.66);
 
-  --icon-size-xs: 2.25em;
-  --icon-size-sm: 2.5em;
-  --icon-size-md: 3em;
-  --icon-size-lg: 5em;
-  --icon-size-xl: 6em;
-  --icon-size-2xl: 10em;
+  --icon-size-xs: 2.25rem;
+  --icon-size-sm: 2.5rem;
+  --icon-size-md: 3rem;
+  --icon-size-lg: 5rem;
+  --icon-size-xl: 6rem;
 
-  --font-size-sm: 16px;
-  --font-size-md: 21px;
-  --font-size-lg: 24px;
+  --font-size-sm: 1rem;
+  --font-size-md: 1.3125rem;
+  --font-size-lg: 1.5rem;
   
-  --spacing-xs: 0.25rem;
-  --spacing-sm: 0.5rem;
-  --spacing-md: 1rem;
-  --spacing-lg: 2rem;
-  --spacing-xl: 4rem;
-  --spacing-2xl: 8rem;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 32px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -52,6 +48,10 @@ html:has(body > .parent-no-scroll) {
   overflow-y: hidden;
 }
 
+input, button, textarea, select {
+  font: inherit;
+}
+
 a {
   text-decoration: none;
   color: inherit;
@@ -59,12 +59,8 @@ a {
 
 p {
   max-width: 60ch;
-}
-
-.row {
-  display: flex;
-  flex-direction: row;
-  gap: var(--spacing-md);
+  line-height: 1.5;
+  text-wrap: pretty;
 }
 
 .col {

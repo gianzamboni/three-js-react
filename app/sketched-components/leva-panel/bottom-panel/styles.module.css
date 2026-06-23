@@ -1,0 +1,42 @@
+.bottom-panel {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  user-select: none;
+  z-index: 1;
+  display: flex;
+  flex-direction: column-reverse;
+
+  @media (min-width: 728px) {
+    width: fit-content;
+    margin-inline-start: calc(var(--spacing-lg) * 4);
+    padding-block-end: var(--spacing-lg);
+    gap: var(--spacing-sm);
+  }
+
+  @media (min-width: 1024px) {
+    flex-direction: row;
+  }
+  
+  .leva-custom-container {
+    position: relative;
+    background: var(--color-background);
+    padding: 1rem;
+    height: fit-content;
+    transition: all 0.3s ease-in-out;
+
+    @media (min-width: 728px) {
+      max-width: 410px;
+    }
+  }
+}
+
+.closed {
+  transform: translateY(calc(100% + 2rem));
+}
+
+.noNumberInput :global(input[leva-type="number"]) {
+  @media (max-width: 728px) {
+    pointer-events: none;
+  }
+}

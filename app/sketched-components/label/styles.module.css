@@ -1,0 +1,7 @@
+.label {
+  background: var(--color-surface);
+  color: var(--color-text);
+  padding: var(--spacing-md);
+  white-space: nowrap;
+  user-select: none;
+}

@@ -1,0 +1,16 @@
+.settings-button {
+  position: absolute;
+  inset-inline-start: var(--spacing-md);
+  inset-block-end: var(--spacing-md);
+  z-index: 1;
+
+  @media (min-width: 768px) {
+    inset-inline-start: var(--spacing-lg);
+    inset-block-end: var(--spacing-lg);
+  }
+}
+
+.settings-icon {
+  width: var(--icon-size-xs);
+  aspect-ratio: 1/1;
+}
